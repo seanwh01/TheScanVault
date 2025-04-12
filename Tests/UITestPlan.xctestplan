@@ -1,0 +1,30 @@
+{
+  "configurations" : [
+    {
+      "id" : "8FF4A4B8-A88E-4EC6-9A64-22FC7EE0EEA0",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:TheScanVault.xcodeproj",
+      "identifier" : "8481C70029D9DE5200C28D03",
+      "name" : "TheScanVault"
+    },
+    "testExecutionOrdering" : "random",
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:TheScanVault.xcodeproj",
+        "identifier" : "8481C71029D9DE5300C28D03",
+        "name" : "TheScanVaultTests"
+      }
+    }
+  ],
+  "version" : 1
+}

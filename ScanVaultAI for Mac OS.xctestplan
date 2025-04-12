@@ -1,0 +1,45 @@
+{
+  "configurations" : [
+    {
+      "id" : "F06AB0F9-0B88-44C3-992D-7D8EE9A6C4D1",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:TheScanVault.xcodeproj",
+          "identifier" : "ScanVaultAI for Mac OS",
+          "name" : "ScanVaultAI for Mac OS"
+        }
+      ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:TheScanVault.xcodeproj",
+      "identifier" : "ScanVaultAI for Mac OS",
+      "name" : "ScanVaultAI for Mac OS"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:TheScanVault.xcodeproj",
+        "identifier" : "ScanVaultAI for Mac OSTests",
+        "name" : "ScanVaultAI for Mac OSTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "target" : {
+        "containerPath" : "container:TheScanVault.xcodeproj",
+        "identifier" : "ScanVaultAI for Mac OSUITests",
+        "name" : "ScanVaultAI for Mac OSUITests"
+      }
+    }
+  ],
+  "version" : 1
+} 

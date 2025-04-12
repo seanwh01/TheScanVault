@@ -1,0 +1,10 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+- Keep the code base clean and organized 
+- Avoid files over 800 lines of code, refactor at that point

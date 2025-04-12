@@ -1,0 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+- Check all folders within the project before creating a new file to insure you are not duplicating another file

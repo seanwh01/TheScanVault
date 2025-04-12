@@ -1,0 +1,21 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+- Always look to existing code to iterate on instead of creating something new
+- Before implementing utility functions or extensions, search the entire codebase to check if they already exist
+- For commonly used patterns like Array extensions, check utility files and extensions in the project
+- When refactoring, keep a catalog of shared components, extensions, and utilities to avoid duplicates
+- Use grep or other search tools to find existing implementations of similar functionality
+- Document common utilities in a shared location to make them easier to discover
+- When extracting components, ensure all methods referenced in the component are implemented in the referenced models
+- Create a checklist for each refactored component to verify all dependencies are properly defined
+- When working with large files, search the entire file for existing method signatures before adding new ones
+- Use project-wide search to check for extensions on primitive types (Array, String, UUID, etc.) before creating new ones
+- Be cautious when adding methods to the end of large files, as they may duplicate methods defined earlier
+- Maintain a centralized location for common extensions to avoid duplicate declarations across files
+- always run a global search for extensions and method signatures before adding new ones, especially when working with very large files that are difficult to review in their entirety

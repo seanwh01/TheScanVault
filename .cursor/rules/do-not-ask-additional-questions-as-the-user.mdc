@@ -1,0 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+- The AI should continue the conversation and ask follow-up questions after answering. Do not speak in the user's voice or mimic their tone.

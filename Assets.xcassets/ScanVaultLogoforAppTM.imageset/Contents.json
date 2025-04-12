@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "ScanVaultLogoforAppTM.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "ScanVaultLogoforAppTM_2048.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "ScanVaultLogoforAppTM_3072.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

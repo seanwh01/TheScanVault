@@ -1,0 +1,1143 @@
+📱 App startup - Current AI Classification setting: true
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitOptionsValidator validateOptions:andStoreOptions:error:](36): Validating options: <NSCloudKitMirroringDelegateOptions: 0x3022d4960> containerIdentifier:iCloud.com.TSV.app databaseScope:Private ckAssetThresholdBytes:<null> operationMemoryThresholdBytes:<null> useEncryptedStorage:NO useDeviceToDeviceEncryption:NO automaticallyDownloadFileBackedFutures:NO automaticallyScheduleImportAndExportOperations:YES skipCloudKitSetup:NO preserveLegacyRecordMetadataBehavior:NO useDaemon:YES apsConnectionMachServiceName:<null> containerProvider:<PFCloudKitContainerProvider: 0x3011de680> storeMonitorProvider:<PFCloudKitStoreMonitorProvider: 0x3011de6b0> metricsClient:<PFCloudKitMetricsClient: 0x3011de6c0> metadataPurger:<PFCloudKitMetadataPurger: 0x3011de6d0> scheduler:<null> notificationListener:<null> containerOptions:<null> defaultOperationConfiguration:<null> progressProvider:<NSPersistentCloudKitContainer: 0x3006bd200> test_useLegacySavePolicy:YES archivingUtilities:<PFCloudKitArchivingUtilities: 0x3011de6e0> bypassSchedulerActivityForInitialImport:NO bypassDasdRateLimiting:NO activityVouchers:(
+)
+storeOptions: {
+    NSInferMappingModelAutomaticallyOption = 1;
+    NSMigratePersistentStoresAutomaticallyOption = 1;
+    NSPersistentCloudKitContainerOptionsKey = "<NSPersistentCloudKitContainerOptions: 0x3037ca100>";
+    NSPersistentHistoryTrackingKey = 1;
+    NSPersistentStoreMirroringOptionsKey =     {
+        NSPersistentStoreMirroringDelegateOptionKey = "<NSCloudKitMirroringDelegate: 0x302cd01e0>";
+    };
+}
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate observeChangesForStore:inPersistentStoreCoordinator:](427): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observing store: <NSSQLCore: 0x14818d900> (URL: file:///var/mobile/Containers/Data/Application/03CD7D7F-4395-4D25-8346-6FD89B4C613E/Library/Application%20Support/ScanVault.sqlite)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _setUpCloudKitIntegration:](589): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Successfully enqueued setup request: <NSCloudKitMirroringDelegateSetupRequest: 0x3030e1d10> 9D618628-8B6C-4B09-8957-55E59A2B0C35
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3567): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Executing: <NSCloudKitMirroringDelegateSetupRequest: 0x3030e1d10> 9D618628-8B6C-4B09-8957-55E59A2B0C35
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](450): Skipping migration for 'ANSCKDATABASEMETADATA' because it already has a column named 'ZLASTFETCHDATE'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](508): Skipping migration for 'ANSCKMETADATAENTRY' because it already has a column named 'ZDATEVALUE'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](358): Skipping migration for 'ANSCKRECORDMETADATA' because it already has a column named 'ZNEEDSUPLOAD'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](358): Skipping migration for 'ANSCKRECORDMETADATA' because it already has a column named 'ZNEEDSLOCALDELETE'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](358): Skipping migration for 'ANSCKRECORDMETADATA' because it already has a column named 'ZNEEDSCLOUDDELETE'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](358): Skipping migration for 'ANSCKRECORDMETADATA' because it already has a column named 'ZLASTEXPORTEDTRANSACTIONNUMBER'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](358): Skipping migration for 'ANSCKRECORDMETADATA' because it already has a column named 'ZPENDINGEXPORTTRANSACTIONNUMBER'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](358): Skipping migration for 'ANSCKRECORDMETADATA' because it already has a column named 'ZPENDINGEXPORTCHANGETYPENUMBER'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](358): Skipping migration for 'ANSCKRECORDMETADATA' because it already has a column named 'ZENCODEDRECORD'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](450): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZLASTFETCHDATE'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](466): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZSUPPORTSFETCHCHANGES'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](466): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZSUPPORTSATOMICCHANGES'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](466): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZSUPPORTSRECORDSHARING'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](466): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZSUPPORTSZONESHARING'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](484): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZNEEDSIMPORT'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](484): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZNEEDSRECOVERYFROMZONEDELETE'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](484): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZNEEDSRECOVERYFROMUSERPURGE'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](484): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZENCODEDSHAREDATA'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](484): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZNEEDSSHAREUPDATE'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](484): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZNEEDSSHAREDELETE'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](484): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZNEEDSRECOVERYFROMIDENTITYLOSS'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](484): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZNEEDSNEWSHAREINVITATION'
+CoreData: warning: CoreData+CloudKit: -[PFCloudKitSetupAssistant _checkAccountStatus:]_block_invoke(342): Fetched account info for store 1510C4F5-FEDB-4B32-AA39-E03ACCADA162: <CKAccountInfo: 0x3006a5e40; accountStatus=Available, accountPartition=Prod, deviceToDeviceEncryptionAvailability=(account|device), hasValidCredentials=true, walrus=Disabled, needsToVerifyTerms=false, accountAccessAuthorization=Yes, validationCounter=139>
+(null)
+CoreData: warning: CoreData+CloudKit: -[PFCloudKitSetupAssistant _checkUserIdentity:]_block_invoke(1446): Fetched user recordID for store 1510C4F5-FEDB-4B32-AA39-E03ACCADA162: <CKRecordID: 0x3013eb020; recordName=_7e7dee76fae60038e2399c472d9d7dd0, zoneID=_defaultZone:__defaultOwner__>
+(null)
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitSetupAssistant _checkUserIdentity:]_block_invoke(1496): <PFCloudKitSetupAssistant: 0x3037ded00>: CKIdentity record matches store: <CKRecordID: 0x3013eb020; recordName=_7e7dee76fae60038e2399c472d9d7dd0, zoneID=_defaultZone:__defaultOwner__>
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _performSetupRequest:]_block_invoke(1149): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Successfully set up CloudKit integration for store (1510C4F5-FEDB-4B32-AA39-E03ACCADA162): <NSSQLCore: 0x14818d900> (URL: file:///var/mobile/Containers/Data/Application/03CD7D7F-4395-4D25-8346-6FD89B4C613E/Library/Application%20Support/ScanVault.sqlite)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges:](773): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Scheduling post-setup export
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](3585): Finished request: <NSCloudKitMirroringDelegateSetupRequest: 0x3030e1d10> 9D618628-8B6C-4B09-8957-55E59A2B0C35 with result: <NSCloudKitMirroringResult: 0x301d45110> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Checking for pending requests.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c8dc0>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:](3686): <NSCloudKitMirroringDelegate: 0x302cd01e0> - Beginning automated export - SandboxExport:
+(null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](981): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x303084370> 3F489EC7-43F4-40CD-9B94-29D5C062536F
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedImportWithLabel:activity:voucher:completionHandler:](3647): <NSCloudKitMirroringDelegate: 0x302cd01e0> - Beginning automated import - SandboxImport - in response to activity:
+(null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](981): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Asked to execute request: <NSCloudKitMirroringImportRequest: 0x303084370> 36F85777-E15D-4953-834E-7F4C5EA7B06F
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3570): <NSCloudKitMirroringDelegate: 0x302cd01e0>: No more requests to execute.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(1018): <NSCloudKitMirroringDelegate: 0x302cd01e0>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x303086d00> 3F489EC7-43F4-40CD-9B94-29D5C062536F
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(1027): Enqueued request: <NSCloudKitMirroringExportRequest: 0x303086d00> 3F489EC7-43F4-40CD-9B94-29D5C062536F
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(1018): <NSCloudKitMirroringDelegate: 0x302cd01e0>: enqueuing request: <NSCloudKitMirroringImportRequest: 0x303086c10> 36F85777-E15D-4953-834E-7F4C5EA7B06F
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(1027): Enqueued request: <NSCloudKitMirroringImportRequest: 0x303086c10> 36F85777-E15D-4953-834E-7F4C5EA7B06F
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3567): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Executing: <NSCloudKitMirroringImportRequest: 0x303086c10> 36F85777-E15D-4953-834E-7F4C5EA7B06F
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3563): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Deferring additional work. There is still an active request: <NSCloudKitMirroringImportRequest: 0x303086c10> 36F85777-E15D-4953-834E-7F4C5EA7B06F
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024cc630>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:](3686): <NSCloudKitMirroringDelegate: 0x302cd01e0> - Beginning automated export - ExportActivity:
+<CKSchedulerActivity: 0x3037ccae0; identifier=com.apple.coredata.cloudkit.activity.export.1510C4F5-FEDB-4B32-AA39-E03ACCADA162, priority=2, container=iCloud.com.TSV.app:Sandbox, relatedApplications=(
+    "com.SWhiteApps.TheScanVault"
+), xpcActivityCriteriaOverrides={
+    ActivityGroupName = "com.apple.coredata.cloudkit.TheScanVault.1510C4F5-FEDB-4B32-AA39-E03ACCADA162";
+    Delay = 0;
+    GracePeriod = 10;
+    Priority = Utility;
+}>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](981): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x3030f00f0> DE56FD8C-AE76-4A35-977F-B148CC997F7C
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(1018): <NSCloudKitMirroringDelegate: 0x302cd01e0>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x3030fcf00> DE56FD8C-AE76-4A35-977F-B148CC997F7C
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(1031): Failed to enqueue request: <NSCloudKitMirroringExportRequest: 0x3030fcf00> DE56FD8C-AE76-4A35-977F-B148CC997F7C
+Error Domain=NSCocoaErrorDomain Code=134417 "Request '<NSCloudKitMirroringExportRequest: 0x3030fcf00> DE56FD8C-AE76-4A35-977F-B148CC997F7C' was cancelled because there is already a pending request of type 'NSCloudKitMirroringExportRequest'." UserInfo={NSLocalizedFailureReason=Request '<NSCloudKitMirroringExportRequest: 0x3030fcf00> DE56FD8C-AE76-4A35-977F-B148CC997F7C' was cancelled because there is already a pending request of type 'NSCloudKitMirroringExportRequest'.}
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:]_block_invoke(3700): <NSCloudKitMirroringDelegate: 0x302cd01e0> - Finished automatic export - ExportActivity - with result: <NSCloudKitMirroringResult: 0x301dbd740> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 0 madeChanges: 0 error: Error Domain=NSCocoaErrorDomain Code=134417 "Request '<NSCloudKitMirroringExportRequest: 0x3030fcf00> DE56FD8C-AE76-4A35-977F-B148CC997F7C' was cancelled because there is already a pending request of type 'NSCloudKitMirroringExportRequest'." UserInfo={NSLocalizedFailureReason=Request '<NSCloudKitMirroringExportRequest: 0x3030fcf00> DE56FD8C-AE76-4A35-977F-B148CC997F7C' was cancelled because there is already a pending request of type 'NSCloudKitMirroringExportRequest'.}
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](3600): Finished request '<NSCloudKitMirroringExportRequest: 0x3030fcf00> DE56FD8C-AE76-4A35-977F-B148CC997F7C' with result: <NSCloudKitMirroringResult: 0x301dbd740> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 0 madeChanges: 0 error: Error Domain=NSCocoaErrorDomain Code=134417 "Request '<NSCloudKitMirroringExportRequest: 0x3030fcf00> DE56FD8C-AE76-4A35-977F-B148CC997F7C' was cancelled because there is already a pending request of type 'NSCloudKitMirroringExportRequest'." UserInfo={NSLocalizedFailureReason=Request '<NSCloudKitMirroringExportRequest: 0x3030fcf00> DE56FD8C-AE76-4A35-977F-B148CC997F7C' was cancelled because there is already a pending request of type 'NSCloudKitMirroringExportRequest'.}
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitImporter databaseFetchFinishWithContext:error:completion:]_block_invoke(304): <PFCloudKitImporter: 0x3006b8480>: Import request finished: <NSCloudKitMirroringImportRequest: 0x303086c10> 36F85777-E15D-4953-834E-7F4C5EA7B06F - <PFCloudKitImportDatabaseContext: 0x301da0870> {
+Token: <CKServerChangeToken: 0x3011d0860; data=AQAAAZYM10mP>
+Changed:
+{(
+    <CKRecordZoneID: 0x301da6970; zoneName=com.apple.coredata.cloudkit.zone, ownerName=__defaultOwner__>
+)}
+}
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitImporter processWorkItemsWithCompletion:](444): <PFCloudKitImporter: 0x3006b8480>: Processing work items: (
+    "<PFCloudKitImporterZoneChangedWorkItem: 0x3024c4210 - <NSCloudKitMirroringImportRequest: 0x303086c10> 36F85777-E15D-4953-834E-7F4C5EA7B06F> {\n(\n    \"<CKRecordZoneID: 0x301da6970; zoneName=com.apple.coredata.cloudkit.zone, ownerName=__defaultOwner__>\"\n)\n}"
+)
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c40b0>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:](3686): <NSCloudKitMirroringDelegate: 0x302cd01e0> - Beginning automated export - ExportActivity:
+<CKSchedulerActivity: 0x3037c4900; identifier=com.apple.coredata.cloudkit.activity.export.1510C4F5-FEDB-4B32-AA39-E03ACCADA162, priority=2, container=iCloud.com.TSV.app:Sandbox, relatedApplications=(
+    "com.SWhiteApps.TheScanVault"
+), xpcActivityCriteriaOverrides={
+    ActivityGroupName = "com.apple.coredata.cloudkit.TheScanVault.1510C4F5-FEDB-4B32-AA39-E03ACCADA162";
+    Delay = 0;
+    GracePeriod = 10;
+    Priority = Utility;
+}>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](981): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x3030f7390> 46A08EAA-3960-4C6E-975B-4A1FCE96548E
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(1018): <NSCloudKitMirroringDelegate: 0x302cd01e0>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x3030f6710> 46A08EAA-3960-4C6E-975B-4A1FCE96548E
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(1031): Failed to enqueue request: <NSCloudKitMirroringExportRequest: 0x3030f6710> 46A08EAA-3960-4C6E-975B-4A1FCE96548E
+Error Domain=NSCocoaErrorDomain Code=134417 "Request '<NSCloudKitMirroringExportRequest: 0x3030f6710> 46A08EAA-3960-4C6E-975B-4A1FCE96548E' was cancelled because there is already a pending request of type 'NSCloudKitMirroringExportRequest'." UserInfo={NSLocalizedFailureReason=Request '<NSCloudKitMirroringExportRequest: 0x3030f6710> 46A08EAA-3960-4C6E-975B-4A1FCE96548E' was cancelled because there is already a pending request of type 'NSCloudKitMirroringExportRequest'.}
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:]_block_invoke(3700): <NSCloudKitMirroringDelegate: 0x302cd01e0> - Finished automatic export - ExportActivity - with result: <NSCloudKitMirroringResult: 0x301db1f80> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 0 madeChanges: 0 error: Error Domain=NSCocoaErrorDomain Code=134417 "Request '<NSCloudKitMirroringExportRequest: 0x3030f6710> 46A08EAA-3960-4C6E-975B-4A1FCE96548E' was cancelled because there is already a pending request of type 'NSCloudKitMirroringExportRequest'." UserInfo={NSLocalizedFailureReason=Request '<NSCloudKitMirroringExportRequest: 0x3030f6710> 46A08EAA-3960-4C6E-975B-4A1FCE96548E' was cancelled because there is already a pending request of type 'NSCloudKitMirroringExportRequest'.}
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](3600): Finished request '<NSCloudKitMirroringExportRequest: 0x3030f6710> 46A08EAA-3960-4C6E-975B-4A1FCE96548E' with result: <NSCloudKitMirroringResult: 0x301db1f80> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 0 madeChanges: 0 error: Error Domain=NSCocoaErrorDomain Code=134417 "Request '<NSCloudKitMirroringExportRequest: 0x3030f6710> 46A08EAA-3960-4C6E-975B-4A1FCE96548E' was cancelled because there is already a pending request of type 'NSCloudKitMirroringExportRequest'." UserInfo={NSLocalizedFailureReason=Request '<NSCloudKitMirroringExportRequest: 0x3030f6710> 46A08EAA-3960-4C6E-975B-4A1FCE96548E' was cancelled because there is already a pending request of type 'NSCloudKitMirroringExportRequest'.}
+🧠 Initializing AdaptiveLearningClassifier...
+✅ Loaded 12 learning examples from Core Data
+🔍 Core Data contains 12 learning examples
+🧠 Loaded 12 unique examples to memory
+🧠 AdaptiveLearningClassifier initialized with 12 examples
+🔍 Verifying learning data storage...
+🔍 Found 12 examples in Core Data
+🔧 Checking for broken learning examples in Core Data...
+✅ No broken learning examples found in Core Data
+🧪 Initialized TempDevDocumentAIService (development mock)
+Key length: 164 characters
+First few chars: sk-proj-eC
+Last few chars: gY8T2GFFAA
+Contains whitespace? false
+Authorization header length: 171 characters
+🚀 Document processor initialized with exclusive API control
+🔄 ScanViewModel initialized
+🔎 Starting fetchLocksFromCloudKit() in DocumentLockService
+🔍 CLOUD FETCH: Starting fetchLockedDocuments in CloudSyncManager
+🔍 CLOUD FETCH: Using container: iCloud.com.TSV.app
+❌ iCloud not available - cannot fetch locked documents
+📂 Attempting to load document locks from local storage
+📂 Loaded 5 document locks from local storage (was 0)
+🔒 Currently locked documents from local storage:
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+❌ Error fetching locks from CloudKit: iCloud not available
+📂 Attempting to load document locks from local storage
+📂 Loaded 5 document locks from local storage (was 0)
+🔒 Currently locked documents from local storage:
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+☁️ CloudKit not available during initialization, using local storage as fallback
+📂 Attempting to load document locks from local storage
+📂 Loaded 5 document locks from local storage (was 5)
+🔒 Currently locked documents from local storage:
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+🔒 Loaded 0 locked folders from persistent storage
+🔐 DocumentLockService initialized
+🔐 [DocumentLockManager] DocumentLockManager initialized
+🔑 Attempting to get keychain item: com.scanvault.documentlock
+⚠️ Couldn't determine team ID for keychain access group
+🔑 No iCloud keychain password found (status: -34018), trying any available
+🔑 No iCloud keychain password found (status: -34018)
+🔐 DocumentLockService.hasLock(): false
+🔐 [DocumentLockManager] Checking if document lock exists: false
+⚠️ [DocumentLockManager] Found locked documents but no password - setting fallback password
+🔐 [DocumentLockManager] Setting document lock password
+⚠️ Couldn't determine team ID for keychain access group
+⚠️ Couldn't determine team ID for keychain access group
+⚠️ Couldn't determine team ID for keychain access group
+❌ Failed to save to keychain with iCloud sync (error: -34018)
+⚠️ Falling back to local storage without iCloud sync
+❌ Failed to save to local keychain (error: -34018)
+🔐 DocumentLockService.setupLock(): false
+❌ [DocumentLockManager] Failed to save document lock password
+🔐 [DocumentLockManager] Forcing password sync across platforms
+🔑 Attempting to get keychain item: com.scanvault.documentlock
+⚠️ Couldn't determine team ID for keychain access group
+🔑 No iCloud keychain password found (status: -34018), trying any available
+🔑 No iCloud keychain password found (status: -34018)
+🔐 DocumentLockService.hasLock(): false
+🔐 [DocumentLockManager] Checking if document lock exists: false
+🔐 [DocumentLockManager] No password exists, setting default
+🔐 [DocumentLockManager] Setting document lock password
+⚠️ Couldn't determine team ID for keychain access group
+⚠️ Couldn't determine team ID for keychain access group
+⚠️ Couldn't determine team ID for keychain access group
+❌ Failed to save to keychain with iCloud sync (error: -34018)
+⚠️ Falling back to local storage without iCloud sync
+❌ Failed to save to local keychain (error: -34018)
+🔐 DocumentLockService.setupLock(): false
+❌ [DocumentLockManager] Failed to save document lock password
+🔑 Password was synced to iCloud
+Key length: 164 characters
+First few chars: sk-proj-eC
+Last few chars: gY8T2GFFAA
+Contains whitespace? false
+Authorization header length: 171 characters
+📱 Reading AI toggle state: true
+🔑 Attempting to get keychain item: com.scanvault.documentlock
+⚠️ Couldn't determine team ID for keychain access group
+🔑 No iCloud keychain password found (status: -34018), trying any available
+🔑 No iCloud keychain password found (status: -34018)
+🔐 DocumentLockService.hasLock(): false
+🔐 [DocumentLockManager] Checking if document lock exists: false
+📱 Reading AI toggle state: true
+🔑 Attempting to get keychain item: com.scanvault.documentlock
+⚠️ Couldn't determine team ID for keychain access group
+🔑 No iCloud keychain password found (status: -34018), trying any available
+🔑 No iCloud keychain password found (status: -34018)
+🔐 DocumentLockService.hasLock(): false
+🔐 [DocumentLockManager] Checking if document lock exists: false
+Subscription manager update called - note that this is a no-op
+🔄 Subscription upgraded to premium with AI enabled - triggering document reanalysis
+⚠️ No document text available for reanalysis
+🌐 Network availability changed: Connected
+☁️ iCloud availability changed: available
+☁️ iCloud just became available, forcing document lock sync
+🔍 CLOUD FETCH: Starting fetchLockedDocuments in CloudSyncManager
+🔍 CLOUD FETCH: Using container: iCloud.com.TSV.app
+🔍 CLOUD FETCH: Fetching locked documents record with ID 'all_device_locks'
+☁️ iCloud became available, checking password sync and document locks
+🔑 Checking for password sync between devices
+🔑 Attempting to get keychain item: com.scanvault.documentlock
+⚠️ Couldn't determine team ID for keychain access group
+🔑 No iCloud keychain password found (status: -34018), trying any available
+🔑 No iCloud keychain password found (status: -34018)
+🔑 iCloud keychain password check: not found
+🔄 Refreshing document locks after iCloud became available
+🔎 Starting fetchLocksFromCloudKit() in DocumentLockService
+🔍 CLOUD FETCH: Starting fetchLockedDocuments in CloudSyncManager
+🔍 CLOUD FETCH: Using container: iCloud.com.TSV.app
+🔍 CLOUD FETCH: Fetching locked documents record with ID 'all_device_locks'
+🌐 Network availability changed: Connected
+✅ CLOUD FETCH: Successfully retrieved 'all_device_locks' record
+🔍 CLOUD FETCH METADATA: Record Type: DocumentLock
+🔍 CLOUD FETCH METADATA: Record Modified Date: 2025-04-04 23:10:54 +0000
+🔍 CLOUD FETCH METADATA: Available Keys: updatedAt, lockedDocuments, deviceId
+🔍 Found 5 locked document IDs from CloudKit:
+   - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+   - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+   - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+   - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+   - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+🔍 CLOUD FETCH: Converted 5 of 5 strings to valid UUIDs
+💾 Saved 5 locked documents to local storage
+🔍 CLOUD FETCH CHANGES: 0 docs being added, 0 docs being removed
+✅ Updated lock state with 5 documents from CloudKit (was 5)
+🔒 Currently locked documents:
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+✅ Successfully synced 5 document locks after iCloud became available
+🔑 Skipping password sync check - too soon since last attempt
+🔄 CloudKit sync completed with 5 documents
+🔐 [DocumentLockManager] Scheduling batched UI update
+🔄 Refreshing document lock state in UI
+✅ CLOUD FETCH: Successfully retrieved 'all_device_locks' record
+🔍 CLOUD FETCH METADATA: Record Type: DocumentLock
+🔍 CLOUD FETCH METADATA: Record Modified Date: 2025-04-04 23:10:54 +0000
+🔍 CLOUD FETCH METADATA: Available Keys: updatedAt, lockedDocuments, deviceId
+🔍 Found 5 locked document IDs from CloudKit:
+   - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+   - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+   - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+   - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+   - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+🔍 CLOUD FETCH: Converted 5 of 5 strings to valid UUIDs
+💾 Saved 5 locked documents to local storage
+🔍 Verifying learning data storage...
+🔍 CLOUD FETCH CHANGES: 0 docs being added, 0 docs being removed
+✅ Updated lock state with 5 documents from CloudKit (was 5)
+🔒 Currently locked documents:
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+🔐 SYNC DETAILS: CloudKit returned 5 locked documents
+🔐 SYNC RAW DATA: Document IDs received from CloudKit:
+   - 4657ABCC-5EF0-4434-BF74-E15525AFF7E9
+   - 6FC1FEB0-3397-4571-9EC3-C31B25829612
+   - 4B041DFC-89D1-4841-8D86-360C3D5991C2
+   - 6304803F-4FBC-4990-BDE8-7C4C96DBF635
+   - F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA
+🔍 Found 12 examples in Core Data
+🔧 Checking for broken learning examples in Core Data...
+✅ No broken learning examples found in Core Data
+🔍 Core Data contains 12 learning examples
+🚀 App launched with 12 learning examples
+🔑 Skipping password sync check - too soon since last attempt
+🔄 CloudKit sync completed with 5 documents
+🔄 Refreshing document lock state in UI
+🔐 SYNC PROCESS: Converting received document IDs to UUIDs
+🔐 SYNC DIFF: 0 docs being added, 0 docs being removed
+💾 Saved 5 locked documents to local storage
+✅ Updated lock state with 5 documents from CloudKit (was 5)
+🔒 Currently locked documents:
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+🔐 [DocumentLockManager] Performing batched UI update with 0 document changes and 0 folder changes
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportRecordsWorkItem applyAccumulatedChangesToStore:inManagedObjectContext:withStoreMonitor:madeChanges:error:]_block_invoke(377): <PFCloudKitImporterZoneChangedWorkItem: 0x3024c4210 - <NSCloudKitMirroringImportRequest: 0x303086c10> 36F85777-E15D-4953-834E-7F4C5EA7B06F> {
+(
+    "<CKRecordZoneID: 0x301da6970; zoneName=com.apple.coredata.cloudkit.zone, ownerName=__defaultOwner__>"
+)
+} - Importing updated records:
+(
+    "<CKRecord: 0x148234f00; recordType=CD_Tag, recordID=6A19B700-8FF3-41B1-A0E8-58C040DF3A23:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=29h, values={\n    \"CD_createdAt\" = \"2025-03-15 23:30:00 +0000\";\n    \"CD_entityName\" = Tag;\n    \"CD_id\" = \"AE41F232-A3B7-49AB-9D48-8BD44B25D230\";\n    \"CD_name\" = Advertising;\n}>",
+    "<CKRecord: 0x148237300; recordType=CD_Tag, recordID=D8452DB2-6E58-4E3E-9DFF-C67E9E2AD87F:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=29f, values={\n    \"CD_createdAt\" = \"2025-03-15 23:30:00 +0000\";\n    \"CD_entityName\" = Tag;\n    \"CD_id\" = \"4F873CEA-8406-45DE-874B-81372ABB98E1\";\n    \"CD_name\" = AI;\n}>",
+    "<CKRecord: 0x148234480; recordType=CD_Tag, recordID=6028D5E5-333F-4933-8EF7-AA6D66C8F7B4:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=29d, values={\n    \"CD_createdAt\" = \"2025-03-15 23:30:00 +0000\";\n    \"CD_entityName\" = Tag;\n    \"CD_id\" = \"8E54EB48-C884-4F83-ABFD-147F69EB39D2\";\n    \"CD_name\" = Software;\n}>",
+    "<CKRecord: 0x148237600; recordType=CD_Tag, recordID=2AB21574-BD8D-4708-8F56-FB12EDA08027:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=29b, values={\n    \"CD_createdAt\" = \"2025-04-06 15:52:06 +0000\";\n    \"CD_entityName\" = Tag;\n    \"CD_id\" = \"B3C40ACA-4D5F-4EE7-B34F-FC7FAD9B684A\";\n    \"CD_name\" = \"Stock Analysis\";\n}>",
+    "<CKRecord: 0x148237900; recordType=CD_Tag, recordID=76A9DA01-D6EA-4C36-A388-195C5803E676:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=299, values={\n    \"CD_createdAt\" = \"2025-03-15 23:30:00 +0000\";\n    \"CD_entityName\" = Tag;\n    \"CD_id\" = \"0780844E-BB17-4AAB-B346-C5FF158C5D9E\";\n    \"CD_name\" = CFRA;\n}>",
+    "<CKRecord: 0x148237c00; recordType=CD_LearningExample, recordID=F7AF3615-C464-4D3D-A881-C9429DA16DAC:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=297, values={\n    \"CD_aiSuggestionData\" = \"{ length=175, sha256=27a26537fd8b9a397294c06ada1c8fa7564960fc3bd0b62a43272db92ce701eb }\";\n    \"CD_documentFingerprint\" = \"Stock Report | January 28, 2023 | NasdaqGS Symbol: GOOG | GOOG is in the S&P 500 Alphabet Inc. CFRA Recommendation BUY * Price 12-Mo. Target Price Report Currency USD || Report January NasdaqGS Symbol: Alphabet Recommendation 12-Mo. Target Report Currency 100.71 market 113.00 Investment Large-Cap Equity Analyst Angelo Sector Communication\";\n    \"CD_entityName\" = LearningExample;\n    \"CD_id\" = \"23231F0C-7A2E-4DAA-A4D1-0ACC86FD5638\";\n    \"CD_timestamp\" = \"2025-04-06 20:32:11 +0000\";\n    \"CD_userSelectionData\" = \"{ length=191, sha256=29fa74c6ed27afbd69193ee933c1e31e0f9a321dd637a437f594de1fc57bc30f }\";\n}>",
+    "<CKRecord: 0x148d14000; recordType=CDMR, recordID=E0A5DB75-5C7D-408B-9D08-EA7DAAC87733:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=29g, values={\n    \"CD_entityNames\" = \"Document:Tag\";\n    \"CD_recordNames\" = \"2B85F0FD-6515-4E51-8276-BDD321B06170:6A19B700-8FF3-41B1-A0E8-58C040DF3A23\";\n    \"CD_relationships\" = \"tags:documents\";\n}>",
+    "<CKRecord: 0x148d14180; recordType=CDMR, recordID=88CF2425-AD9F-454C-87C8-F799A4353C68:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=29e, values={\n    \"CD_entityNames\" = \"Document:Tag\";\n    \"CD_recordNames\" = \"2B85F0FD-6515-4E51-8276-BDD321B06170:D8452DB2-6E58-4E3E-9DFF-C67E9E2AD87F\";\n    \"CD_relationships\" = \"tags:documents\";\n}>",
+    "<CKRecord: 0x148d14300; recordType=CDMR, recordID=9B62238E-6A3E-4DFD-9D51-94E100548148:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=29c, values={\n    \"CD_entityNames\" = \"Document:Tag\";\n    \"CD_recordNames\" = \"2B85F0FD-6515-4E51-8276-BDD321B06170:6028D5E5-333F-4933-8EF7-AA6D66C8F7B4\";\n    \"CD_relationships\" = \"tags:documents\";\n}>",
+    "<CKRecord: 0x148d14480; recordType=CDMR, recordID=00636F8D-9DF1-4FFA-AA19-55178BA03D2E:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=29a, values={\n    \"CD_entityNames\" = \"Document:Tag\";\n    \"CD_recordNames\" = \"2B85F0FD-6515-4E51-8276-BDD321B06170:2AB21574-BD8D-4708-8F56-FB12EDA08027\";\n    \"CD_relationships\" = \"tags:documents\";\n}>",
+    "<CKRecord: 0x148d14600; recordType=CDMR, recordID=A74AA4CA-79CB-449F-8D80-15E90EA1D4B8:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=298, values={\n    \"CD_entityNames\" = \"Document:Tag\";\n    \"CD_recordNames\" = \"2B85F0FD-6515-4E51-8276-BDD321B06170:76A9DA01-D6EA-4C36-A388-195C5803E676\";\n    \"CD_relationships\" = \"tags:documents\";\n}>",
+    "<CKRecord: 0x148f39680; recordType=CD_Document, recordID=2B85F0FD-6515-4E51-8276-BDD321B06170:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=29i, values={\n    \"CD_createdAt\" = \"2025-04-06 20:32:11 +0000\";\n    \"CD_documentData_ckAsset\" = \"<CKAsset: 0x148f38a80; referenceSignature={length = 21, bytes = 0x01240404e18b253c77439b1adef9465115060710ee}, uploadRank=0, authToken=CAogjviHxemPeFkBrGZZwt5hxK9jZ6sX-Qq5zvgvlhQyd0oSexDPsd7m4DIYz6GRueEyIgEAUgSmSp24WgQGBxDuaiVDJWQ9WOA871gC25yr3KQnidqaLEtjmEQyWVMXBYg1B7u9qY69ciW10LDBnYk2T0u4IgMDPcJhccL-F9HZRrjXVTNeTVAkxTRIR7ZPeg5FcGhlbWVyYWxHcm91cA, owner=227129647, path=/private~/Library/Caches/CloudKit/fc806b15e61d0876654ac58b0d28b1ab1217e0e4/Assets/27013AF5-92B2-49FE-ADC1-0EC2FC9E5299.0161943c90cc4cd85bc4ea7960fe3bae4aa64a9db8, size=7400407, UUID=27013AF5-92B2-49FE-ADC1-0EC2FC9E5299, signature={length = 21, bytes = 0x0161943c90cc4cd85bc4ea7960fe3bae4aa64a9db8}, wrappedAssetKey=<24 bytes>>\";\n    \"CD_entityName\" = Document;\n    \"CD_folderId\" = \"4846FEBE-EEAA-4540-A35B-F714C8B28A4B\";\n    \"CD_id\" = \"99D7AFD4-3B1F-4C68-903A-E7720F0D68D1\";\n    \"CD_text\" = \"Stock Report | January 28, 2023 | NasdaqGS Symbol: GOOG | GOOG is in the S&P 500 Alphabet Inc. CFRA Recommendation BUY * Price 12-Mo. Target Price Report Currency USD 100.71 (as of market close Jan 27, 2023) USD 113.00 USD Investment Style Large-Cap Blend Equity Analyst Angelo Zino, CFA GICS Sector Communication Services Sub-Industry Interactive Media and Services Summary Alphabet is the world's leading internet search provider and the world's largest generator of advertising revenue. Key Stock Statistics (Source: CFRA, SSP Global Market Intelligence (SPGMI), Company Reports) 52-Wk Range Trailing 12-Month EPS Trailing 12-Month P/E USD 10K Invested 5 Yrs Ago 17,130.0 USD 152.1 - 83.45 Oper.EPS2022E USD 5.04 Oper.EPS2023E 20.0 P/E on Oper.EPS2022E USD 4.69 USD 4.95 21.47 Common Shares Outstg. [M] 12,971.00 Market Capitalization[B] USD 1272.18 Yield [%] Dividend Rate/Share Trailing 12-Month Dividend N/A N/A N/A Beta 3-yr Proj. EPS CAGR[%] SPGMI's Quality Ranking Institutional Ownership [%] 1.08 5 B+ 65.0 Price Performance 30-Week Mov. Avg. 12-Mo. Target Price 10-Week Mov. Avg. GAAP Earnings vs. Previous Year Volume Above Avg. A Up V Down \\U2022 No Change Below Avg. STARS Share Price 150 100 4. Vol. IMini 14* 14* JFMAMJJASONDU FMAMJJASOND J FMAMJJASONDUFMAMJJASONDUFMAMJJASOND JFM A M01& Y014 Source: CFRA, S&P Global Market Intelligence Past performance is not an indication of future performance and should not be relied upon as such. Analysis prepared by Angelo Zino, CFA on Jan 18, 2023 06:00 PM ET, when the stock traded at USD 91.78. Investment Rationale/Risk \\U2022 We forecast revenue to grow 5% in 2023 and 13% in 2024 after a projected 10% increase in 2022, led by the ongoing shift of global ad spend to digital/online. Although a tough digital ad spending landscape may put more downside pressure on Search and YouTube, we see a trough in the first half. Google Cloud continues to ride the ongoing migration of enterprise apps to the cloud, as we project cloud, ~10% of revenue, will grow 25%-30% Y/Y through 2024 (up 38% in Q3). While forex was again a headwind in Q4, we expect this to alleviate through 2023. We see tight budgets by advertisers constraining YouTube (-1% in Q3) and Network (-2%) revenue. \\U2022 There is substantial operating leverage inherent in core search and although GOOGL has been emphasizing the need to improve efficiencies, we expect more focus on cost cuts given moves from other Big Tech names. Operating margin of 25% in Q3 compressed from 32% a year ago, hurt by decelerating revenue growth coupled with a 24% Y/Y increase in headcount. \\U2022 While regulatory issues are a long tail risk, GOOG's financial position provides cushion. We see free cash flow of +$65 billion in 2022 and + $70 billion in 2023 aiding buybacks ($70 billion announced in April). \\U2022 Our Buy reflects our view of valuation vs. Tech peers, free cash flow potential, and belief GOOG's can sustain a 7%-11% annual revenue growth pace over the next three to five years (below this in 2023 on soft macro), but we acknowledge risks ahead [e.g., macro, geopolitical, competitive, legal). We like growth prospects tied to new YouTube experiences (e.g., Shorts, live shopping, and upside from acquired NFL Sunday ticket package) and growth tied to the cloud. We note leadership/ traction in areas with massive long-term potential, including machine learning [e.g., TensorFlow], natural lanquage processing, and efforts in self-driving vehicles. Greater focus on cost containment has the potential to sustain EPS better than we think. \\U2022 Congress is taking aim at Big Tech through a number of bipartisan bills, looking to curtail the capabilities of their online businesses that kill competition. A DoJ lawsuit is also targeting the search distribution business where Apple's search partnership is a key aspect of the case (slated to start in 2023). \\U2022 Our 12-month target of $113 is based on a P/E of 20x our 2024 EPS of $5.66, which compares to its 5- and 10-year historical forward average of 26.4x and 23.3x. Analyst's Risk Assessment LOW MEDIUM HIGH Our risk assessment reflects GOOG's dominant position in internet search and in internet video advertising through YouTube, not to mention its exceptionally strong balance sheet, partially offset by significant regulatory risk both in the U.S. and Europe. Revenue/Earnings Data Revenue (Million USD) 1Q 2Q 3Q 4Q Year 2024 2023 2022 2021 2020 2019 E 77,500 E 79,700 E 81,300 E 94,800 E 333,300 E 68,000 E 70,500 E 73,000 E 84,000 E 295,500 68,011 69,685 69,092 E 75,700 E 282,500 55,314 61,880 65,118 41,159 38,297 46,173 75,325 257,637 56,898 182,527 36,339 38,944 40,499 46,075 161,857 Earnings Per Share (USD) 1Q 2Q 3Q 4Q 2024 E 1.30 E 1.35 E 1.39 E 1.62 2023 E 1.10 E 1.19 E 1.21 E 1.44 2022 1.23 1.21 1.06 E 1.18 2021 1.31 1.36 1.40 1.53 2020 0.49 0.51 0.82 1.12 2019 0.60 0.71 0.55 0.77 Year E 5.66 E 4.95 E 4.69 5.61 2.93 2.62 Fiscal Year ended Dec 31. EPS Estimates based on CFRA'S Operating Earnings; historical earnings are adjusted. In periods where a different currency has been reported, this has been adjusted to match the current quoted currency. Dividend Data No cash dividends have been paid in the last year. pedestries in nia riding preparte at needs ritary spects pens on ma receive this rePort doestors is out intended entent encial ice egarding ice suititya dora propriateness hearing an investment or implementing the investment strategies discussed in this document and should understand that statements regarding future prospects may not be realized. Investors should note that income from such investments, if any, may fluctuate and that the value of such investments may rise or fall. Accordingly, investors may receive back less than they originally invested. Investors should seek advice concerning any impact this investment may have on their personal tax position from their own tax advisor. Please note the publication date of this document. It may contain specific information that is no longer current and should not be used to make an investment decision. Unless otherwise indicated, there is no intention to update this document. 1\\n\\nStock Report | January 28, 2023 | NasdaqGS Symbol: GOOG | GOOG is in the S&P 500 Alphabet Inc. Business Summary Jan 18, 2023 CORPORATE OVERVIEW. Alphabet (GOOG) is the world's dominant internet search engine, with between 80% and 90% of the internet's search engine queries and close to 90% of all search engine revenue. Smartphones enable searches anytime, anywhere, and their proliferation has boosted usage considerably, with 70% of queries now mobile. The search engine's everyday presence became so common, so quickly that \\\"google\\\" was recognized as a verb by the Merriam-Webster and Oxford English dictionaries in 2006. In addition to search (55% to 65% of total revenue), Google generates ad revenue from its display ad network (10% to 12% of total) and YouTube (10% to 13% of total). Google is nurturing many other businesses, including \\\"moonshots\\\"\\\" with little revenue but tremendous long-term potential, e.g., autonomous vehicles, quantum computing, and drone delivery. Google Cloud is its largest source of non-ad revenue (6% to 9% of total), competing with Amazon AWS and Microsoft Azure. CORPORATE HISTORY. In 1998, Larry Page and Sergey Brin founded \\\"Google,\\\" based on a research project they began at Stanford University. Their PageRank algorithm added relevance to frequency, putting the most relevant links at the top of the results page. This was a big improvement over early search engines where page links were sported only by frequency - the sheer number of instances of a search term on each page - often forcing users to flip through multiple pages to find relevant links. It also encouraged websites to hide the text of thousands of instances of certain keywords (e.g., \\\"car insurance\\\"] to drive search traffic, regardless of relevance. PageRank determined relevance by determining the number and relevance of pages containing the search term that linked \\\"back\\\" to the first page, with the relevance of those pages also determined by the number and relevance of their back-linked pages, et cetera. PageRank is recursive, cleverly analyzing the web's own hyperlinked structure to determine relevance, but they had to build \\\"web crawler\\\" software to index the entire web - all of it, continuously. Today, Google processes over 70,000 queries/sec., 7.8B/day, but most of its computing capacity \\U2014 millions of servers \\U2014 are still dedicated to this massive indexing task. Larry and Sergey had their second big breakthrough in 2001 after agreeing to two VC investor demands: 1) hiring Eric Schmidt as CEO; 2] allowing advertising to generate revenue. However, initial efforts cluttered the results page with ads that were no more relevant than ordinary banner ads. The breakthrough was Google AdWords, an online auction where ad buyers bid on keywords (e.g., once again, \\\"car insurance\\\"], with the winners getting to put ads on the results pages of searches for that keyword, paying Google the bid amount for each ad click. However, rather than \\\"highest bid wins,\\\" which can be rigged by high bids with irrelevant ads, winning bids on AdWords are those that maximize revenue, i.e., the per-click bid amount times the number of clicks, extrapolated from history. Over the years, Google has added over 200 other criteria to PageRank to maximize relevance and revenue. AdWords was an instant hit, especially among smaller businesses that cannot afford big ad buys on traditional media (TV, radio, print). Further, AdWords was totally automated and self-serve, hence generating considerable operating leverage. Three years later in 2004, Google IPO'd with $3.2B in revenue and minimal sales and marketing costs. MGA. In its first few years post-IPO, Google was quite active in MEA, its first major buys being YouTube in 2006 for $1.7B and DoubleClick in 2008 for $3.1B, forming the basis of its ad network. In 2012, Google bought Motorola Mobility for $13B to support Android, its open-source mobile operating system, which was created to prevent Apple, Microsoft, Nokia, or Samsung from using their positions to enter the search or extract higher \\\"rent\\\" as search moved to mobile. Google sold Motorola to Lenovo in 2014 for only $3B, but it kept 17k Motorola patents to protect itself in potential IP fights and to continued distributing Android for free without paying royalties to third party IP holders like Apple and Microsoft. In 2013, Google spent $1B for Waze, adding crowdsourced traffic reports to Google Maps. 2014 saw deals for Nest (smart home tech) for $3.2B and Al pioneer DeepMind for $600M. Since 2014, growing anti-trust scrutiny has deterred larger deals, though Google made numerous small acquisitions to pick up promising technologies or teams. The 2019 purchase of Looker for $2.6B, software for connecting disparate databases, was an exception because it operates under Google Cloud, which trails AWS and Azure in revenue by significant margins. COMPETITIVE LANDSCAPE. Direct competitors in \\\"general purpose\\\" search have each held a 1% to 4% global share over the last decade: Microsoft's Bing, 6% to 8% share in the U.S.; Verizon, purchased Yahoo in 2017; Baidu, limited to China. Indirect competition from Facebook and Amazon is more significant, keeping Google's share in total online/digital advertising at 25%-30%. Though YouTube is primarily ad-driven, it is expanding into paid subscriptions and a la carte prices for premium content and is approaching Netflix in sales. In cloud services, Google ranks #3 behind Amazon AWS and Microsoft Azure but has carved out a solid position in machine learning with TensorFlow. FINANCIAL TRENDS. Google has maintained 20% + organic annual revenue over the last decade with YouTube and Google Cloud now emerging as increasingly important drivers as core search advertising has gradually decelerated to the mid-teens. Sales grew 41% in 2021, with its biqgest segment (Search at 59% of sales) growing at an impressive 43% clip. YouTube grew 46% for the year and represented 12% of revenue while the Cloud segment increased at an impressive 47% rate and comprised 8% of sales. We expect at least one \\\"moon shot\\\" to contribute materially by 2026 (e.g., Waymo autonomous driving). We note $102 billion net cash at the end of September 2022, with $116.7 billion in cash and $14.7 billion in debt. GOOG used $15 billion towards share repurchases in the most recent third quarter. GOOG completed a 20-for-1 stock split in July 2022. CFRA Corporate information -West so tast 000) Office 1600 Amphitheatre Parkway, Mountain View, California, 94043 Telephone 650 253 0000 Fax N/A Website www.abc.xyz Officers Chairman & Lead Chief Accounting Officer & Independent Director J. L. Hennessy A. T. O'Toole giles focal A fairs, See Director Company Secretary J. K. Walker Senior VP & CFO R. M. Porat Board Members A. Mather F. H. Arnold J. L. Hennessy K. R. Shriram L. E. Page L. J. Doerr R. L. Washington R. M. Chavez R. W. Ferguson S. Brin S. Pichai Domicile Delaware Founded 1998 Employees 186,779 Stockholders N/A Auditor Ernst & Young LLP Redistribution or reproduction is prohibited without prior written permission. Copyright \\U00a9 2023 CFRA.\\n\\nStock Report | January 28, 2023 | NasdaqGS Symbol: GOOG | GOOG is in the S&P 500 Alphabet Inc. Quantitative Evaluations Fair Value Rank Expanded Ratio Analysis Fair Value Calculation Volatility Technical Evaluation 2 3 4 5 LOWEST HIGHEST Based on CFRA's proprietary quantitative model, stocks are ranked from most overvalued (1) to most undervalued (5). USD Analysis of the stock's current worth, based on CFRA'S 109.06 proprietary quantitative model suggests that G00G is undervalued by USD 8.35 or 8.29% LOW AVERAGE HIGH BULLISH Since August, 2022, the technical indicators for GOOG have been BULLISH\\\" Price/Sales Price/EBITDA Price/Pretax Income P/E Ratio Avg. Diluted Shares Outstg. (M) Figures based on fiscal year-end price 2021 7.61 21.51 21.61 25.79 13,553 Insider Activity UNFAVORABLE NEUTRAL FAVORABLE Key Growth Rates and Averages Past Growth Rate (%) Net Income Sales Ratio Analysis (Annual Avg.) Net Margin (%) % LT Debt to Capitalization Return on Equity (%) Company Financials Fiscal year ending Dec 31 Per Share Data (USD) Tangible Book Value Free Cash Flow Earnings Earnings (Normalized) Dividends Payout Ratio (%) Prices: High Prices: Low P/E Ratio: High P/E Ratio: Low Income Statement Analysis (Million USD) Revenue Operating Income Depreciation + Amortization Interest Expense Pretax Income Effective Tax Rate Net Income Net Income (Normalized] Balance Sheet and Other Financial Data (Million USD) Cash Current Assets Total Assets Current Liabilities Long Term Debt Total Capital Capital Expenditures Cash from Operations Current Ratio % Long Term Debt of Capitalization % Net Income of Revenue % Return on Assets % Return on Equity 2021 17.16 5.02 5.61 5.61 N/A NM 151.85 84.95 27.10 15.10 2020 14.80 3.15 2.93 2.93 N/A NM 92.36 50.68 31.50 17.30 2019 12.99 2.24 2.46 2.62 N/A NM 68.25 50.70 26.10 19.40 2018 11.32 1.64 2.19 2.18 N/A NM 63.69 48.51 29.20 22.20 2017 9.58 1.73 0.90 1.60 N/A NM 53.92 38.79 33.70 24.20 2016 8.63 1.88 1.39 1.72 N/A NM 40.83 33.15 23.80 19.30 2015 7.32 1.21 1.18 1.48 N/A NM 39.00 24.31 26.40 16.40 257,637 78,714 12,430 346.00 90,734 16.20 76,033 48,774 182,527 41,224 13,679 135.00 48.082 16.20 40,269 26,416 161,857 35,928 11,651 100.00 39.625 13.30 34,343 23,834 136,819 32,595 9,029 114.00 34,913 12.00 30,736 20,909 110,855 28,914 6,899 109.00 27,193 53.40 12,662 18,826 90,272 23,716 6,100 124.00 24.150 19.30 19,478 15,266 74,989 19,360 5,024 104.00 19.651 16.80 16,348 12,491 CFRA 2020 6.59 21.92 25.03 29.89 13,741 2019 5.77 19.63 23.57 25.53 13,971 2018 5.32 17.50 20.86 23.70 14,066 1 Year 3 Years 5 Years 88.81 35.24 31.31 41.15 23.49 23.34 29.51 4.58 32.07 24.26 3.84 23.06 21.34 3.24 19.30 2014 6.14 0.89 0.99 1.28 N/A NM 30.16 24.38 23.60 19.10 2013 10.38 0.85 0.97 2.19 N/A NM N/A N/A NM NM 2012 4.07 1.02 0.87 1.99 N/A NM N/A N/A NM NM 66,001 16,874 4,601 101.00 17.259 21.10 14,136 10,779 55,519 15,403 3,939 81.00 15,899 17.20 12,733 9,869 46,039 13,834 2,962 85.00 14,469 20.20 10,737 8,749 139,649 188,143 359,268 64,254 12,844 280,143 24,640 91,652 2.93 4.60 29.50 14.49 32.10 136,694 119,675 109,140 101,871 86,333 174,296 152,578 135,676 124,308 105,408 71,926 62,633 57,447 90,114 78,656 72,886 319,616 275,909 232,792 197,295 167,497 147,461 129,187 110,920 56.834 45,221 12,832 34,620 3,950 24,183 16,756 3,943 3,935 19,310 1,995 16,779 15,908 3,958 2,992 250.416 217,524 181,640 156,471 142,971 127,979 111,875 1,990 93,928 22,281 23,548 25,139 13,184 10,212 9,950 11,014 65,124 54.520 47,971 37,091 36,036 26,572 7,358 23,024 3.07 3.37 3.92 1.80 5.14 4.67 4.69 18,659 6.29 4.58 5.10 2.20 2.50 2.80 21.60 1.60 2.70 21.40 2.10 22.10 21.20 22.50 11.40 21.80 8.65 8.83 9.47 9.91 9.41 22.90 8.75 19.00 18.10 18.60 8.70 15.00 8.78 14.60 14.20 9.40 16.60 47,159 60,454 93,798 14,337 2,988 78,925 3,273 16,619 4.22 3.80 23.30 10.39 17.80 Source: S&P Global Market Intelligence. Data may be preliminary or restated; before results of discontinued operations/special items. Per share data adjusted for stock dividends; EPS dilute E-Estimated. NA-Not Available. NM-Not Meaningful. NR-Not Ranked. UR-Under Reviev Redistribution or reproduction is prohibited without prior written permission. Copyright \\U00a9 2023 CFRA. 3\\n\\nStock Report | January 28, 2023 | NasdaqGS Symbol: GOOG | GOOG is in the S&P 500 Alphabet Inc. Sub-Industry Outlook We have a neutral fundamental outlook for the Interactive Media & Services sub-industry over the next 12 months, reflecting the uncertain advertising landscape given macro uncertainty coupled with margin compression amid inflationary pressures. Long term, we note the ongoing shift of total global advertising spend from traditional broadcast TV/radio and print media to Internet/digital media. This shift is driven by the increasing time consumers spend on Internet/digital vs. traditional media and by the superior return on investment (ROI) of Internet/ digital for the advertisers due to more precise targeting, richer feedback, and a more efficient ad buying process that is mostly auction-based and increasingly programmatic. We expect the increasing application of machine/deep learning techniques to generate even higher ROl. According to Magna Global, total global digital ad spending is forecasted to reach $557 billion in 2023 (67% of total media ad spend), growing 8.4%, which compares to the projected 8.9% increase in 2022, but we think sharp decelerating macro factors will likely lead to revenue missing this mark. Within digital ad spend, we expect about 55%-60% will go to display advertising and the remainder will go to search, with consumer shifts toward social media and digital video accelerating the rise of display. We expect revenue growth to decelerate/decline for social media participants Alphabet (GOOGL), Facebook (FB), Twitter (TWTR), Snapchat (SNAP), and Pinterest (PINS] through the first half of 2023. This largely reflects tighter customer budgets and persistent headwinds from prior iOS tracking changes. In addition, greater competitive pressures from new ad-based driven platforms (e.g., Netflix) at a time when the digital ad pie is growing much slower will have negative implications for the long-term outlook for existing players. Despite this, we see new measurement solutions gaining traction/supporting ad partners over time and believe the industry remains well- positioned to benefit from increasing user engagement and a growing digital ad market. Alphabet and Meta Platforms capture a majority of digital ad revenue, while Amazon is poised to take considerable share, creating a triopoly. Together, Alphabet and Meta dominate digital/online advertising, holding more than 50% of the global online/digital advertising market with what might be called monopolistic power in their respective search and social media businesses, at least outside of China. Within the $200 billion-plus U.S. ad market, this triopoly is seen controlling nearly two- thirds of the market, with Amazon being the We also underscore the tremendous profitability and substantial operating leverage inherent to the businesses in this sub-industry. We note the large adjacent markets into which GOOGL/FB are expanding [e.g., GOOGLS or planning to expand (e.g., autonomous vehicles, drone delivery, payments). The opportunity we see in this sub-industry is partially offset by the persistent threat of greater regulation regarding alleged antitrust violations and data privacy, with the greatest threat coming from Europe (Digital Markets Act and Digital Services Act]. For the year 2022, the SSP 1500 Interactive Media & Services sub-industry index fell 46.3% versus a 19.1% decline for the broader S&P 1500. In 2021, the S&P 1500 Interactive Media & Services sub-industry index rose 46.6% versus a 26.7% rise for the S&P 1500. / Angelo Zino, CFA CFRA Industry Performance ICS Sector: Communication Service Sub-Industry: Interactive Media and Service Based on S&P 1500 Indexes Five-Year market price performance through Jan 28, 2023 NasdagGS:G00G - Sub-Industry S&P 1500 200% 160% -40% 1 2018 2019 2020 2021 2022 2023 NOTE: A sector chart appears when the sub-industry does not have sufficient historical index data. All Sector & Sub-Industry information is based on the Global Industry Classification Standard (GICS). Past performance is not an indication of future performance and shoulc not be relied upon as such. Source: CFRA, S&P Global Market Intelligence Sub-Industry: Interactive Media and Services Peer Group*: Interactive Media and Services Peer Group Stock Symbol Exchange Currency Recent Stock Price Stk. Mkt. Cap. (M) 30-Day Price Chg. (%) 1-Year Price Chg. (%) P/E Ratio Fair Value Calc. Yield (%) Return on Equity (%) LTD to Cap (%) *For Peer Groups with more than 10 companies or stocks, selection of issues is based on market capitalization. NA-Not Available; NM-Not Meaningful. Note: Peers are selected based on Global Industry Classification Standards and market capitalization. The peer group list includes companies with similar characteristics, but may not include all the companies within the same industry and/or that engage in the same line of business. Redistribution or reproduction is prohibited without prior written permission. Copyright \\U00a9 2023 CFRA. 4\\n\\nStock Report | January 28, 2023 | NasdaqGS Symbol: GOOG | GOOG is in the S&P 500 Alphabet Inc. Analyst Research Notes and other Company News CFRA 07:26 AM ET... CFRA Maintains Buy Opinion on Shares of Alphabet Inc. (G00G GOOG says that it is cutting about 12,000 employees, or about 6% of its workforce, as it follows other cost cuts from big tech firms like Meta Platforms (laying off at least 13,000 people), Amazon (18,000 cuts), and Microsoft (10,000 cuts). As we wrote earlier this week, although GOOG has been emphasizing the need to improve efficiencies across its business (previously said Q4 headcount growth would be half of that in Q3), we believe investors wanted to see more in the form of cost cuts. GOOG has added more than 50,000 employees over the last two years, increasing its staff by 12,765 individuals in Q3 alone (2,600 from the Mandiant deal). Although the sharp increase in headcount helped create a profit recession for GOOG (Y/Y net income/EPS declines) last year, we think greater focus on opex cuts supports our view of a margin trough in the first half of 2023. While our revenue estimates remain about 3% -5% below consensus, the cost cuts now have the ability to sustain EPS better than we previously thought. / Angelo Zino, CFA January 18, 2023 05:54 PM ET... CFRA Maintains Buy Opinion on Shares of Alphabet Inc. (G00G Ahead of Dec-Q EPS results on February 2, we keep our below consensus 2023 EPS at $4.95 and adjust 2024 to $5.66 from $5.95. We cut our 12-month target to $113 from $120, on steep historical discount P/E of 20x our 2024 EPS. Our revenue estimates are 3%-5% below consensus on downside related to digital ad spend. Although GOOGL has been emphasizing the need to improve efficiencies, we believe investors want more in the form of cost cuts given announcements from Big Tech. Cost cuts, if seen, have the potential to sustain EPS better than we think. While foreign currency will again be a headwind in Q4, we expect this to alleviate through 2023. Although a tough ad spending landscape has the potential to put further downside pressure on Search and YouTube, we see a 1H trough, while cloud growth should buck macro concerns (we see 25%-30% growth). With shares trading at a +30% discount (less than 16x on 2024 EPS ex. net cash) to historical averages, risks (regulatory, competitive, macro) appear priced in. / Angelo Zino, CFA October 26, 2022 12:25 AM ET... CFRA Maintains Buy Opinion on Shares of Alphabet Inc. (G00G We keep our 12-month target at $120, on a P/E of 20.2x our 2024 EPS estimate, well below historical averages. We reduce our '22 EPS view to $4.69 from $4.97, '23 to $4.95 from $5.44, and '24 to $5.95 from $6.20. GOOG posts Q3 EPS of $1.06 vs. $1.40, missing our $1.21 view ($1.26 consensus). Sales grew 6% to $69.1B, missing our 7% estimate (+8.5% consensus), hurt by a 500 basis point hit from forex (+11% constant currency). Sales missed across most categories, with specific disappointment from Search (+4% vs. our +6% view) and YouTube (-2% vs. our +1% view). We think the results point to ad softness spreading and see conditions remaining challenged into the 1H of '23. Cloud was a lone bright area, growing 38% and better than our +30% outlook, providing a growth engine amid tougher macro time. Operating margin of 25% compressed from 32% a year ago, missing the 28% estimate, on more tempered growth coupled with a 24% Y/Y increase in headcount. We note $102B net cash, with $15B in Q3 used towards repurchases. / Angelo Zino, CFA October 18, 2022 06:46 AM ET... CFRA Maintains Buy Opinion on Shares of Alphabet Inc. (G00G 100.78****): We reduce our 12-month target price to $120 from $130, on a P/E of 19.4x our 2024 EPS estimate, which we initiate at $6.20, and compares to its 5- and 10-year $4.97 from $5.20 and '23 to $5.44 from $5.90. GOOG is set to report 03 results on 0/25 where we see EPS of $1.21 vs. consensus of $1.26. Although Search remains letter positioned than other areas of advertising spend, macro issues (especially Jutside the U.S.] will put downward pressure on GOOG's growth trajectory. We think cloud growth will be key, which we see at 30% in 03/04 while YouTube is likely to see owth constrained through at least mid '23 (tough comps and shift towards shor rm videos]. Forex issues will persist (we see 500 to 600 basis point headwind] bi we see potential for tighter cost controls/cuts driving upside to our margin views. We stay constructive largely on valuation [+30% discount to historical] but note customer budgets likely tighten in '23. / Angelo Zino, CFA 06:37 PM ET... CFRA Maintains Buy Opinion on Shares of Alphabet Inc. (G00G We keep our 12-month target at $130, on a P/E of 22x our 2023 EPS estimate, which compares to its 5- and 10-year historical forward average of 22.2x and 25.1x. We adjust our '22 EPS estimate to $5.20 from $5.48 and '23 to $5.90 from $6.25. G00G posts Q2 EPS of $1.21 vs. $1.36, missing the $1.29 consensus but better than feared. Sales rose 13% (up 16% ex. forex), slightly better than our view, driven by growth in Search (+14% and 58% of sales) and the cloud (+36% and 9% of sales). We believe GOOG's results demonstrate that it is navigating an uncertain digital ad space better than others (e.g., SNAP and TWTR), as customers likely see greater ROI in Search. Cloud growth was in line with our view, but remains unprofitable (operating loss of $858 million in Q2, negative 14% operating margin), as GOOG continues to invest responsibly. We see tighter ad budgets constraining YouTube growth (+5%), while Google Play fee changes hurt Other sales (-1%). We like aggressive buybacks as valuation appears enticing. / Angelo Zino, CFA 12:03 AM ET... CFRA Keeps Buy Opinion on Shares of Alphabet Inc. (G00G We cut our 12-month target price to $130 from $2,600 (to account for the 20-for-1 stock split], on P/E of 20.8x our 2023 EPS estimate, which compares to its 5- and 10-year historical forward average of 22.2x and 25.1x. Ahead of Q2 results expected on 7/26, our 2022 EPS stands at $5.48 ($109.54 from $113.25 pre-split) and 2023 at $6.25 ($125.06 from $132.40) while acknowledging further risks ahead (e.g., macro, geopolitical, competitive, legal). Although Search revenue should hold up better than other aspects of advertising spend, we temper our outlook (6%-9% in the 2H vs. +10% prior) given a tougher macro landscape and comparisons that will lead to a sharp deceleration in growth. We see operating expense growth outpacing revenue in the 2H but see room for GOOG to more tightly manage expenses to support margins while capital investments related to the cloud remain unchanged Negative currency moves will act as a headwind (at least 400 basis points in Q2 and even more pronounced in the second half). / Angelo Zino, CFA 10:03 AM ET... CFRA Maintains Buy Opinion on Shares of Alphabet Inc. (G00G According to an unconfirmed Bloomberg report, GOOG plans to slow hiring given an increasing likelihood of an economic recession and will focus hiring on critical functions (e.g., engineering). We believe the intent to slow hiring is prudent, especially amid the uncertain ad spending landscape. This comes after GOOG saw operating expenses likely increase at a faster clip than revenue in the first half. This also comes on the heels of other ad-based-driven companies (e.g., META and SNAP) cautioning investors and tempering hiring. We believe GOOG's efforts should help support margins, but do see increasing risk to consensus views, reflecting the tougher ad/macro landscape and unfavorable currency swings. That said, shares are trading at a +35% discount (less than 17x on '23 EPS) to historical averages and reflect some of these risks, in our view. Despite uncertainties, we expect GOOG to keep capex elevated/invest through the cycle given its ample FCF and initiatives to capture a larger share of the cloud. / Angelo Zino, CFA Note: Research notes reflect CFRA's published opinions and analysis on the stock at the time the note was published. The note reflects the views of the equity analyst as of the date and time indicated in the note, and may not reflect CFRA's current view on the company. Redistribution or reproduction is prohibited without prior written permission. Copyright \\U00a9 2023 CFRA. 5\\n\\nStock Report | January 28, 2023 | NasdaqGS Symbol: GOOG | GOOG is in the S&P 500 Alphabet Inc. Analysts Recommendations Monthly Average Trend Buy Buy/Hold BH Hold H Weak Hold WH Sell S GOOG Ticker S&P Capital IQ Average wH CFRA Wall Street Consensus Opinion Buy Wall Street Consensus vs. Performance For fiscal year 2022, analysts estimate that GOOG will earn USD 4.75. For fiscal year 2023, analysts estimate that GOOG's earnings per share will grow by 11.01% to USD 5.27. Number of Analysts Following Stock 140 100 stock prices A M 2021 Buy Buy/Hold Hold Weak hold Sell No Opinion Total Wall Street Consensus Estimates Estimates Previous Year \\U2014 Current Year ...=- J No. of Recommendations 35 12 4 2 53 ~ M A M J J 2022 % of Total 66 23 8 4 100 1 Mo.Prior 34 12 4 53 3 Mos.Prior 33 Noyt Yeer mmm \\U2022 Actual [Normalized Diluted) Fiscal Year 2023 2022 2023 vs. 2022 2022 Avg Est. High Est. 5.27 7.10 4.75 5.50 A 11% A 29% Low Est. # of Est. 4.23 4.50 V-6% 42 42 N/A% ---. Est. P/E 18.81 20.88 V -10% Q4'23 Q4'22 1.46 1.20 Q4'23 vs. Q4'22 A 21% 1.78 1.40 A 27% 1.25 0.99 A 26% 19 34 V -44% 68.10 82.35 7-17% Forecasts are not reliable indicator of future performance. Note: A company's earnings outlook plays a major part in any investment decision. S&P Global Market Intelligence organizes the earnings estimates of over 2,300 Wall Street analysts, and provides their consensus of earnings over the next two years, as well as how those earnings estimates have changed over time. Note that the information provided in relation to consensus estimates is not intended to predict actual results and should not be taken as a reliable indicator of future performance. Note: For all tables, graphs and charts in this report that do not cite any reference or source, the source is SSP Global Market Intelligence. Redistribution or reproduction is prohibited without prior written permission. Copyright \\U00a9 2023 CFRA.\\n\\nStock Report | January 28, 2023 | NasdaqGS Symbol: GOOG | GOOG is in the S&P 500 Alphabet Inc. Glossary STARS Since January 1, 1987, CFRA Equity and Fund Research Services, and its predecessor S&P Capital IQ Equity Research has ranked a universe of U.S common stocks, ADRs (American Depositary Receipts), and ADSs (American Depositary Shares) based on a given equity's potential for future performance. Similarly, we have ranked Asian and European equities since June 30, 2002 Under proprietary STARS (Stock Appreciation Ranking System), equity analysts rank equities according to their individual forecast of an equity's future total return potential versus the expected total return of a relevant benchmark (e.g., a regional index (MSCI AC Asia Pacific Index, MSCI AC Europe Index or S&P 500\\U00ae Index]], based on a 12-month time horizon. STARS was designed to help investors looking to put their investment decisions in perspective. Data used to assist in determining the STARS ranking may be the result of the analyst's own models as well as internal proprietary models resulting from dynamic data inputs. S&P Global Market Intelligence's Quality Ranking (also known as S&P Capital IQ Earnings & Dividend Rankings) - Growth and SSP Capital IQ Earnings & Dividend Rankings stability of earnings and dividends are deemed key elements in establishing S&P Global Market Intelligence's earnings and dividend rankings for common stocks, which are designed to capsulize the nature of this record in a single symbol. It should be noted, however, that the process also takes into consideration certain adjustments and modifications deemed desirable in establishing such rankings. The final score for each stock is measured against a scoring matrix determined by analysis of the scores of a large and representative sample of stocks. The range of scores in the array of this sample has been aligned with the following ladder of rankings: A+ Highest High A Above B C B+ Average Below Average B- Lower Lowest D In Reorganization NC Not Ranked EPS Estimates CFRA's earnings per share (EPS] estimates reflect analyst projections of future EPS from continuing operations, and generally exclude various items that are viewed as special, non-recurring, or extraordinary. Also, EPS estimates reflect either forecasts of equity analysts; or, the consensus (average) EPS estimate, which are independently compiled by S&P Global Market Intelligence, a data provider to CFRA. Among the items typically excluded from EPS estimates are asset sale gains; impairment, restructuring or merger-related charges; legal and insurance settlements; in process research and development expenses; gains or losses on the extinguishment of debt; the cumulative effect of accounting changes; and earnings related to operations that have been classified by the company as discontinued. The inclusion of some items, such CFRA 12-Month Target Price The equity analyst's projection of the market price a given security will command 12 months hence, based on a combination of intrinsic, relative, anc orivate market valuation metrics, including Fair Value. Abbreviations Used in Equity Research Reports CAGR - Compound Annual Growth Rate CAPEX - Capital Expenditures CY - Calendar Year DCF - Discounted Cash Flow DDM - Dividend Discount Model EBIT - Earnings Before Interest and Taxes EBITDA - Earnings Before Interest, Taxes, Depreciation & Amortization EPS - Earnings Per Share EV - Enterprise Value FCF - Free Cash Flow FFO - Funds From Operations FY - Fiscal Year P/E - Price/Earnings P/NAV - Price to Net Asset Value PEG Ratio - P/E-to-Growth Ratio PV - Present Value R&D - Research & Development ROCE - Return on Capital Employed ROE Return on Equity ROl - Return on Investment ROIC - Return on Invested Capital ROA - Return on Assets SG&A - Selling, General & Administrative Expenses SOTP - Sum-of-The-Parts WACC - Weighted Average Cost of Capital Dividends on American Depository Receipts (ADRs) and American Depository Shares (ADSs) are net of taxes (paid in the country of origin). Reflects an equity analyst's view of a given company's operational risk, or the risk of a firm's ability to continue as an ongoing concern. The Qualitative Risk Assessment is a relative ranking to the U.S. STARS universe, and should be reflective of risk factors related to a company's operations, as opposed to risk and volatility measures associated with share prices. For an ETF this reflects on a capitalization-weighted basis, the average qualitative risk assessment assigned to holdings of the fund. STARS Ranking system and definition: **** * 5-STARS (Strong Buy): Total return is expected to outperform the total return of a relevant benchmark, by a notable margin over the coming 12 months, with shares rising in price on an absolute basis. **** * 4-STARS (Buy): Total return is expected to outperform the total return of a relevant benchmark over the coming 12 months. ** * * * 3-STARS (Hold): Total return is expected to closely approximate the total return of a relevant benchmark over the coming 12 months. ***** 2-STARS (Sell): Total return is expected to underperform the total return of a relevant benchmark over the coming 12 months. **** * 1-STAR (Strong Sell): Total return is expected to underperform the total return of a relevant benchmark by a notable margin over the coming 12 months, with shares falling in price on an absolute basis. Relevant benchmarks: In North America, the relevant benchmark is the S&P 500 Index, in Europe and in Asia, the relevant benchmarks are the MSCI AC Europe Index and the MSCI AC Asia Pacific Index, respectively. Redistribution or reproduction is prohibited without prior written permission. Copyright \\U00a9 2023 CFRA. 7\\n\\nStock Report | January 28, 2023 | NasdaqGS Symbol: GOOG | GOOG is in the S&P 500 Alphabet Inc. Disclosures Stocks are ranked in accordance with the following ranking methodologies: STARS Stock Reports: Qualitative STARS rankings are determined and assigned by equity analysts. For reports containing STARS rankings refer to the Glossary section of the report for detailed methodology and the definition of STARS rankings. Quantitative Stock Reports: Quantitative rankings are determined by ranking a universe of common stocks based on 5 measures or model categories: Valuation, Quality, Growth, Street Sentiment, and Price Momentum. In the U.S., a sixth sub-category for Financial Health will also be displayed. Percentile scores are used to compare each company to all other companies in the same universe for each model category. The five (six) model category scores are then weighted and rolled up into a single percentile ranking for that company. For reports containing quantitative rankings refer to the Glossary section seof the report for detailed methodology and the definition of Quantitative rankings. STARS Stock Reports and Quantitative Stock Reports: The methodologies used in STARS Stock Reports and Quantitative Stock Reports (collectively, the \\\"Research Reports\\\") reflect different criteria, assumptions and analytical methods and may have differing rankings. The methodologies and data used to generate the different types of Research Reports are believed by the author and distributor reasonable and appropriate. Generally, CFRA does not generate reports with different ranking methodologies for the same issuer. However, in the event that different methodologies or data are used on the analysis of an issuer, the methodologies may lead to different views on the issuer, which may at times result in contradicting assessments of an issuer. CFRA reserves the right to alter, replace or vary models, methodologies or assumptions from time to time and without notice to clients. STARS Stock Reports: Global STARS Distribution as of December 31, 2022 Ranking North America Europe Buy 37.3% 36.2% Hold 54.3% 55.7% Sell 8.4% 8.0% Total 100.0% 100.0% Asia 52.6% 38.6% 8.8% 100.0% Global 40.1% 51.5% 8.4% 100.0% Analyst Certification: STARS Stock Reports are prepared by the equity research analysts of CFRA and its affiliates and subsidiaries. Quantitative Stock Reports are prepared by CFRA. All of the views expressed in STARS Stock Reports accurately reflect the research analyst's personal views regarding any and all of the subject securities or issuers; all of the views expressed in the Quantitative Stock Reports accurately reflect the output of CFRA'S algorithms and programs. Analysts generally update STARS Stock Reports at least four times each year. Quantitative Stock Reports are generally updated weekly. No part of analysts' or CFRA's compensation was, is, or will be directly or indirectly related to the specific rankings or views expressed in any Stock Report. About CFRA Equity Research: This Research Report is published and originally distributed by Accounting Research & Analytics, LLC d/b/a CFRA (\\\"CFRA US\\\"), with the following exceptions: In the UK/EU/EEA, it is published and originally distributed by CFRA UK Limited (\\\"CFRA UK\\\"), which is regulated by the Financial Conduct Authority (No. 775151), and in Malaysia by CFRA MY Sdn Bhd (Company No. 683377-A) (\\\"CFRA Malaysia\\\"), which is regulated by Securities Commission Malaysia, [No. CMSL/A0181/2007) under license from CFRA US. These parties and their subsidiaries maintain no responsibility for reports redistributed by third parties such as brokers or financial advisors. General Disclosure Notice to all jurisdictions: Where Research Reports are made available in a language otherthan English and in the case of inconsistencies between the English and translated versions of a Research Report, the English version will control and supersede any ambiguities between such versions. Neither CFRA nor its affiliates guarantee the accuracy of any translation. e content of this report and the opinions expressed herein are those of CFRA based up slicly-available information that CFRA believes to be reliable and the opinions are subie CFRA not a reliable indicator of future performance. This report is not intended to, and does not, constitute an offer or solicitation to buy and sell securities or engage in any investment activity. This report is for informational purposes only. Statements in this report are not made with respect to any particular investor or type of investor. Securities, financial instruments or strategies mentioned herein may not be suitable for all investors and this material is not intended for any specific investor and does not take into account an investor's particular investment objectives, financial situations or needs. Before acting on anything in this report, you should consider whether it is suitable for your particular circumstances and, if necessary, seek professional advice. CFRA may license certain intellectual property or provide services to, or otherwise have a business relationship with, certain issuers of securities that are the subject of CFRA research reports, including exchange-traded investments whose investment objective is to substantially replicate the returns of a proprietary index of CFRA. In cases where CFRA is paid fees that are tied to the amount of assets invested in a fund or the volume of trading activity in a fund, investment in the fund may result in CFRA receiving compensation in addition to the subscription fees or other compensation for services rendered by CFRA, however, no part of CFRA's compensation for services is tied to any particular viewpoint or rating. Additional information on a subject company may be available upon request. CFRA's financial data provider is S&P Global Market Intelligence. THIS DOCUMENT CONTAINS COPYRIGHTED AND TRADE SECRET MATERIAL DISTRIBUTED UNDER LICENSE FROM S&P GLOBAL MARKET INTELLIGENCE. FOR RECIPIENT'S INTERNAL USE ONLY. The Global Industry Classification Standard [GICS\\U00ae] was developed by and/or is the exclusive property of MSCI, Inc. and SSP Global Market Intelligence. GICS is a service mark of MSCI and S&P Global Market Intelligence and has been licensed for use by CFRA. Other Disclaimers and Notices Certain information in this report is provided by S&P Global, Inc. and/or its affiliates and subsidiaries (collectively \\\"S&P Global\\\"). Such information is subject to the following disclaimers and notices: \\\"Copyright @ 2018, S&P Global Market Intelligence (and its affiliates as applicable). All rights reserved. Nothing contained herein is investment advice and a reference to a particular investment or security, a credit rating or any observation concerning a security or investment provided by S&P Global is not a recommendation to buy, sell or hold such investment or security or make any other investment decisions. This may contain information obtained from third parties, including ratings from credit ratings agencies. Reproduction and distribution of S&P Global's information and third party content in any form is prohibited except with the prior written permission of S&P Global or the related third party, as applicable. Neither S&P Global nor its third party providers guarantee the accuracy, completeness, timeliness or availability of any information, including ratings, and are not responsible for any errors or omissions (negligent or otherwise), regardless of the cause, or for the results obtained from the use of such information or content. S&P GLOBAL AND ITS THIRD PARTY CONTENT PROVIDERS GIVE NO EXPRESS OR IMPLIED WARRANTIES. INCLUDING, BUT NOT LIMITED TO, ANY WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE OR USE AND ALL S&P INFORMATION IS PROVIDED ON AN AS-IS BASIS. S&P GLOBAL AND ITS THIRD PARTY CONTENT PROVIDERS SHALL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, EXEMPLARY, COMPENSATORY, PUNITIVE, SPECIAL OR CONSEQUENTIAL DAMAGES, COSTS, EXPENSES, LEGAL FEES, OR LOSSES (INCLUDING LOST INCOME OR PROFITS AND OPPORTUNITY COSTS OR LOSSES CAUSED BY NEGLIGENCE] IN CONNECTION WITH ANY USE OF THEIR INFORMATION OR CONTENT, INCLUDING RATINGS. Credit ratings are statements of opinions and are not statements of fact or recommendations to purchase, hold or sell securities. They do not address the suitability of securities or the suitability of securities for investment purposes, and should not be relied on as investment advice.\\\" usetuess of this information ani assumes no liaiy with espect to the consequences of relying on this information for investment or other purposes. is trouted in an pen yah means, or steredited, rebase retieved spend wiend ur the prior written permission of CFRA, or used for any unlawful or unauthorized purposes. either CFRA nor its third-party providers, as well as its/their directors, officer areholders, emplovees or adents, quarantee the accuracy, comoleteness, timeliness ( availability of the content herein Past performance is not necessarily indicative of future results. This document may contain forward-looking statements or forecasts; such forecasts are Redistribution or reproduction is prohibited without prior written permission. Copyright \\U00a9 2023 CFRA.\\n\\nStock Report | January 28, 2023 | NasdaqGS Symbol: GOOG | GOOG is in the S&P 500 Alphabet Inc. FRA's Research Reports may be distributed in certain localities, countries and/o jurisdictions by independent third parties or independent intermediaries and/o distributors (\\\"Intermediaries\\\"). Intermediaries are not acting as agents or representatives CFRA For residents of the European Union/European Economic Area: Research reports are originally distributed by CFRA UK Limited (company number 08456139 registered in England & Wales with its registered office address at New Derwent House, 69-73 Theobalds Road, London, WC1X 8TA, United Kingdom). CFRA UK Limited is regulated by the UK Financial Conduct Authority (No. 775151). For residents of Malaysia: Research reports are originally produced and distributed by CFRA MY Sdn Bhd (Company No. 683377-A) (\\\"CFRA Malaysia\\\"), a wholly-owned subsidiary of CFRA US. CFRA Malaysia is regulated by Securities Commission Malaysia (License No. CMSL/A0181/2007). For Recipients in Canada: This report is not prepared subject to Canadian disclosure requirements and may not be suitable for Canadian investors. For residents of Singapore: Recipients of the Research reports in Singapore should contact the Intermediary of the Research Reports in respect to any matters arising from, or in connection with, the analysis of the report. Where the recipient is not an accredited, expert or institutional investor as defined by the Securities and Futures Act, the Intermediary accepts legal responsibility for the contents of Research Reports in respect of such recipient in accordance with applicable law. When reports are distributed by Intermediaries in Singapore, the Intermediary, and not CFRA, is solely responsible for ensuring that the recipients of the Research Reports understand the information contained in the Research Reports and that such information is suitable based on the customer's profile and investment objectives. For residents of all other countries: Research reports are originally distributed Accounting Research & Analytics, LLC d/b/a Copyright \\U00a9 2022 CFRA. All rights reserved. CFRA and STARS are registered trademarks of CFRA. Redistribution or reproduction is prohibited without prior written permission. Copyright \\U00a9 2023 CFRA.\";\n    \"CD_thumbnail\" = \"{ length=192078, sha256=b169a95e65dd9da6c1a4ba7d5a7fc35c19f85b6e793c3b94bd8abddab809bcd8 }\";\n    \"CD_title\" = \"Alphabet Inc. Stock Report Analysis\";\n    \"CD_updatedAt\" = \"2025-04-06 20:32:11 +0000\";\n}>"
+)
+Deleted RecordIDs:
+{
+    "CD_Folder" =     (
+        "<CKRecordID: 0x3013eb4e0; recordName=8609705F-C7C5-473A-9C5B-58254F16B219, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>"
+    );
+    "CD_Tag" =     (
+        "<CKRecordID: 0x3013eb3c0; recordName=83FA44F3-11C9-433D-9100-1EB7940F389B, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>",
+        "<CKRecordID: 0x3013eb3a0; recordName=694F1448-3723-4F6F-A75F-7637A3434AE6, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>",
+        "<CKRecordID: 0x3013ebde0; recordName=F9D5E1DF-70C7-499A-9A3A-EDDA68DE1C80, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>"
+    );
+}
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext initializeCachesWithManagedObjectContext:andObservedStore:error:](131): Updating relationship described by record: <CKRecord: 0x148d14000; recordType=CDMR, recordID=E0A5DB75-5C7D-408B-9D08-EA7DAAC87733:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=29g, values={
+    "CD_entityNames" = "Document:Tag";
+    "CD_recordNames" = "2B85F0FD-6515-4E51-8276-BDD321B06170:6A19B700-8FF3-41B1-A0E8-58C040DF3A23";
+    "CD_relationships" = "tags:documents";
+}>
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext initializeCachesWithManagedObjectContext:andObservedStore:error:](131): Updating relationship described by record: <CKRecord: 0x148d14180; recordType=CDMR, recordID=88CF2425-AD9F-454C-87C8-F799A4353C68:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=29e, values={
+    "CD_entityNames" = "Document:Tag";
+    "CD_recordNames" = "2B85F0FD-6515-4E51-8276-BDD321B06170:D8452DB2-6E58-4E3E-9DFF-C67E9E2AD87F";
+    "CD_relationships" = "tags:documents";
+}>
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext initializeCachesWithManagedObjectContext:andObservedStore:error:](131): Updating relationship described by record: <CKRecord: 0x148d14300; recordType=CDMR, recordID=9B62238E-6A3E-4DFD-9D51-94E100548148:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=29c, values={
+    "CD_entityNames" = "Document:Tag";
+    "CD_recordNames" = "2B85F0FD-6515-4E51-8276-BDD321B06170:6028D5E5-333F-4933-8EF7-AA6D66C8F7B4";
+    "CD_relationships" = "tags:documents";
+}>
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext initializeCachesWithManagedObjectContext:andObservedStore:error:](131): Updating relationship described by record: <CKRecord: 0x148d14480; recordType=CDMR, recordID=00636F8D-9DF1-4FFA-AA19-55178BA03D2E:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=29a, values={
+    "CD_entityNames" = "Document:Tag";
+    "CD_recordNames" = "2B85F0FD-6515-4E51-8276-BDD321B06170:2AB21574-BD8D-4708-8F56-FB12EDA08027";
+    "CD_relationships" = "tags:documents";
+}>
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext initializeCachesWithManagedObjectContext:andObservedStore:error:](131): Updating relationship described by record: <CKRecord: 0x148d14600; recordType=CDMR, recordID=A74AA4CA-79CB-449F-8D80-15E90EA1D4B8:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=298, values={
+    "CD_entityNames" = "Document:Tag";
+    "CD_recordNames" = "2B85F0FD-6515-4E51-8276-BDD321B06170:76A9DA01-D6EA-4C36-A388-195C5803E676";
+    "CD_relationships" = "tags:documents";
+}>
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext initializeCachesWithManagedObjectContext:andObservedStore:error:](191): Deleting record with id (CD_Folder): <CKRecordID: 0x3013eb4e0; recordName=8609705F-C7C5-473A-9C5B-58254F16B219, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext initializeCachesWithManagedObjectContext:andObservedStore:error:](191): Deleting record with id (CD_Tag): <CKRecordID: 0x3013eb3c0; recordName=83FA44F3-11C9-433D-9100-1EB7940F389B, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext initializeCachesWithManagedObjectContext:andObservedStore:error:](191): Deleting record with id (CD_Tag): <CKRecordID: 0x3013eb3a0; recordName=694F1448-3723-4F6F-A75F-7637A3434AE6, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext initializeCachesWithManagedObjectContext:andObservedStore:error:](191): Deleting record with id (CD_Tag): <CKRecordID: 0x3013ebde0; recordName=F9D5E1DF-70C7-499A-9A3A-EDDA68DE1C80, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c0210>
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext populateUnresolvedIDsInStore:withManagedObjectContext:error:]_block_invoke(551): Populating unresolved relationships:
+{
+}
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:madeChanges:error:]_block_invoke_3(895): Updating relationship: <PFMirroredManyToManyRelationshipV2: 0x300686040> <CKRecordID: 0x3013eb540; recordName=E0A5DB75-5C7D-408B-9D08-EA7DAAC87733, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>-Document:<CKRecordID: 0x3013fb2e0; recordName=2B85F0FD-6515-4E51-8276-BDD321B06170, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>-tags-Tag:<CKRecordID: 0x3013fa340; recordName=6A19B700-8FF3-41B1-A0E8-58C040DF3A23, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:madeChanges:error:]_block_invoke_3(895): Updating relationship: <PFMirroredManyToManyRelationshipV2: 0x300685300> <CKRecordID: 0x3013eb840; recordName=88CF2425-AD9F-454C-87C8-F799A4353C68, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>-Document:<CKRecordID: 0x3013fb180; recordName=2B85F0FD-6515-4E51-8276-BDD321B06170, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>-tags-Tag:<CKRecordID: 0x3013fb400; recordName=D8452DB2-6E58-4E3E-9DFF-C67E9E2AD87F, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:madeChanges:error:]_block_invoke_3(895): Updating relationship: <PFMirroredManyToManyRelationshipV2: 0x300688b00> <CKRecordID: 0x3013ebac0; recordName=9B62238E-6A3E-4DFD-9D51-94E100548148, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>-Document:<CKRecordID: 0x3013564c0; recordName=2B85F0FD-6515-4E51-8276-BDD321B06170, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>-tags-Tag:<CKRecordID: 0x3013566c0; recordName=6028D5E5-333F-4933-8EF7-AA6D66C8F7B4, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:madeChanges:error:]_block_invoke_3(895): Updating relationship: <PFMirroredManyToManyRelationshipV2: 0x300689200> <CKRecordID: 0x3013ebbc0; recordName=00636F8D-9DF1-4FFA-AA19-55178BA03D2E, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>-Document:<CKRecordID: 0x3013563c0; recordName=2B85F0FD-6515-4E51-8276-BDD321B06170, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>-tags-Tag:<CKRecordID: 0x301356800; recordName=2AB21574-BD8D-4708-8F56-FB12EDA08027, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:madeChanges:error:]_block_invoke_3(895): Updating relationship: <PFMirroredManyToManyRelationshipV2: 0x300688e80> <CKRecordID: 0x3013eb440; recordName=A74AA4CA-79CB-449F-8D80-15E90EA1D4B8, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>-Document:<CKRecordID: 0x301356300; recordName=2B85F0FD-6515-4E51-8276-BDD321B06170, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>-tags-Tag:<CKRecordID: 0x301356500; recordName=76A9DA01-D6EA-4C36-A388-195C5803E676, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>
+🔐 [DocumentLockManager] Forcing password sync to iCloud
+🔑 Attempting to get keychain item: com.scanvault.documentlock
+⚠️ Couldn't determine team ID for keychain access group
+🔑 No iCloud keychain password found (status: -34018), trying any available
+🔑 No iCloud keychain password found (status: -34018)
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c0210>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c0210>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c0210>
+CoreData: warning: CoreData+CloudKit: -[PFCloudKitImportRecordsWorkItem applyAccumulatedChangesToStore:inManagedObjectContext:withStoreMonitor:madeChanges:error:](513): Finished importing applying changes for request: <NSCloudKitMirroringImportRequest: 0x303086c10> 36F85777-E15D-4953-834E-7F4C5EA7B06F
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c0210>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c0210>
+CoreData: warning: CoreData+CloudKit: -[PFCloudKitImportRecordsWorkItem newMirroringResultByApplyingAccumulatedChanges]_block_invoke(241): Finished importing changes for request: <NSCloudKitMirroringImportRequest: 0x303086c10> 36F85777-E15D-4953-834E-7F4C5EA7B06F
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitImporter processWorkItemsWithCompletion:](444): <PFCloudKitImporter: 0x3006b8480>: Processing work items: (
+)
+CoreData: debug: PostSaveMaintenance: incremental_vacuum with freelist_count - 1867 and pages_to_free 373
+CoreData: debug: PostSaveMaintenance: fileSize 9916872 greater than prune threshold
+CoreData: debug: PostSaveMaintenance: incremental_vacuum with freelist_count - 1494 and pages_to_free 298
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database did checkpoint. Log size: 0 checkpointed: 0
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024dc580>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c0370>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](3585): Finished request: <NSCloudKitMirroringImportRequest: 0x303086c10> 36F85777-E15D-4953-834E-7F4C5EA7B06F with result: <NSCloudKitMirroringResult: 0x301db1890> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 1 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedImportWithLabel:activity:voucher:completionHandler:]_block_invoke(3660): <NSCloudKitMirroringDelegate: 0x302cd01e0> - Finished automatic import - SandboxImport - with result: <NSCloudKitMirroringResult: 0x301db1890> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 1 error: (null)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](3600): Finished request '<NSCloudKitMirroringImportRequest: 0x303086c10> 36F85777-E15D-4953-834E-7F4C5EA7B06F' with result: <NSCloudKitMirroringResult: 0x301db1890> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 1 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Checking for pending requests.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndScheduleImportIfNecessaryFromPush:fromErrorRecovery:fromShareAccept:andStartAfterDate:]_block_invoke_2(3326): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Checking to see if an automated import should be scheduled.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3567): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Executing: <NSCloudKitMirroringExportRequest: 0x303086d00> 3F489EC7-43F4-40CD-9B94-29D5C062536F
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024d8580>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter analyzeHistoryInStore:withManagedObjectContext:error:](549): <PFCloudKitExporter: 0x3030fd0e0>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "1510C4F5-FEDB-4B32-AA39-E03ACCADA162" = 1791;
+}>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024dc790>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024dc790>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessary]_block_invoke_2(363): <PFCloudKitExporter: 0x3030fd0e0>: Found 0 objects needing export.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c4210>
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _exportFinishedWithResult:exporter:](1493): Finished export: <PFCloudKitExporter: 0x3030fd0e0>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](3585): Finished request: <NSCloudKitMirroringExportRequest: 0x303086d00> 3F489EC7-43F4-40CD-9B94-29D5C062536F with result: <NSCloudKitMirroringResult: 0x301d65860> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:]_block_invoke(3700): <NSCloudKitMirroringDelegate: 0x302cd01e0> - Finished automatic export - SandboxExport - with result: <NSCloudKitMirroringResult: 0x301d65860> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](3600): Finished request '<NSCloudKitMirroringExportRequest: 0x303086d00> 3F489EC7-43F4-40CD-9B94-29D5C062536F' with result: <NSCloudKitMirroringResult: 0x301d65860> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3570): <NSCloudKitMirroringDelegate: 0x302cd01e0>: No more requests to execute.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:](3686): <NSCloudKitMirroringDelegate: 0x302cd01e0> - Beginning automated export - ExportActivity:
+<CKSchedulerActivity: 0x3037cd380; identifier=com.apple.coredata.cloudkit.activity.export.1510C4F5-FEDB-4B32-AA39-E03ACCADA162, priority=2, container=iCloud.com.TSV.app:Sandbox, relatedApplications=(
+    "com.SWhiteApps.TheScanVault"
+), xpcActivityCriteriaOverrides={
+    ActivityGroupName = "com.apple.coredata.cloudkit.TheScanVault.1510C4F5-FEDB-4B32-AA39-E03ACCADA162";
+    Delay = 0;
+    GracePeriod = 10;
+    Priority = Utility;
+}>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](981): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x3030fd0e0> B3AC2DFE-F18D-433C-8427-72068D72482A
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(1018): <NSCloudKitMirroringDelegate: 0x302cd01e0>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x3030fc6e0> B3AC2DFE-F18D-433C-8427-72068D72482A
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(1027): Enqueued request: <NSCloudKitMirroringExportRequest: 0x3030fc6e0> B3AC2DFE-F18D-433C-8427-72068D72482A
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3567): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Executing: <NSCloudKitMirroringExportRequest: 0x3030fc6e0> B3AC2DFE-F18D-433C-8427-72068D72482A
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024d84d0>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter analyzeHistoryInStore:withManagedObjectContext:error:](549): <PFCloudKitExporter: 0x3030f84b0>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "1510C4F5-FEDB-4B32-AA39-E03ACCADA162" = 1792;
+}>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c44d0>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessary]_block_invoke_2(363): <PFCloudKitExporter: 0x3030f84b0>: Found 0 objects needing export.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024d8630>
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _exportFinishedWithResult:exporter:](1493): Finished export: <PFCloudKitExporter: 0x3030f84b0>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](3585): Finished request: <NSCloudKitMirroringExportRequest: 0x3030fc6e0> B3AC2DFE-F18D-433C-8427-72068D72482A with result: <NSCloudKitMirroringResult: 0x301dd4930> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:]_block_invoke(3700): <NSCloudKitMirroringDelegate: 0x302cd01e0> - Finished automatic export - ExportActivity - with result: <NSCloudKitMirroringResult: 0x301dd4930> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](3600): Finished request '<NSCloudKitMirroringExportRequest: 0x3030fc6e0> B3AC2DFE-F18D-433C-8427-72068D72482A' with result: <NSCloudKitMirroringResult: 0x301dd4930> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3570): <NSCloudKitMirroringDelegate: 0x302cd01e0>: No more requests to execute.
+CoreData: debug: PostSaveMaintenance: incremental_vacuum with freelist_count - 1196 and pages_to_free 239
+🔄 Follow-up document lock sync (attempt 1)
+🔎 Starting fetchLocksFromCloudKit() in DocumentLockService
+🔍 CLOUD FETCH: Starting fetchLockedDocuments in CloudSyncManager
+🔍 CLOUD FETCH: Using container: iCloud.com.TSV.app
+🔍 CLOUD FETCH: Fetching locked documents record with ID 'all_device_locks'
+✅ CLOUD FETCH: Successfully retrieved 'all_device_locks' record
+🔍 CLOUD FETCH METADATA: Record Type: DocumentLock
+🔍 CLOUD FETCH METADATA: Record Modified Date: 2025-04-04 23:10:54 +0000
+🔍 CLOUD FETCH METADATA: Available Keys: updatedAt, lockedDocuments, deviceId
+🔍 Found 5 locked document IDs from CloudKit:
+   - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+   - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+   - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+   - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+   - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+🔍 CLOUD FETCH: Converted 5 of 5 strings to valid UUIDs
+💾 Saved 5 locked documents to local storage
+🔍 CLOUD FETCH CHANGES: 0 docs being added, 0 docs being removed
+✅ Updated lock state with 5 documents from CloudKit (was 5)
+🔒 Currently locked documents:
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+🔐 SYNC DETAILS: CloudKit returned 5 locked documents
+🔐 SYNC RAW DATA: Document IDs received from CloudKit:
+   - 4657ABCC-5EF0-4434-BF74-E15525AFF7E9
+   - 6FC1FEB0-3397-4571-9EC3-C31B25829612
+   - 4B041DFC-89D1-4841-8D86-360C3D5991C2
+   - 6304803F-4FBC-4990-BDE8-7C4C96DBF635
+   - F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA
+🔑 Skipping password sync check - too soon since last attempt
+🔄 CloudKit sync completed with 5 documents
+🔐 [DocumentLockManager] Scheduling batched UI update
+🔄 Refreshing document lock state in UI
+🔐 SYNC PROCESS: Converting received document IDs to UUIDs
+🔐 SYNC DIFF: 0 docs being added, 0 docs being removed
+💾 Saved 5 locked documents to local storage
+✅ Updated lock state with 5 documents from CloudKit (was 5)
+🔒 Currently locked documents:
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+🔐 [DocumentLockManager] Performing batched UI update with 0 document changes and 0 folder changes
+🔐 [DocumentLockManager] Forcing password sync to iCloud
+🔑 Attempting to get keychain item: com.scanvault.documentlock
+⚠️ Couldn't determine team ID for keychain access group
+🔑 No iCloud keychain password found (status: -34018), trying any available
+🔑 No iCloud keychain password found (status: -34018)
+🔐 [DocumentLockManager] Forcing password sync to iCloud
+🔑 Attempting to get keychain item: com.scanvault.documentlock
+⚠️ Couldn't determine team ID for keychain access group
+🔑 No iCloud keychain password found (status: -34018), trying any available
+🔑 No iCloud keychain password found (status: -34018)
+🔄 Follow-up document lock sync (attempt 2)
+🔎 Starting fetchLocksFromCloudKit() in DocumentLockService
+🔍 CLOUD FETCH: Starting fetchLockedDocuments in CloudSyncManager
+🔍 CLOUD FETCH: Using container: iCloud.com.TSV.app
+🔍 CLOUD FETCH: Fetching locked documents record with ID 'all_device_locks'
+✅ CLOUD FETCH: Successfully retrieved 'all_device_locks' record
+🔍 CLOUD FETCH METADATA: Record Type: DocumentLock
+🔍 CLOUD FETCH METADATA: Record Modified Date: 2025-04-04 23:10:54 +0000
+🔍 CLOUD FETCH METADATA: Available Keys: updatedAt, lockedDocuments, deviceId
+🔍 Found 5 locked document IDs from CloudKit:
+   - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+   - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+   - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+   - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+   - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+🔍 CLOUD FETCH: Converted 5 of 5 strings to valid UUIDs
+💾 Saved 5 locked documents to local storage
+🔍 CLOUD FETCH CHANGES: 0 docs being added, 0 docs being removed
+✅ Updated lock state with 5 documents from CloudKit (was 5)
+🔒 Currently locked documents:
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+🔐 SYNC DETAILS: CloudKit returned 5 locked documents
+🔐 SYNC RAW DATA: Document IDs received from CloudKit:
+🔑 Skipping password sync check - too soon since last attempt
+   - 4657ABCC-5EF0-4434-BF74-E15525AFF7E9
+   - 6FC1FEB0-3397-4571-9EC3-C31B25829612
+   - 4B041DFC-89D1-4841-8D86-360C3D5991C2
+   - 6304803F-4FBC-4990-BDE8-7C4C96DBF635
+   - F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA
+🔄 CloudKit sync completed with 5 documents
+🔐 [DocumentLockManager] Scheduling batched UI update
+🔄 Refreshing document lock state in UI
+🔐 SYNC PROCESS: Converting received document IDs to UUIDs
+🔐 SYNC DIFF: 0 docs being added, 0 docs being removed
+💾 Saved 5 locked documents to local storage
+✅ Updated lock state with 5 documents from CloudKit (was 5)
+🔒 Currently locked documents:
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+🔐 [DocumentLockManager] Performing batched UI update with 0 document changes and 0 folder changes
+Failed to associate thumbnails for picked URL file:///private/var/mobile/Library/Mobile%20Documents/com~apple~CloudDocs/Stock%20Reports/META-Nov24.pdf with the Inbox copy file:///private/var/mobile/Containers/Data/Application/03CD7D7F-4395-4D25-8346-6FD89B4C613E/tmp/com.SWhiteApps.TheScanVault-Inbox/META-Nov24.pdf: Error Domain=QLThumbnailErrorDomain Code=115 "(null)" UserInfo={NSErrorFailingURLKey=file:///private/var/mobile/Library/Mobile%20Documents/com~apple~CloudDocs/Stock%20Reports/META-Nov24.pdf}
+✅ File successfully copied to: /private/var/mobile/Containers/Data/Application/03CD7D7F-4395-4D25-8346-6FD89B4C613E/tmp/META-Nov24.pdf
+📄 Processing selected document: /private/var/mobile/Containers/Data/Application/03CD7D7F-4395-4D25-8346-6FD89B4C613E/tmp/META-Nov24.pdf
+🔄 Completely resetting state for new document
+📄 Document type: pdf
+🔄 Processing PDF: /private/var/mobile/Containers/Data/Application/03CD7D7F-4395-4D25-8346-6FD89B4C613E/tmp/META-Nov24.pdf
+✅ PDF opened successfully with 9 pages
+📄 Processing page 1: size = (612.0, 792.0)
+📄 Processing page 2: size = (612.0, 792.0)
+📄 Processing page 3: size = (612.0, 792.0)
+📄 Processing page 4: size = (612.0, 792.0)
+📄 Processing page 5: size = (612.0, 792.0)
+📄 Processing page 6: size = (612.0, 792.0)
+📄 Processing page 7: size = (612.0, 792.0)
+📄 Processing page 8: size = (612.0, 792.0)
+📄 Processing page 9: size = (612.0, 792.0)
+🔄 State reset complete - UI notified
+The view service did terminate with error: Error Domain=_UIViewServiceErrorDomain Code=1 "(null)" UserInfo={Terminated=disconnect method}
+✅ Processed page 9 image
+✅ Processed page 2 image
+✅ Processed page 7 image
+✅ Processed page 8 image
+✅ Processed page 3 image
+✅ Processed page 5 image
+✅ Processed page 4 image
+✅ Processed page 6 image
+✅ Processed page 1 image
+✅ Extracted 9 images from PDF in correct order
+🔄 Document processor state reset
+🔄 Document processing state: Ready for processing
+🔄 OpenAI call counter was 0, now reset to 0
+🔄 Document processing state: Performing OCR
+🔄 Starting concurrent OCR for 9 images
+🔍 Starting OCR on page 1
+🔍 Starting OCR on page 4
+🔍 Starting OCR on page 5
+🔍 Starting OCR on page 3
+🔍 Starting OCR on page 2
+🔍 Starting OCR on page 6
+🔍 Starting OCR on page 8
+🔍 Starting OCR on page 7
+🔍 Starting OCR on page 9
+📄 Document processing started
+numANECores: Unknown aneSubType
+✅ OCR completed for page 6 with 1934 characters
+📊 OCR progress: 1/9 pages
+✅ OCR completed for page 6
+✅ OCR completed for page 3 with 4031 characters
+📊 OCR progress: 2/9 pages
+✅ OCR completed for page 3
+✅ OCR completed for page 1 with 6738 characters
+📊 OCR progress: 3/9 pages
+✅ OCR completed for page 1
+✅ OCR completed for page 2 with 7017 characters
+📊 OCR progress: 4/9 pages
+✅ OCR completed for page 2
+✅ OCR completed for page 4 with 5886 characters
+📊 OCR progress: 5/9 pages
+✅ OCR completed for page 4
+✅ OCR completed for page 9 with 3271 characters
+📊 OCR progress: 6/9 pages
+✅ OCR completed for page 9
+✅ OCR completed for page 5 with 8478 characters
+📊 OCR progress: 7/9 pages
+✅ OCR completed for page 5
+✅ OCR completed for page 7 with 5706 characters
+📊 OCR progress: 8/9 pages
+✅ OCR completed for page 7
+✅ OCR completed for page 8 with 9283 characters
+📊 OCR progress: 9/9 pages
+✅ OCR completed for all 9 pages
+✅ OCR completed for page 8
+📝 Combined text from all pages: 52360 characters
+🔄 Document processing state: OCR completed
+🧠 Proceeding with AI analysis
+🧠 Proceeding with AI analysis
+📝 Starting AI analysis with 52360 characters of text
+🔄 Document processing state: AI analysis in progress (detailed)
+🔄 OpenAI call counter was 0, now reset to 0
+🔍 AI enabled check for processor: isPremium=true, AIEnabled=true, Result=true
+🧠 Starting AI analysis with model gpt-3.5-turbo-0125 - THE ONLY API CALL
+📊 Using Enhanced Metadata Context for AI analysis
+📁 Fetched 7 folders for AI context: Recipes, Career, Capital One, Better Lawn Service, Taxes, Retirement, Equity Research Reports
+🔍 Created metadata with 7 folders for AI evaluation
+🧠 Starting document analysis with request ID: F34144C3-C299-4DC6-8090-575662E24055
+🤖 Using AI model for metadata-aware document analysis: gpt-3.5-turbo-0125
+🚀 OpenAI request F34144C3-C299-4DC6-8090-575662E24055 starting
+✅ OCR completed for all pages
+✅ All OCR tasks submitted
+🤖 Using AI model: gpt-3.5-turbo-0125
+✅ OpenAI request F34144C3-C299-4DC6-8090-575662E24055 completed in 3.09s
+✅ Document analysis with metadata completed successfully
+📊 Found folder confidence scores during initial parsing:
+   - Equity Research Reports: 85%
+   - Retirement: 30%
+   - Capital One: 25%
+   - Taxes: 20%
+   - Career: 15%
+   - Recipes: 10%
+   - Better Lawn Service: 5%
+💰 Cost calculation for model: gpt-3.5-turbo-0125
+💰 Is GPT-4o model detected? NO
+💰 Is GPT-4 model detected? NO
+💰 Is GPT-4-turbo model detected? NO
+💰 Token breakdown - Prompt: 13293 tokens × 0.00000050 = $0.0066
+💰 Token breakdown - Completion: 131 tokens × 0.00000150 = $0.0002
+💰 Total estimated cost: $0.0068
+📊 Folder confidence scores from AI:
+   - Equity Research Reports: 85%
+   - Retirement: 30%
+   - Capital One: 25%
+   - Taxes: 20%
+   - Career: 15%
+   - Recipes: 10%
+   - Better Lawn Service: 5%
+📁 Selected folder "Equity Research Reports" with confidence: 85%
+✅ AI analysis complete: Stock Report Analysis: Meta Platforms, Inc.
+🔄 Document processing state: Document processed
+📋 Document processing complete
+✅ Received AI suggestions: Stock Report Analysis: Meta Platforms, Inc.
+📊 Token usage: 13424 tokens
+🤖 AI model used for document processing: gpt-3.5-turbo-0125 (from API response)
+📁 AI suggested folder: Equity Research Reports
+🔄 Automatically applying AI suggestions to form fields
+Applying AI suggestions: Stock Report Analysis: Meta Platforms, Inc.
+📄 Set document title to: Stock Report Analysis: Meta Platforms, Inc.
+📁 Creating/selecting folder: Equity Research Reports
+✅ Selected existing folder: Equity Research Reports with ID: 4846FEBE-EEAA-4540-A35B-F714C8B28A4B
+📁 Verifying folder selection for UI: Equity Research Reports, ID: 4846FEBE-EEAA-4540-A35B-F714C8B28A4B
+📊 AI Folder confidence scores:
+   - Equity Research Reports: 85%
+   - Retirement: 30%
+   - Capital One: 25%
+   - Taxes: 20%
+   - Career: 15%
+   - Recipes: 10%
+   - Better Lawn Service: 5%
+📁 Selected folder "Equity Research Reports" with confidence: 85%
+🏷️ Clearing existing tag selections
+🏷️ Adding/selecting tag: Stocks
+📝 Created PENDING tag: Stocks with ID: 6D76636C-2205-4372-9930-25D38B458CC6
+🏷️ Current tag selections: 1 tags selected
+🏷️ Adding/selecting tag: Investment
+📝 Created PENDING tag: Investment with ID: F84A29C7-904B-4CFC-B4CD-ACF9AA117DEA
+🏷️ Current tag selections: 2 tags selected
+🏷️ Adding/selecting tag: Technology
+📝 Created PENDING tag: Technology with ID: FEE94A97-9557-4FBE-8996-7DEBDE5B0AB0
+🏷️ Current tag selections: 3 tags selected
+🏷️ After applying AI tags: 3 tags selected
+✅ AI suggestions fully applied
+📁 Applied folder from AI suggestions: Equity Research Reports
+📊 UI state after applying AI suggestions:
+   Title: Stock Report Analysis: Meta Platforms, Inc.
+   Selected Folder ID: 4846FEBE-EEAA-4540-A35B-F714C8B28A4B
+   Selected Tags Count: 3
+   Selected Folder Name: Equity Research Reports
+📁 Verifying folder selection for UI: Equity Research Reports, ID: 4846FEBE-EEAA-4540-A35B-F714C8B28A4B
+📋 Document processing complete
+🔄 Refreshing document details UI
+📄 Current document state for UI refresh:
+  Title: Stock Report Analysis: Meta Platforms, Inc.
+  Selected Folder ID: 4846FEBE-EEAA-4540-A35B-F714C8B28A4B
+  Selected Folder: Equity Research Reports
+  Selected Tag Count: 3
+🔍 Getting tag text for 3 selected tag IDs
+✅ Found tag: Stocks for ID: 6D76636C-2205-4372-9930-25D38B458CC6
+✅ Found tag: Technology for ID: FEE94A97-9557-4FBE-8996-7DEBDE5B0AB0
+✅ Found tag: Investment for ID: F84A29C7-904B-4CFC-B4CD-ACF9AA117DEA
+📝 Returning tag text: "Stocks, Technology, Investment"
+  Tags: Stocks, Technology, Investment
+🔄 AI suggestions updated - syncing UI
+📝 Updated title to: Stock Report Analysis: Meta Platforms, Inc.
+🔄 Folder ID updated from UI sync: nil -> 4846FEBE-EEAA-4540-A35B-F714C8B28A4B
+📁 Updated folder selection to: Equity Research Reports (from viewModel)
+🏷️ Syncing 3 tag IDs from ViewModel
+🔍 Getting tag text for 3 selected tag IDs
+✅ Found tag: Stocks for ID: 6D76636C-2205-4372-9930-25D38B458CC6
+✅ Found tag: Technology for ID: FEE94A97-9557-4FBE-8996-7DEBDE5B0AB0
+✅ Found tag: Investment for ID: F84A29C7-904B-4CFC-B4CD-ACF9AA117DEA
+📝 Returning tag text: "Stocks, Technology, Investment"
+🏷️ Updating tags text from: '' to: 'Stocks, Technology, Investment'
+🔄 Folder ID updated in ViewModel - syncing UI
+🏷️ Syncing 3 tag IDs from ViewModel
+🔍 Getting tag text for 3 selected tag IDs
+✅ Found tag: Stocks for ID: 6D76636C-2205-4372-9930-25D38B458CC6
+✅ Found tag: Technology for ID: FEE94A97-9557-4FBE-8996-7DEBDE5B0AB0
+✅ Found tag: Investment for ID: F84A29C7-904B-4CFC-B4CD-ACF9AA117DEA
+📝 Returning tag text: "Stocks, Technology, Investment"
+⏩ No tag text update needed (already matches)
+🔄 Tag IDs updated in ViewModel - syncing UI
+🏷️ Syncing 3 tag IDs from ViewModel
+🔍 Getting tag text for 3 selected tag IDs
+✅ Found tag: Stocks for ID: 6D76636C-2205-4372-9930-25D38B458CC6
+✅ Found tag: Technology for ID: FEE94A97-9557-4FBE-8996-7DEBDE5B0AB0
+✅ Found tag: Investment for ID: F84A29C7-904B-4CFC-B4CD-ACF9AA117DEA
+📝 Returning tag text: "Stocks, Technology, Investment"
+⏩ No tag text update needed (already matches)
+🔄 Resetting SaveDocumentView local state
+🔍 Document details appeared - checking folder name for ID: 4846FEBE-EEAA-4540-A35B-F714C8B28A4B
+📁 Using folder name from viewModel collection: Equity Research Reports
+📊 AI suggestions already exist - skipping duplicate analysis
+🔄 SaveDocumentView appeared - syncing with ViewModel state
+📄 Document State:
+  Title: Stock Report Analysis: Meta Platforms, Inc.
+  Selected Folder ID: 4846FEBE-EEAA-4540-A35B-F714C8B28A4B
+  Selected Tag Count: 3
+  OCR Text Length: 52360 characters
+  AI Suggestions Available: true
+🔍 Getting tag text for 3 selected tag IDs
+✅ Found tag: Stocks for ID: 6D76636C-2205-4372-9930-25D38B458CC6
+✅ Found tag: Technology for ID: FEE94A97-9557-4FBE-8996-7DEBDE5B0AB0
+✅ Found tag: Investment for ID: F84A29C7-904B-4CFC-B4CD-ACF9AA117DEA
+📝 Returning tag text: "Stocks, Technology, Investment"
+📋 FOLDER DISPLAY CHECK - ID: 4846FEBE-EEAA-4540-A35B-F714C8B28A4B, Name: 'Equity Research Reports'
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+Error: this application, or a library it uses, has passed an invalid numeric value (NaN, or not-a-number) to CoreGraphics API and this value is being ignored. Please fix this problem.
+If you want to see the backtrace, please set CG_NUMERICS_SHOW_BACKTRACE environmental variable.
+-[RTIInputSystemClient remoteTextInputSessionWithID:performInputOperation:]  perform input operation requires a valid sessionID. inputModality = Keyboard, inputOperation = <null selector>, customInfoType = UIEmojiSearchOperations
+Unable to simultaneously satisfy constraints.
+	Probably at least one of the constraints in the following list is one you don't want. 
+	Try this: 
+		(1) look at each constraint and try to figure out which you don't expect; 
+		(2) find the code that added the unwanted constraint or constraints and fix it. 
+(
+    "<NSLayoutConstraint:0x3033f7cf0 'accessoryView.bottom' _UIRemoteKeyboardPlaceholderView:0x148e8f600.bottom == _UIKBCompatInputView:0x140587480.top   (active)>",
+    "<NSLayoutConstraint:0x3030263a0 'assistantHeight' SystemInputAssistantView.height == 45   (active, names: SystemInputAssistantView:0x138995800 )>",
+    "<NSLayoutConstraint:0x3033f10e0 'assistantView.bottom' SystemInputAssistantView.bottom == _UIKBCompatInputView:0x140587480.top   (active, names: SystemInputAssistantView:0x138995800 )>",
+    "<NSLayoutConstraint:0x3033f2bc0 'assistantView.top' V:[_UIRemoteKeyboardPlaceholderView:0x148e8f600]-(0)-[SystemInputAssistantView]   (active, names: SystemInputAssistantView:0x138995800 )>"
+)
+
+Will attempt to recover by breaking constraint 
+<NSLayoutConstraint:0x3030263a0 'assistantHeight' SystemInputAssistantView.height == 45   (active, names: SystemInputAssistantView:0x138995800 )>
+
+Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKitCore/UIView.h> may also be helpful.
+📁 SAVE: Selected folder ID: 4846FEBE-EEAA-4540-A35B-F714C8B28A4B, Name: Equity Research Reports
+📊 Processing pending metadata before saving document
+📂 No pending folders to create
+🏷️ Creating 3 pending tags in Core Data
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024d1340>
+✅ Created tag: Stocks
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024d1340>
+✅ Created tag: Investment
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024d1340>
+✅ Created tag: Technology
+✅ Completed processing 3 tags
+🧠 Recording user correction for adaptive learning
+🧠 CORRECTION DETAILS (normalized):
+   • Title: Stock Report Analysis: Meta Platforms, Inc. → Meta Platforms, Inc. Stock Report Analysis
+   • Folder: equity research reports → equity research reports
+   • Tags AI: Stocks, Investment, Technology
+   • Tags User: CFRA, Advertising, AI, Software
+   • Tags Added: ["cfra", "advertising", "ai", "software"]
+   • Tags Removed: ["stocks", "technology", "investment"]
+✅ Successfully encoded AI suggestion data: 183 bytes
+✅ Successfully encoded user selection data: 181 bytes
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024d1340>
+✅ Successfully saved learning example to Core Data
+✅ Saved learning example - now have 13 examples
+✅ Loaded 13 learning examples from Core Data
+🔍 Core Data contains 13 learning examples
+🧠 Loaded 13 unique examples to memory
+🔄 Reloaded learning examples from Core Data: 13 examples
+  - Title: 'Stock Report Analysis: Meta Platforms, Inc.' → 'Meta Platforms, Inc. Stock Report Analysis'
+  - Tags changed from 3 to 4 tags
+📁 Setting folder ID for document: 4846FEBE-EEAA-4540-A35B-F714C8B28A4B
+✅ Verified folder exists with name: Equity Research Reports
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:](3686): <NSCloudKitMirroringDelegate: 0x302cd01e0> - Beginning automated export - ExportActivity:
+<CKSchedulerActivity: 0x3036548a0; identifier=com.apple.coredata.cloudkit.activity.export.1510C4F5-FEDB-4B32-AA39-E03ACCADA162, priority=2, container=iCloud.com.TSV.app:Sandbox, relatedApplications=(
+    "com.SWhiteApps.TheScanVault"
+), xpcActivityCriteriaOverrides={
+    ActivityGroupName = "com.apple.coredata.cloudkit.TheScanVault.1510C4F5-FEDB-4B32-AA39-E03ACCADA162";
+    Delay = 0;
+    GracePeriod = 10;
+    Priority = Utility;
+}>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](981): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x30329da90> D5A21398-E808-4C39-9F9A-0E7F8886A330
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(1018): <NSCloudKitMirroringDelegate: 0x302cd01e0>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x30329dae0> D5A21398-E808-4C39-9F9A-0E7F8886A330
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(1027): Enqueued request: <NSCloudKitMirroringExportRequest: 0x30329dae0> D5A21398-E808-4C39-9F9A-0E7F8886A330
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3567): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Executing: <NSCloudKitMirroringExportRequest: 0x30329dae0> D5A21398-E808-4C39-9F9A-0E7F8886A330
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024fa050>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter analyzeHistoryInStore:withManagedObjectContext:error:](549): <PFCloudKitExporter: 0x30329db30>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "1510C4F5-FEDB-4B32-AA39-E03ACCADA162" = 1792;
+}>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024d5a20>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024d5a20>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExportContext processAnalyzedHistoryInStore:inManagedObjectContext:error:]_block_invoke_5(251): Finished processing analyzed history with 4 metadata objects to create, 0 deleted rows without metadata.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024d5a20>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024d5a20>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessary]_block_invoke_2(363): <PFCloudKitExporter: 0x30329db30>: Found 4 objects needing export.
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer newCKRecordsFromObject:fullyMaterializeRecords:includeRelationships:error:](583): Serializer has finished creating record: <CKRecord: 0x13bb40c00>
+Modified Fields: (
+    "CD_name_ckAsset",
+    "CD_id",
+    "CD_createdAt",
+    "CD_entityName",
+    "CD_name"
+)
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer newCKRecordsFromObject:fullyMaterializeRecords:includeRelationships:error:](583): Serializer has finished creating record: <CKRecord: 0x13bb41800>
+Modified Fields: (
+    "CD_name_ckAsset",
+    "CD_id",
+    "CD_createdAt",
+    "CD_entityName",
+    "CD_name"
+)
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer newCKRecordsFromObject:fullyMaterializeRecords:includeRelationships:error:](583): Serializer has finished creating record: <CKRecord: 0x13bb43480>
+Modified Fields: (
+    "CD_name_ckAsset",
+    "CD_id",
+    "CD_createdAt",
+    "CD_entityName",
+    "CD_name"
+)
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer newCKRecordsFromObject:fullyMaterializeRecords:includeRelationships:error:](583): Serializer has finished creating record: <CKRecord: 0x13bb43900>
+Modified Fields: (
+    "CD_userSelectionData",
+    "CD_aiSuggestionData_ckAsset",
+    "CD_aiSuggestionData",
+    "CD_timestamp",
+    "CD_documentFingerprint",
+    "CD_id",
+    "CD_userSelectionData_ckAsset",
+    "CD_entityName",
+    "CD_documentFingerprint_ckAsset"
+)
+CoreData: warning: CoreData+CloudKit: -[PFCloudKitExporter exportOperationFinished:withSavedRecords:deletedRecordIDs:operationError:](688): Modify records finished: (
+    "<CKRecord: 0x13bb40c00>",
+    "<CKRecord: 0x13bb41800>",
+    "<CKRecord: 0x13bb43480>",
+    "<CKRecord: 0x13bb43900>"
+)
+(
+)
+(null)
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024f9810>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024f9810>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter analyzeHistoryInStore:withManagedObjectContext:error:](549): <PFCloudKitExporter: 0x30329db30>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "1510C4F5-FEDB-4B32-AA39-E03ACCADA162" = 1796;
+}>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c6310>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessary]_block_invoke_2(363): <PFCloudKitExporter: 0x30329db30>: Found 0 objects needing export.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024de520>
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _exportFinishedWithResult:exporter:](1493): Finished export: <PFCloudKitExporter: 0x30329db30>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](3585): Finished request: <NSCloudKitMirroringExportRequest: 0x30329dae0> D5A21398-E808-4C39-9F9A-0E7F8886A330 with result: <NSCloudKitMirroringResult: 0x301c21410> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 1 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:]_block_invoke(3700): <NSCloudKitMirroringDelegate: 0x302cd01e0> - Finished automatic export - ExportActivity - with result: <NSCloudKitMirroringResult: 0x301c21410> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 1 error: (null)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](3600): Finished request '<NSCloudKitMirroringExportRequest: 0x30329dae0> D5A21398-E808-4C39-9F9A-0E7F8886A330' with result: <NSCloudKitMirroringResult: 0x301c21410> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 1 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3570): <NSCloudKitMirroringDelegate: 0x302cd01e0>: No more requests to execute.
+⚠️ Note: aiModelUsed property doesn't exist in Core Data model - skipping
+CoreData: debug: PostSaveMaintenance: fileSize 9574912 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024d1340>
+✅ Document saved successfully with ID: Optional("4DC8A185-DE42-44D3-AEFA-70B5816A14E8")
+📢 Posted DocumentCreated notification
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:](3686): <NSCloudKitMirroringDelegate: 0x302cd01e0> - Beginning automated export - ExportActivity:
+<CKSchedulerActivity: 0x3036aed00; identifier=com.apple.coredata.cloudkit.activity.export.1510C4F5-FEDB-4B32-AA39-E03ACCADA162, priority=2, container=iCloud.com.TSV.app:Sandbox, relatedApplications=(
+    "com.SWhiteApps.TheScanVault"
+), xpcActivityCriteriaOverrides={
+    ActivityGroupName = "com.apple.coredata.cloudkit.TheScanVault.1510C4F5-FEDB-4B32-AA39-E03ACCADA162";
+    Delay = 0;
+    GracePeriod = 10;
+    Priority = Utility;
+}>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](981): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x3030305a0> 50DF4045-ECDB-4F20-8651-19F9C8D5164F
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(1018): <NSCloudKitMirroringDelegate: 0x302cd01e0>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x303033930> 50DF4045-ECDB-4F20-8651-19F9C8D5164F
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(1027): Enqueued request: <NSCloudKitMirroringExportRequest: 0x303033930> 50DF4045-ECDB-4F20-8651-19F9C8D5164F
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3567): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Executing: <NSCloudKitMirroringExportRequest: 0x303033930> 50DF4045-ECDB-4F20-8651-19F9C8D5164F
+CoreData: debug: PostSaveMaintenance: fileSize 9591392 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c51e0>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter analyzeHistoryInStore:withManagedObjectContext:error:](549): <PFCloudKitExporter: 0x30322a120>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "1510C4F5-FEDB-4B32-AA39-E03ACCADA162" = 1796;
+}>
+CoreData: debug: PostSaveMaintenance: fileSize 9607872 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c6c00>
+CoreData: debug: PostSaveMaintenance: fileSize 9611992 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c6c00>
+CoreData: debug: PostSaveMaintenance: fileSize 9611992 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: PostSaveMaintenance: fileSize 9628472 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExportContext processAnalyzedHistoryInStore:inManagedObjectContext:error:]_block_invoke_5(251): Finished processing analyzed history with 1 metadata objects to create, 0 deleted rows without metadata.
+CoreData: debug: WAL checkpoint: Database busy
+🧹 Starting cleanup of unused AI-created items
+   AI-created folders: 0
+   AI-created tags: 6
+CoreData: debug: WAL checkpoint: Database busy
+🗑️ Removing unused AI-created tag: Stocks
+🗑️ Removing unused AI-created tag: Investment
+🗑️ Removing unused AI-created tag: Technology
+CoreData: debug: PostSaveMaintenance: fileSize 9673792 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024d1340>
+✅ Cleanup complete - removed 0 folders and 3 tags
+🔄 Completely resetting state for new document
+CoreData: debug: PostSaveMaintenance: fileSize 9706752 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c6c00>
+CoreData: debug: PostSaveMaintenance: fileSize 9714992 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessary]_block_invoke_2(363): <PFCloudKitExporter: 0x30322a120>: Found 5 objects needing export.
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer newCKRecordsFromObject:fullyMaterializeRecords:includeRelationships:error:](583): Serializer has finished creating record: <CKRecord: 0x13bb43480>
+Modified Fields: (
+    "CD_name_ckAsset",
+    "CD_id",
+    "CD_createdAt",
+    "CD_entityName",
+    "CD_name"
+)
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer newCKRecordsFromObject:fullyMaterializeRecords:includeRelationships:error:](583): Serializer has finished creating record: <CKRecord: 0x13bb42a00>
+Modified Fields: (
+    "CD_name_ckAsset",
+    "CD_id",
+    "CD_createdAt",
+    "CD_entityName",
+    "CD_name"
+)
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer newCKRecordsFromObject:fullyMaterializeRecords:includeRelationships:error:](583): Serializer has finished creating record: <CKRecord: 0x13bb40f00>
+Modified Fields: (
+    "CD_name_ckAsset",
+    "CD_id",
+    "CD_createdAt",
+    "CD_entityName",
+    "CD_name"
+)
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer newCKRecordsFromObject:fullyMaterializeRecords:includeRelationships:error:](583): Serializer has finished creating record: <CKRecord: 0x13bb40000>
+Modified Fields: (
+    "CD_name_ckAsset",
+    "CD_id",
+    "CD_createdAt",
+    "CD_entityName",
+    "CD_name"
+)
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer newCKRecordsFromObject:fullyMaterializeRecords:includeRelationships:error:](583): Serializer has finished creating record: <CKRecord: 0x13bb42400>
+Modified Fields: (
+    "CD_comments_ckAsset",
+    "CD_thumbnail_ckAsset",
+    "CD_createdAt",
+    "CD_thumbnail",
+    "CD_entityName",
+    "CD_documentData",
+    "CD_fileName_ckAsset",
+    "CD_fileName",
+    "CD_id",
+    "CD_comments",
+    "CD_updatedAt",
+    "CD_title_ckAsset",
+    "CD_title",
+    "CD_text_ckAsset",
+    "CD_folderId",
+    "CD_text",
+    "CD_documentData_ckAsset"
+)
+CoreData: debug: PostSaveMaintenance: fileSize 9747952 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c6c00>
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:](3686): <NSCloudKitMirroringDelegate: 0x302cd01e0> - Beginning automated export - ExportActivity:
+<CKSchedulerActivity: 0x3036ba7c0; identifier=com.apple.coredata.cloudkit.activity.export.1510C4F5-FEDB-4B32-AA39-E03ACCADA162, priority=2, container=iCloud.com.TSV.app:Sandbox, relatedApplications=(
+    "com.SWhiteApps.TheScanVault"
+), xpcActivityCriteriaOverrides={
+    ActivityGroupName = "com.apple.coredata.cloudkit.TheScanVault.1510C4F5-FEDB-4B32-AA39-E03ACCADA162";
+    Delay = 0;
+    GracePeriod = 10;
+    Priority = Utility;
+}>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](981): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x303033390> E2331BEE-8AC1-425E-BFB4-1E47D21DF370
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(1018): <NSCloudKitMirroringDelegate: 0x302cd01e0>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x30329d810> E2331BEE-8AC1-425E-BFB4-1E47D21DF370
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(1027): Enqueued request: <NSCloudKitMirroringExportRequest: 0x30329d810> E2331BEE-8AC1-425E-BFB4-1E47D21DF370
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3563): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Deferring additional work. There is still an active request: <NSCloudKitMirroringExportRequest: 0x303033930> 50DF4045-ECDB-4F20-8651-19F9C8D5164F
+CoreData: debug: WAL checkpoint: Database busy
+🔄 Folder ID updated in ViewModel - syncing UI
+🧹 Clearing tags text as ViewModel has no tags
+🔄 Tag IDs updated in ViewModel - syncing UI
+🔄 Folder ID updated in ViewModel - syncing UI
+🔄 Tag IDs updated in ViewModel - syncing UI
+🔄 AI suggestions updated - syncing UI
+🔄 State reset complete - UI notified
+CoreData: debug: PostSaveMaintenance: fileSize 9747952 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database did checkpoint. Log size: 0 checkpointed: 0
+CoreData: warning: CoreData+CloudKit: -[PFCloudKitExporter exportOperationFinished:withSavedRecords:deletedRecordIDs:operationError:](688): Modify records finished: (
+    "<CKRecord: 0x13bb40c00>",
+    "<CKRecord: 0x13bb43480>",
+    "<CKRecord: 0x13bb42880>",
+    "<CKRecord: 0x13bb42a00>",
+    "<CKRecord: 0x13bb40d80>",
+    "<CKRecord: 0x13bb40f00>",
+    "<CKRecord: 0x13bb43a80>",
+    "<CKRecord: 0x13bb40000>",
+    "<CKRecord: 0x13bb42400>"
+)
+(
+)
+(null)
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024dd080>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024dd080>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter analyzeHistoryInStore:withManagedObjectContext:error:](549): <PFCloudKitExporter: 0x30322a120>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "1510C4F5-FEDB-4B32-AA39-E03ACCADA162" = 1797;
+}>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024f9810>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024f9810>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExportContext processAnalyzedHistoryInStore:inManagedObjectContext:error:]_block_invoke_5(251): Finished processing analyzed history with 0 metadata objects to create, 0 deleted rows without metadata.
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessary]_block_invoke_2(363): <PFCloudKitExporter: 0x30322a120>: Found 3 objects needing export.
+CoreData: warning: CoreData+CloudKit: -[PFCloudKitExporter exportOperationFinished:withSavedRecords:deletedRecordIDs:operationError:](688): Modify records finished: (
+)
+(
+    "<CKRecordID: 0x3012c13a0; recordName=6A394212-979F-4E9B-B341-9CAF0D0768E7, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>",
+    "<CKRecordID: 0x3012c1b20; recordName=50FB88A7-D1DC-4982-9D46-E08861DD3C0F, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>",
+    "<CKRecordID: 0x3012c2440; recordName=90F05F35-AFAF-4699-A4C3-8F7805B59756, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>"
+)
+(null)
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c51e0>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c51e0>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter analyzeHistoryInStore:withManagedObjectContext:error:](549): <PFCloudKitExporter: 0x30322a120>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "1510C4F5-FEDB-4B32-AA39-E03ACCADA162" = 1798;
+}>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024c6c00>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessary]_block_invoke_2(363): <PFCloudKitExporter: 0x30322a120>: Found 0 objects needing export.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024df230>
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _exportFinishedWithResult:exporter:](1493): Finished export: <PFCloudKitExporter: 0x30322a120>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](3585): Finished request: <NSCloudKitMirroringExportRequest: 0x303033930> 50DF4045-ECDB-4F20-8651-19F9C8D5164F with result: <NSCloudKitMirroringResult: 0x301c24b10> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 1 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:]_block_invoke(3700): <NSCloudKitMirroringDelegate: 0x302cd01e0> - Finished automatic export - ExportActivity - with result: <NSCloudKitMirroringResult: 0x301c24b10> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 1 error: (null)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](3600): Finished request '<NSCloudKitMirroringExportRequest: 0x303033930> 50DF4045-ECDB-4F20-8651-19F9C8D5164F' with result: <NSCloudKitMirroringResult: 0x301c24b10> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 1 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3567): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Executing: <NSCloudKitMirroringExportRequest: 0x30329d810> E2331BEE-8AC1-425E-BFB4-1E47D21DF370
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024dca50>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter analyzeHistoryInStore:withManagedObjectContext:error:](549): <PFCloudKitExporter: 0x303266440>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "1510C4F5-FEDB-4B32-AA39-E03ACCADA162" = 1798;
+}>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024d4580>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessary]_block_invoke_2(363): <PFCloudKitExporter: 0x303266440>: Found 0 objects needing export.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Observed context save: <NSPersistentStoreCoordinator: 0x3038c8230> - <NSManagedObjectContext: 0x3024fa310>
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _exportFinishedWithResult:exporter:](1493): Finished export: <PFCloudKitExporter: 0x303266440>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](3585): Finished request: <NSCloudKitMirroringExportRequest: 0x30329d810> E2331BEE-8AC1-425E-BFB4-1E47D21DF370 with result: <NSCloudKitMirroringResult: 0x301c36070> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:]_block_invoke(3700): <NSCloudKitMirroringDelegate: 0x302cd01e0> - Finished automatic export - ExportActivity - with result: <NSCloudKitMirroringResult: 0x301c36070> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](3600): Finished request '<NSCloudKitMirroringExportRequest: 0x30329d810> E2331BEE-8AC1-425E-BFB4-1E47D21DF370' with result: <NSCloudKitMirroringResult: 0x301c36070> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x302cd01e0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3570): <NSCloudKitMirroringDelegate: 0x302cd01e0>: No more requests to execute.

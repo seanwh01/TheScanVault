@@ -1,0 +1,1107 @@
+📱 App startup - Current AI Classification setting: true
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitOptionsValidator validateOptions:andStoreOptions:error:](36): Validating options: <NSCloudKitMirroringDelegateOptions: 0x3036f8a00> containerIdentifier:iCloud.com.TSV.app databaseScope:Private ckAssetThresholdBytes:<null> operationMemoryThresholdBytes:<null> useEncryptedStorage:NO useDeviceToDeviceEncryption:NO automaticallyDownloadFileBackedFutures:NO automaticallyScheduleImportAndExportOperations:YES skipCloudKitSetup:NO preserveLegacyRecordMetadataBehavior:NO useDaemon:YES apsConnectionMachServiceName:<null> containerProvider:<PFCloudKitContainerProvider: 0x3005f2480> storeMonitorProvider:<PFCloudKitStoreMonitorProvider: 0x3005f24b0> metricsClient:<PFCloudKitMetricsClient: 0x3005f24c0> metadataPurger:<PFCloudKitMetadataPurger: 0x3005f24d0> scheduler:<null> notificationListener:<null> containerOptions:<null> defaultOperationConfiguration:<null> progressProvider:<NSPersistentCloudKitContainer: 0x3012ba880> test_useLegacySavePolicy:YES archivingUtilities:<PFCloudKitArchivingUtilities: 0x3005f24e0> bypassSchedulerActivityForInitialImport:NO bypassDasdRateLimiting:NO activityVouchers:(
+)
+storeOptions: {
+    NSInferMappingModelAutomaticallyOption = 1;
+    NSMigratePersistentStoresAutomaticallyOption = 1;
+    NSPersistentCloudKitContainerOptionsKey = "<NSPersistentCloudKitContainerOptions: 0x3023f2880>";
+    NSPersistentHistoryTrackingKey = 1;
+    NSPersistentStoreMirroringOptionsKey =     {
+        NSPersistentStoreMirroringDelegateOptionKey = "<NSCloudKitMirroringDelegate: 0x3038fc3c0>";
+    };
+}
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate observeChangesForStore:inPersistentStoreCoordinator:](427): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observing store: <NSSQLCore: 0x13a1b1180> (URL: file:///var/mobile/Containers/Data/Application/3A870580-DA27-4DD9-980A-6EE2867F5E20/Library/Application%20Support/ScanVault.sqlite)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _setUpCloudKitIntegration:](589): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Successfully enqueued setup request: <NSCloudKitMirroringDelegateSetupRequest: 0x3024c0d20> 339F489A-6B7C-4689-8182-358E2CFC2281
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3567): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Executing: <NSCloudKitMirroringDelegateSetupRequest: 0x3024c0d20> 339F489A-6B7C-4689-8182-358E2CFC2281
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](450): Skipping migration for 'ANSCKDATABASEMETADATA' because it already has a column named 'ZLASTFETCHDATE'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](508): Skipping migration for 'ANSCKMETADATAENTRY' because it already has a column named 'ZDATEVALUE'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](358): Skipping migration for 'ANSCKRECORDMETADATA' because it already has a column named 'ZNEEDSUPLOAD'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](358): Skipping migration for 'ANSCKRECORDMETADATA' because it already has a column named 'ZNEEDSLOCALDELETE'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](358): Skipping migration for 'ANSCKRECORDMETADATA' because it already has a column named 'ZNEEDSCLOUDDELETE'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](358): Skipping migration for 'ANSCKRECORDMETADATA' because it already has a column named 'ZLASTEXPORTEDTRANSACTIONNUMBER'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](358): Skipping migration for 'ANSCKRECORDMETADATA' because it already has a column named 'ZPENDINGEXPORTTRANSACTIONNUMBER'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](358): Skipping migration for 'ANSCKRECORDMETADATA' because it already has a column named 'ZPENDINGEXPORTCHANGETYPENUMBER'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](358): Skipping migration for 'ANSCKRECORDMETADATA' because it already has a column named 'ZENCODEDRECORD'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](450): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZLASTFETCHDATE'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](466): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZSUPPORTSFETCHCHANGES'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](466): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZSUPPORTSATOMICCHANGES'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](466): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZSUPPORTSRECORDSHARING'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](466): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZSUPPORTSZONESHARING'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](484): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZNEEDSIMPORT'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](484): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZNEEDSRECOVERYFROMZONEDELETE'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](484): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZNEEDSRECOVERYFROMUSERPURGE'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](484): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZENCODEDSHAREDATA'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](484): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZNEEDSSHAREUPDATE'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](484): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZNEEDSSHAREDELETE'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](484): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZNEEDSRECOVERYFROMIDENTITYLOSS'
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitMetadataModelMigrator calculateMigrationStepsWithConnection:error:](484): Skipping migration for 'ANSCKRECORDZONEMETADATA' because it already has a column named 'ZNEEDSNEWSHAREINVITATION'
+CoreData: warning: CoreData+CloudKit: -[PFCloudKitSetupAssistant _checkAccountStatus:]_block_invoke(342): Fetched account info for store 1510C4F5-FEDB-4B32-AA39-E03ACCADA162: <CKAccountInfo: 0x3012843c0; accountStatus=Available, accountPartition=Prod, deviceToDeviceEncryptionAvailability=(account|device), hasValidCredentials=true, walrus=Disabled, needsToVerifyTerms=false, accountAccessAuthorization=Yes, validationCounter=139>
+(null)
+CoreData: warning: CoreData+CloudKit: -[PFCloudKitSetupAssistant _checkUserIdentity:]_block_invoke(1446): Fetched user recordID for store 1510C4F5-FEDB-4B32-AA39-E03ACCADA162: <CKRecordID: 0x300793680; recordName=_7e7dee76fae60038e2399c472d9d7dd0, zoneID=_defaultZone:__defaultOwner__>
+(null)
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitSetupAssistant _checkUserIdentity:]_block_invoke(1496): <PFCloudKitSetupAssistant: 0x3023dc5a0>: CKIdentity record matches store: <CKRecordID: 0x300793680; recordName=_7e7dee76fae60038e2399c472d9d7dd0, zoneID=_defaultZone:__defaultOwner__>
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _performSetupRequest:]_block_invoke(1149): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Successfully set up CloudKit integration for store (1510C4F5-FEDB-4B32-AA39-E03ACCADA162): <NSSQLCore: 0x13a1b1180> (URL: file:///var/mobile/Containers/Data/Application/3A870580-DA27-4DD9-980A-6EE2867F5E20/Library/Application%20Support/ScanVault.sqlite)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges:](773): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Scheduling post-setup export
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](3585): Finished request: <NSCloudKitMirroringDelegateSetupRequest: 0x3024c0d20> 339F489A-6B7C-4689-8182-358E2CFC2281 with result: <NSCloudKitMirroringResult: 0x300993cc0> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030fcbb0>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:](3686): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Beginning automated export - SandboxExport:
+(null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](981): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x3024b4c80> 0AA92CEA-81A1-4FDB-900C-34BC5222B60B
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedImportWithLabel:activity:voucher:completionHandler:](3647): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Beginning automated import - SandboxImport - in response to activity:
+(null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](981): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Asked to execute request: <NSCloudKitMirroringImportRequest: 0x3024b4c80> 496B51E1-3712-4B87-95A0-22C697850209
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3570): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: No more requests to execute.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(1018): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x3024b6a80> 0AA92CEA-81A1-4FDB-900C-34BC5222B60B
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(1027): Enqueued request: <NSCloudKitMirroringExportRequest: 0x3024b6a80> 0AA92CEA-81A1-4FDB-900C-34BC5222B60B
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(1018): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: enqueuing request: <NSCloudKitMirroringImportRequest: 0x3024b6ad0> 496B51E1-3712-4B87-95A0-22C697850209
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(1027): Enqueued request: <NSCloudKitMirroringImportRequest: 0x3024b6ad0> 496B51E1-3712-4B87-95A0-22C697850209
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3567): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Executing: <NSCloudKitMirroringImportRequest: 0x3024b6ad0> 496B51E1-3712-4B87-95A0-22C697850209
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3563): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Deferring additional work. There is still an active request: <NSCloudKitMirroringImportRequest: 0x3024b6ad0> 496B51E1-3712-4B87-95A0-22C697850209
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e5d90>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:](3686): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Beginning automated export - ExportActivity:
+<CKSchedulerActivity: 0x3023ee220; identifier=com.apple.coredata.cloudkit.activity.export.1510C4F5-FEDB-4B32-AA39-E03ACCADA162, priority=2, container=iCloud.com.TSV.app:Sandbox, relatedApplications=(
+    "com.SWhiteApps.TheScanVault"
+), xpcActivityCriteriaOverrides={
+    ActivityGroupName = "com.apple.coredata.cloudkit.TheScanVault.1510C4F5-FEDB-4B32-AA39-E03ACCADA162";
+    Delay = 0;
+    GracePeriod = 10;
+    Priority = Utility;
+}>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](981): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x3024d9180> 0C6F1A42-EAAC-4BA5-A314-DDC1C4941B92
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(1018): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x3024d9090> 0C6F1A42-EAAC-4BA5-A314-DDC1C4941B92
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(1031): Failed to enqueue request: <NSCloudKitMirroringExportRequest: 0x3024d9090> 0C6F1A42-EAAC-4BA5-A314-DDC1C4941B92
+Error Domain=NSCocoaErrorDomain Code=134417 "Request '<NSCloudKitMirroringExportRequest: 0x3024d9090> 0C6F1A42-EAAC-4BA5-A314-DDC1C4941B92' was cancelled because there is already a pending request of type 'NSCloudKitMirroringExportRequest'." UserInfo={NSLocalizedFailureReason=Request '<NSCloudKitMirroringExportRequest: 0x3024d9090> 0C6F1A42-EAAC-4BA5-A314-DDC1C4941B92' was cancelled because there is already a pending request of type 'NSCloudKitMirroringExportRequest'.}
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:]_block_invoke(3700): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Finished automatic export - ExportActivity - with result: <NSCloudKitMirroringResult: 0x30098e7c0> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 0 madeChanges: 0 error: Error Domain=NSCocoaErrorDomain Code=134417 "Request '<NSCloudKitMirroringExportRequest: 0x3024d9090> 0C6F1A42-EAAC-4BA5-A314-DDC1C4941B92' was cancelled because there is already a pending request of type 'NSCloudKitMirroringExportRequest'." UserInfo={NSLocalizedFailureReason=Request '<NSCloudKitMirroringExportRequest: 0x3024d9090> 0C6F1A42-EAAC-4BA5-A314-DDC1C4941B92' was cancelled because there is already a pending request of type 'NSCloudKitMirroringExportRequest'.}
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](3600): Finished request '<NSCloudKitMirroringExportRequest: 0x3024d9090> 0C6F1A42-EAAC-4BA5-A314-DDC1C4941B92' with result: <NSCloudKitMirroringResult: 0x30098e7c0> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 0 madeChanges: 0 error: Error Domain=NSCocoaErrorDomain Code=134417 "Request '<NSCloudKitMirroringExportRequest: 0x3024d9090> 0C6F1A42-EAAC-4BA5-A314-DDC1C4941B92' was cancelled because there is already a pending request of type 'NSCloudKitMirroringExportRequest'." UserInfo={NSLocalizedFailureReason=Request '<NSCloudKitMirroringExportRequest: 0x3024d9090> 0C6F1A42-EAAC-4BA5-A314-DDC1C4941B92' was cancelled because there is already a pending request of type 'NSCloudKitMirroringExportRequest'.}
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitImporter databaseFetchFinishWithContext:error:completion:]_block_invoke(309): <PFCloudKitImporter: 0x301286ec0>: Import request finished with no work to do: <NSCloudKitMirroringImportRequest: 0x3024b6ad0> 496B51E1-3712-4B87-95A0-22C697850209
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f0370>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f42c0>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](3585): Finished request: <NSCloudKitMirroringImportRequest: 0x3024b6ad0> 496B51E1-3712-4B87-95A0-22C697850209 with result: <NSCloudKitMirroringResult: 0x30097f8a0> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedImportWithLabel:activity:voucher:completionHandler:]_block_invoke(3660): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Finished automatic import - SandboxImport - with result: <NSCloudKitMirroringResult: 0x30097f8a0> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](3600): Finished request '<NSCloudKitMirroringImportRequest: 0x3024b6ad0> 496B51E1-3712-4B87-95A0-22C697850209' with result: <NSCloudKitMirroringResult: 0x30097f8a0> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndScheduleImportIfNecessaryFromPush:fromErrorRecovery:fromShareAccept:andStartAfterDate:]_block_invoke_2(3326): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking to see if an automated import should be scheduled.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e8210>
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndScheduleImportIfNecessaryFromPush:fromErrorRecovery:fromShareAccept:andStartAfterDate:]_block_invoke(3417): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Scheduling automated import with activity (Zone-LastFetchDate-com.apple.coredata.cloudkit.zone-2025-04-06 17:22:01 +0000): <CKSchedulerActivity: 0x3023e85a0; identifier=com.apple.coredata.cloudkit.activity.import.1510C4F5-FEDB-4B32-AA39-E03ACCADA162, priority=2, container=iCloud.com.TSV.app:Sandbox, relatedApplications=(
+    "com.SWhiteApps.TheScanVault"
+), xpcActivityCriteriaOverrides={
+    ActivityGroupName = "com.apple.coredata.cloudkit.TheScanVault.1510C4F5-FEDB-4B32-AA39-E03ACCADA162";
+    Delay = 0;
+    GracePeriod = 10;
+    Priority = Utility;
+}>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3567): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Executing: <NSCloudKitMirroringExportRequest: 0x3024b6a80> 0AA92CEA-81A1-4FDB-900C-34BC5222B60B
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f4210>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter analyzeHistoryInStore:withManagedObjectContext:error:](549): <PFCloudKitExporter: 0x3024db110>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "1510C4F5-FEDB-4B32-AA39-E03ACCADA162" = 1775;
+}>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030ec790>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessary]_block_invoke_2(363): <PFCloudKitExporter: 0x3024db110>: Found 0 objects needing export.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e82c0>
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _exportFinishedWithResult:exporter:](1493): Finished export: <PFCloudKitExporter: 0x3024db110>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](3585): Finished request: <NSCloudKitMirroringExportRequest: 0x3024b6a80> 0AA92CEA-81A1-4FDB-900C-34BC5222B60B with result: <NSCloudKitMirroringResult: 0x3009fe400> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:]_block_invoke(3700): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Finished automatic export - SandboxExport - with result: <NSCloudKitMirroringResult: 0x3009fe400> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](3600): Finished request '<NSCloudKitMirroringExportRequest: 0x3024b6a80> 0AA92CEA-81A1-4FDB-900C-34BC5222B60B' with result: <NSCloudKitMirroringResult: 0x3009fe400> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3570): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: No more requests to execute.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:](3686): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Beginning automated export - ExportActivity:
+<CKSchedulerActivity: 0x3023ea460; identifier=com.apple.coredata.cloudkit.activity.export.1510C4F5-FEDB-4B32-AA39-E03ACCADA162, priority=2, container=iCloud.com.TSV.app:Sandbox, relatedApplications=(
+    "com.SWhiteApps.TheScanVault"
+), xpcActivityCriteriaOverrides={
+    ActivityGroupName = "com.apple.coredata.cloudkit.TheScanVault.1510C4F5-FEDB-4B32-AA39-E03ACCADA162";
+    Delay = 0;
+    GracePeriod = 10;
+    Priority = Utility;
+}>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](981): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x3024ce2b0> DE8FF91B-EDC4-4767-B7FE-57E828B4923F
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(1018): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x3024d1810> DE8FF91B-EDC4-4767-B7FE-57E828B4923F
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(1027): Enqueued request: <NSCloudKitMirroringExportRequest: 0x3024d1810> DE8FF91B-EDC4-4767-B7FE-57E828B4923F
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3567): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Executing: <NSCloudKitMirroringExportRequest: 0x3024d1810> DE8FF91B-EDC4-4767-B7FE-57E828B4923F
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedImportWithLabel:activity:voucher:completionHandler:](3647): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Beginning automated import - ImportActivity - in response to activity:
+<CKSchedulerActivity: 0x3023ea400; identifier=com.apple.coredata.cloudkit.activity.import.1510C4F5-FEDB-4B32-AA39-E03ACCADA162, priority=2, container=iCloud.com.TSV.app:Sandbox, relatedApplications=(
+    "com.SWhiteApps.TheScanVault"
+), xpcActivityCriteriaOverrides={
+    ActivityGroupName = "com.apple.coredata.cloudkit.TheScanVault.1510C4F5-FEDB-4B32-AA39-E03ACCADA162";
+    Delay = 0;
+    GracePeriod = 10;
+    Priority = Utility;
+}>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](981): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Asked to execute request: <NSCloudKitMirroringImportRequest: 0x3024db200> 832F0297-3AE5-44A1-B765-F812E03C6622
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f0160>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter analyzeHistoryInStore:withManagedObjectContext:error:](549): <PFCloudKitExporter: 0x3024ce210>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "1510C4F5-FEDB-4B32-AA39-E03ACCADA162" = 1775;
+}>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030ec840>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessary]_block_invoke_2(363): <PFCloudKitExporter: 0x3024ce210>: Found 0 objects needing export.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e8370>
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _exportFinishedWithResult:exporter:](1493): Finished export: <PFCloudKitExporter: 0x3024ce210>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](3585): Finished request: <NSCloudKitMirroringExportRequest: 0x3024d1810> DE8FF91B-EDC4-4767-B7FE-57E828B4923F with result: <NSCloudKitMirroringResult: 0x30099b930> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:]_block_invoke(3700): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Finished automatic export - ExportActivity - with result: <NSCloudKitMirroringResult: 0x30099b930> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](3600): Finished request '<NSCloudKitMirroringExportRequest: 0x3024d1810> DE8FF91B-EDC4-4767-B7FE-57E828B4923F' with result: <NSCloudKitMirroringResult: 0x30099b930> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(1018): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: enqueuing request: <NSCloudKitMirroringImportRequest: 0x3024d94a0> 832F0297-3AE5-44A1-B765-F812E03C6622
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(1027): Enqueued request: <NSCloudKitMirroringImportRequest: 0x3024d94a0> 832F0297-3AE5-44A1-B765-F812E03C6622
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3567): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Executing: <NSCloudKitMirroringImportRequest: 0x3024d94a0> 832F0297-3AE5-44A1-B765-F812E03C6622
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3563): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Deferring additional work. There is still an active request: <NSCloudKitMirroringImportRequest: 0x3024d94a0> 832F0297-3AE5-44A1-B765-F812E03C6622
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030ecc60>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitImporter databaseFetchFinishWithContext:error:completion:]_block_invoke(304): <PFCloudKitImporter: 0x3012a3680>: Import request finished: <NSCloudKitMirroringImportRequest: 0x3024d94a0> 832F0297-3AE5-44A1-B765-F812E03C6622 - <PFCloudKitImportDatabaseContext: 0x30098f930> {
+Token: <CKServerChangeToken: 0x3005e4740; data=AQAAAZYMIHCk>
+Changed:
+{(
+    <CKRecordZoneID: 0x300992a30; zoneName=com.apple.coredata.cloudkit.zone, ownerName=__defaultOwner__>
+)}
+}
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitImporter processWorkItemsWithCompletion:](444): <PFCloudKitImporter: 0x3012a3680>: Processing work items: (
+    "<PFCloudKitImporterZoneChangedWorkItem: 0x3030f0580 - <NSCloudKitMirroringImportRequest: 0x3024d94a0> 832F0297-3AE5-44A1-B765-F812E03C6622> {\n(\n    \"<CKRecordZoneID: 0x300992a30; zoneName=com.apple.coredata.cloudkit.zone, ownerName=__defaultOwner__>\"\n)\n}"
+)
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f4630>
+🧠 Initializing AdaptiveLearningClassifier...
+✅ Loaded 10 learning examples from Core Data
+🔍 Core Data contains 10 learning examples
+🧠 Loaded 10 unique examples to memory
+🧠 AdaptiveLearningClassifier initialized with 10 examples
+🔍 Verifying learning data storage...
+🔍 Found 10 examples in Core Data
+🔧 Checking for broken learning examples in Core Data...
+✅ No broken learning examples found in Core Data
+🧪 Initialized TempDevDocumentAIService (development mock)
+Key length: 164 characters
+First few chars: sk-proj-eC
+Last few chars: gY8T2GFFAA
+Contains whitespace? false
+Authorization header length: 171 characters
+🚀 Document processor initialized with exclusive API control
+🔄 ScanViewModel initialized
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:](3686): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Beginning automated export - ExportActivity:
+<CKSchedulerActivity: 0x3023e98c0; identifier=com.apple.coredata.cloudkit.activity.export.1510C4F5-FEDB-4B32-AA39-E03ACCADA162, priority=2, container=iCloud.com.TSV.app:Sandbox, relatedApplications=(
+    "com.SWhiteApps.TheScanVault"
+), xpcActivityCriteriaOverrides={
+    ActivityGroupName = "com.apple.coredata.cloudkit.TheScanVault.1510C4F5-FEDB-4B32-AA39-E03ACCADA162";
+    Delay = 0;
+    GracePeriod = 10;
+    Priority = Utility;
+}>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](981): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x3024dd680> A00E6D71-4E9D-4488-8469-CC89DC33EA95
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(1018): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x3024de260> A00E6D71-4E9D-4488-8469-CC89DC33EA95
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(1027): Enqueued request: <NSCloudKitMirroringExportRequest: 0x3024de260> A00E6D71-4E9D-4488-8469-CC89DC33EA95
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3563): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Deferring additional work. There is still an active request: <NSCloudKitMirroringImportRequest: 0x3024d94a0> 832F0297-3AE5-44A1-B765-F812E03C6622
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f46e0>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f46e0>
+CoreData: warning: CoreData+CloudKit: -[PFCloudKitImportRecordsWorkItem newMirroringResultByApplyingAccumulatedChanges]_block_invoke(241): Finished importing changes for request: <NSCloudKitMirroringImportRequest: 0x3024d94a0> 832F0297-3AE5-44A1-B765-F812E03C6622
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitImporter processWorkItemsWithCompletion:](444): <PFCloudKitImporter: 0x3012a3680>: Processing work items: (
+)
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f48f0>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f4d10>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](3585): Finished request: <NSCloudKitMirroringImportRequest: 0x3024d94a0> 832F0297-3AE5-44A1-B765-F812E03C6622 with result: <NSCloudKitMirroringResult: 0x300974c00> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedImportWithLabel:activity:voucher:completionHandler:]_block_invoke(3660): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Finished automatic import - ImportActivity - with result: <NSCloudKitMirroringResult: 0x300974c00> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](3600): Finished request '<NSCloudKitMirroringImportRequest: 0x3024d94a0> 832F0297-3AE5-44A1-B765-F812E03C6622' with result: <NSCloudKitMirroringResult: 0x300974c00> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndScheduleImportIfNecessaryFromPush:fromErrorRecovery:fromShareAccept:andStartAfterDate:]_block_invoke_2(3326): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking to see if an automated import should be scheduled.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3567): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Executing: <NSCloudKitMirroringExportRequest: 0x3024de260> A00E6D71-4E9D-4488-8469-CC89DC33EA95
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f4a50>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter analyzeHistoryInStore:withManagedObjectContext:error:](549): <PFCloudKitExporter: 0x3024de0d0>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "1510C4F5-FEDB-4B32-AA39-E03ACCADA162" = 1775;
+}>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f0580>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessary]_block_invoke_2(363): <PFCloudKitExporter: 0x3024de0d0>: Found 0 objects needing export.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f09a0>
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _exportFinishedWithResult:exporter:](1493): Finished export: <PFCloudKitExporter: 0x3024de0d0>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](3585): Finished request: <NSCloudKitMirroringExportRequest: 0x3024de260> A00E6D71-4E9D-4488-8469-CC89DC33EA95 with result: <NSCloudKitMirroringResult: 0x30098f810> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:]_block_invoke(3700): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Finished automatic export - ExportActivity - with result: <NSCloudKitMirroringResult: 0x30098f810> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](3600): Finished request '<NSCloudKitMirroringExportRequest: 0x3024de260> A00E6D71-4E9D-4488-8469-CC89DC33EA95' with result: <NSCloudKitMirroringResult: 0x30098f810> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3570): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: No more requests to execute.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:](3686): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Beginning automated export - ExportActivity:
+<CKSchedulerActivity: 0x3023e8a80; identifier=com.apple.coredata.cloudkit.activity.export.1510C4F5-FEDB-4B32-AA39-E03ACCADA162, priority=2, container=iCloud.com.TSV.app:Sandbox, relatedApplications=(
+    "com.SWhiteApps.TheScanVault"
+), xpcActivityCriteriaOverrides={
+    ActivityGroupName = "com.apple.coredata.cloudkit.TheScanVault.1510C4F5-FEDB-4B32-AA39-E03ACCADA162";
+    Delay = 0;
+    GracePeriod = 10;
+    Priority = Utility;
+}>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](981): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x3024d9900> B138F6AD-14E3-4812-9DFD-5485DAEC02A9
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(1018): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x3024d8960> B138F6AD-14E3-4812-9DFD-5485DAEC02A9
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(1027): Enqueued request: <NSCloudKitMirroringExportRequest: 0x3024d8960> B138F6AD-14E3-4812-9DFD-5485DAEC02A9
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3567): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Executing: <NSCloudKitMirroringExportRequest: 0x3024d8960> B138F6AD-14E3-4812-9DFD-5485DAEC02A9
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030ec8f0>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter analyzeHistoryInStore:withManagedObjectContext:error:](549): <PFCloudKitExporter: 0x3024ce850>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "1510C4F5-FEDB-4B32-AA39-E03ACCADA162" = 1775;
+}>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030ec9a0>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessary]_block_invoke_2(363): <PFCloudKitExporter: 0x3024ce850>: Found 0 objects needing export.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f0630>
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _exportFinishedWithResult:exporter:](1493): Finished export: <PFCloudKitExporter: 0x3024ce850>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](3585): Finished request: <NSCloudKitMirroringExportRequest: 0x3024d8960> B138F6AD-14E3-4812-9DFD-5485DAEC02A9 with result: <NSCloudKitMirroringResult: 0x300993ea0> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:]_block_invoke(3700): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Finished automatic export - ExportActivity - with result: <NSCloudKitMirroringResult: 0x300993ea0> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](3600): Finished request '<NSCloudKitMirroringExportRequest: 0x3024d8960> B138F6AD-14E3-4812-9DFD-5485DAEC02A9' with result: <NSCloudKitMirroringResult: 0x300993ea0> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3570): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: No more requests to execute.
+🔎 Starting fetchLocksFromCloudKit() in DocumentLockService
+🔍 CLOUD FETCH: Starting fetchLockedDocuments in CloudSyncManager
+🔍 CLOUD FETCH: Using container: iCloud.com.TSV.app
+❌ iCloud not available - cannot fetch locked documents
+📂 Attempting to load document locks from local storage
+📂 Loaded 5 document locks from local storage (was 0)
+🔒 Currently locked documents from local storage:
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+❌ Error fetching locks from CloudKit: iCloud not available
+📂 Attempting to load document locks from local storage
+📂 Loaded 5 document locks from local storage (was 0)
+🔒 Currently locked documents from local storage:
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+☁️ CloudKit not available during initialization, using local storage as fallback
+📂 Attempting to load document locks from local storage
+📂 Loaded 5 document locks from local storage (was 5)
+🔒 Currently locked documents from local storage:
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+🔒 Loaded 0 locked folders from persistent storage
+🔐 DocumentLockService initialized
+🔐 [DocumentLockManager] DocumentLockManager initialized
+🔑 Attempting to get keychain item: com.scanvault.documentlock
+⚠️ Couldn't determine team ID for keychain access group
+🔑 No iCloud keychain password found (status: -34018), trying any available
+🔑 No iCloud keychain password found (status: -34018)
+🔐 DocumentLockService.hasLock(): false
+🔐 [DocumentLockManager] Checking if document lock exists: false
+⚠️ [DocumentLockManager] Found locked documents but no password - setting fallback password
+🔐 [DocumentLockManager] Setting document lock password
+⚠️ Couldn't determine team ID for keychain access group
+⚠️ Couldn't determine team ID for keychain access group
+⚠️ Couldn't determine team ID for keychain access group
+❌ Failed to save to keychain with iCloud sync (error: -34018)
+⚠️ Falling back to local storage without iCloud sync
+❌ Failed to save to local keychain (error: -34018)
+🔐 DocumentLockService.setupLock(): false
+❌ [DocumentLockManager] Failed to save document lock password
+🔐 [DocumentLockManager] Forcing password sync across platforms
+🔑 Attempting to get keychain item: com.scanvault.documentlock
+⚠️ Couldn't determine team ID for keychain access group
+🔑 No iCloud keychain password found (status: -34018), trying any available
+🔑 No iCloud keychain password found (status: -34018)
+🔐 DocumentLockService.hasLock(): false
+🔐 [DocumentLockManager] Checking if document lock exists: false
+🔐 [DocumentLockManager] No password exists, setting default
+🔐 [DocumentLockManager] Setting document lock password
+⚠️ Couldn't determine team ID for keychain access group
+⚠️ Couldn't determine team ID for keychain access group
+⚠️ Couldn't determine team ID for keychain access group
+❌ Failed to save to keychain with iCloud sync (error: -34018)
+⚠️ Falling back to local storage without iCloud sync
+❌ Failed to save to local keychain (error: -34018)
+🔐 DocumentLockService.setupLock(): false
+❌ [DocumentLockManager] Failed to save document lock password
+🔑 Password was synced to iCloud
+Key length: 164 characters
+First few chars: sk-proj-eC
+Last few chars: gY8T2GFFAA
+Contains whitespace? false
+Authorization header length: 171 characters
+📱 Reading AI toggle state: true
+🔑 Attempting to get keychain item: com.scanvault.documentlock
+⚠️ Couldn't determine team ID for keychain access group
+🔑 No iCloud keychain password found (status: -34018), trying any available
+🔑 No iCloud keychain password found (status: -34018)
+🔐 DocumentLockService.hasLock(): false
+🔐 [DocumentLockManager] Checking if document lock exists: false
+📱 Reading AI toggle state: true
+🔑 Attempting to get keychain item: com.scanvault.documentlock
+⚠️ Couldn't determine team ID for keychain access group
+🔑 No iCloud keychain password found (status: -34018), trying any available
+🔑 No iCloud keychain password found (status: -34018)
+🔐 DocumentLockService.hasLock(): false
+🔐 [DocumentLockManager] Checking if document lock exists: false
+Subscription manager update called - note that this is a no-op
+🔄 Subscription upgraded to premium with AI enabled - triggering document reanalysis
+⚠️ No document text available for reanalysis
+🌐 Network availability changed: Connected
+☁️ iCloud availability changed: available
+☁️ iCloud just became available, forcing document lock sync
+🔍 CLOUD FETCH: Starting fetchLockedDocuments in CloudSyncManager
+🔍 CLOUD FETCH: Using container: iCloud.com.TSV.app
+🔍 CLOUD FETCH: Fetching locked documents record with ID 'all_device_locks'
+☁️ iCloud became available, checking password sync and document locks
+🔑 Checking for password sync between devices
+🔑 Attempting to get keychain item: com.scanvault.documentlock
+⚠️ Couldn't determine team ID for keychain access group
+🔑 No iCloud keychain password found (status: -34018), trying any available
+🔑 No iCloud keychain password found (status: -34018)
+🔑 iCloud keychain password check: not found
+🔄 Refreshing document locks after iCloud became available
+🔎 Starting fetchLocksFromCloudKit() in DocumentLockService
+🔍 CLOUD FETCH: Starting fetchLockedDocuments in CloudSyncManager
+🔍 CLOUD FETCH: Using container: iCloud.com.TSV.app
+🔍 CLOUD FETCH: Fetching locked documents record with ID 'all_device_locks'
+🌐 Network availability changed: Connected
+🔍 Verifying learning data storage...
+🔍 Found 10 examples in Core Data
+🔧 Checking for broken learning examples in Core Data...
+✅ No broken learning examples found in Core Data
+🔍 Core Data contains 10 learning examples
+🚀 App launched with 10 learning examples
+✅ CLOUD FETCH: Successfully retrieved 'all_device_locks' record
+🔍 CLOUD FETCH METADATA: Record Type: DocumentLock
+🔍 CLOUD FETCH METADATA: Record Modified Date: 2025-04-04 23:10:54 +0000
+🔍 CLOUD FETCH METADATA: Available Keys: updatedAt, lockedDocuments, deviceId
+🔍 Found 5 locked document IDs from CloudKit:
+   - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+   - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+   - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+   - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+   - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+🔍 CLOUD FETCH: Converted 5 of 5 strings to valid UUIDs
+💾 Saved 5 locked documents to local storage
+🔍 CLOUD FETCH CHANGES: 0 docs being added, 0 docs being removed
+✅ Updated lock state with 5 documents from CloudKit (was 5)
+🔒 Currently locked documents:
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+✅ Successfully synced 5 document locks after iCloud became available
+🔑 Skipping password sync check - too soon since last attempt
+🔄 CloudKit sync completed with 5 documents
+🔐 [DocumentLockManager] Scheduling batched UI update
+🔄 Refreshing document lock state in UI
+✅ CLOUD FETCH: Successfully retrieved 'all_device_locks' record
+🔍 CLOUD FETCH METADATA: Record Type: DocumentLock
+🔍 CLOUD FETCH METADATA: Record Modified Date: 2025-04-04 23:10:54 +0000
+🔍 CLOUD FETCH METADATA: Available Keys: updatedAt, lockedDocuments, deviceId
+🔍 Found 5 locked document IDs from CloudKit:
+   - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+   - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+   - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+   - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+   - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+🔍 CLOUD FETCH: Converted 5 of 5 strings to valid UUIDs
+💾 Saved 5 locked documents to local storage
+🔍 CLOUD FETCH CHANGES: 0 docs being added, 0 docs being removed
+✅ Updated lock state with 5 documents from CloudKit (was 5)
+🔒 Currently locked documents:
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+🔑 Skipping password sync check - too soon since last attempt
+🔄 CloudKit sync completed with 5 documents
+🔄 Refreshing document lock state in UI
+🔐 SYNC DETAILS: CloudKit returned 5 locked documents
+🔐 SYNC RAW DATA: Document IDs received from CloudKit:
+   - 4657ABCC-5EF0-4434-BF74-E15525AFF7E9
+   - 6FC1FEB0-3397-4571-9EC3-C31B25829612
+   - 4B041DFC-89D1-4841-8D86-360C3D5991C2
+   - 6304803F-4FBC-4990-BDE8-7C4C96DBF635
+   - F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA
+🔐 SYNC PROCESS: Converting received document IDs to UUIDs
+🔐 SYNC DIFF: 0 docs being added, 0 docs being removed
+💾 Saved 5 locked documents to local storage
+✅ Updated lock state with 5 documents from CloudKit (was 5)
+🔒 Currently locked documents:
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+🔐 [DocumentLockManager] Performing batched UI update with 0 document changes and 0 folder changes
+🔐 [DocumentLockManager] Forcing password sync to iCloud
+🔑 Attempting to get keychain item: com.scanvault.documentlock
+⚠️ Couldn't determine team ID for keychain access group
+🔑 No iCloud keychain password found (status: -34018), trying any available
+🔑 No iCloud keychain password found (status: -34018)
+🔄 Follow-up document lock sync (attempt 1)
+🔎 Starting fetchLocksFromCloudKit() in DocumentLockService
+🔍 CLOUD FETCH: Starting fetchLockedDocuments in CloudSyncManager
+🔍 CLOUD FETCH: Using container: iCloud.com.TSV.app
+🔍 CLOUD FETCH: Fetching locked documents record with ID 'all_device_locks'
+✅ CLOUD FETCH: Successfully retrieved 'all_device_locks' record
+🔍 CLOUD FETCH METADATA: Record Type: DocumentLock
+🔍 CLOUD FETCH METADATA: Record Modified Date: 2025-04-04 23:10:54 +0000
+🔍 CLOUD FETCH METADATA: Available Keys: updatedAt, lockedDocuments, deviceId
+🔍 Found 5 locked document IDs from CloudKit:
+   - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+   - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+   - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+   - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+   - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+🔍 CLOUD FETCH: Converted 5 of 5 strings to valid UUIDs
+💾 Saved 5 locked documents to local storage
+🔍 CLOUD FETCH CHANGES: 0 docs being added, 0 docs being removed
+✅ Updated lock state with 5 documents from CloudKit (was 5)
+🔒 Currently locked documents:
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+🔐 SYNC DETAILS: CloudKit returned 5 locked documents
+🔐 SYNC RAW DATA: Document IDs received from CloudKit:
+   - 4657ABCC-5EF0-4434-BF74-E15525AFF7E9
+   - 6FC1FEB0-3397-4571-9EC3-C31B25829612
+   - 4B041DFC-89D1-4841-8D86-360C3D5991C2
+   - 6304803F-4FBC-4990-BDE8-7C4C96DBF635
+   - F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA
+🔑 Skipping password sync check - too soon since last attempt
+🔄 CloudKit sync completed with 5 documents
+🔐 [DocumentLockManager] Scheduling batched UI update
+🔄 Refreshing document lock state in UI
+🔐 SYNC PROCESS: Converting received document IDs to UUIDs
+🔐 SYNC DIFF: 0 docs being added, 0 docs being removed
+💾 Saved 5 locked documents to local storage
+✅ Updated lock state with 5 documents from CloudKit (was 5)
+🔒 Currently locked documents:
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+🔐 [DocumentLockManager] Performing batched UI update with 0 document changes and 0 folder changes
+🔐 [DocumentLockManager] Forcing password sync to iCloud
+🔑 Attempting to get keychain item: com.scanvault.documentlock
+⚠️ Couldn't determine team ID for keychain access group
+🔑 No iCloud keychain password found (status: -34018), trying any available
+🔑 No iCloud keychain password found (status: -34018)
+🔐 [DocumentLockManager] Forcing password sync to iCloud
+🔑 Attempting to get keychain item: com.scanvault.documentlock
+⚠️ Couldn't determine team ID for keychain access group
+🔑 No iCloud keychain password found (status: -34018), trying any available
+🔑 No iCloud keychain password found (status: -34018)
+🔄 Follow-up document lock sync (attempt 2)
+🔎 Starting fetchLocksFromCloudKit() in DocumentLockService
+🔍 CLOUD FETCH: Starting fetchLockedDocuments in CloudSyncManager
+🔍 CLOUD FETCH: Using container: iCloud.com.TSV.app
+🔍 CLOUD FETCH: Fetching locked documents record with ID 'all_device_locks'
+✅ CLOUD FETCH: Successfully retrieved 'all_device_locks' record
+🔍 CLOUD FETCH METADATA: Record Type: DocumentLock
+🔍 CLOUD FETCH METADATA: Record Modified Date: 2025-04-04 23:10:54 +0000
+🔍 CLOUD FETCH METADATA: Available Keys: updatedAt, lockedDocuments, deviceId
+🔍 Found 5 locked document IDs from CloudKit:
+   - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+   - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+   - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+   - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+   - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+🔍 CLOUD FETCH: Converted 5 of 5 strings to valid UUIDs
+💾 Saved 5 locked documents to local storage
+🔍 CLOUD FETCH CHANGES: 0 docs being added, 0 docs being removed
+✅ Updated lock state with 5 documents from CloudKit (was 5)
+🔒 Currently locked documents:
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+🔐 SYNC DETAILS: CloudKit returned 5 locked documents
+🔐 SYNC RAW DATA: Document IDs received from CloudKit:
+   - 4657ABCC-5EF0-4434-BF74-E15525AFF7E9
+   - 6FC1FEB0-3397-4571-9EC3-C31B25829612
+   - 4B041DFC-89D1-4841-8D86-360C3D5991C2
+🔑 Skipping password sync check - too soon since last attempt
+🔄 CloudKit sync completed with 5 documents
+🔐 [DocumentLockManager] Scheduling batched UI update
+🔄 Refreshing document lock state in UI
+   - 6304803F-4FBC-4990-BDE8-7C4C96DBF635
+   - F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA
+🔐 SYNC PROCESS: Converting received document IDs to UUIDs
+🔐 SYNC DIFF: 0 docs being added, 0 docs being removed
+💾 Saved 5 locked documents to local storage
+✅ Updated lock state with 5 documents from CloudKit (was 5)
+🔒 Currently locked documents:
+  - 'Document' (4B041DFC-89D1-4841-8D86-360C3D5991C2)
+  - 'Document' (6304803F-4FBC-4990-BDE8-7C4C96DBF635)
+  - 'Document' (F4B1EC2C-1D68-440E-AFE0-5166CDB2C0CA)
+  - 'Document' (4657ABCC-5EF0-4434-BF74-E15525AFF7E9)
+  - 'Document' (6FC1FEB0-3397-4571-9EC3-C31B25829612)
+🔐 [DocumentLockManager] Performing batched UI update with 0 document changes and 0 folder changes
+Failed to associate thumbnails for picked URL file:///private/var/mobile/Library/Mobile%20Documents/com~apple~CloudDocs/Stock%20Reports/CRM.pdf with the Inbox copy file:///private/var/mobile/Containers/Data/Application/3A870580-DA27-4DD9-980A-6EE2867F5E20/tmp/com.SWhiteApps.TheScanVault-Inbox/CRM.pdf: Error Domain=QLThumbnailErrorDomain Code=115 "(null)" UserInfo={NSErrorFailingURLKey=file:///private/var/mobile/Library/Mobile%20Documents/com~apple~CloudDocs/Stock%20Reports/CRM.pdf}
+✅ File successfully copied to: /private/var/mobile/Containers/Data/Application/3A870580-DA27-4DD9-980A-6EE2867F5E20/tmp/CRM.pdf
+📄 Processing selected document: /private/var/mobile/Containers/Data/Application/3A870580-DA27-4DD9-980A-6EE2867F5E20/tmp/CRM.pdf
+🔄 Completely resetting state for new document
+📄 Document type: pdf
+🔄 Processing PDF: /private/var/mobile/Containers/Data/Application/3A870580-DA27-4DD9-980A-6EE2867F5E20/tmp/CRM.pdf
+✅ PDF opened successfully with 9 pages
+📄 Processing page 1: size = (612.0, 792.0)
+📄 Processing page 2: size = (612.0, 792.0)
+📄 Processing page 3: size = (612.0, 792.0)
+📄 Processing page 4: size = (612.0, 792.0)
+📄 Processing page 5: size = (612.0, 792.0)
+📄 Processing page 6: size = (612.0, 792.0)
+📄 Processing page 7: size = (612.0, 792.0)
+📄 Processing page 8: size = (612.0, 792.0)
+📄 Processing page 9: size = (612.0, 792.0)
+🔄 State reset complete - UI notified
+The view service did terminate with error: Error Domain=_UIViewServiceErrorDomain Code=1 "(null)" UserInfo={Terminated=disconnect method}
+✅ Processed page 9 image
+✅ Processed page 8 image
+✅ Processed page 3 image
+✅ Processed page 7 image
+✅ Processed page 5 image
+✅ Processed page 2 image
+✅ Processed page 6 image
+✅ Processed page 4 image
+✅ Processed page 1 image
+✅ Extracted 9 images from PDF in correct order
+🔄 Document processor state reset
+🔄 Document processing state: Ready for processing
+🔄 OpenAI call counter was 0, now reset to 0
+🔄 Document processing state: Performing OCR
+🔄 Starting concurrent OCR for 9 images
+🔍 Starting OCR on page 1
+🔍 Starting OCR on page 5
+🔍 Starting OCR on page 6
+🔍 Starting OCR on page 4
+🔍 Starting OCR on page 2
+🔍 Starting OCR on page 3
+🔍 Starting OCR on page 7
+🔍 Starting OCR on page 9
+🔍 Starting OCR on page 8
+📄 Document processing started
+numANECores: Unknown aneSubType
+✅ OCR completed for page 5 with 8493 characters
+📊 OCR progress: 1/9 pages
+✅ OCR completed for page 5
+✅ OCR completed for page 2 with 7511 characters
+📊 OCR progress: 2/9 pages
+✅ OCR completed for page 2
+✅ OCR completed for page 4 with 5940 characters
+📊 OCR progress: 3/9 pages
+✅ OCR completed for page 4
+✅ OCR completed for page 1 with 6178 characters
+📊 OCR progress: 4/9 pages
+✅ OCR completed for page 1
+✅ OCR completed for page 7 with 5721 characters
+📊 OCR progress: 5/9 pages
+✅ OCR completed for page 7
+✅ OCR completed for page 8 with 9199 characters
+📊 OCR progress: 6/9 pages
+✅ OCR completed for page 8
+✅ OCR completed for page 9 with 2115 characters
+📊 OCR progress: 7/9 pages
+✅ OCR completed for page 9
+✅ OCR completed for page 6 with 1951 characters
+📊 OCR progress: 8/9 pages
+✅ OCR completed for page 6
+✅ OCR completed for page 3 with 4093 characters
+📊 OCR progress: 9/9 pages
+✅ OCR completed for all 9 pages
+✅ OCR completed for page 3
+📝 Combined text from all pages: 51217 characters
+🔄 Document processing state: OCR completed
+🧠 Proceeding with AI analysis
+🧠 Proceeding with AI analysis
+📝 Starting AI analysis with 51217 characters of text
+🔄 Document processing state: AI analysis in progress (detailed)
+🔄 OpenAI call counter was 0, now reset to 0
+✅ OCR completed for all pages
+🔍 AI enabled check for processor: isPremium=true, AIEnabled=true, Result=true
+🧠 Starting AI analysis with model gpt-3.5-turbo-0125 - THE ONLY API CALL
+✅ All OCR tasks submitted
+🔄 OpenAI call counter was 0, now reset to 0
+🔢 OpenAI call counter: 1 - API Key ends with: FFAA
+🧠 Starting document analysis with request ID: DBBA90FC-8437-4831-AF91-EA869F203802
+🤖 Using AI model for document analysis: gpt-3.5-turbo-0125
+🚀 OpenAI request DBBA90FC-8437-4831-AF91-EA869F203802 starting
+🤖 Using AI model: gpt-3.5-turbo-0125
+✅ OpenAI request DBBA90FC-8437-4831-AF91-EA869F203802 completed in 2.31s
+✅ Document analysis completed successfully
+📊 Found folder confidence scores during initial parsing:
+   - Financial Reports: 90%
+   - Market Analysis: 10%
+💰 Cost calculation for model: gpt-3.5-turbo-0125
+💰 Is GPT-4o model detected? NO
+💰 Is GPT-4 model detected? NO
+💰 Is GPT-4-turbo model detected? NO
+💰 Token breakdown - Prompt: 13453 tokens × 0.00000050 = $0.0067
+💰 Token breakdown - Completion: 80 tokens × 0.00000150 = $0.0001
+💰 Total estimated cost: $0.0068
+📊 Folder confidence scores from AI:
+   - Financial Reports: 90%
+   - Market Analysis: 10%
+📁 Selected folder "Financial Reports" with confidence: 90%
+✅ AI analysis complete: Salesforce, Inc. Stock Report Analysis
+🔄 Document processing state: Document processed
+📋 Document processing complete
+✅ Received AI suggestions: Salesforce, Inc. Stock Report Analysis
+📊 Token usage: 13533 tokens
+🤖 AI model used for document processing: gpt-3.5-turbo-0125 (from API response)
+📁 AI suggested folder: Financial Reports
+🔄 Automatically applying AI suggestions to form fields
+Applying AI suggestions: Salesforce, Inc. Stock Report Analysis
+📄 Set document title to: Salesforce, Inc. Stock Report Analysis
+📁 Creating/selecting folder: Financial Reports
+📁 Created new pending folder: Financial Reports with ID: A050A44C-5A6E-41D0-B83B-F20194ECDB7C
+📁 Verifying folder selection for UI: Financial Reports, ID: A050A44C-5A6E-41D0-B83B-F20194ECDB7C
+📊 AI Folder confidence scores:
+   - Financial Reports: 90%
+   - Market Analysis: 10%
+📁 Selected folder "Financial Reports" with confidence: 90%
+🏷️ Clearing existing tag selections
+🏷️ Adding/selecting tag: Stock Market
+📝 Created PENDING tag: Stock Market with ID: 9ABF9F56-0D8F-4150-B103-E72F742E90A4
+🏷️ Current tag selections: 1 tags selected
+🏷️ Adding/selecting tag: Investment Analysis
+📝 Created PENDING tag: Investment Analysis with ID: A3C0B4A7-33E7-407E-B79F-CC0A19245993
+🏷️ Current tag selections: 2 tags selected
+🏷️ Adding/selecting tag: Financial Performance
+📝 Created PENDING tag: Financial Performance with ID: 83B2D784-56DF-4093-BF30-464A1729B0F8
+🏷️ Current tag selections: 3 tags selected
+🏷️ After applying AI tags: 3 tags selected
+✅ AI suggestions fully applied
+📁 Applied folder from AI suggestions: Financial Reports
+📊 UI state after applying AI suggestions:
+   Title: Salesforce, Inc. Stock Report Analysis
+   Selected Folder ID: A050A44C-5A6E-41D0-B83B-F20194ECDB7C
+   Selected Tags Count: 3
+   Selected Folder Name: Financial Reports
+📁 Verifying folder selection for UI: Financial Reports, ID: A050A44C-5A6E-41D0-B83B-F20194ECDB7C
+📋 Document processing complete
+🔄 Refreshing document details UI
+📄 Current document state for UI refresh:
+  Title: Salesforce, Inc. Stock Report Analysis
+  Selected Folder ID: A050A44C-5A6E-41D0-B83B-F20194ECDB7C
+  Selected Folder: Financial Reports
+  Selected Tag Count: 3
+🔍 Getting tag text for 3 selected tag IDs
+✅ Found tag: Stock Market for ID: 9ABF9F56-0D8F-4150-B103-E72F742E90A4
+✅ Found tag: Financial Performance for ID: 83B2D784-56DF-4093-BF30-464A1729B0F8
+✅ Found tag: Investment Analysis for ID: A3C0B4A7-33E7-407E-B79F-CC0A19245993
+📝 Returning tag text: "Stock Market, Financial Performance, Investment Analysis"
+  Tags: Stock Market, Financial Performance, Investment Analysis
+🔄 AI suggestions updated - syncing UI
+📝 Updated title to: Salesforce, Inc. Stock Report Analysis
+🔄 Folder ID updated from UI sync: nil -> A050A44C-5A6E-41D0-B83B-F20194ECDB7C
+📁 Updated folder selection to: Financial Reports (from viewModel)
+🏷️ Syncing 3 tag IDs from ViewModel
+🔍 Getting tag text for 3 selected tag IDs
+✅ Found tag: Stock Market for ID: 9ABF9F56-0D8F-4150-B103-E72F742E90A4
+✅ Found tag: Financial Performance for ID: 83B2D784-56DF-4093-BF30-464A1729B0F8
+✅ Found tag: Investment Analysis for ID: A3C0B4A7-33E7-407E-B79F-CC0A19245993
+📝 Returning tag text: "Stock Market, Financial Performance, Investment Analysis"
+🏷️ Updating tags text from: '' to: 'Stock Market, Financial Performance, Investment Analysis'
+🔄 Folder ID updated in ViewModel - syncing UI
+🏷️ Syncing 3 tag IDs from ViewModel
+🔍 Getting tag text for 3 selected tag IDs
+✅ Found tag: Stock Market for ID: 9ABF9F56-0D8F-4150-B103-E72F742E90A4
+✅ Found tag: Financial Performance for ID: 83B2D784-56DF-4093-BF30-464A1729B0F8
+✅ Found tag: Investment Analysis for ID: A3C0B4A7-33E7-407E-B79F-CC0A19245993
+📝 Returning tag text: "Stock Market, Financial Performance, Investment Analysis"
+⏩ No tag text update needed (already matches)
+🔄 Tag IDs updated in ViewModel - syncing UI
+🏷️ Syncing 3 tag IDs from ViewModel
+🔍 Getting tag text for 3 selected tag IDs
+✅ Found tag: Stock Market for ID: 9ABF9F56-0D8F-4150-B103-E72F742E90A4
+✅ Found tag: Financial Performance for ID: 83B2D784-56DF-4093-BF30-464A1729B0F8
+✅ Found tag: Investment Analysis for ID: A3C0B4A7-33E7-407E-B79F-CC0A19245993
+📝 Returning tag text: "Stock Market, Financial Performance, Investment Analysis"
+⏩ No tag text update needed (already matches)
+🔄 Resetting SaveDocumentView local state
+🔍 Document details appeared - checking folder name for ID: A050A44C-5A6E-41D0-B83B-F20194ECDB7C
+📁 Using pending folder name: Financial Reports
+📊 AI suggestions already exist - skipping duplicate analysis
+🔄 SaveDocumentView appeared - syncing with ViewModel state
+📄 Document State:
+  Title: Salesforce, Inc. Stock Report Analysis
+  Selected Folder ID: A050A44C-5A6E-41D0-B83B-F20194ECDB7C
+  Selected Tag Count: 3
+  OCR Text Length: 51217 characters
+  AI Suggestions Available: true
+🔍 Getting tag text for 3 selected tag IDs
+✅ Found tag: Stock Market for ID: 9ABF9F56-0D8F-4150-B103-E72F742E90A4
+✅ Found tag: Financial Performance for ID: 83B2D784-56DF-4093-BF30-464A1729B0F8
+✅ Found tag: Investment Analysis for ID: A3C0B4A7-33E7-407E-B79F-CC0A19245993
+📝 Returning tag text: "Stock Market, Financial Performance, Investment Analysis"
+📋 FOLDER DISPLAY CHECK - ID: A050A44C-5A6E-41D0-B83B-F20194ECDB7C, Name: 'Financial Reports'
+✅ Folder selected: Equity Research Reports
+-[RTIInputSystemClient remoteTextInputSessionWithID:performInputOperation:]  perform input operation requires a valid sessionID. inputModality = Keyboard, inputOperation = <null selector>, customInfoType = UIEmojiSearchOperations
+Unable to simultaneously satisfy constraints.
+	Probably at least one of the constraints in the following list is one you don't want. 
+	Try this: 
+		(1) look at each constraint and try to figure out which you don't expect; 
+		(2) find the code that added the unwanted constraint or constraints and fix it. 
+(
+    "<NSLayoutConstraint:0x30279c320 'accessoryView.bottom' _UIRemoteKeyboardPlaceholderView:0x1387e5c00.bottom == _UIKBCompatInputView:0x12e5c96c0.top   (active)>",
+    "<NSLayoutConstraint:0x3027a9540 'assistantHeight' SystemInputAssistantView.height == 45   (active, names: SystemInputAssistantView:0x12adcc300 )>",
+    "<NSLayoutConstraint:0x30279fe30 'assistantView.bottom' SystemInputAssistantView.bottom == _UIKBCompatInputView:0x12e5c96c0.top   (active, names: SystemInputAssistantView:0x12adcc300 )>",
+    "<NSLayoutConstraint:0x30279e940 'assistantView.top' V:[_UIRemoteKeyboardPlaceholderView:0x1387e5c00]-(0)-[SystemInputAssistantView]   (active, names: SystemInputAssistantView:0x12adcc300 )>"
+)
+
+Will attempt to recover by breaking constraint 
+<NSLayoutConstraint:0x3027a9540 'assistantHeight' SystemInputAssistantView.height == 45   (active, names: SystemInputAssistantView:0x12adcc300 )>
+
+Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKitCore/UIView.h> may also be helpful.
+-[RTIInputSystemClient remoteTextInputSessionWithID:performInputOperation:]  perform input operation requires a valid sessionID. inputModality = Keyboard, inputOperation = <null selector>, customInfoType = UIEmojiSearchOperations
+Unable to simultaneously satisfy constraints.
+	Probably at least one of the constraints in the following list is one you don't want. 
+	Try this: 
+		(1) look at each constraint and try to figure out which you don't expect; 
+		(2) find the code that added the unwanted constraint or constraints and fix it. 
+(
+    "<NSLayoutConstraint:0x3027af430 'accessoryView.bottom' _UIRemoteKeyboardPlaceholderView:0x12f4db400.bottom == _UIKBCompatInputView:0x12e5c96c0.top   (active)>",
+    "<NSLayoutConstraint:0x30267ead0 'assistantHeight' SystemInputAssistantView.height == 45   (active, names: SystemInputAssistantView:0x12adcc300 )>",
+    "<NSLayoutConstraint:0x3027abd90 'assistantView.bottom' SystemInputAssistantView.bottom == _UIKBCompatInputView:0x12e5c96c0.top   (active, names: SystemInputAssistantView:0x12adcc300 )>",
+    "<NSLayoutConstraint:0x3027aba20 'assistantView.top' V:[_UIRemoteKeyboardPlaceholderView:0x12f4db400]-(0)-[SystemInputAssistantView]   (active, names: SystemInputAssistantView:0x12adcc300 )>"
+)
+
+Will attempt to recover by breaking constraint 
+<NSLayoutConstraint:0x30267ead0 'assistantHeight' SystemInputAssistantView.height == 45   (active, names: SystemInputAssistantView:0x12adcc300 )>
+
+Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKitCore/UIView.h> may also be helpful.
+📁 SAVE: Selected folder ID: 4846FEBE-EEAA-4540-A35B-F714C8B28A4B, Name: Equity Research Reports
+📊 Processing pending metadata before saving document
+📁 Creating pending folder in Core Data: Financial Reports with ID: A050A44C-5A6E-41D0-B83B-F20194ECDB7C
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f9fa0>
+✅ Successfully created folder in Core Data: Financial Reports
+🏷️ Creating 3 pending tags in Core Data
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f9fa0>
+✅ Created tag: Stock Market
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f9fa0>
+✅ Created tag: Investment Analysis
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f9fa0>
+✅ Created tag: Financial Performance
+✅ Completed processing 3 tags
+🧠 Recording user correction for adaptive learning
+🧠 CORRECTION DETAILS (normalized):
+   • Title: Salesforce, Inc. Stock Report Analysis → Salesforce, Inc. Stock Report Analysis
+   • Folder: financial reports → equity research reports
+   • Tags AI: Stock Market, Investment Analysis, Financial Performance
+   • Tags User: Stock Analysis, Software, AI, CFRA
+   • Tags Added: ["cfra", "software", "ai", "stock analysis"]
+   • Tags Removed: ["investment analysis", "financial performance", "stock market"]
+✅ Successfully encoded AI suggestion data: 197 bytes
+✅ Successfully encoded user selection data: 180 bytes
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f9fa0>
+✅ Successfully saved learning example to Core Data
+✅ Saved learning example - now have 11 examples
+✅ Loaded 11 learning examples from Core Data
+🔍 Core Data contains 11 learning examples
+🧠 Loaded 11 unique examples to memory
+🔄 Reloaded learning examples from Core Data: 11 examples
+  - Folder: 'Financial Reports' → 'Equity Research Reports'
+  - Tags changed from 3 to 4 tags
+📁 Setting folder ID for document: 4846FEBE-EEAA-4540-A35B-F714C8B28A4B
+✅ Verified folder exists with name: Equity Research Reports
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:](3686): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Beginning automated export - ExportActivity:
+<CKSchedulerActivity: 0x30229df20; identifier=com.apple.coredata.cloudkit.activity.export.1510C4F5-FEDB-4B32-AA39-E03ACCADA162, priority=2, container=iCloud.com.TSV.app:Sandbox, relatedApplications=(
+    "com.SWhiteApps.TheScanVault"
+), xpcActivityCriteriaOverrides={
+    ActivityGroupName = "com.apple.coredata.cloudkit.TheScanVault.1510C4F5-FEDB-4B32-AA39-E03ACCADA162";
+    Delay = 0;
+    GracePeriod = 10;
+    Priority = Utility;
+}>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](981): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x3026567b0> D5EB013D-EE0B-46F4-924E-A1B6FB1B4A2E
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(1018): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x302655f40> D5EB013D-EE0B-46F4-924E-A1B6FB1B4A2E
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(1027): Enqueued request: <NSCloudKitMirroringExportRequest: 0x302655f40> D5EB013D-EE0B-46F4-924E-A1B6FB1B4A2E
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3567): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Executing: <NSCloudKitMirroringExportRequest: 0x302655f40> D5EB013D-EE0B-46F4-924E-A1B6FB1B4A2E
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e9970>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter analyzeHistoryInStore:withManagedObjectContext:error:](549): <PFCloudKitExporter: 0x302654280>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "1510C4F5-FEDB-4B32-AA39-E03ACCADA162" = 1775;
+}>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e98c0>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e98c0>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExportContext processAnalyzedHistoryInStore:inManagedObjectContext:error:]_block_invoke_5(251): Finished processing analyzed history with 5 metadata objects to create, 0 deleted rows without metadata.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e98c0>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e98c0>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e98c0>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessary]_block_invoke_2(363): <PFCloudKitExporter: 0x302654280>: Found 5 objects needing export.
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer newCKRecordsFromObject:fullyMaterializeRecords:includeRelationships:error:](583): Serializer has finished creating record: <CKRecord: 0x12f01c000>
+Modified Fields: (
+    "CD_name_ckAsset",
+    "CD_id",
+    "CD_createdAt",
+    "CD_entityName",
+    "CD_name"
+)
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer newCKRecordsFromObject:fullyMaterializeRecords:includeRelationships:error:](583): Serializer has finished creating record: <CKRecord: 0x12f01f180>
+Modified Fields: (
+    "CD_name_ckAsset",
+    "CD_id",
+    "CD_createdAt",
+    "CD_entityName",
+    "CD_name"
+)
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer newCKRecordsFromObject:fullyMaterializeRecords:includeRelationships:error:](583): Serializer has finished creating record: <CKRecord: 0x12f01b780>
+Modified Fields: (
+    "CD_name_ckAsset",
+    "CD_id",
+    "CD_createdAt",
+    "CD_entityName",
+    "CD_name"
+)
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer newCKRecordsFromObject:fullyMaterializeRecords:includeRelationships:error:](583): Serializer has finished creating record: <CKRecord: 0x12f019800>
+Modified Fields: (
+    "CD_userSelectionData",
+    "CD_aiSuggestionData_ckAsset",
+    "CD_aiSuggestionData",
+    "CD_timestamp",
+    "CD_documentFingerprint",
+    "CD_id",
+    "CD_userSelectionData_ckAsset",
+    "CD_entityName",
+    "CD_documentFingerprint_ckAsset"
+)
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer newCKRecordsFromObject:fullyMaterializeRecords:includeRelationships:error:](583): Serializer has finished creating record: <CKRecord: 0x12f01a400>
+Modified Fields: (
+    "CD_name_ckAsset",
+    "CD_id",
+    "CD_createdAt",
+    "CD_entityName",
+    "CD_name"
+)
+CoreData: warning: CoreData+CloudKit: -[PFCloudKitExporter exportOperationFinished:withSavedRecords:deletedRecordIDs:operationError:](688): Modify records finished: (
+    "<CKRecord: 0x12f01c000>",
+    "<CKRecord: 0x12f01f180>",
+    "<CKRecord: 0x12f01b780>",
+    "<CKRecord: 0x12f019800>",
+    "<CKRecord: 0x12f01a400>"
+)
+(
+)
+(null)
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e1e40>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e1e40>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter analyzeHistoryInStore:withManagedObjectContext:error:](549): <PFCloudKitExporter: 0x302654280>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "1510C4F5-FEDB-4B32-AA39-E03ACCADA162" = 1780;
+}>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e0b00>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessary]_block_invoke_2(363): <PFCloudKitExporter: 0x302654280>: Found 0 objects needing export.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030ef390>
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _exportFinishedWithResult:exporter:](1493): Finished export: <PFCloudKitExporter: 0x302654280>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](3585): Finished request: <NSCloudKitMirroringExportRequest: 0x302655f40> D5EB013D-EE0B-46F4-924E-A1B6FB1B4A2E with result: <NSCloudKitMirroringResult: 0x3008041e0> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 1 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:]_block_invoke(3700): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Finished automatic export - ExportActivity - with result: <NSCloudKitMirroringResult: 0x3008041e0> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 1 error: (null)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](3600): Finished request '<NSCloudKitMirroringExportRequest: 0x302655f40> D5EB013D-EE0B-46F4-924E-A1B6FB1B4A2E' with result: <NSCloudKitMirroringResult: 0x3008041e0> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 1 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3570): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: No more requests to execute.
+⚠️ Note: aiModelUsed property doesn't exist in Core Data model - skipping
+CoreData: debug: PostSaveMaintenance: fileSize 10287672 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f9fa0>
+✅ Document saved successfully with ID: Optional("FD00DA67-BA77-4BDD-83E7-0980E39D13E5")
+📢 Posted DocumentCreated notification
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:](3686): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Beginning automated export - ExportActivity:
+<CKSchedulerActivity: 0x30229fae0; identifier=com.apple.coredata.cloudkit.activity.export.1510C4F5-FEDB-4B32-AA39-E03ACCADA162, priority=2, container=iCloud.com.TSV.app:Sandbox, relatedApplications=(
+    "com.SWhiteApps.TheScanVault"
+), xpcActivityCriteriaOverrides={
+    ActivityGroupName = "com.apple.coredata.cloudkit.TheScanVault.1510C4F5-FEDB-4B32-AA39-E03ACCADA162";
+    Delay = 0;
+    GracePeriod = 10;
+    Priority = Utility;
+}>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](981): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x302665220> 7FD6D815-1D60-482F-AE00-E93881DBD3AF
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(1018): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x302664c80> 7FD6D815-1D60-482F-AE00-E93881DBD3AF
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(1027): Enqueued request: <NSCloudKitMirroringExportRequest: 0x302664c80> 7FD6D815-1D60-482F-AE00-E93881DBD3AF
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3567): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Executing: <NSCloudKitMirroringExportRequest: 0x302664c80> 7FD6D815-1D60-482F-AE00-E93881DBD3AF
+CoreData: debug: PostSaveMaintenance: fileSize 10304152 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f6260>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter analyzeHistoryInStore:withManagedObjectContext:error:](549): <PFCloudKitExporter: 0x302665fe0>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "1510C4F5-FEDB-4B32-AA39-E03ACCADA162" = 1780;
+}>
+CoreData: debug: PostSaveMaintenance: fileSize 10320632 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030ee940>
+CoreData: debug: PostSaveMaintenance: fileSize 10324752 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030ee940>
+CoreData: debug: PostSaveMaintenance: fileSize 10324752 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: PostSaveMaintenance: fileSize 10341232 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExportContext processAnalyzedHistoryInStore:inManagedObjectContext:error:]_block_invoke_5(251): Finished processing analyzed history with 1 metadata objects to create, 0 deleted rows without metadata.
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: PostSaveMaintenance: fileSize 10374192 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030ee940>
+CoreData: debug: PostSaveMaintenance: fileSize 10382432 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessary]_block_invoke_2(363): <PFCloudKitExporter: 0x302665fe0>: Found 5 objects needing export.
+CoreData: debug: WAL checkpoint: Database busy
+🧹 Starting cleanup of unused AI-created items
+   AI-created folders: 2
+   AI-created tags: 6
+🗑️ Removing unused AI-created folder: Financial Reports
+🗑️ Removing unused AI-created tag: Stock Market
+🗑️ Removing unused AI-created tag: Investment Analysis
+🗑️ Removing unused AI-created tag: Financial Performance
+CoreData: debug: PostSaveMaintenance: fileSize 10431872 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f9fa0>
+✅ Cleanup complete - removed 1 folders and 3 tags
+🔄 Completely resetting state for new document
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer newCKRecordsFromObject:fullyMaterializeRecords:includeRelationships:error:](583): Serializer has finished creating record: <CKRecord: 0x12efe3c00>
+Modified Fields: (
+    "CD_name_ckAsset",
+    "CD_id",
+    "CD_createdAt",
+    "CD_entityName",
+    "CD_name"
+)
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer newCKRecordsFromObject:fullyMaterializeRecords:includeRelationships:error:](583): Serializer has finished creating record: <CKRecord: 0x12efe1c80>
+Modified Fields: (
+    "CD_name_ckAsset",
+    "CD_id",
+    "CD_createdAt",
+    "CD_entityName",
+    "CD_name"
+)
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer newCKRecordsFromObject:fullyMaterializeRecords:includeRelationships:error:](583): Serializer has finished creating record: <CKRecord: 0x12efe2400>
+Modified Fields: (
+    "CD_name_ckAsset",
+    "CD_id",
+    "CD_createdAt",
+    "CD_entityName",
+    "CD_name"
+)
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer newCKRecordsFromObject:fullyMaterializeRecords:includeRelationships:error:](583): Serializer has finished creating record: <CKRecord: 0x12efe1380>
+Modified Fields: (
+    "CD_name_ckAsset",
+    "CD_id",
+    "CD_createdAt",
+    "CD_entityName",
+    "CD_name"
+)
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer newCKRecordsFromObject:fullyMaterializeRecords:includeRelationships:error:](583): Serializer has finished creating record: <CKRecord: 0x12efe2e80>
+Modified Fields: (
+    "CD_comments_ckAsset",
+    "CD_thumbnail_ckAsset",
+    "CD_createdAt",
+    "CD_thumbnail",
+    "CD_entityName",
+    "CD_documentData",
+    "CD_fileName_ckAsset",
+    "CD_fileName",
+    "CD_id",
+    "CD_comments",
+    "CD_updatedAt",
+    "CD_title_ckAsset",
+    "CD_title",
+    "CD_text_ckAsset",
+    "CD_folderId",
+    "CD_text",
+    "CD_documentData_ckAsset"
+)
+CoreData: debug: PostSaveMaintenance: fileSize 10460712 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030ee940>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:](3686): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Beginning automated export - ExportActivity:
+<CKSchedulerActivity: 0x30228a220; identifier=com.apple.coredata.cloudkit.activity.export.1510C4F5-FEDB-4B32-AA39-E03ACCADA162, priority=2, container=iCloud.com.TSV.app:Sandbox, relatedApplications=(
+    "com.SWhiteApps.TheScanVault"
+), xpcActivityCriteriaOverrides={
+    ActivityGroupName = "com.apple.coredata.cloudkit.TheScanVault.1510C4F5-FEDB-4B32-AA39-E03ACCADA162";
+    Delay = 0;
+    GracePeriod = 10;
+    Priority = Utility;
+}>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](981): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x3027e18b0> 218E3911-F70C-43C6-8990-0668F6E1A572
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(1018): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x3027e1b80> 218E3911-F70C-43C6-8990-0668F6E1A572
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(1027): Enqueued request: <NSCloudKitMirroringExportRequest: 0x3027e1b80> 218E3911-F70C-43C6-8990-0668F6E1A572
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3563): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Deferring additional work. There is still an active request: <NSCloudKitMirroringExportRequest: 0x302664c80> 7FD6D815-1D60-482F-AE00-E93881DBD3AF
+CoreData: debug: WAL checkpoint: Database busy
+CoreData: debug: WAL checkpoint: Database busy
+🔄 Folder ID updated in ViewModel - syncing UI
+🧹 Clearing tags text as ViewModel has no tags
+🔄 Tag IDs updated in ViewModel - syncing UI
+🔄 Folder ID updated in ViewModel - syncing UI
+🔄 Tag IDs updated in ViewModel - syncing UI
+🔄 AI suggestions updated - syncing UI
+🔄 State reset complete - UI notified
+CoreData: debug: PostSaveMaintenance: fileSize 10460712 greater than prune threshold
+CoreData: annotation: PostSaveMaintenance: wal_checkpoint(TRUNCATE) 
+CoreData: debug: WAL checkpoint: Database did checkpoint. Log size: 0 checkpointed: 0
+CoreData: warning: CoreData+CloudKit: -[PFCloudKitExporter exportOperationFinished:withSavedRecords:deletedRecordIDs:operationError:](688): Modify records finished: (
+    "<CKRecord: 0x12efe0180>",
+    "<CKRecord: 0x12efe3c00>",
+    "<CKRecord: 0x12efe0480>",
+    "<CKRecord: 0x12efe1c80>",
+    "<CKRecord: 0x12efe0a80>",
+    "<CKRecord: 0x12efe2400>",
+    "<CKRecord: 0x12efe3900>",
+    "<CKRecord: 0x12efe1380>",
+    "<CKRecord: 0x12efe2e80>"
+)
+(
+)
+(null)
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e1e40>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e1e40>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter analyzeHistoryInStore:withManagedObjectContext:error:](549): <PFCloudKitExporter: 0x302665fe0>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "1510C4F5-FEDB-4B32-AA39-E03ACCADA162" = 1781;
+}>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e8420>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e8420>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExportContext processAnalyzedHistoryInStore:inManagedObjectContext:error:]_block_invoke_5(251): Finished processing analyzed history with 0 metadata objects to create, 0 deleted rows without metadata.
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessary]_block_invoke_2(363): <PFCloudKitExporter: 0x302665fe0>: Found 4 objects needing export.
+CoreData: warning: CoreData+CloudKit: -[PFCloudKitExporter exportOperationFinished:withSavedRecords:deletedRecordIDs:operationError:](688): Modify records finished: (
+)
+(
+    "<CKRecordID: 0x30064a680; recordName=F911736A-CDFC-4DDD-9BBC-2D9CC6442A63, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>",
+    "<CKRecordID: 0x30064b540; recordName=C7B751FB-E5CF-4FEF-8D05-871B8B29E95A, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>",
+    "<CKRecordID: 0x300649ac0; recordName=815AADD7-92A7-4FE0-B5EB-8DF573F601DF, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>",
+    "<CKRecordID: 0x30064b8c0; recordName=C780AA45-6275-41DE-A1FF-798FB9AB28A5, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>"
+)
+(null)
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e0b00>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e0b00>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter analyzeHistoryInStore:withManagedObjectContext:error:](549): <PFCloudKitExporter: 0x302665fe0>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "1510C4F5-FEDB-4B32-AA39-E03ACCADA162" = 1782;
+}>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030ed080>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessary]_block_invoke_2(363): <PFCloudKitExporter: 0x302665fe0>: Found 0 objects needing export.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030f6260>
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _exportFinishedWithResult:exporter:](1493): Finished export: <PFCloudKitExporter: 0x302665fe0>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](3585): Finished request: <NSCloudKitMirroringExportRequest: 0x302664c80> 7FD6D815-1D60-482F-AE00-E93881DBD3AF with result: <NSCloudKitMirroringResult: 0x300bfc540> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 1 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:]_block_invoke(3700): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Finished automatic export - ExportActivity - with result: <NSCloudKitMirroringResult: 0x300bfc540> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 1 error: (null)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](3600): Finished request '<NSCloudKitMirroringExportRequest: 0x302664c80> 7FD6D815-1D60-482F-AE00-E93881DBD3AF' with result: <NSCloudKitMirroringResult: 0x300bfc540> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 1 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3567): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Executing: <NSCloudKitMirroringExportRequest: 0x3027e1b80> 218E3911-F70C-43C6-8990-0668F6E1A572
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030e1b80>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter analyzeHistoryInStore:withManagedObjectContext:error:](549): <PFCloudKitExporter: 0x3026560d0>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "1510C4F5-FEDB-4B32-AA39-E03ACCADA162" = 1782;
+}>
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030edce0>
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessary]_block_invoke_2(363): <PFCloudKitExporter: 0x3026560d0>: Found 0 objects needing export.
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate managedObjectContextSaved:](3124): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Observed context save: <NSPersistentStoreCoordinator: 0x302ce1810> - <NSManagedObjectContext: 0x3030ea310>
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _exportFinishedWithResult:exporter:](1493): Finished export: <PFCloudKitExporter: 0x3026560d0>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](3585): Finished request: <NSCloudKitMirroringExportRequest: 0x3027e1b80> 218E3911-F70C-43C6-8990-0668F6E1A572 with result: <NSCloudKitMirroringResult: 0x3008a0de0> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _scheduleAutomatedExportWithLabel:activity:voucher:completionHandler:]_block_invoke(3700): <NSCloudKitMirroringDelegate: 0x3038fc3c0> - Finished automatic export - ExportActivity - with result: <NSCloudKitMirroringResult: 0x3008a0de0> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](3600): Finished request '<NSCloudKitMirroringExportRequest: 0x3027e1b80> 218E3911-F70C-43C6-8990-0668F6E1A572' with result: <NSCloudKitMirroringResult: 0x3008a0de0> storeIdentifier: 1510C4F5-FEDB-4B32-AA39-E03ACCADA162 success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](3554): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(3570): <NSCloudKitMirroringDelegate: 0x3038fc3c0>: No more requests to execute.

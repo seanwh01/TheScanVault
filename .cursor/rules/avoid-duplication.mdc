@@ -1,0 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+- Avoid duplication of code whenever possible, which means checking for other areas of the code base that might already have similar code and functionality 

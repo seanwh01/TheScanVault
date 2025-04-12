@@ -1,0 +1,10 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+- Do not drastically change the patterns before trying to iterate on existing patterns 
+- When fixing an issue or bug, do not introduce a new pattern or technology without first exhausting all options for the existing implementation.  And if you finally do this, make sure to remove the old implementation afterwards so we don’t have duplicate logic.

@@ -1,0 +1,13 @@
+struct AIResearchResponse {
+    let text: String
+    let usage: TokenUsage
+    let modelUsed: String?
+    let requestId: UUID
+    
+    init(text: String, usage: TokenUsage, modelUsed: String? = nil, requestId: UUID) {
+        self.text = text
+        self.usage = usage
+        self.modelUsed = modelUsed
+        self.requestId = requestId
+    }
+} 

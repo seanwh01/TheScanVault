@@ -1,0 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+- Make sure struct and funct are not re-initialized or redeclared across files. Always check if there will be a redeclaration error on any newly added structure of function.

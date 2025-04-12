@@ -1,0 +1,34 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# ViewInspector Requirement for UI Tests
+
+- All UI component tests require the ViewInspector package
+- Add ViewInspector with: File > Add Packages... and enter https://github.com/nalexn/ViewInspector
+- Add it only to the test target, not the main app
+- Add `@Inspectable` to any SwiftUI view you want to test
+- Import both SwiftUI and ViewInspector in test files
+
+Example:
+```swift
+import XCTest
+import SwiftUI
+import ViewInspector
+@testable import TheScanVault
+
+extension MyView: Inspectable {}  // Make the view inspectable
+
+class MyViewTests: XCTestCase {
+    func testView() throws {
+        let view = MyView()
+        let sut = try view.inspect()
+        // Test the view...
+    }
+}
+```
+
+- If you encounter build errors, check that ViewInspector is properly added to the test target
+- ViewInspector documentation: https://github.com/nalexn/ViewInspector#readme

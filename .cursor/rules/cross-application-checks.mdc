@@ -1,0 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+- When making changes in iOS consider any implications to the macOS app in this same project and vice versa.  Do not break anything in the iOS if working on macOS and vice versa 

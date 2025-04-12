@@ -1,0 +1,249 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Swift Refactoring Guidelines
+
+## File Organization and Namespacing
+- When refactoring large files (>800 lines), create a dedicated directory structure (e.g., `Views/ComponentName/`)
+- Use namespaces to prevent naming conflicts:
+  ```swift
+  enum Views_ComponentName {}
+  extension Views_ComponentName {
+    struct SubComponentView: View { ... }
+  }
+  ```
+- Create proxy implementations with the original filename for backward compatibility
+- Keep original file path but redirect to namespaced components
+
+## API and Service Access
+- Always implement fallback mechanisms for critical services:
+  ```swift
+  func getAPIKey() -> String? {
+    // Try Keychain first
+    if let key = keychainService.getAPIKey(...), !key.isEmpty {
+      return key
+    }
+    
+    // Fall back to UserDefaults (especially for simulator)
+    if let key = UserDefaults.standard.string(forKey: "KeyName"), !key.isEmpty {
+      print("Using key from UserDefaults (for simulator)")
+      return key
+    }
+    
+    return nil
+  }
+  ```
+- Check both sources when verifying if a key/value exists
+
+
+## File Organization
+- Create dedicated folders for extracted components (e.g., `Views/Settings/`, `Views/Vault/`)
+- Group related components in the same folder (e.g., all vault-related views in Views/Vault/)
+- Keep file sizes under 800 lines of code
+- Extract components from files exceeding 1000 lines
+- Organize imports at the top of the file with system imports first, then project imports
+
+## Component Extraction
+- Extract components based on clear responsibilities (Single Responsibility Principle)
+- Extract reusable UI elements into separate view components
+- Extract complex sections (like headers, search fields, buttons) into their own components
+- Move business logic from views into view models
+- When extracting components, include proper documentation comments explaining their purpose
+
+## View Structure
+- Break down large views into smaller, more manageable subviews
+- Use `@ObservedObject` for shared view models across components
+- Use `@Binding` for properties that need to be modified by child views
+- Pass only necessary properties to child components
+- Keep View body methods under 100 lines
+
+## State Management
+- Centralize state in view models rather than views
+- Minimize use of `@State` variables in parent views
+- Pass view models to child components instead of individual properties
+- Use environment objects for global state that many components need to access
+- Be explicit about when state updates trigger UI refreshes
+
+## Notification Handling
+- Centralize notification observers in one place
+- Use proper lifecycle management for observers (add in onAppear, remove in onDisappear)
+- Use typed notification pattern when possible
+- Consider using Combine publishers instead of NotificationCenter for more type safety
+
+## Common UI Patterns
+- Use DisclosureGroup for expandable sections
+- Extract header/footer elements into separate components
+- Create dedicated components for list items
+- Place search functionality in dedicated components
+- Keep alert and sheet presentation logic in the parent view
+
+## Naming Conventions
+- Use descriptive names that indicate component purpose
+- Suffix view components with "View" (e.g., `VaultHeaderView`)
+- Keep consistent naming across related components
+- Use prefixes to group related components (e.g., `Vault` prefix for all vault-related views)
+- Follow Apple's naming guidelines for Swift (camelCase for variables, methods; PascalCase for types)
+
+
+## View Models
+
+- Make view model properties injectable to support testing. Use `private(set) var` instead of `private let` for properties that need to be injected.
+- Provide custom initializers to support dependency injection in tests.
+- Example:
+  ```swift
+  class ViewModel: ObservableObject {
+      private(set) var persistenceController: PersistenceController
+      
+      init() {
+          self.persistenceController = PersistenceController.shared
+          // Other initialization
+      }
+      
+      init(persistenceController: PersistenceController) {
+          self.persistenceController = persistenceController
+          // Other initialization
+      }
+  }
+
+
+## Testing
+- Create separate mock classes with test prefixes (e.g., `TestComponentViewModel`) 
+- Avoid naming conflicts by using unique names for test enums/structs
+- For UI components, prefer synchronous testing over asynchronous when possible
+- Initialize variables in mock classes that match the real implementation
+
+
+## Testing & Mocks
+
+- When mocking an object, decide whether to inherit from the original class or simply implement the same protocol/interface.
+- If inheriting, ensure to properly override all required methods.
+- If implementing an interface, ensure the mock implements all required methods.
+- Keep test mocks separate from production code.
+- When creating mocks, implement the minimal functionality needed for tests.
+- Example mock:
+  ```swift
+  class MockDocumentViewModel: ObservableObject {
+      var mockDocument: DocumentDetails?
+      var updatedTitle: String = ""
+      
+      func loadDocument(id: UUID, completion: @escaping (DocumentDetails?) -> Void) {
+          completion(mockDocument)
+      }
+  }
+
+
+## Avoiding Common Errors
+- Check for redeclarations across test and production code
+- When migrating enums, ensure all references are updated
+- Apply consistent styling patterns across refactored components
+- Be cautious of "multiple commands produce X.stringsdata" errors when moving UI files
+
+
+## SwiftUI Views
+
+- When refactoring view initialization, ensure all call sites are updated
+- Be cautious when adding or removing parameters to view initializers
+- Document expected parameter usage, especially when changes might affect tests
+- Keep view initializers consistent across related components
+- Consider using view builders for complex view compositions
+
+## Refactoring Process
+
+- Start with the largest files first (>1000 lines)
+- Identify logical components within large files (headers, search fields, list items, etc.)
+- Extract one component at a time and test after each extraction
+- Update all references to extracted components
+- Check for duplicate functionality before creating new components
+- Document the refactoring process and decisions made
+- Create a detailed plan before starting major refactoring
+
+## Error Prevention
+
+- Check for missing imports in extracted files
+- Verify property access levels (public, private, etc.)
+- Ensure all required dependencies are passed to extracted components
+- Test each component after extraction
+- Look for patterns that could lead to memory leaks (strong reference cycles)
+- Validate that component extraction doesn't break existing functionality
+
+# Testing SwiftUI Components
+
+### Test Mocking
+- Use static swappable implementations for dependencies in production code to enable test mocking
+  ```swift
+  // In production code
+  struct DocumentListItem {
+      // Add a static property that can be swapped in tests
+      static var isDocumentLockedImpl: (UUID) -> Bool = { documentId in
+          DocumentLockManager.shared.isDocumentLocked(documentId)
+      }
+      
+      var isLocked: Bool {
+          return DocumentListItem.isDocumentLockedImpl(id)
+      }
+  }
+  
+  // In test code
+  let originalImplementation = DocumentListItem.isDocumentLockedImpl
+  DocumentListItem.isDocumentLockedImpl = { documentId in
+      return documentId == mockedLockedId
+  }
+  // Test code...
+  DocumentListItem.isDocumentLockedImpl = originalImplementation // Restore original
+  ```
+
+### ViewInspector Testing
+- Add accessibility labels to UI components to make them easier to test with ViewInspector
+  ```swift
+  if document.isLocked {
+      Image(systemName: "lock.fill")
+          .foregroundColor(.blue)
+          .accessibilityLabel("Locked")
+  }
+  ```
+
+- Test UI behaviors rather than implementation details to reduce test fragility
+  ```swift
+  // Instead of looking for specific nested structure:
+  let images = try unlockedTopHStack.findAll(ViewType.Image.self)
+  let lockImages = images.filter { 
+      (try? image.actualImage().name() == "lock.fill") ?? false 
+  }
+  XCTAssertEqual(lockImages.count, 0, "Lock icon should not be visible")
+  ```
+
+### Test Data Structures
+- Create dedicated test data structures to simplify test setup
+  ```swift
+  // A test-specific version of the model
+  struct TestDocumentListItem: Identifiable {
+      let id: UUID
+      let title: String
+      let createdAt: Date
+      let folderName: String?
+      let tagNames: [String]
+      let text: String?
+      let isLocked: Bool
+  }
+  
+  // Add convenience initializers to production types for testing
+  extension DocumentRow {
+      init(testDocument: TestDocumentListItem, ...) {
+          // Implementation that creates real model from test model
+      }
+  }
+  ```
+
+### UI Testing Separation
+- UI tests require separate test targets with proper setup
+- When UI tests fail because of configuration issues, create placeholder unit tests that verify core logic until UI test infrastructure is properly configured
+
+### State Management in Tests
+- Always reset mock state in setUp() methods
+- Carefully save and restore global state when tests complete
+- Avoid side effects from one test affecting another
+
+

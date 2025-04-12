@@ -1,0 +1,1388 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 70;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E500C6F12D8752A300BE729D /* ScanVault.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = E500C6F02D8752A300BE729D /* ScanVault.xcdatamodel */; };
+		E504CD582DA6A8460090ED14 /* iOSVaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504CD552DA6A8460090ED14 /* iOSVaultView.swift */; };
+		E504CD792DA6CC170090ED14 /* KeychainServiceMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504CD762DA6CC170090ED14 /* KeychainServiceMockTests.swift */; };
+		E51F27B72DA42C8700907CE8 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F27B42DA42C8700907CE8 /* Date+Extensions.swift */; };
+		E51F27B82DA42C8700907CE8 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F27B52DA42C8700907CE8 /* UserDefaultsExtensions.swift */; };
+		E51F27C32DA44D5100907CE8 /* DocumentLearningService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F27BF2DA44D5100907CE8 /* DocumentLearningService.swift */; };
+		E51F27C42DA44D5100907CE8 /* FolderKeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F27C02DA44D5100907CE8 /* FolderKeychainManager.swift */; };
+		E51F27C52DA44D5100907CE8 /* KeychainFixUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F27C12DA44D5100907CE8 /* KeychainFixUtility.swift */; };
+		E51F27C62DA44D5100907CE8 /* Log File for Learning.txt in Resources */ = {isa = PBXBuildFile; fileRef = E51F27C22DA44D5100907CE8 /* Log File for Learning.txt */; };
+		E5254B3C2D97892E00B3FB4D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F6FFA32D864CB600442107 /* CoreData.framework */; };
+		E5254B3D2D97893800B3FB4D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F6FFA12D864CAE00442107 /* SwiftUI.framework */; };
+		E5254B3E2D97893D00B3FB4D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F6FFA52D864CC100442107 /* Foundation.framework */; };
+		E52B65532DAAB5E4007178D1 /* ScanVaultCore.docc in Sources */ = {isa = PBXBuildFile; fileRef = E52B65512DAAB5E4007178D1 /* ScanVaultCore.docc */; };
+		E52B65542DAAB5E4007178D1 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52B654F2DAAB5E4007178D1 /* PersistenceController.swift */; };
+		E52B65552DAAB5E4007178D1 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52B654E2DAAB5E4007178D1 /* CoreDataExtensions.swift */; };
+		E5451CA22D9ECE9100AD3F0B /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CE46642D8DF33B001E518E /* KeychainManager.swift */; };
+		E5451CA32D9ECE9D00AD3F0B /* DocumentLockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E561C5C82D919820007CC18A /* DocumentLockManager.swift */; };
+		E5451CA42D9ECEA600AD3F0B /* DocumentLockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E561C6F32D91B4A9007CC18A /* DocumentLockService.swift */; };
+		E5451CA52D9ED51000AD3F0B /* AppServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CE46862D905C16001E518E /* AppServices.swift */; };
+		E5451CA82D9EDA5800AD3F0B /* PlatformTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5451CA72D9EDA5800AD3F0B /* PlatformTypes.swift */; };
+		E5451CA92D9EDA5800AD3F0B /* CloudSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5451CA62D9EDA5800AD3F0B /* CloudSyncManager.swift */; };
+		E5451CAA2D9EDA5800AD3F0B /* PlatformTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5451CA72D9EDA5800AD3F0B /* PlatformTypes.swift */; };
+		E5451CAB2D9EDA5800AD3F0B /* CloudSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5451CA62D9EDA5800AD3F0B /* CloudSyncManager.swift */; };
+		E561C5C92D919820007CC18A /* DocumentLockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E561C5C82D919820007CC18A /* DocumentLockManager.swift */; };
+		E561C6F42D91B4A9007CC18A /* DocumentLockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E561C6F32D91B4A9007CC18A /* DocumentLockService.swift */; };
+		E561C6F52D91B4A9007CC18A /* DocumentLockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E561C6F32D91B4A9007CC18A /* DocumentLockService.swift */; };
+		E562008F2D949898006802A4 /* 180.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200862D949898006802A4 /* 180.png */; };
+		E56200902D949898006802A4 /* 108.png in Resources */ = {isa = PBXBuildFile; fileRef = E562007E2D949898006802A4 /* 108.png */; };
+		E56200912D949898006802A4 /* 258.png in Resources */ = {isa = PBXBuildFile; fileRef = E562008B2D949898006802A4 /* 258.png */; };
+		E56200922D949898006802A4 /* 512.png in Resources */ = {isa = PBXBuildFile; fileRef = E562008C2D949898006802A4 /* 512.png */; };
+		E56200932D949898006802A4 /* 114.png in Resources */ = {isa = PBXBuildFile; fileRef = E562007F2D949898006802A4 /* 114.png */; };
+		E56200942D949898006802A4 /* 58.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200722D949898006802A4 /* 58.png */; };
+		E56200952D949898006802A4 /* 72.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200762D949898006802A4 /* 72.png */; };
+		E56200962D949898006802A4 /* 29.png in Resources */ = {isa = PBXBuildFile; fileRef = E562006B2D949898006802A4 /* 29.png */; };
+		E56200972D949898006802A4 /* 1024.png in Resources */ = {isa = PBXBuildFile; fileRef = E562008D2D949898006802A4 /* 1024.png */; };
+		E56200982D949898006802A4 /* 234.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200892D949898006802A4 /* 234.png */; };
+		E56200992D949898006802A4 /* 40.png in Resources */ = {isa = PBXBuildFile; fileRef = E562006D2D949898006802A4 /* 40.png */; };
+		E562009A2D949898006802A4 /* 50.png in Resources */ = {isa = PBXBuildFile; fileRef = E562006F2D949898006802A4 /* 50.png */; };
+		E562009B2D949898006802A4 /* 92.png in Resources */ = {isa = PBXBuildFile; fileRef = E562007B2D949898006802A4 /* 92.png */; };
+		E562009C2D949898006802A4 /* 102.png in Resources */ = {isa = PBXBuildFile; fileRef = E562007D2D949898006802A4 /* 102.png */; };
+		E562009D2D949898006802A4 /* 120.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200802D949898006802A4 /* 120.png */; };
+		E562009E2D949898006802A4 /* 216.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200882D949898006802A4 /* 216.png */; };
+		E562009F2D949898006802A4 /* 256.png in Resources */ = {isa = PBXBuildFile; fileRef = E562008A2D949898006802A4 /* 256.png */; };
+		E56200A02D949898006802A4 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = E562008E2D949898006802A4 /* Contents.json */; };
+		E56200A12D949898006802A4 /* 64.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200742D949898006802A4 /* 64.png */; };
+		E56200A22D949898006802A4 /* 152.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200832D949898006802A4 /* 152.png */; };
+		E56200A32D949898006802A4 /* 128.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200812D949898006802A4 /* 128.png */; };
+		E56200A42D949898006802A4 /* 32.png in Resources */ = {isa = PBXBuildFile; fileRef = E562006C2D949898006802A4 /* 32.png */; };
+		E56200A52D949898006802A4 /* 100.png in Resources */ = {isa = PBXBuildFile; fileRef = E562007C2D949898006802A4 /* 100.png */; };
+		E56200A62D949898006802A4 /* 87.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200792D949898006802A4 /* 87.png */; };
+		E56200A72D949898006802A4 /* 80.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200782D949898006802A4 /* 80.png */; };
+		E56200A82D949898006802A4 /* 88.png in Resources */ = {isa = PBXBuildFile; fileRef = E562007A2D949898006802A4 /* 88.png */; };
+		E56200A92D949898006802A4 /* 60.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200732D949898006802A4 /* 60.png */; };
+		E56200AA2D949898006802A4 /* 76.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200772D949898006802A4 /* 76.png */; };
+		E56200AB2D949898006802A4 /* 66.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200752D949898006802A4 /* 66.png */; };
+		E56200AC2D949898006802A4 /* 167.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200842D949898006802A4 /* 167.png */; };
+		E56200AD2D949898006802A4 /* 55.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200702D949898006802A4 /* 55.png */; };
+		E56200AE2D949898006802A4 /* 144.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200822D949898006802A4 /* 144.png */; };
+		E56200AF2D949898006802A4 /* 172.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200852D949898006802A4 /* 172.png */; };
+		E56200B02D949898006802A4 /* 196.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200872D949898006802A4 /* 196.png */; };
+		E56200B12D949898006802A4 /* 16.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200692D949898006802A4 /* 16.png */; };
+		E56200B22D949898006802A4 /* 48.png in Resources */ = {isa = PBXBuildFile; fileRef = E562006E2D949898006802A4 /* 48.png */; };
+		E56200B32D949898006802A4 /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200712D949898006802A4 /* 57.png */; };
+		E56200B42D949898006802A4 /* 20.png in Resources */ = {isa = PBXBuildFile; fileRef = E562006A2D949898006802A4 /* 20.png */; };
+		E56200B62D949B4D006802A4 /* ScanVaultLogoforAppTM.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200B52D949B4D006802A4 /* ScanVaultLogoforAppTM.png */; };
+		E5657E312D97804000E1C90E /* ScanVault.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = E500C6F02D8752A300BE729D /* ScanVault.xcdatamodel */; };
+		E57472672DAA02B400FF41A9 /* AIResearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57472652DAA02B400FF41A9 /* AIResearchViewModelTests.swift */; };
+		E57472682DAA02B400FF41A9 /* AIResearchViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57472662DAA02B400FF41A9 /* AIResearchViewUITests.swift */; };
+		E57472722DAA07CF00FF41A9 /* AIFolderSelectionViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E574726F2DAA07CF00FF41A9 /* AIFolderSelectionViewTests.swift */; };
+		E57472732DAA07CF00FF41A9 /* AISearchFieldsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57472702DAA07CF00FF41A9 /* AISearchFieldsViewTests.swift */; };
+		E57472742DAA07CF00FF41A9 /* AISearchResultsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57472712DAA07CF00FF41A9 /* AISearchResultsViewTests.swift */; };
+		E585B86F2DA711A9005F2AC2 /* DocumentFolderEditViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E585B86B2DA711A9005F2AC2 /* DocumentFolderEditViewTests.swift */; };
+		E585B8702DA711A9005F2AC2 /* DocumentRowBasicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E585B86C2DA711A9005F2AC2 /* DocumentRowBasicTests.swift */; };
+		E585B8712DA711A9005F2AC2 /* VaultViewModelDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E585B86E2DA711A9005F2AC2 /* VaultViewModelDataManagerTests.swift */; };
+		E585B8722DA711A9005F2AC2 /* DocumentDetailsSheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E585B86A2DA711A9005F2AC2 /* DocumentDetailsSheetTests.swift */; };
+		E585B8732DA711A9005F2AC2 /* DocumentTagsEditViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E585B86D2DA711A9005F2AC2 /* DocumentTagsEditViewTests.swift */; };
+		E585B8772DA7130A005F2AC2 /* ViewInspectorStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = E585B8762DA7130A005F2AC2 /* ViewInspectorStub.swift */; };
+		E585B87C2DA71A85005F2AC2 /* DocumentRowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E585B8792DA71A85005F2AC2 /* DocumentRowUITests.swift */; };
+		E585B87D2DA71A85005F2AC2 /* VaultViewModelPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E585B87A2DA71A85005F2AC2 /* VaultViewModelPersistenceTests.swift */; };
+		E585B87E2DA71A85005F2AC2 /* DocumentResultsViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E585B8782DA71A85005F2AC2 /* DocumentResultsViewUITests.swift */; };
+		E5B1E6B62DA6A27F006876AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B1E6B52DA6A27F006876AD /* LaunchScreen.storyboard */; };
+		E5CE46612D8DE158001E518E /* DocumentClassifierService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CE46602D8DE158001E518E /* DocumentClassifierService.swift */; };
+		E5CE46672D8DF33B001E518E /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CE46652D8DF33B001E518E /* OpenAIService.swift */; };
+		E5CE46682D8DF33B001E518E /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CE46642D8DF33B001E518E /* KeychainManager.swift */; };
+		E5CE46692D8DF33B001E518E /* TempDevDocumentAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CE46662D8DF33B001E518E /* TempDevDocumentAIService.swift */; };
+		E5CE466C2D8E2A7D001E518E /* DocumentAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CE466B2D8E2A7D001E518E /* DocumentAIService.swift */; };
+		E5CE466D2D8E2A7D001E518E /* AdaptiveLearningClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CE466A2D8E2A7D001E518E /* AdaptiveLearningClassifier.swift */; };
+		E5CE46852D9057B3001E518E /* DocumentProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CE46842D9057B3001E518E /* DocumentProcessor.swift */; };
+		E5CE46872D905C16001E518E /* AppServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CE46862D905C16001E518E /* AppServices.swift */; };
+		E5CE468C2D908B29001E518E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CE468B2D908B29001E518E /* Extensions.swift */; };
+		E5D7E44C2D80FCAA0073C1DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D7E44B2D80FCAA0073C1DA /* Assets.xcassets */; };
+		E5EBADD32D98422900E28736 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D7E44B2D80FCAA0073C1DA /* Assets.xcassets */; };
+		E5F6FFA22D864CAE00442107 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F6FFA12D864CAE00442107 /* SwiftUI.framework */; };
+		E5F6FFA42D864CB600442107 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F6FFA32D864CB600442107 /* CoreData.framework */; };
+		E5F6FFA62D864CC100442107 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F6FFA52D864CC100442107 /* Foundation.framework */; };
+		E5F6FFA72D864E9C00442107 /* ScanVaultApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F7C57B2D86395C001E75CF /* ScanVaultApp.swift */; };
+		TEST_FILE_REF /* DocumentLockServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TEST_FILE_REF_2 /* DocumentLockServiceTests.swift */; };
+		TEST_MOCKS_REF /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = TEST_MOCKS_REF_2 /* Mocks.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E5657E172D977B1100E1C90E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E3E3E3E3E3E3E3E3E3E3E3E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5657E052D977B1000E1C90E;
+			remoteInfo = "ScanVaultAI for Mac OS";
+		};
+		E5657E212D977B1100E1C90E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E3E3E3E3E3E3E3E3E3E3E3E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5657E052D977B1000E1C90E;
+			remoteInfo = "ScanVaultAI for Mac OS";
+		};
+		TEST_PROXY_ID /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E3E3E3E3E3E3E3E3E3E3E3E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8A8A8A8A8A8A8A8A8A8A8A8A;
+			remoteInfo = TheScanVault;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E500C6F02D8752A300BE729D /* ScanVault.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = ScanVault.xcdatamodel; path = Models/ScanVault.xcdatamodel; sourceTree = "<group>"; };
+		E500C7062D8D994600BE729D /* TheScanVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheScanVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E504CD552DA6A8460090ED14 /* iOSVaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSVaultView.swift; sourceTree = "<group>"; };
+		E504CD762DA6CC170090ED14 /* KeychainServiceMockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceMockTests.swift; sourceTree = "<group>"; };
+		E504CD782DA6CC170090ED14 /* TestTargetMembership.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TestTargetMembership.md; sourceTree = "<group>"; };
+		E504CD7A2DA6CC5F0090ED14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E51F27B42DA42C8700907CE8 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		E51F27B52DA42C8700907CE8 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
+		E51F27B92DA42DC100907CE8 /* OverallRefactoringComplete.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = OverallRefactoringComplete.md; sourceTree = "<group>"; };
+		E51F27BA2DA42DC100907CE8 /* RefactoringNextSteps.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RefactoringNextSteps.md; sourceTree = "<group>"; };
+		E51F27BF2DA44D5100907CE8 /* DocumentLearningService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentLearningService.swift; sourceTree = "<group>"; };
+		E51F27C02DA44D5100907CE8 /* FolderKeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderKeychainManager.swift; sourceTree = "<group>"; };
+		E51F27C12DA44D5100907CE8 /* KeychainFixUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainFixUtility.swift; sourceTree = "<group>"; };
+		E51F27C22DA44D5100907CE8 /* Log File for Learning.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Log File for Learning.txt"; sourceTree = "<group>"; };
+		E52B654E2DAAB5E4007178D1 /* CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
+		E52B654F2DAAB5E4007178D1 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		E52B65502DAAB5E4007178D1 /* ScanVaultCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanVaultCore.h; sourceTree = "<group>"; };
+		E52B65512DAAB5E4007178D1 /* ScanVaultCore.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = ScanVaultCore.docc; sourceTree = "<group>"; };
+		E5451CA62D9EDA5800AD3F0B /* CloudSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudSyncManager.swift; sourceTree = "<group>"; };
+		E5451CA72D9EDA5800AD3F0B /* PlatformTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformTypes.swift; sourceTree = "<group>"; };
+		E561C5C82D919820007CC18A /* DocumentLockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentLockManager.swift; sourceTree = "<group>"; };
+		E561C6052D91AFD2007CC18A /* TheScanVaultTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheScanVaultTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E561C6F32D91B4A9007CC18A /* DocumentLockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentLockService.swift; sourceTree = "<group>"; };
+		E56200692D949898006802A4 /* 16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 16.png; sourceTree = "<group>"; };
+		E562006A2D949898006802A4 /* 20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 20.png; sourceTree = "<group>"; };
+		E562006B2D949898006802A4 /* 29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 29.png; sourceTree = "<group>"; };
+		E562006C2D949898006802A4 /* 32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 32.png; sourceTree = "<group>"; };
+		E562006D2D949898006802A4 /* 40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 40.png; sourceTree = "<group>"; };
+		E562006E2D949898006802A4 /* 48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 48.png; sourceTree = "<group>"; };
+		E562006F2D949898006802A4 /* 50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 50.png; sourceTree = "<group>"; };
+		E56200702D949898006802A4 /* 55.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 55.png; sourceTree = "<group>"; };
+		E56200712D949898006802A4 /* 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 57.png; sourceTree = "<group>"; };
+		E56200722D949898006802A4 /* 58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 58.png; sourceTree = "<group>"; };
+		E56200732D949898006802A4 /* 60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 60.png; sourceTree = "<group>"; };
+		E56200742D949898006802A4 /* 64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 64.png; sourceTree = "<group>"; };
+		E56200752D949898006802A4 /* 66.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 66.png; sourceTree = "<group>"; };
+		E56200762D949898006802A4 /* 72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 72.png; sourceTree = "<group>"; };
+		E56200772D949898006802A4 /* 76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 76.png; sourceTree = "<group>"; };
+		E56200782D949898006802A4 /* 80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 80.png; sourceTree = "<group>"; };
+		E56200792D949898006802A4 /* 87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 87.png; sourceTree = "<group>"; };
+		E562007A2D949898006802A4 /* 88.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 88.png; sourceTree = "<group>"; };
+		E562007B2D949898006802A4 /* 92.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 92.png; sourceTree = "<group>"; };
+		E562007C2D949898006802A4 /* 100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 100.png; sourceTree = "<group>"; };
+		E562007D2D949898006802A4 /* 102.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 102.png; sourceTree = "<group>"; };
+		E562007E2D949898006802A4 /* 108.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 108.png; sourceTree = "<group>"; };
+		E562007F2D949898006802A4 /* 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 114.png; sourceTree = "<group>"; };
+		E56200802D949898006802A4 /* 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120.png; sourceTree = "<group>"; };
+		E56200812D949898006802A4 /* 128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 128.png; sourceTree = "<group>"; };
+		E56200822D949898006802A4 /* 144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 144.png; sourceTree = "<group>"; };
+		E56200832D949898006802A4 /* 152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 152.png; sourceTree = "<group>"; };
+		E56200842D949898006802A4 /* 167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 167.png; sourceTree = "<group>"; };
+		E56200852D949898006802A4 /* 172.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 172.png; sourceTree = "<group>"; };
+		E56200862D949898006802A4 /* 180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 180.png; sourceTree = "<group>"; };
+		E56200872D949898006802A4 /* 196.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 196.png; sourceTree = "<group>"; };
+		E56200882D949898006802A4 /* 216.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 216.png; sourceTree = "<group>"; };
+		E56200892D949898006802A4 /* 234.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 234.png; sourceTree = "<group>"; };
+		E562008A2D949898006802A4 /* 256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 256.png; sourceTree = "<group>"; };
+		E562008B2D949898006802A4 /* 258.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 258.png; sourceTree = "<group>"; };
+		E562008C2D949898006802A4 /* 512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 512.png; sourceTree = "<group>"; };
+		E562008D2D949898006802A4 /* 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024.png; sourceTree = "<group>"; };
+		E562008E2D949898006802A4 /* Contents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		E56200B52D949B4D006802A4 /* ScanVaultLogoforAppTM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ScanVaultLogoforAppTM.png; sourceTree = "<group>"; };
+		E5657E062D977B1000E1C90E /* ScanVaultAI for Mac OS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ScanVaultAI for Mac OS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5657E162D977B1100E1C90E /* ScanVaultAI for Mac OSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ScanVaultAI for Mac OSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5657E202D977B1100E1C90E /* ScanVaultAI for Mac OSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ScanVaultAI for Mac OSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E57472642DAA028500FF41A9 /* AIResearchViewTestPlan.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = AIResearchViewTestPlan.md; sourceTree = "<group>"; };
+		E57472652DAA02B400FF41A9 /* AIResearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIResearchViewModelTests.swift; sourceTree = "<group>"; };
+		E57472662DAA02B400FF41A9 /* AIResearchViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIResearchViewUITests.swift; sourceTree = "<group>"; };
+		E574726F2DAA07CF00FF41A9 /* AIFolderSelectionViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFolderSelectionViewTests.swift; sourceTree = "<group>"; };
+		E57472702DAA07CF00FF41A9 /* AISearchFieldsViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AISearchFieldsViewTests.swift; sourceTree = "<group>"; };
+		E57472712DAA07CF00FF41A9 /* AISearchResultsViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AISearchResultsViewTests.swift; sourceTree = "<group>"; };
+		E57472752DAA0D4100FF41A9 /* UITestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UITestPlan.xctestplan; sourceTree = "<group>"; };
+		E585B8682DA6FB13005F2AC2 /* VaultViewTestPlan.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = VaultViewTestPlan.md; sourceTree = "<group>"; };
+		E585B86A2DA711A9005F2AC2 /* DocumentDetailsSheetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDetailsSheetTests.swift; sourceTree = "<group>"; };
+		E585B86B2DA711A9005F2AC2 /* DocumentFolderEditViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentFolderEditViewTests.swift; sourceTree = "<group>"; };
+		E585B86C2DA711A9005F2AC2 /* DocumentRowBasicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRowBasicTests.swift; sourceTree = "<group>"; };
+		E585B86D2DA711A9005F2AC2 /* DocumentTagsEditViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTagsEditViewTests.swift; sourceTree = "<group>"; };
+		E585B86E2DA711A9005F2AC2 /* VaultViewModelDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultViewModelDataManagerTests.swift; sourceTree = "<group>"; };
+		E585B8762DA7130A005F2AC2 /* ViewInspectorStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInspectorStub.swift; sourceTree = "<group>"; };
+		E585B8782DA71A85005F2AC2 /* DocumentResultsViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentResultsViewUITests.swift; sourceTree = "<group>"; };
+		E585B8792DA71A85005F2AC2 /* DocumentRowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRowUITests.swift; sourceTree = "<group>"; };
+		E585B87A2DA71A85005F2AC2 /* VaultViewModelPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultViewModelPersistenceTests.swift; sourceTree = "<group>"; };
+		E585B8802DA72045005F2AC2 /* viewinspector-requirement.mdc */ = {isa = PBXFileReference; lastKnownFileType = text; path = "viewinspector-requirement.mdc"; sourceTree = "<group>"; };
+		E59830E12DA2DE7200CBF52F /* Log File for Current AI Classification setting.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Log File for Current AI Classification setting.txt"; sourceTree = "<group>"; };
+		E5B1E6B52DA6A27F006876AD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E5BA13B12D7E21C900E42590 /* TheScanVault.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheScanVault.entitlements; sourceTree = SOURCE_ROOT; };
+		E5BA13B22D7E256600E42590 /* TheScanVault-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TheScanVault-Info.plist"; sourceTree = SOURCE_ROOT; };
+		E5CE46602D8DE158001E518E /* DocumentClassifierService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentClassifierService.swift; sourceTree = "<group>"; };
+		E5CE46642D8DF33B001E518E /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		E5CE46652D8DF33B001E518E /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		E5CE46662D8DF33B001E518E /* TempDevDocumentAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempDevDocumentAIService.swift; sourceTree = "<group>"; };
+		E5CE466A2D8E2A7D001E518E /* AdaptiveLearningClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveLearningClassifier.swift; sourceTree = "<group>"; };
+		E5CE466B2D8E2A7D001E518E /* DocumentAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentAIService.swift; sourceTree = "<group>"; };
+		E5CE46842D9057B3001E518E /* DocumentProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentProcessor.swift; sourceTree = "<group>"; };
+		E5CE46862D905C16001E518E /* AppServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServices.swift; sourceTree = "<group>"; };
+		E5CE468B2D908B29001E518E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E5D7E44B2D80FCAA0073C1DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E5F6FFA12D864CAE00442107 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		E5F6FFA32D864CB600442107 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E5F6FFA52D864CC100442107 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E5F6FFAC2D86503E00442107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5F7C57A2D86395C001E75CF /* PROJECT_STRUCTURE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PROJECT_STRUCTURE.md; sourceTree = "<group>"; };
+		E5F7C57B2D86395C001E75CF /* ScanVaultApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanVaultApp.swift; sourceTree = "<group>"; };
+		E5F7C57C2D863979001E75CF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E5F7C57D2D863979001E75CF /* TheScanVault.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = TheScanVault.xcodeproj; sourceTree = "<group>"; };
+		TEST_FILE_REF_2 /* DocumentLockServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentLockServiceTests.swift; sourceTree = "<group>"; };
+		TEST_MOCKS_REF_2 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E51F27AF2DA42ADF00907CE8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AIModelSelectionView.swift,
+				RefactoringPlan.md,
+				RefactoringProgress.md,
+				SettingsView_Original.swift,
+				SettingsView.swift,
+			);
+			target = 8A8A8A8A8A8A8A8A8A8A8A8A /* TheScanVault */;
+		};
+		E5657E422D97853200E1C90E /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CoreDataModels.swift,
+			);
+			target = E5657E052D977B1000E1C90E /* ScanVaultAI for Mac OS */;
+		};
+		E598312B2DA361B600CBF52F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CoreDataExtensions.swift,
+				PersistenceController.swift,
+				ScanVault.xcdatamodel,
+			);
+			target = 8A8A8A8A8A8A8A8A8A8A8A8A /* TheScanVault */;
+		};
+		E5EBADD02D98319700E28736 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ScanVaultAI_ScanAnimation.gif,
+			);
+			target = E5657E052D977B1000E1C90E /* ScanVaultAI for Mac OS */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E5657E072D977B1000E1C90E /* ScanVaultAI for Mac OS */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "ScanVaultAI for Mac OS"; sourceTree = "<group>"; };
+		E5657E192D977B1100E1C90E /* ScanVaultAI for Mac OSTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "ScanVaultAI for Mac OSTests"; sourceTree = "<group>"; };
+		E5657E232D977B1100E1C90E /* ScanVaultAI for Mac OSUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "ScanVaultAI for Mac OSUITests"; sourceTree = "<group>"; };
+		E574726C2DAA034400FF41A9 /* TestData */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = TestData; sourceTree = "<group>"; };
+		E5F7C55D2D8637B8001E75CF /* ViewModels */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewModels; sourceTree = "<group>"; };
+		E5F7C5692D86380F001E75CF /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (E51F27AF2DA42ADF00907CE8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, E5EBADD02D98319700E28736 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
+		E5F7C5742D8638C5001E75CF /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (E598312B2DA361B600CBF52F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, E5657E422D97853200E1C90E /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1T1T1T1T1T1T1T1T1T1T1T1T /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5F6FFA62D864CC100442107 /* Foundation.framework in Frameworks */,
+				E5F6FFA42D864CB600442107 /* CoreData.framework in Frameworks */,
+				E5F6FFA22D864CAE00442107 /* SwiftUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5657E032D977B1000E1C90E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5254B3D2D97893800B3FB4D /* SwiftUI.framework in Frameworks */,
+				E5254B3E2D97893D00B3FB4D /* Foundation.framework in Frameworks */,
+				E5254B3C2D97892E00B3FB4D /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5657E132D977B1100E1C90E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5657E1D2D977B1100E1C90E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3V3V3V3V3V3V3V3V3V3V3V3V /* TheScanVault */ = {
+			isa = PBXGroup;
+			children = (
+				E5F6FFAC2D86503E00442107 /* Info.plist */,
+				E5F7C57B2D86395C001E75CF /* ScanVaultApp.swift */,
+			);
+			path = TheScanVault;
+			sourceTree = "<group>";
+		};
+		7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z = {
+			isa = PBXGroup;
+			children = (
+				E52B65522DAAB5E4007178D1 /* ScanVaultCore */,
+				E574726C2DAA034400FF41A9 /* TestData */,
+				E585B8802DA72045005F2AC2 /* viewinspector-requirement.mdc */,
+				E585B8692DA6FB13005F2AC2 /* TestPlans */,
+				E504CD572DA6A8460090ED14 /* iOS App */,
+				E5B1E6B52DA6A27F006876AD /* LaunchScreen.storyboard */,
+				E51F27B92DA42DC100907CE8 /* OverallRefactoringComplete.md */,
+				E51F27BA2DA42DC100907CE8 /* RefactoringNextSteps.md */,
+				E51F27B62DA42C8700907CE8 /* Extensions */,
+				E56200B52D949B4D006802A4 /* ScanVaultLogoforAppTM.png */,
+				E5CE465F2D8DE0B8001E518E /* AppServices */,
+				E500C6F02D8752A300BE729D /* ScanVault.xcdatamodel */,
+				E5BA13B22D7E256600E42590 /* TheScanVault-Info.plist */,
+				E5BA13B12D7E21C900E42590 /* TheScanVault.entitlements */,
+				E5F7C5742D8638C5001E75CF /* Models */,
+				E5F7C57C2D863979001E75CF /* README.md */,
+				E5F7C57D2D863979001E75CF /* TheScanVault.xcodeproj */,
+				E5F7C57A2D86395C001E75CF /* PROJECT_STRUCTURE.md */,
+				3V3V3V3V3V3V3V3V3V3V3V3V /* TheScanVault */,
+				E5F7C5692D86380F001E75CF /* Views */,
+				E5F7C55D2D8637B8001E75CF /* ViewModels */,
+				E5D7E45F2D80FCD50073C1DA /* AppIcon.appiconset.bak */,
+				E5D7E44B2D80FCAA0073C1DA /* Assets.xcassets */,
+				E5657E072D977B1000E1C90E /* ScanVaultAI for Mac OS */,
+				E5657E192D977B1100E1C90E /* ScanVaultAI for Mac OSTests */,
+				E5657E232D977B1100E1C90E /* ScanVaultAI for Mac OSUITests */,
+				E5F6FFA02D864CAD00442107 /* Frameworks */,
+				E500C7062D8D994600BE729D /* TheScanVault.app */,
+				TEST_GROUP /* Tests */,
+			);
+			sourceTree = "<group>";
+		};
+		E504CD562DA6A8460090ED14 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E504CD552DA6A8460090ED14 /* iOSVaultView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E504CD572DA6A8460090ED14 /* iOS App */ = {
+			isa = PBXGroup;
+			children = (
+				E504CD562DA6A8460090ED14 /* Views */,
+			);
+			path = "iOS App";
+			sourceTree = "<group>";
+		};
+		E504CD772DA6CC170090ED14 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E51F27B62DA42C8700907CE8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E51F27B42DA42C8700907CE8 /* Date+Extensions.swift */,
+				E51F27B52DA42C8700907CE8 /* UserDefaultsExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E52B65522DAAB5E4007178D1 /* ScanVaultCore */ = {
+			isa = PBXGroup;
+			children = (
+				E52B654E2DAAB5E4007178D1 /* CoreDataExtensions.swift */,
+				E52B654F2DAAB5E4007178D1 /* PersistenceController.swift */,
+				E52B65502DAAB5E4007178D1 /* ScanVaultCore.h */,
+				E52B65512DAAB5E4007178D1 /* ScanVaultCore.docc */,
+			);
+			path = ScanVaultCore;
+			sourceTree = "<group>";
+		};
+		E561C6402D91AFD2007CC18A /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E585B8692DA6FB13005F2AC2 /* TestPlans */ = {
+			isa = PBXGroup;
+			children = (
+				E57472642DAA028500FF41A9 /* AIResearchViewTestPlan.md */,
+				E585B8682DA6FB13005F2AC2 /* VaultViewTestPlan.md */,
+			);
+			path = TestPlans;
+			sourceTree = "<group>";
+		};
+		E585B87B2DA71A85005F2AC2 /* VaultViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				E585B8782DA71A85005F2AC2 /* DocumentResultsViewUITests.swift */,
+				E585B8792DA71A85005F2AC2 /* DocumentRowUITests.swift */,
+				E585B87A2DA71A85005F2AC2 /* VaultViewModelPersistenceTests.swift */,
+			);
+			path = VaultViewTests;
+			sourceTree = "<group>";
+		};
+		E5CE465F2D8DE0B8001E518E /* AppServices */ = {
+			isa = PBXGroup;
+			children = (
+				E51F27BF2DA44D5100907CE8 /* DocumentLearningService.swift */,
+				E51F27C02DA44D5100907CE8 /* FolderKeychainManager.swift */,
+				E51F27C12DA44D5100907CE8 /* KeychainFixUtility.swift */,
+				E51F27C22DA44D5100907CE8 /* Log File for Learning.txt */,
+				E59830E12DA2DE7200CBF52F /* Log File for Current AI Classification setting.txt */,
+				E5451CA62D9EDA5800AD3F0B /* CloudSyncManager.swift */,
+				E5451CA72D9EDA5800AD3F0B /* PlatformTypes.swift */,
+				E561C6F32D91B4A9007CC18A /* DocumentLockService.swift */,
+				E561C5C82D919820007CC18A /* DocumentLockManager.swift */,
+				E5CE468B2D908B29001E518E /* Extensions.swift */,
+				E5CE46862D905C16001E518E /* AppServices.swift */,
+				E5CE46842D9057B3001E518E /* DocumentProcessor.swift */,
+				E5CE466A2D8E2A7D001E518E /* AdaptiveLearningClassifier.swift */,
+				E5CE466B2D8E2A7D001E518E /* DocumentAIService.swift */,
+				E5CE46602D8DE158001E518E /* DocumentClassifierService.swift */,
+				E5CE46642D8DF33B001E518E /* KeychainManager.swift */,
+				E5CE46652D8DF33B001E518E /* OpenAIService.swift */,
+				E5CE46662D8DF33B001E518E /* TempDevDocumentAIService.swift */,
+			);
+			path = AppServices;
+			sourceTree = "<group>";
+		};
+		E5D7E45F2D80FCD50073C1DA /* AppIcon.appiconset.bak */ = {
+			isa = PBXGroup;
+			children = (
+				E56200692D949898006802A4 /* 16.png */,
+				E562006A2D949898006802A4 /* 20.png */,
+				E562006B2D949898006802A4 /* 29.png */,
+				E562006C2D949898006802A4 /* 32.png */,
+				E562006D2D949898006802A4 /* 40.png */,
+				E562006E2D949898006802A4 /* 48.png */,
+				E562006F2D949898006802A4 /* 50.png */,
+				E56200702D949898006802A4 /* 55.png */,
+				E56200712D949898006802A4 /* 57.png */,
+				E56200722D949898006802A4 /* 58.png */,
+				E56200732D949898006802A4 /* 60.png */,
+				E56200742D949898006802A4 /* 64.png */,
+				E56200752D949898006802A4 /* 66.png */,
+				E56200762D949898006802A4 /* 72.png */,
+				E56200772D949898006802A4 /* 76.png */,
+				E56200782D949898006802A4 /* 80.png */,
+				E56200792D949898006802A4 /* 87.png */,
+				E562007A2D949898006802A4 /* 88.png */,
+				E562007B2D949898006802A4 /* 92.png */,
+				E562007C2D949898006802A4 /* 100.png */,
+				E562007D2D949898006802A4 /* 102.png */,
+				E562007E2D949898006802A4 /* 108.png */,
+				E562007F2D949898006802A4 /* 114.png */,
+				E56200802D949898006802A4 /* 120.png */,
+				E56200812D949898006802A4 /* 128.png */,
+				E56200822D949898006802A4 /* 144.png */,
+				E56200832D949898006802A4 /* 152.png */,
+				E56200842D949898006802A4 /* 167.png */,
+				E56200852D949898006802A4 /* 172.png */,
+				E56200862D949898006802A4 /* 180.png */,
+				E56200872D949898006802A4 /* 196.png */,
+				E56200882D949898006802A4 /* 216.png */,
+				E56200892D949898006802A4 /* 234.png */,
+				E562008A2D949898006802A4 /* 256.png */,
+				E562008B2D949898006802A4 /* 258.png */,
+				E562008C2D949898006802A4 /* 512.png */,
+				E562008D2D949898006802A4 /* 1024.png */,
+				E562008E2D949898006802A4 /* Contents.json */,
+			);
+			path = AppIcon.appiconset.bak;
+			sourceTree = "<group>";
+		};
+		E5F6FFA02D864CAD00442107 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5F6FFA52D864CC100442107 /* Foundation.framework */,
+				E5F6FFA32D864CB600442107 /* CoreData.framework */,
+				E5F6FFA12D864CAE00442107 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5F7C57E2D863979001E75CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E561C6052D91AFD2007CC18A /* TheScanVaultTests.xctest */,
+				E5657E062D977B1000E1C90E /* ScanVaultAI for Mac OS.app */,
+				E5657E162D977B1100E1C90E /* ScanVaultAI for Mac OSTests.xctest */,
+				E5657E202D977B1100E1C90E /* ScanVaultAI for Mac OSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		TEST_GROUP /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E57472752DAA0D4100FF41A9 /* UITestPlan.xctestplan */,
+				E574726F2DAA07CF00FF41A9 /* AIFolderSelectionViewTests.swift */,
+				E57472702DAA07CF00FF41A9 /* AISearchFieldsViewTests.swift */,
+				E57472712DAA07CF00FF41A9 /* AISearchResultsViewTests.swift */,
+				E57472652DAA02B400FF41A9 /* AIResearchViewModelTests.swift */,
+				E57472662DAA02B400FF41A9 /* AIResearchViewUITests.swift */,
+				E585B8762DA7130A005F2AC2 /* ViewInspectorStub.swift */,
+				E585B86A2DA711A9005F2AC2 /* DocumentDetailsSheetTests.swift */,
+				E585B86B2DA711A9005F2AC2 /* DocumentFolderEditViewTests.swift */,
+				E585B86C2DA711A9005F2AC2 /* DocumentRowBasicTests.swift */,
+				E585B86D2DA711A9005F2AC2 /* DocumentTagsEditViewTests.swift */,
+				E585B86E2DA711A9005F2AC2 /* VaultViewModelDataManagerTests.swift */,
+				E504CD7A2DA6CC5F0090ED14 /* Info.plist */,
+				E504CD762DA6CC170090ED14 /* KeychainServiceMockTests.swift */,
+				E504CD772DA6CC170090ED14 /* Protocols */,
+				E504CD782DA6CC170090ED14 /* TestTargetMembership.md */,
+				TEST_FILE_REF_2 /* DocumentLockServiceTests.swift */,
+				TEST_MOCKS_REF_2 /* Mocks.swift */,
+				E585B87B2DA71A85005F2AC2 /* VaultViewTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8A8A8A8A8A8A8A8A8A8A8A8A /* TheScanVault */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B9B9B9B9B9B9B9B9B9B9B9B /* Build configuration list for PBXNativeTarget "TheScanVault" */;
+			buildPhases = (
+				0C0C0C0C0C0C0C0C0C0C0C0C /* Sources */,
+				1T1T1T1T1T1T1T1T1T1T1T1T /* Frameworks */,
+				2D2D2D2D2D2D2D2D2D2D2D2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E5F7C55D2D8637B8001E75CF /* ViewModels */,
+				E5F7C5692D86380F001E75CF /* Views */,
+				E5F7C5742D8638C5001E75CF /* Models */,
+			);
+			name = TheScanVault;
+			productName = TheScanVault;
+			productReference = E500C7062D8D994600BE729D /* TheScanVault.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E5657E052D977B1000E1C90E /* ScanVaultAI for Mac OS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5657E282D977B1200E1C90E /* Build configuration list for PBXNativeTarget "ScanVaultAI for Mac OS" */;
+			buildPhases = (
+				E5657E022D977B1000E1C90E /* Sources */,
+				E5657E032D977B1000E1C90E /* Frameworks */,
+				E5657E042D977B1000E1C90E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E5657E072D977B1000E1C90E /* ScanVaultAI for Mac OS */,
+			);
+			name = "ScanVaultAI for Mac OS";
+			packageProductDependencies = (
+			);
+			productName = "ScanVaultAI for Mac OS";
+			productReference = E5657E062D977B1000E1C90E /* ScanVaultAI for Mac OS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E5657E152D977B1100E1C90E /* ScanVaultAI for Mac OSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5657E2B2D977B1200E1C90E /* Build configuration list for PBXNativeTarget "ScanVaultAI for Mac OSTests" */;
+			buildPhases = (
+				E5657E122D977B1100E1C90E /* Sources */,
+				E5657E132D977B1100E1C90E /* Frameworks */,
+				E5657E142D977B1100E1C90E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5657E182D977B1100E1C90E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E5657E192D977B1100E1C90E /* ScanVaultAI for Mac OSTests */,
+			);
+			name = "ScanVaultAI for Mac OSTests";
+			packageProductDependencies = (
+			);
+			productName = "ScanVaultAI for Mac OSTests";
+			productReference = E5657E162D977B1100E1C90E /* ScanVaultAI for Mac OSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E5657E1F2D977B1100E1C90E /* ScanVaultAI for Mac OSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5657E2E2D977B1200E1C90E /* Build configuration list for PBXNativeTarget "ScanVaultAI for Mac OSUITests" */;
+			buildPhases = (
+				E5657E1C2D977B1100E1C90E /* Sources */,
+				E5657E1D2D977B1100E1C90E /* Frameworks */,
+				E5657E1E2D977B1100E1C90E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5657E222D977B1100E1C90E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E5657E232D977B1100E1C90E /* ScanVaultAI for Mac OSUITests */,
+			);
+			name = "ScanVaultAI for Mac OSUITests";
+			packageProductDependencies = (
+			);
+			productName = "ScanVaultAI for Mac OSUITests";
+			productReference = E5657E202D977B1100E1C90E /* ScanVaultAI for Mac OSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		TEST8A8A8A8A8A8A8A8A8A8A /* TheScanVaultTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = TEST9B9B9B9B9B9B9B9B9B /* Build configuration list for PBXNativeTarget "TheScanVaultTests" */;
+			buildPhases = (
+				TEST0C0C0C0C0C0C0C0C0C /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E585B8822DA726B4005F2AC2 /* PBXTargetDependency */,
+				TEST_DEP_ID /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E574726C2DAA034400FF41A9 /* TestData */,
+			);
+			name = TheScanVaultTests;
+			productName = TheScanVaultTests;
+			productReference = E561C6052D91AFD2007CC18A /* TheScanVaultTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3E3E3E3E3E3E3E3E3E3E3E3E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					8A8A8A8A8A8A8A8A8A8A8A8A = {
+						CreatedOnToolsVersion = 15.0;
+						LastSwiftMigration = 1620;
+					};
+					E5657E052D977B1000E1C90E = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					E5657E152D977B1100E1C90E = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = E5657E052D977B1000E1C90E;
+					};
+					E5657E1F2D977B1100E1C90E = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = E5657E052D977B1000E1C90E;
+					};
+					TEST8A8A8A8A8A8A8A8A8A8A = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 8A8A8A8A8A8A8A8A8A8A8A8A;
+					};
+				};
+			};
+			buildConfigurationList = 4F4F4F4F4F4F4F4F4F4F4F4F /* Build configuration list for PBXProject "TheScanVault" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z7Z;
+			packageReferences = (
+				E585B8742DA71224005F2AC2 /* XCRemoteSwiftPackageReference "ViewInspector" */,
+			);
+			productRefGroup = E5F7C57E2D863979001E75CF /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E561C6402D91AFD2007CC18A /* Products */;
+					ProjectRef = E5F7C57D2D863979001E75CF /* TheScanVault.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				8A8A8A8A8A8A8A8A8A8A8A8A /* TheScanVault */,
+				TEST8A8A8A8A8A8A8A8A8A8A /* TheScanVaultTests */,
+				E5657E052D977B1000E1C90E /* ScanVaultAI for Mac OS */,
+				E5657E152D977B1100E1C90E /* ScanVaultAI for Mac OSTests */,
+				E5657E1F2D977B1100E1C90E /* ScanVaultAI for Mac OSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2D2D2D2D2D2D2D2D2D2D2D2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E51F27C62DA44D5100907CE8 /* Log File for Learning.txt in Resources */,
+				E56200B62D949B4D006802A4 /* ScanVaultLogoforAppTM.png in Resources */,
+				E562008F2D949898006802A4 /* 180.png in Resources */,
+				E56200902D949898006802A4 /* 108.png in Resources */,
+				E56200912D949898006802A4 /* 258.png in Resources */,
+				E56200922D949898006802A4 /* 512.png in Resources */,
+				E56200932D949898006802A4 /* 114.png in Resources */,
+				E56200942D949898006802A4 /* 58.png in Resources */,
+				E56200952D949898006802A4 /* 72.png in Resources */,
+				E56200962D949898006802A4 /* 29.png in Resources */,
+				E56200972D949898006802A4 /* 1024.png in Resources */,
+				E56200982D949898006802A4 /* 234.png in Resources */,
+				E56200992D949898006802A4 /* 40.png in Resources */,
+				E562009A2D949898006802A4 /* 50.png in Resources */,
+				E562009B2D949898006802A4 /* 92.png in Resources */,
+				E562009C2D949898006802A4 /* 102.png in Resources */,
+				E562009D2D949898006802A4 /* 120.png in Resources */,
+				E562009E2D949898006802A4 /* 216.png in Resources */,
+				E562009F2D949898006802A4 /* 256.png in Resources */,
+				E56200A02D949898006802A4 /* Contents.json in Resources */,
+				E56200A12D949898006802A4 /* 64.png in Resources */,
+				E56200A22D949898006802A4 /* 152.png in Resources */,
+				E56200A32D949898006802A4 /* 128.png in Resources */,
+				E56200A42D949898006802A4 /* 32.png in Resources */,
+				E56200A52D949898006802A4 /* 100.png in Resources */,
+				E56200A62D949898006802A4 /* 87.png in Resources */,
+				E56200A72D949898006802A4 /* 80.png in Resources */,
+				E56200A82D949898006802A4 /* 88.png in Resources */,
+				E5B1E6B62DA6A27F006876AD /* LaunchScreen.storyboard in Resources */,
+				E56200A92D949898006802A4 /* 60.png in Resources */,
+				E56200AA2D949898006802A4 /* 76.png in Resources */,
+				E56200AB2D949898006802A4 /* 66.png in Resources */,
+				E56200AC2D949898006802A4 /* 167.png in Resources */,
+				E56200AD2D949898006802A4 /* 55.png in Resources */,
+				E56200AE2D949898006802A4 /* 144.png in Resources */,
+				E56200AF2D949898006802A4 /* 172.png in Resources */,
+				E56200B02D949898006802A4 /* 196.png in Resources */,
+				E56200B12D949898006802A4 /* 16.png in Resources */,
+				E56200B22D949898006802A4 /* 48.png in Resources */,
+				E56200B32D949898006802A4 /* 57.png in Resources */,
+				E56200B42D949898006802A4 /* 20.png in Resources */,
+				E5D7E44C2D80FCAA0073C1DA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5657E042D977B1000E1C90E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5EBADD32D98422900E28736 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5657E142D977B1100E1C90E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5657E1E2D977B1100E1C90E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0C0C0C0C0C0C0C0C0C0C0C0C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5451CAA2D9EDA5800AD3F0B /* PlatformTypes.swift in Sources */,
+				E5451CAB2D9EDA5800AD3F0B /* CloudSyncManager.swift in Sources */,
+				E500C6F12D8752A300BE729D /* ScanVault.xcdatamodel in Sources */,
+				E5CE46872D905C16001E518E /* AppServices.swift in Sources */,
+				E52B65532DAAB5E4007178D1 /* ScanVaultCore.docc in Sources */,
+				E52B65542DAAB5E4007178D1 /* PersistenceController.swift in Sources */,
+				E52B65552DAAB5E4007178D1 /* CoreDataExtensions.swift in Sources */,
+				E51F27C32DA44D5100907CE8 /* DocumentLearningService.swift in Sources */,
+				E51F27C42DA44D5100907CE8 /* FolderKeychainManager.swift in Sources */,
+				E51F27C52DA44D5100907CE8 /* KeychainFixUtility.swift in Sources */,
+				E51F27B72DA42C8700907CE8 /* Date+Extensions.swift in Sources */,
+				E51F27B82DA42C8700907CE8 /* UserDefaultsExtensions.swift in Sources */,
+				E5CE468C2D908B29001E518E /* Extensions.swift in Sources */,
+				E5CE466C2D8E2A7D001E518E /* DocumentAIService.swift in Sources */,
+				E5CE466D2D8E2A7D001E518E /* AdaptiveLearningClassifier.swift in Sources */,
+				E561C6F52D91B4A9007CC18A /* DocumentLockService.swift in Sources */,
+				E5CE46852D9057B3001E518E /* DocumentProcessor.swift in Sources */,
+				E5F6FFA72D864E9C00442107 /* ScanVaultApp.swift in Sources */,
+				E5CE46672D8DF33B001E518E /* OpenAIService.swift in Sources */,
+				E5CE46682D8DF33B001E518E /* KeychainManager.swift in Sources */,
+				E504CD582DA6A8460090ED14 /* iOSVaultView.swift in Sources */,
+				E5CE46692D8DF33B001E518E /* TempDevDocumentAIService.swift in Sources */,
+				E5CE46612D8DE158001E518E /* DocumentClassifierService.swift in Sources */,
+				E561C5C92D919820007CC18A /* DocumentLockManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5657E022D977B1000E1C90E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5451CA42D9ECEA600AD3F0B /* DocumentLockService.swift in Sources */,
+				E5451CA32D9ECE9D00AD3F0B /* DocumentLockManager.swift in Sources */,
+				E5451CA82D9EDA5800AD3F0B /* PlatformTypes.swift in Sources */,
+				E5451CA92D9EDA5800AD3F0B /* CloudSyncManager.swift in Sources */,
+				E5657E312D97804000E1C90E /* ScanVault.xcdatamodel in Sources */,
+				E5451CA22D9ECE9100AD3F0B /* KeychainManager.swift in Sources */,
+				E5451CA52D9ED51000AD3F0B /* AppServices.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5657E122D977B1100E1C90E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5657E1C2D977B1100E1C90E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		TEST0C0C0C0C0C0C0C0C0C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				TEST_FILE_REF /* DocumentLockServiceTests.swift in Sources */,
+				E561C6F42D91B4A9007CC18A /* DocumentLockService.swift in Sources */,
+				E585B8772DA7130A005F2AC2 /* ViewInspectorStub.swift in Sources */,
+				E57472722DAA07CF00FF41A9 /* AIFolderSelectionViewTests.swift in Sources */,
+				E57472732DAA07CF00FF41A9 /* AISearchFieldsViewTests.swift in Sources */,
+				E57472742DAA07CF00FF41A9 /* AISearchResultsViewTests.swift in Sources */,
+				TEST_MOCKS_REF /* Mocks.swift in Sources */,
+				E585B86F2DA711A9005F2AC2 /* DocumentFolderEditViewTests.swift in Sources */,
+				E585B8702DA711A9005F2AC2 /* DocumentRowBasicTests.swift in Sources */,
+				E585B8712DA711A9005F2AC2 /* VaultViewModelDataManagerTests.swift in Sources */,
+				E585B8722DA711A9005F2AC2 /* DocumentDetailsSheetTests.swift in Sources */,
+				E585B8732DA711A9005F2AC2 /* DocumentTagsEditViewTests.swift in Sources */,
+				E585B87C2DA71A85005F2AC2 /* DocumentRowUITests.swift in Sources */,
+				E57472672DAA02B400FF41A9 /* AIResearchViewModelTests.swift in Sources */,
+				E57472682DAA02B400FF41A9 /* AIResearchViewUITests.swift in Sources */,
+				E585B87D2DA71A85005F2AC2 /* VaultViewModelPersistenceTests.swift in Sources */,
+				E585B87E2DA71A85005F2AC2 /* DocumentResultsViewUITests.swift in Sources */,
+				E504CD792DA6CC170090ED14 /* KeychainServiceMockTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E5657E182D977B1100E1C90E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5657E052D977B1000E1C90E /* ScanVaultAI for Mac OS */;
+			targetProxy = E5657E172D977B1100E1C90E /* PBXContainerItemProxy */;
+		};
+		E5657E222D977B1100E1C90E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5657E052D977B1000E1C90E /* ScanVaultAI for Mac OS */;
+			targetProxy = E5657E212D977B1100E1C90E /* PBXContainerItemProxy */;
+		};
+		E585B8822DA726B4005F2AC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = E585B8812DA726B4005F2AC2 /* ViewInspector */;
+		};
+		TEST_DEP_ID /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8A8A8A8A8A8A8A8A8A8A8A8A /* TheScanVault */;
+			targetProxy = TEST_PROXY_ID /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5G5G5G5G5G5G5G5G5G5G5G5G /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6H6H6H6H6H6H6H6H6H6H6H6H /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7I7I7I7I7I7I7I7I7I7I7I7I /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = TheScanVault.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 8TPR44RJ27;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TheScanVault-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "ScanVault AI";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to scan documents";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SWhiteApps.TheScanVault;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8J8J8J8J8J8J8J8J8J8J8J8J /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = TheScanVault.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 8TPR44RJ27;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "TheScanVault-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "ScanVault AI";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to scan documents";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SWhiteApps.TheScanVault;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E5657E292D977B1200E1C90E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = MacOSAppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "ScanVaultAI for Mac OS/ScanVaultAI_for_Mac_OS.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ScanVaultAI for Mac OS/Preview Content\"";
+				DEVELOPMENT_TEAM = 8TPR44RJ27;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ScanVaultAI for Mac OS/ScanVaultAI-for-Mac-OS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "ScanVault AI for MacOS";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SWhiteApps.ScanVaultAI-for-Mac-OS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E5657E2A2D977B1200E1C90E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = MacOSAppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "ScanVaultAI for Mac OS/ScanVaultAI_for_Mac_OS.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ScanVaultAI for Mac OS/Preview Content\"";
+				DEVELOPMENT_TEAM = 8TPR44RJ27;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ScanVaultAI for Mac OS/ScanVaultAI-for-Mac-OS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "ScanVault AI for MacOS";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SWhiteApps.ScanVaultAI-for-Mac-OS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		E5657E2C2D977B1200E1C90E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8TPR44RJ27;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SWhiteApps.ScanVaultAI-for-Mac-OSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScanVaultAI for Mac OS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ScanVaultAI for Mac OS";
+			};
+			name = Debug;
+		};
+		E5657E2D2D977B1200E1C90E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8TPR44RJ27;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SWhiteApps.ScanVaultAI-for-Mac-OSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScanVaultAI for Mac OS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ScanVaultAI for Mac OS";
+			};
+			name = Release;
+		};
+		E5657E2F2D977B1200E1C90E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8TPR44RJ27;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SWhiteApps.ScanVaultAI-for-Mac-OSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "ScanVaultAI for Mac OS";
+			};
+			name = Debug;
+		};
+		E5657E302D977B1200E1C90E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8TPR44RJ27;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SWhiteApps.ScanVaultAI-for-Mac-OSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "ScanVaultAI for Mac OS";
+			};
+			name = Release;
+		};
+		TEST_CONFIG_DEBUG /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 8TPR44RJ27;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 8TPR44RJ27;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thescanvault.TheScanVaultTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = TheScanVaultProfileApr9;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "ScanVault iCloud Profile for MacOS";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheScanVault.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TheScanVault";
+			};
+			name = Debug;
+		};
+		TEST_CONFIG_RELEASE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 8TPR44RJ27;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 8TPR44RJ27;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thescanvault.TheScanVaultTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = TheScanVaultProfileApr9;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "ScanVault iCloud Profile for MacOS";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheScanVault.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TheScanVault";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4F4F4F4F4F4F4F4F4F4F4F4F /* Build configuration list for PBXProject "TheScanVault" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5G5G5G5G5G5G5G5G5G5G5G5G /* Debug */,
+				6H6H6H6H6H6H6H6H6H6H6H6H /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B9B9B9B9B9B9B9B9B9B9B9B /* Build configuration list for PBXNativeTarget "TheScanVault" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7I7I7I7I7I7I7I7I7I7I7I7I /* Debug */,
+				8J8J8J8J8J8J8J8J8J8J8J8J /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5657E282D977B1200E1C90E /* Build configuration list for PBXNativeTarget "ScanVaultAI for Mac OS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5657E292D977B1200E1C90E /* Debug */,
+				E5657E2A2D977B1200E1C90E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5657E2B2D977B1200E1C90E /* Build configuration list for PBXNativeTarget "ScanVaultAI for Mac OSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5657E2C2D977B1200E1C90E /* Debug */,
+				E5657E2D2D977B1200E1C90E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5657E2E2D977B1200E1C90E /* Build configuration list for PBXNativeTarget "ScanVaultAI for Mac OSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5657E2F2D977B1200E1C90E /* Debug */,
+				E5657E302D977B1200E1C90E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		TEST9B9B9B9B9B9B9B9B9B /* Build configuration list for PBXNativeTarget "TheScanVaultTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				TEST_CONFIG_DEBUG /* Debug */,
+				TEST_CONFIG_RELEASE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E585B8742DA71224005F2AC2 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E585B8812DA726B4005F2AC2 /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E585B8742DA71224005F2AC2 /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 3E3E3E3E3E3E3E3E3E3E3E3E /* Project object */;
+}
