@@ -3,7 +3,6 @@ description:
 globs: 
 alwaysApply: true
 ---
-
 # Swift Refactoring Guidelines
 
 ## File Organization and Namespacing
@@ -245,5 +244,101 @@ alwaysApply: true
 - Always reset mock state in setUp() methods
 - Carefully save and restore global state when tests complete
 - Avoid side effects from one test affecting another
+
+## Test Method Signature Consistency
+
+- When overriding methods in test subclasses, ensure exact parameter name matching:
+  ```swift
+  // Parent class
+  func deleteDocument(_ id: UUID) { ... }
+  
+  // Test subclass - CORRECT: same parameter syntax
+  override func deleteDocument(_ id: UUID) { ... }
+  
+  // Test subclass - INCORRECT: different parameter label
+  override func deleteDocument(withId id: UUID) { ... } // Will cause errors
+  ```
+
+- Add delegating methods to preserve backward compatibility when needed:
+  ```swift
+  // Add for backward compatibility
+  func deleteDocument(withId id: UUID) {
+      deleteDocument(id) // Call the properly overridden method
+  }
+  ```
+
+## Mock Class Implementation
+
+- Ensure mock classes properly override initializers from parent classes:
+  ```swift
+  // Parent class
+  class PersistenceController {
+      init() { ... }
+  }
+  
+  // Mock subclass - correct initialization
+  class MockPersistenceController: PersistenceController {
+      override init() {
+          super.init()
+          // Additional setup
+      }
+  }
+  ```
+
+- When mocking CoreData entities, account for type conversion between domain models and view models:
+  ```swift
+  // Converting CoreData entities to view models
+  func fetchDocuments() {
+      let documents = mockController.fetchDocuments()
+      
+      self.documents = documents.compactMap { document -> DocumentListItem? in
+          guard let id = document.id, let title = document.title else {
+              return nil
+          }
+          
+          return DocumentListItem(
+              id: id,
+              title: title,
+              createdAt: document.createdAt ?? Date(),
+              folderName: nil,
+              tagNames: [],
+              text: document.text
+          )
+      }
+  }
+  ```
+
+## Test Plan Maintenance
+
+- Maintain a comprehensive test plan with clear sections:
+  1. Unit Tests - Model/ViewModel logic
+  2. UI Tests - View appearance and interactions
+  3. Integration Tests - Component interaction
+  4. Performance Tests - Efficiency metrics
+  
+- Mark tests as completed in test plan as they are implemented:
+  ```markdown
+  - [x] `testDeleteDocument` - Test document deletion works correctly
+  - [ ] `testOCRTextSearch` - Test searching within document OCR text
+  ```
+  
+- Ensure test names in code match those in the test plan for clarity
+- Add tests for edge cases that were discovered during refactoring
+
+## Document Model Field Access
+
+- When accessing CoreData entity fields, use consistent property names across the codebase:
+  ```swift
+  // Consistent property naming
+  document.createdAt = date  // Not createdDate or dateCreated
+  document.updatedAt = date  // Not lastModifiedDate or modifiedDate
+  ```
+
+- Include null checks for model fields that might be optional:
+  ```swift
+  guard let id = document.id, let title = document.title else {
+      return nil
+  }
+  ```
 
 
