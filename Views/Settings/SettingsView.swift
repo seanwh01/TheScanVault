@@ -516,14 +516,69 @@ extension Views_Settings {
             isCleaningTags = true
             print("🧹 Starting tag cleanup...")
             
-            // For demonstration, we'll simulate the cleanup with a delay
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                // In a real implementation, this would clean up unused tags
-                isCleaningTags = false
-                cleanupAlertTitle = "Cleanup Complete"
-                cleanupAlertMessage = "All unused tags have been removed successfully."
-                showCleanupAlert = true
-                unlockButton()
+            // Get the managed object context
+            let context = PersistenceController.shared.container.viewContext
+            
+            // Create a fetch request for all tags
+            let fetchRequest: NSFetchRequest<Tag> = Tag.fetchRequest()
+            
+            do {
+                // Fetch all tags
+                let allTags = try context.fetch(fetchRequest)
+                var unusedTags: [Tag] = []
+                
+                // Check each tag to see if it's associated with any documents
+                for tag in allTags {
+                    if let documents = tag.documents, documents.count == 0 {
+                        // This tag has no associated documents
+                        unusedTags.append(tag)
+                    }
+                }
+                
+                // Delete unused tags
+                let unusedCount = unusedTags.count
+                for tag in unusedTags {
+                    context.delete(tag)
+                }
+                
+                // Save context
+                if unusedCount > 0 {
+                    try context.save()
+                    print("🧹 Removed \(unusedCount) unused tags")
+                }
+                
+                // Update UI
+                DispatchQueue.main.async {
+                    self.isCleaningTags = false
+                    
+                    // Show notification banner
+                    self.notificationType = .success
+                    self.notificationTitle = "Tags Cleanup Complete"
+                    self.notificationMessage = "\(unusedCount) unused tag(s) have been removed."
+                    self.showNotificationBanner = true
+                    
+                    // Auto-hide notification after a few seconds
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                        self.showNotificationBanner = false
+                    }
+                    
+                    // Also keep the alert for redundancy
+                    self.cleanupAlertTitle = "Tags Cleanup Complete"
+                    self.cleanupAlertMessage = "\(unusedCount) unused tag(s) have been removed."
+                    self.showCleanupAlert = true
+                    self.unlockButton()
+                }
+            } catch {
+                print("❌ Error cleaning up tags: \(error)")
+                
+                // Update UI in case of error
+                DispatchQueue.main.async {
+                    self.isCleaningTags = false
+                    self.cleanupAlertTitle = "Error"
+                    self.cleanupAlertMessage = "An error occurred while cleaning up tags."
+                    self.showCleanupAlert = true
+                    self.unlockButton()
+                }
             }
         }
         
@@ -534,14 +589,81 @@ extension Views_Settings {
             isCleaningFolders = true
             print("🧹 Starting folder cleanup...")
             
-            // For demonstration, we'll simulate the cleanup with a delay
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                // In a real implementation, this would clean up empty folders
-                isCleaningFolders = false
-                cleanupAlertTitle = "Cleanup Complete"
-                cleanupAlertMessage = "All empty folders have been removed successfully."
-                showCleanupAlert = true
-                unlockButton()
+            // Get the managed object context
+            let context = PersistenceController.shared.container.viewContext
+            
+            // Create a fetch request for all folders
+            let fetchRequest: NSFetchRequest<Folder> = Folder.fetchRequest()
+            
+            do {
+                // Fetch all folders
+                let allFolders = try context.fetch(fetchRequest)
+                var emptyFolders: [Folder] = []
+                
+                // Check each folder to see if it's associated with any documents
+                for folder in allFolders {
+                    // Skip folders with nil IDs
+                    guard let folderId = folder.id else {
+                        // This folder has no ID, consider it for deletion
+                        emptyFolders.append(folder)
+                        continue
+                    }
+                    
+                    // Count documents with this folder's ID
+                    let docRequest: NSFetchRequest<Document> = Document.fetchRequest()
+                    docRequest.predicate = NSPredicate(format: "folderId == %@", folderId as CVarArg)
+                    let count = try context.count(for: docRequest)
+                    
+                    if count == 0 {
+                        // This folder has no associated documents
+                        emptyFolders.append(folder)
+                    }
+                }
+                
+                // Delete empty folders
+                let emptyCount = emptyFolders.count
+                for folder in emptyFolders {
+                    context.delete(folder)
+                }
+                
+                // Save context
+                if emptyCount > 0 {
+                    try context.save()
+                    print("🧹 Removed \(emptyCount) empty folders")
+                }
+                
+                // Update UI
+                DispatchQueue.main.async {
+                    self.isCleaningFolders = false
+                    
+                    // Show notification banner
+                    self.notificationType = .success
+                    self.notificationTitle = "Folders Cleanup Complete"
+                    self.notificationMessage = "\(emptyCount) empty folder(s) have been removed."
+                    self.showNotificationBanner = true
+                    
+                    // Auto-hide notification after a few seconds
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                        self.showNotificationBanner = false
+                    }
+                    
+                    // Also keep the alert for redundancy
+                    self.cleanupAlertTitle = "Folders Cleanup Complete"
+                    self.cleanupAlertMessage = "\(emptyCount) empty folder(s) have been removed."
+                    self.showCleanupAlert = true
+                    self.unlockButton()
+                }
+            } catch {
+                print("❌ Error cleaning up folders: \(error)")
+                
+                // Update UI in case of error
+                DispatchQueue.main.async {
+                    self.isCleaningFolders = false
+                    self.cleanupAlertTitle = "Error"
+                    self.cleanupAlertMessage = "An error occurred while cleaning up folders."
+                    self.showCleanupAlert = true
+                    self.unlockButton()
+                }
             }
         }
         
