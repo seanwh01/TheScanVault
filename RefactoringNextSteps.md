@@ -60,40 +60,45 @@ Several important lessons were learned during our refactoring work:
 
 10. **Property Naming Consistency**: Using consistent property names across the entire codebase (e.g., `createdAt` vs. `createdDate`) prevents confusion and bugs.
 
-## Next Target: ScanViewModel Refactoring
+## Next Target: SaveDocumentView Refactoring
 
-Our next target is the ScanViewModel.swift file (1957 lines), which handles document scanning, OCR processing, and document creation.
+Our next target is the SaveDocumentView.swift file (1327 lines), which handles document metadata editing, folder assignment, tag assignment, and AI-assisted document classification.
 
-### Refactoring Plan for ScanViewModel
+### Refactoring Plan for SaveDocumentView
 
-1. Create a dedicated folder: `ViewModels/Scan/`
+1. Create a dedicated folder: `Views/SaveDocument/`
 
-2. Extract ScanViewModel into the following components:
-   - `ScanViewModel.swift` - Main container view model (proxy)
-   - `ScanDocumentService.swift` - Document creation and saving
-   - `ScanOCRService.swift` - OCR processing and text extraction
-   - `ScanImageProcessingService.swift` - Image processing and enhancement
-   - `ScanMetadataService.swift` - Document metadata extraction
-   - `ScanClassificationService.swift` - Document classification
-   - `ScanDataModels.swift` - Data structures for scan results
+2. Extract SaveDocumentView into the following components:
+   - `SaveDocumentView.swift` - Main container view (proxy)
+   - `SaveDocumentMainView.swift` - Core document saving form
+   - `TitleSection.swift` - Document title input section
+   - `FolderSection.swift` - Folder selection section
+   - `TagsSection.swift` - Tag management section
+   - `CommentsSection.swift` - Document comments section
+   - `SettingsSection.swift` - Document settings section
+   - `AISuggestionsSection.swift` - AI classification suggestions
+   - `ProgressOverlays.swift` - OCR and saving progress overlays
+   - `FolderPickerView.swift` - Folder selection UI
+   - `TagEntryView.swift` - Tag selection and creation UI
 
-3. Consider implementing a `ViewModels_Scan` namespace similar to our VaultViewModel approach
+3. Implement a `Views_SaveDocument` namespace similar to our AIResearchView approach
 
 4. Create a proxy implementation in the original location to maintain backward compatibility
 
 ## Implementation Steps
 
 1. **Analysis**:
-   - Thoroughly analyze the ScanViewModel to identify distinct responsibilities
-   - Map out dependencies between different parts of the view model
+   - Identify distinct UI sections in SaveDocumentView
+   - Map out dependencies between different parts of the view
    - Identify state properties that need to be shared across components
 
 2. **File Creation**:
-   - Create the `ViewModels/Scan/` directory
+   - Create the `Views/SaveDocument/` directory
    - Create files for each component identified above
 
 3. **State Management**:
-   - Decide on state sharing approach (e.g., composition, delegation, or shared state object)
+   - Use a consistent approach for passing state between components
+   - Prefer environment objects or bindings for shared state
    - Ensure all components have access to necessary state
 
 4. **Extract Components**:
@@ -102,23 +107,20 @@ Our next target is the ScanViewModel.swift file (1957 lines), which handles docu
    - Ensure clean interfaces between components
 
 5. **Proxy Implementation**:
-   - Create a proxy version that forwards to the new implementation
+   - Create a proxy version in the original location that forwards to the new implementation
 
 6. **Testing**:
-   - Create or update tests to work with the new structure
-   - Create test-specific implementations if needed
+   - Update any tests that rely on SaveDocumentView
    - Verify all functionality works as expected
-   - Create or update test plans to track implementation progress
 
 ## Remaining Refactoring Queue
 
-After completing ScanViewModel refactoring, we will continue with:
+After completing SaveDocumentView refactoring, we will continue with:
 
 1. **AdaptiveLearningClassifier.swift** (1755 lines)
 2. **OpenAIService.swift** (1699 lines)
-3. **SaveDocumentView.swift** (1327 lines)
-4. **DocumentClassifierService.swift** (1048 lines)
-5. **ScanVaultCore Framework Setup** - Convert the current ScanVaultCore directory into a proper framework target instead of directly included files
+3. **DocumentClassifierService.swift** (1048 lines)
+4. **ScanVaultCore Framework Setup** - Convert the current ScanVaultCore directory into a proper framework target instead of directly included files
 
 ## Important Import Rules During Refactoring
 
@@ -129,30 +131,30 @@ Until ScanVaultCore is properly set up as a framework, follow these import guide
 3. When refactoring components, ensure all necessary imports are included at the top of each file
 4. Test thoroughly after adding imports to ensure all dependencies are properly resolved
 
-## Approach for ViewModel Refactoring
+## Approach for View Refactoring
 
-Based on our experience with VaultViewModel refactoring, we'll follow these guidelines:
+Based on our experience with previous view refactoring, we'll follow these guidelines:
 
 1. **Identify Responsibilities**: Clearly define what each component should be responsible for
-2. **Consider Interfaces**: Use protocols to define clear interfaces between components
-3. **State Management**: Be careful with shared state and use appropriate patterns (composition over inheritance)
+2. **Extract UI Components**: Break down large views into smaller, focused components
+3. **State Management**: Be careful with shared state and use appropriate patterns (bindings, environment objects)
 4. **Test Coverage**: Ensure test coverage is maintained or improved
 5. **Backward Compatibility**: Implement proxy pattern for seamless transition
 6. **Method Signatures**: Ensure consistent method signatures when overriding methods
-7. **Data Type Consistency**: Maintain consistent type conversions between data layers
-8. **Mock Implementation**: Create proper mock classes that follow Swift initialization rules
+7. **Consistent Styling**: Maintain consistent UI styling across components
+8. **Proper Imports**: Ensure each component has the necessary imports
 
 ## Estimated Timeline
 
-- **Analysis and Planning**: 1 day
+- **Analysis and Planning**: 0.5 day
 - **Implementation**: 1-2 days
-- **Testing and Refinement**: 1 day
+- **Testing and Refinement**: 0.5 day
 
-Total for ScanViewModel: 3-4 days
+Total for SaveDocumentView: 2-3 days
 
 ## Conclusion
 
-The successful refactoring of SettingsView, VaultView, AIResearchView, and VaultViewModel has established a proven approach for breaking down complex components. By applying the lessons learned and following a systematic approach, we expect to achieve similar improvements in code organization, maintainability, and readability for ScanViewModel and the remaining components. Our comprehensive test planning and implementation approach will ensure high-quality refactoring with minimal regressions.
+The successful refactoring of SettingsView, VaultView, AIResearchView, and VaultViewModel has established a proven approach for breaking down complex components. By applying the lessons learned and following a systematic approach, we expect to achieve similar improvements in code organization, maintainability, and readability for SaveDocumentView and the remaining components. Our comprehensive test planning and implementation approach will ensure high-quality refactoring with minimal regressions.
 
 import SwiftUI
 
