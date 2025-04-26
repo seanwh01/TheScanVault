@@ -128,55 +128,53 @@ struct DocumentDetailsSheet: View {
     // Tags section
     private var tagsSection: some View {
         Section(header: Text("Tags")) {
-            VStack(alignment: .leading) {
-                if let tags = viewModel.document?.tags as? Set<Tag>, !tags.isEmpty {
-                    // Convert CoreData Tag objects to TagItems for TagListView
-                    let tagItems = tags.compactMap { tag -> TagItem? in
-                        guard let id = tag.id, let name = tag.name else { return nil }
-                        return TagItem(id: id, name: name)
-                    }
-                    
-                    // Use TagListView with STABLE IDENTITIES for consistent behavior with SaveDocumentView
-                    TagListView(
-                        selectedTagIds: Set(tagItems.map { $0.id }),
-                        pendingTagNames: [],  // No pending tags in document details
-                        allTags: tagItems,
-                        onRemoveTagId: { tagId in
-                            // Find the tag by ID and remove it safely
-                            if let tags = viewModel.document?.tags as? Set<Tag>,
-                               let tagToRemove = tags.first(where: { $0.id == tagId }) {
-                                // Log before removal
-                                print("⚠️ [DocumentDetailsSheet] Removing tag ID: \(tagId)")
-                                
-                                // Remove tag on main thread with proper UI update
-                                DispatchQueue.main.async {
-                                    viewModel.removeTag(tagToRemove)
-                                    // Force UI refresh
-                                    viewModel.objectWillChange.send()
-                                    
-                                    // Log after removal
-                                    print("✅ [DocumentDetailsSheet] Tag removed. Remaining tags: \((viewModel.document?.tags as? Set<Tag>)?.count ?? 0)")
-                                }
-                            }
-                        },
-                        onRemovePendingTag: { _ in 
-                            // No pending tags in document details
+            HStack {
+                VStack(alignment: .leading) {
+                    if let tags = viewModel.document?.tags as? Set<Tag>, !tags.isEmpty {
+                        // Convert CoreData Tag objects to TagItems for TagListView
+                        let tagItems = tags.compactMap { tag -> TagItem? in
+                            guard let id = tag.id, let name = tag.name else { return nil }
+                            return TagItem(id: id, name: name)
                         }
-                    )
-                } else {
-                    Text("No tags")
-                        .italic()
-                        .foregroundColor(.gray)
+                        
+                        // Use TagListView with STABLE IDENTITIES for consistent behavior with SaveDocumentView
+                        TagListView(
+                            selectedTagIds: Set(tagItems.map { $0.id }),
+                            pendingTagNames: [],  // No pending tags in document details
+                            allTags: tagItems,
+                            onRemoveTagId: { tagId in
+                                // Find the tag by ID and remove it safely
+                                if let tags = viewModel.document?.tags as? Set<Tag>,
+                                   let tagToRemove = tags.first(where: { $0.id == tagId }) {
+                                    // Log before removal
+                                    print("⚠️ [DocumentDetailsSheet] Removing tag ID: \(tagId)")
+                                    
+                                    // Remove tag on main thread with proper UI update
+                                    DispatchQueue.main.async {
+                                        viewModel.removeTag(tagToRemove)
+                                        // Force UI refresh
+                                        viewModel.objectWillChange.send()
+                                        
+                                        // Log after removal
+                                        print("✅ [DocumentDetailsSheet] Tag removed. Remaining tags: \((viewModel.document?.tags as? Set<Tag>)?.count ?? 0)")
+                                    }
+                                }
+                            },
+                            onRemovePendingTag: { _ in 
+                                // No pending tags in document details
+                            }
+                        )
+                    } else {
+                        Text("No tags")
+                            .foregroundColor(.gray)
+                    }
                 }
-                
-                HStack {
-                    Spacer()
-                    Button("Add Tags") {
+                Spacer()
+                Text("Add Tags")
+                    .foregroundColor(.blue)
+                    .onTapGesture {
                         showTagPicker = true
                     }
-                    .foregroundColor(.blue)
-                }
-                .padding(.top, 4)
             }
         }
     }

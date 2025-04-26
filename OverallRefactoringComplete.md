@@ -93,6 +93,31 @@ We successfully refactored this complex view model into specialized services:
 6. Added proper test mocks and test view models
 7. Created comprehensive test plans to track test implementation
 
+### 7. SaveDocumentView.swift (1327 lines)
+We successfully refactored this complex document creation view into components:
+1. Created a `Views/SaveDocument/` directory for all document saving components
+2. Implemented a namespace `Views_SaveDocument` to prevent naming conflicts
+3. Extracted the following components:
+   - `SaveDocumentView.swift` - Main proxy view for backward compatibility
+   - `SaveDocumentMainView.swift` - Core document saving form
+   - `SDV_TitleView.swift` - Document title input with AI suggestions
+   - `SDV_FolderView.swift` - Folder selection component
+   - `SDV_TagsView.swift` - Tag management component
+   - `SDV_CommentsView.swift` - Document comments component
+   - `SDV_AIAnalysisView.swift` - AI classification results
+   - `SDV_TagsHelpers.swift` - Helper methods for tag management
+   - `SDV_FolderHelpers.swift` - Helper methods for folder management
+   - `SDV_AIHelpers.swift` - Helper methods for AI suggestions
+   - `SDV_TagEntryView.swift` - Tag selection and creation UI
+   - `SDV_FolderEditView.swift` - Folder selection UI
+4. Fixed UI consistency issues between SaveDocumentView and DocumentDetailView
+5. Removed the redundant Settings section
+6. Fixed tag selection and deletion bugs by ensuring proper state flow
+7. Added "No Folder Assigned" option to folder selection
+8. Fixed UI behavior for folder and tag selection
+9. Removed unnecessary confirmation popups
+10. Preserved critical code patterns for tag selection that prevent state corruption
+
 ## Benefits of the Refactoring
 
 1. **Improved Maintainability**: Each file now has a single responsibility, making the code more maintainable.
@@ -110,10 +135,9 @@ We successfully refactored this complex view model into specialized services:
 
 We are continuing to follow our comprehensive refactoring plan for the remaining large files:
 
-1. **SaveDocumentView.swift** (1327 lines) - Next in priority
-2. **AdaptiveLearningClassifier.swift** (1755 lines)
-3. **OpenAIService.swift** (1699 lines)
-4. **DocumentClassifierService.swift** (1048 lines)
+1. **AdaptiveLearningClassifier.swift** (1755 lines) - Next in priority
+2. **OpenAIService.swift** (1699 lines)
+3. **DocumentClassifierService.swift** (1048 lines)
 
 ## Implementation Recommendations
 
@@ -132,13 +156,12 @@ We are continuing to follow our comprehensive refactoring plan for the remaining
 
 Based on our progress and the complexity of the remaining files, we estimate the following timeline:
 
-- **SaveDocumentView.swift**: 1 day
 - **AdaptiveLearningClassifier.swift**: 2-3 days
 - **OpenAIService.swift**: 1-2 days
 - **DocumentClassifierService.swift**: 1 day
 
-Total estimated time: 5-7 days
+Total estimated time: 4-6 days
 
 ## Conclusion
 
-The refactoring of `SettingsView.swift`, `VaultView.swift`, `AIResearchView.swift`, `VaultViewModel.swift`, and `ScanViewModel.swift` demonstrates that breaking down large files into smaller, focused components with proper namespacing significantly improves code organization and maintainability. Following the same approach for the remaining large files will result in a more robust, maintainable codebase that's easier to extend and debug. Our comprehensive test planning and implementation approach ensures high-quality refactoring with minimal regressions. 
+The refactoring of `SettingsView.swift`, `VaultView.swift`, `AIResearchView.swift`, `VaultViewModel.swift`, `ScanViewModel.swift`, and `SaveDocumentView.swift` demonstrates that breaking down large files into smaller, focused components with proper namespacing significantly improves code organization and maintainability. Following the same approach for the remaining large files will result in a more robust, maintainable codebase that's easier to extend and debug. Our comprehensive test planning and implementation approach ensures high-quality refactoring with minimal regressions. 

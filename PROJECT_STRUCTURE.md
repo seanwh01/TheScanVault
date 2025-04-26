@@ -26,7 +26,7 @@ ScanVault/
 │   ├── LoginView.swift          # Authentication views
 │   ├── ScanView.swift           # Document scanning view
 │   ├── DocumentDetailView.swift # Document detail view with optimized PDF rendering
-│   ├── SaveDocumentView.swift   # Document creation and editing view
+│   ├── SaveDocumentView.swift   # Document creation and editing view (proxy to Views_SaveDocument)
 │   ├── PDFKitView.swift         # Native PDF rendering component
 │   ├── AIResearch/              # AI research components (refactored)
 │   │   ├── AIResearchHeaderView.swift    # Header component
@@ -34,6 +34,19 @@ ScanVault/
 │   │   ├── AIFolderSelectionView.swift   # Folder selection component
 │   │   ├── AISearchResultsView.swift     # Results component
 │   │   ├── AIResearchViewProxy.swift     # Backward compatibility proxy
+│   │   └── Other component files         # Additional components
+│   ├── SaveDocument/            # Document saving components (refactored)
+│   │   ├── SaveDocumentMainView.swift    # Core document form
+│   │   ├── SDV_TitleView.swift           # Title editing component
+│   │   ├── SDV_FolderView.swift          # Folder selection component
+│   │   ├── SDV_TagsView.swift            # Tag management component
+│   │   ├── SDV_CommentsView.swift        # Comments component
+│   │   ├── SDV_AIAnalysisView.swift      # AI analysis component
+│   │   ├── SDV_FolderHelpers.swift       # Folder selection helpers
+│   │   ├── SDV_TagsHelpers.swift         # Tag management helpers
+│   │   ├── SDV_AIHelpers.swift           # AI analysis helpers
+│   │   ├── SDV_FolderEditView.swift      # Folder selection UI
+│   │   ├── SDV_TagEntryView.swift        # Tag selection UI
 │   │   └── Other component files         # Additional components
 │   ├── Settings/                # Settings components (refactored)
 │   │   ├── SettingsHeaderView.swift      # Header component
@@ -282,3 +295,22 @@ The app uses a comprehensive testing structure:
 - Document complex algorithms and performance optimizations
 - Add code comments for non-obvious implementation details
 - Create Markdown documentation for major components
+
+### 3. Views_SaveDocument Namespace
+
+The `Views_SaveDocument` namespace (in the `Views/SaveDocument/` directory) contains components for document creation:
+
+1. **SaveDocumentView.swift**: Main proxy view for backward compatibility
+2. **SaveDocumentMainView.swift**: Core document saving form
+3. **SDV_TitleView.swift**: Document title input with AI suggestions
+4. **SDV_FolderView.swift**: Folder selection component 
+5. **SDV_TagsView.swift**: Tag management component
+6. **SDV_CommentsView.swift**: Document comments component
+7. **SDV_AIAnalysisView.swift**: AI classification results
+8. **SDV_TagsHelpers.swift**: Helper methods for tag management
+9. **SDV_FolderHelpers.swift**: Helper methods for folder management
+10. **SDV_AIHelpers.swift**: Helper methods for AI suggestions
+11. **SDV_TagEntryView.swift**: Tag selection and creation UI
+12. **SDV_FolderEditView.swift**: Folder selection UI
+
+The namespace includes special helpers that ensure state flows correctly between the view model and tag/folder selection, preventing issues with state corruption and UI synchronization.

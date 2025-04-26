@@ -44,6 +44,17 @@ We've successfully completed the following refactoring tasks:
    - Enhanced memory management for document loading and processing
    - Fixed related crashes during document rendering and viewing
 
+9. **SaveDocumentView Refactoring**: Split the 1327-line file into multiple components in `Views/SaveDocument/` directory.
+   - Created a namespace `Views_SaveDocument` to organize related components
+   - Extracted specialized components for title editing, folder selection, tag management, and AI analysis
+   - Fixed UI consistency issues between SaveDocumentView and DocumentDetailView
+   - Removed the redundant Settings section
+   - Fixed tag selection and deletion bugs
+   - Added "No Folder Assigned" option to folder selection
+   - Implemented proper state flow with MetadataManager as source of truth
+   - Created a proxy implementation for backward compatibility
+   - Ensured consistent UI patterns between document creation and editing
+
 ## Lessons Learned
 
 Several important lessons were learned during our refactoring work:
@@ -70,67 +81,58 @@ Several important lessons were learned during our refactoring work:
 
 11. **Memory Management**: Careful handling of PDF rendering and large data processing is essential for app stability and performance.
 
-## Next Target: SaveDocumentView Refactoring
+## Next Target: AdaptiveLearningClassifier Refactoring
 
-Our next target is the SaveDocumentView.swift file (1327 lines), which handles document metadata editing, folder assignment, tag assignment, and AI-assisted document classification.
+Our next target is the AdaptiveLearningClassifier.swift file (1755 lines), which handles document learning and classification.
 
-### Refactoring Plan for SaveDocumentView
+### Refactoring Plan for AdaptiveLearningClassifier
 
-1. Create a dedicated folder: `Views/SaveDocument/`
+1. Create a dedicated folder: `Services/AI/Learning/`
 
-2. Extract SaveDocumentView into the following components:
-   - `SaveDocumentView.swift` - Main container view (proxy)
-   - `SaveDocumentMainView.swift` - Core document saving form
-   - `TitleSection.swift` - Document title input section
-   - `FolderSection.swift` - Folder selection section
-   - `TagsSection.swift` - Tag management section
-   - `CommentsSection.swift` - Document comments section
-   - `SettingsSection.swift` - Document settings section
-   - `AISuggestionsSection.swift` - AI classification suggestions
-   - `ProgressOverlays.swift` - OCR and saving progress overlays
-   - `FolderPickerView.swift` - Folder selection UI
-   - `TagEntryView.swift` - Tag selection and creation UI
+2. Extract AdaptiveLearningClassifier into the following components:
+   - `AdaptiveLearningClassifier.swift` - Main container (proxy)
+   - `LearningClassifierCore.swift` - Core classification logic
+   - `LearningDataManager.swift` - Data management for training examples
+   - `LearningModels.swift` - Data structures for classification
+   - `LearningVectorization.swift` - Text vectorization services
+   - `LearningAlgorithms.swift` - Classification algorithms
+   - `LearningMetrics.swift` - Performance metrics and evaluation
+   - `LearningPersistence.swift` - Model saving and loading
 
-3. Implement a `Views_SaveDocument` namespace similar to our AIResearchView approach
+3. Implement an `AI_Learning` namespace to organize components
 
 4. Create a proxy implementation in the original location to maintain backward compatibility
 
 ## Implementation Steps
 
 1. **Analysis**:
-   - Identify distinct UI sections in SaveDocumentView
-   - Map out dependencies between different parts of the view
-   - Identify state properties that need to be shared across components
+   - Identify distinct functional areas in AdaptiveLearningClassifier
+   - Map dependencies between functions
+   - Determine appropriate component boundaries
 
-2. **File Creation**:
-   - Create the `Views/SaveDocument/` directory
-   - Create files for each component identified above
+2. **Component Extraction**:
+   - Create new files for each component
+   - Move related functions and properties
+   - Ensure proper access control
+   - Fix method signatures and dependencies
 
-3. **State Management**:
-   - Use a consistent approach for passing state between components
-   - Prefer environment objects or bindings for shared state
-   - Ensure all components have access to necessary state
+3. **Testing**:
+   - Create unit tests for each component
+   - Verify classification accuracy remains unchanged
+   - Test edge cases and error handling
 
-4. **Extract Components**:
-   - Move related functionality to appropriate files
-   - Maintain proper access control
-   - Ensure clean interfaces between components
-
-5. **Proxy Implementation**:
-   - Create a proxy version in the original location that forwards to the new implementation
-
-6. **Testing**:
-   - Update any tests that rely on SaveDocumentView
-   - Verify all functionality works as expected
+4. **Integration**:
+   - Create proxy implementation
+   - Update references in dependent files
+   - Verify end-to-end functionality
 
 ## Remaining Refactoring Queue
 
-After completing SaveDocumentView refactoring, we will continue with:
+After completing AdaptiveLearningClassifier refactoring, we will continue with:
 
-1. **AdaptiveLearningClassifier.swift** (1755 lines)
-2. **OpenAIService.swift** (1699 lines)
-3. **DocumentClassifierService.swift** (1048 lines)
-4. **ScanVaultCore Framework Setup** - Convert the current ScanVaultCore directory into a proper framework target instead of directly included files
+1. **OpenAIService.swift** (1699 lines)
+2. **DocumentClassifierService.swift** (1048 lines)
+3. **ScanVaultCore Framework Setup** - Convert the current ScanVaultCore directory into a proper framework target instead of directly included files
 
 ## Important Import Rules During Refactoring
 
@@ -160,11 +162,11 @@ Based on our experience with previous view refactoring, we'll follow these guide
 - **Implementation**: 1-2 days
 - **Testing and Refinement**: 0.5 day
 
-Total for SaveDocumentView: 2-3 days
+Total for AdaptiveLearningClassifier: 2-3 days
 
 ## Conclusion
 
-The successful refactoring of SettingsView, VaultView, AIResearchView, VaultViewModel, and ScanViewModel has established a proven approach for breaking down complex components. By applying the lessons learned and following a systematic approach, we expect to achieve similar improvements in code organization, maintainability, and readability for SaveDocumentView and the remaining components. Our comprehensive test planning and implementation approach will ensure high-quality refactoring with minimal regressions.
+The successful refactoring of SettingsView, VaultView, AIResearchView, VaultViewModel, ScanViewModel, and SaveDocumentView has established a proven approach for breaking down complex components. By applying the lessons learned and following a systematic approach, we expect to achieve similar improvements in code organization, maintainability, and readability for AdaptiveLearningClassifier and the remaining components. Our comprehensive test planning and implementation approach will ensure high-quality refactoring with minimal regressions.
 
 import SwiftUI
 
