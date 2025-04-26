@@ -36,6 +36,14 @@ We've successfully completed the following refactoring tasks:
    - Modified `SettingsView.swift` to verify API key existence in both Keychain and UserDefaults
    - Added logging to indicate when fallback sources are used
 
+8. **ScanViewModel Refactoring**: Split the 1957-line file into multiple service components in `ViewModels/Scan/` directory.
+   - Created a namespace `ViewModels_Scan` to organize related components
+   - Extracted specialized services for document creation, state management, and operations
+   - Created a proxy implementation for backward compatibility
+   - Updated test files to work with the new structure
+   - Enhanced memory management for document loading and processing
+   - Fixed related crashes during document rendering and viewing
+
 ## Lessons Learned
 
 Several important lessons were learned during our refactoring work:
@@ -59,6 +67,8 @@ Several important lessons were learned during our refactoring work:
 9. **Test Plan Maintenance**: Keeping test plans updated with checkmarks for completed tests helps track implementation progress.
 
 10. **Property Naming Consistency**: Using consistent property names across the entire codebase (e.g., `createdAt` vs. `createdDate`) prevents confusion and bugs.
+
+11. **Memory Management**: Careful handling of PDF rendering and large data processing is essential for app stability and performance.
 
 ## Next Target: SaveDocumentView Refactoring
 
@@ -154,7 +164,7 @@ Total for SaveDocumentView: 2-3 days
 
 ## Conclusion
 
-The successful refactoring of SettingsView, VaultView, AIResearchView, and VaultViewModel has established a proven approach for breaking down complex components. By applying the lessons learned and following a systematic approach, we expect to achieve similar improvements in code organization, maintainability, and readability for SaveDocumentView and the remaining components. Our comprehensive test planning and implementation approach will ensure high-quality refactoring with minimal regressions.
+The successful refactoring of SettingsView, VaultView, AIResearchView, VaultViewModel, and ScanViewModel has established a proven approach for breaking down complex components. By applying the lessons learned and following a systematic approach, we expect to achieve similar improvements in code organization, maintainability, and readability for SaveDocumentView and the remaining components. Our comprehensive test planning and implementation approach will ensure high-quality refactoring with minimal regressions.
 
 import SwiftUI
 
@@ -165,4 +175,4 @@ struct VaultView: View {
     var body: some View {
         Views_Vault.VaultView()
     }
-} 
+}

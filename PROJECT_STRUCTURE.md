@@ -25,7 +25,9 @@ ScanVault/
 │   ├── ContentView.swift        # Main container view
 │   ├── LoginView.swift          # Authentication views
 │   ├── ScanView.swift           # Document scanning view
-│   ├── DocumentDetailView.swift # Document detail view
+│   ├── DocumentDetailView.swift # Document detail view with optimized PDF rendering
+│   ├── SaveDocumentView.swift   # Document creation and editing view
+│   ├── PDFKitView.swift         # Native PDF rendering component
 │   ├── AIResearch/              # AI research components (refactored)
 │   │   ├── AIResearchHeaderView.swift    # Header component
 │   │   ├── AISearchFieldsView.swift      # Search fields component
@@ -41,7 +43,7 @@ ScanVault/
 │   ├── Vault/                   # Document vault components
 │   │   ├── VaultView.swift      # Document management view
 │   │   ├── DocumentRow.swift    # List item component for documents
-│   │   ├── DocumentResultsView.swift # Document search results
+│   │   ├── DocumentResultsView.swift # Document search results 
 │   │   ├── DocumentDetailsSheet.swift # Document editing UI
 │   │   ├── DocumentFolderEditView.swift # Folder selection UI
 │   │   ├── DocumentTagsEditView.swift # Tag management UI
@@ -51,10 +53,15 @@ ScanVault/
 │   │   └── ArrayExtensions.swift    # Array helper extensions
 ├── ViewModels/                  # Business logic
 │   ├── AuthViewModel.swift      # Authentication logic
-│   ├── ScanViewModel.swift      # Scanning logic
+│   ├── ScanViewModel.swift      # Scanning logic (legacy - redirects to refactored namespace)
 │   ├── VaultViewModel.swift     # Document search logic (proxy to ViewModels_Vault)
-│   ├── DocumentViewModel.swift  # Document management logic
+│   ├── DocumentViewModel.swift  # Document management and PDF rendering logic
 │   ├── AIResearchViewModel.swift # AI research logic
+│   ├── Scan/                    # Refactored ScanViewModel 
+│   │   ├── ViewModels_Scan.swift        # Main scanning namespace
+│   │   ├── ScanViewModel.swift          # Main scanner implementation
+│   │   ├── ScanDocumentManager.swift    # Document creation service
+│   │   └── ScanStateManager.swift       # Scanning state and transitions
 │   ├── Vault/                   # Refactored Vault view models
 │   │   ├── ViewModels_Vault.swift      # Main namespace and VaultViewModel implementation
 │   │   ├── VaultDataModels.swift       # Document list item and data structures
@@ -108,7 +115,12 @@ ScanVault uses namespaces to organize and refactor large components:
    - Separates concerns like document management, search, filtering, and sorting
    - Example: `enum ViewModels_Vault {}` with nested classes for each service
 
-4. **Proxy Implementation Pattern**:
+4. **ViewModels_Scan**: Namespace for scanning components 
+   - Organizes scanning functionality into focused services
+   - Separates document creation, processing, and state management
+   - Example: `enum ViewModels_Scan {}` with nested classes for each service
+
+5. **Proxy Implementation Pattern**:
    - Original filenames maintained at original locations
    - Redirects to namespaced components for backward compatibility
    - Prevents build errors for string catalogs and resources
@@ -170,6 +182,29 @@ The app uses several model types for representing documents in different context
 ### AI Research Flow
 - AIResearchView → AIResearchViewModel → OpenAIService → Document Classification
 
+## PDF Rendering System
+
+ScanVault implements an optimized PDF rendering system:
+
+1. **PDF Loading and Caching**:
+   - DocumentViewModel manages PDF document loading and page caching
+   - Memory-efficient rendering with autorelease pools
+   - Progressive quality improvement for zooming
+
+2. **UI Consistency**:
+   - Identical folder and tag management UI between SaveDocumentView and DocumentDetailView
+   - Consistent interaction patterns across document lifecycle
+
+3. **Memory Management**:
+   - Optimized PDF page rendering with memory constraints
+   - Automatic content cleanup during memory warnings
+   - Background processing of large documents
+
+4. **Document View Model Caching**:
+   - VaultView and DocumentResultsView implement view model caching
+   - Clean separation between document loading and rendering
+   - Simplified document preloading system to prevent memory conflicts
+
 ## iCloud Integration
 
 For Premium users, documents are synchronized across devices using CloudKit:
@@ -199,45 +234,51 @@ The app uses a comprehensive testing structure:
 2. **Mock Classes**: Custom mocks for services and controllers:
    - **MockPersistenceController**: In-memory Core Data for tests
    - **TestViewModel**: Extends VaultViewModel with test-specific behavior
-   - **MockDocumentViewModel**: Test-specific document operations
-   - **MockCloudSyncManager**: Mock for CloudKit syncing operations
 
-3. **Test Structure**:
-   - **Unit Tests**: Test individual components and services
-   - **UI Tests**: Test user interface components and interactions
-   - **Integration Tests**: Test component interactions
-   - **Performance Tests**: Test efficiency and speed
+3. **Test Categories**:
+   - **Unit Tests**: Focus on business logic in ViewModels
+   - **UI Tests**: Test UI components and interactions
+   - **Integration Tests**: Test data flow between components
 
-4. **Test Injection**: Components designed for testability:
-   - Dependency injection for services
-   - Override points for test-specific behavior
-   - Static swappable implementations for complex dependencies
+4. **Performance Tests**:
+   - Document loading and rendering benchmarks
+   - Memory usage testing for large documents
+   - CloudKit sync performance tests
 
 ## Development Guidelines
 
-For consistent development, follow these practices:
+### Code Organization
+- Keep view components focused on presentation
+- Move business logic to view models
+- Use namespaces for large feature sets
+- Maintain backward compatibility through proxies
 
-1. **Code Organization**
-   - Break complex SwiftUI views into smaller components (under 800 lines)
-   - Use namespaces to organize related components
-   - Create proxy implementations for backward compatibility
-   - Extract nested types into separate files
-   - Use computed properties for view components
+### Naming Conventions
+- Use descriptive names for components
+- Prefix private properties with underscore (_)
+- Use standard suffixes (ViewModel, View, Service)
+- Maintain consistency across related components
 
-2. **Model Consistency** 
-   - Use the appropriate model type for each context (DocumentListItem, DocumentItem)
-   - Verify object types match when passing between components
-   - Ensure consistent property naming (createdAt vs. createdDate)
-   - Include proper null checks for optional properties
+### Performance Considerations
+- Cache rendered PDF pages to improve scrolling performance
+- Use memory-efficient rendering techniques for large documents
+- Implement proper memory management for document rendering
+- Release resources proactively during memory pressure
 
-3. **ViewModels**
-   - Keep @Published properties consistent between related view models
-   - Document the purpose of getter and setter methods
-   - Check for method existence before calling from views
-   - Match parameter names exactly when overriding methods
+### UI Consistency
+- Maintain identical folder and tag management UI between SaveDocumentView and DocumentDetailView
+- Use consistent styling and interaction patterns
+- Follow Apple Human Interface Guidelines
+- Support dark and light mode with appropriate contrast
 
-4. **Testing**
-   - Create separate mock classes with test prefixes (e.g., `TestViewModel`)
-   - Maintain test plans with clear sections and marked completion status
-   - Ensure test method signatures match the methods they're testing
-   - Reset mock state in setUp methods to prevent test cross-contamination 
+### Testing
+- Add unit tests for new functionality
+- Update test plans when implementing new features
+- Run the full test suite before submitting changes
+- Test on different device sizes and memory configurations
+
+### Documentation
+- Update PROJECT_STRUCTURE.md when making architectural changes
+- Document complex algorithms and performance optimizations
+- Add code comments for non-obvious implementation details
+- Create Markdown documentation for major components
