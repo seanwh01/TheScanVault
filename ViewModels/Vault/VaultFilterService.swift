@@ -90,7 +90,9 @@ extension ViewModels_Vault {
                 print("Fetched \(fetchedTags.count) USED tags: \(fetchedTags.compactMap { $0.name }.joined(separator: ", "))")
                 
                 allTags = fetchedTags.compactMap { tag in
+                    // Use .id (now non-optional)
                     guard let id = tag.id, let name = tag.name else {
+                        print("Warning: Found a Tag entity with missing name or id.")
                         return nil
                     }
                     
@@ -155,7 +157,9 @@ extension ViewModels_Vault {
                 let fetchedFolders = try viewContext.fetch(fetchRequest)
                 
                 allFolders = fetchedFolders.compactMap { folder in
+                    // Use .id (now non-optional)
                     guard let id = folder.id, let name = folder.name else {
+                        print("Warning: Found a Folder entity with missing name or id.")
                         return nil
                     }
                     
@@ -182,7 +186,7 @@ extension ViewModels_Vault {
             showNoFolderDocuments = true
             
             // Print debug info
-            print("🔍 No Folder Assigned selected - analyzing folder distribution:")
+            print(" No Folder Assigned selected - analyzing folder distribution:")
             printFolderDistribution()
         }
         
@@ -229,11 +233,11 @@ extension ViewModels_Vault {
         }
         
         func printFolderDistribution() {
-            print("📊 FOLDER DISTRIBUTION ANALYSIS")
+            print(" FOLDER DISTRIBUTION ANALYSIS")
             
             // First count documents with nil folders
             let nilFolderRequest = NSFetchRequest<Document>(entityName: "Document")
-            nilFolderRequest.predicate = NSPredicate(format: "folderId == nil")
+            nilFolderRequest.predicate = NSPredicate(format: "folder == nil")
             
             do {
                 let nilFolderCount = try viewContext.count(for: nilFolderRequest)
@@ -246,7 +250,7 @@ extension ViewModels_Vault {
                 for folder in folders {
                     if let folderId = folder.id, let folderName = folder.name {
                         let docRequest = NSFetchRequest<Document>(entityName: "Document")
-                        docRequest.predicate = NSPredicate(format: "folderId == %@", folderId as CVarArg)
+                        docRequest.predicate = NSPredicate(format: "folder.id == %@", folderId as CVarArg)
                         let count = try viewContext.count(for: docRequest)
                         
                         // Check if this folder looks like an "unknown" folder
@@ -282,7 +286,7 @@ extension ViewModels_Vault {
             searchText = ""
             searchOCRText = ""
             
-            print("🔄 All filters cleared")
+            print(" All filters cleared")
         }
         
         // MARK: - Metadata Methods

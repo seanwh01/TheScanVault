@@ -153,8 +153,13 @@ extension Views_Settings {
         }
         
         private func upgradeSubscription() {
-            // In a real app, this would open the payment flow
-            print("Upgrade subscription tapped")
+            print(" Simulating premium upgrade...")
+            // Directly call the manager to set the status to premium
+            // TODO: Replace this with actual StoreKit purchase flow later
+            subscriptionManager.upgradeToPremiun()
+            
+            // Optionally close the sheet after successful upgrade
+            // isPresented = false
         }
         
         private func cancelSubscription() {

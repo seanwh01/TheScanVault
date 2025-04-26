@@ -102,7 +102,8 @@ extension Views_AIResearch {
                             folderName: folderGroup.id.flatMap { folderId in viewModel.getFolderName(for: document) },
                             tagsText: viewModel.getTagsText(for: document),
                             isSelected: viewModel.isDocumentSelected(document.id),
-                            onToggle: { viewModel.toggleDocumentSelection(document.id) }
+                            onToggle: { viewModel.toggleDocumentSelection(document.id) },
+                            persistenceController: viewModel.persistenceController
                         )
                         .padding(.leading, 8)
                         .padding(.bottom, 1)

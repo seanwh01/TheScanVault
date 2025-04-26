@@ -4,11 +4,9 @@ import Combine
 
 /// A service that enhances document classification by learning from user corrections
 public class DocumentLearningService {
-    // MARK: - Singleton Instance
-    public static let shared = DocumentLearningService()
-    
     // MARK: - Properties
-    private let persistenceController = PersistenceController.shared
+    private let persistenceController: PersistenceController
+    private let adaptiveClassifier: AdaptiveLearningClassifier
     private var cancellables = Set<AnyCancellable>()
     
     // Track recent corrections to detect patterns
@@ -18,12 +16,12 @@ public class DocumentLearningService {
     // Track folder usage frequencies for better suggestions
     private var folderFrequency: [String: Int] = [:]
     
-    // Use AdaptiveLearningClassifier for storage compatibility
-    private let adaptiveClassifier = AdaptiveLearningClassifier.shared
-    
     // MARK: - Initialization
-    private init() {
-        print("🧠 Initializing DocumentLearningService")
+    init(persistenceController: PersistenceController, adaptiveClassifier: AdaptiveLearningClassifier) {
+        print("🧠 Initializing DocumentLearningService with dependencies")
+        self.persistenceController = persistenceController
+        self.adaptiveClassifier = adaptiveClassifier
+        
         loadLearningData()
         
         // Observe document creation to learn from it
@@ -597,7 +595,3 @@ public class DocumentLearningService {
         }
     }
 }
-
-// MARK: - Core Data Model Extension
-// Remove this extension to fix the redeclaration error
-// KeywordPattern is likely already defined elsewhere in the codebase 

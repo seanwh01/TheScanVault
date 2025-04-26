@@ -1,409 +1,242 @@
 import SwiftUI
+#if canImport(VisionKit)
 import VisionKit
-import UIKit
+#endif
 
 struct ScanView: View {
-    @StateObject private var viewModel: ScanViewModel
+    @StateObject private var viewModel: ViewModels_Scan.ScanViewModel
     @EnvironmentObject private var subscriptionManager: SubscriptionManager
-    @State private var showScanner = false
-    @State private var showSaveSheet = false
-    @State private var showFolderPicker = false
-    @State private var selectedFolderId: UUID?
-    @State private var folderName: String = ""
-    @State private var showUploadProcessingOverlay = false
-    @State private var processingMessage = "Processing document..."
-    @State private var showUploadErrorAlert = false
-    @State private var uploadErrorMessage = ""
-    
-    init() {
-        // Initialize with a temporary subscription manager
-        // We'll properly set it in onAppear
-        _viewModel = StateObject(wrappedValue: ScanViewModel(subscriptionManager: SubscriptionManager()))
+
+    // Updated initializer to accept AppServices directly
+    init(appServices: AppServices, subscriptionManager: SubscriptionManager) {
+        _viewModel = StateObject(wrappedValue: ViewModels_Scan.ScanViewModel(
+            appServices: appServices, // Use the passed-in instance
+            subscriptionManager: subscriptionManager
+        ))
     }
-    
+
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
-                // Centered logo at Launch Page size
                 Image("ScanVaultLogoforAppTM")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: UIScreen.main.bounds.width * 0.7) // 70% of screen width
+                    .frame(maxWidth: 300)
                     .padding(.vertical, 30)
-                
-                Spacer() // Space between logo and button
-                
-                // Upload Document button
-                Button(action: {
-                    viewModel.showDocumentPicker()
-                }) {
+
+                Spacer()
+
+                Button(action: viewModel.triggerDocumentPicker) {
                     HStack {
                         Image(systemName: "arrow.up.doc")
                             .font(.title2)
-                        Text("Upload Document")
+                        Text("Import Document")
                             .font(.headline)
                     }
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(10)
-                    .shadow(radius: 3)
+                    .modifier(MainButtonStyle(backgroundColor: .blue))
                 }
                 .padding(.horizontal)
-                
-                // Scan New Document button
-                Button(action: {
-                    viewModel.startScanning()
-                    showScanner = true
-                }) {
+
+                Button(action: viewModel.startScan) {
                     HStack {
                         Image(systemName: "doc.viewfinder")
                             .font(.title2)
                         Text("Scan New Document")
                             .font(.headline)
                     }
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.green)
-                    .cornerRadius(10)
-                    .shadow(radius: 3)
+                    .modifier(MainButtonStyle(backgroundColor: .green))
                 }
                 .padding(.horizontal)
-                
-                // Smaller Recent Scans section
+                #if !canImport(VisionKit)
+                .disabled(true)
+                .opacity(0.5)
+                #endif
+
+                Spacer()
+
                 if !viewModel.recentScans.isEmpty {
-                    VStack(alignment: .leading) {
-                        Text("Recent Scans")
-                            .font(.subheadline)
-                            .padding(.leading)
-                        
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 8) { // Reduced spacing
-                                ForEach(viewModel.recentScans.prefix(5)) { document in
-                                    VStack {
-                                        if let thumbnail = document.thumbnail {
-                                            Image(uiImage: thumbnail)
-                                                .resizable()
-                                                .scaledToFill()
-                                                .frame(width: 70, height: 90) // Smaller size
-                                                .clipShape(RoundedRectangle(cornerRadius: 8))
-                                                .shadow(radius: 2)
-                                        } else {
-                                            RoundedRectangle(cornerRadius: 8)
-                                                .fill(Color.gray.opacity(0.2))
-                                                .frame(width: 70, height: 90)
-                                                .overlay(
-                                                    Image(systemName: "doc.text")
-                                                        .foregroundColor(.gray)
-                                                )
-                                        }
-                                        
-                                        Text(document.title)
-                                            .font(.caption2)
-                                            .lineLimit(1)
-                                            .frame(width: 70)
-                                    }
-                                    .onTapGesture {
-                                        // Navigate to document detail
-                                    }
-                                }
-                            }
-                            .padding(.horizontal)
-                        }
-                        .frame(height: 120) // Reduced height
-                    }
+                    RecentScansView(viewModel: viewModel)
                 }
             }
-            .navigationBarHidden(true) // Hide the navigation bar completely
-            .sheet(isPresented: $showScanner) {
-                ScannerView { result in
-                    switch result {
-                    case .success(let scannedImages):
-                        viewModel.processScannedImages(scannedImages)
-                        showScanner = false
-                        viewModel.showingDocumentCreation = true
-                    case .failure(let error):
-                        print("Scanning failed: \(error.localizedDescription)")
-                        showScanner = false
-                    }
+            .navigationBarHidden(true)
+            #if canImport(VisionKit)
+            .sheet(isPresented: $viewModel.showDocumentScanner) {
+                DocumentScannerViewRepresentable(coordinator: viewModel.scanCoordinator)
+                    .edgesIgnoringSafeArea(.all)
+            }
+            #endif
+            .sheet(isPresented: $viewModel.showingDocumentPicker) {
+                DocumentPicker { url in
+                    viewModel.handleSelectedDocument(.success(url))
                 }
             }
-            .sheet(isPresented: $showSaveSheet) {
+            .onChange(of: viewModel.showDocumentCreationSheet) { _, newValue in
+                if newValue {
+                    print("📄 [ScanView] Presenting Save Sheet. State: Images=\(viewModel.scannedImages.count), PDF=\(viewModel.importedPDFData != nil)")
+                }
+            }
+            .sheet(isPresented: $viewModel.showDocumentCreationSheet) {
                 SaveDocumentView(viewModel: viewModel)
-            }
-            .sheet(isPresented: $showFolderPicker) {
-                NavigationView {
-                    FolderSelectionView(
-                        selectedFolderId: $selectedFolderId,
-                        folderName: Binding<String?>(
-                            get: { self.folderName.isEmpty ? nil : self.folderName },
-                            set: { self.folderName = $0 ?? "" }
-                        ),
-                        onSave: {
-                            print("✅ Folder selected: \(selectedFolderId?.uuidString ?? "None"), Name: \(folderName)")
-                            // Additional save logic here if needed
-                        }
-                    )
-                    .navigationBarTitleDisplayMode(.inline)
-                }
-                .navigationViewStyle(StackNavigationViewStyle()) // Ensure proper navigation style
-            }
-            .sheet(isPresented: $viewModel.showingDocumentPicker, onDismiss: {
-                // Start showing processing overlay if still processing
-                if viewModel.isProcessingUpload {
-                    showUploadProcessingOverlay = true
-                }
-            }) {
-                DocumentPicker(completion: viewModel.handleSelectedDocument)
-            }
-            .sheet(isPresented: $viewModel.showingDocumentCreation, onDismiss: {
-                // Reset processing state on dismiss
-                viewModel.isProcessingUpload = false
-                showUploadProcessingOverlay = false
-            }) {
-                SaveDocumentView(viewModel: viewModel)
+                    .environmentObject(subscriptionManager)
             }
             .overlay(
-                ZStack {
-                    if viewModel.isProcessingUpload {
-                        Rectangle()
-                            .fill(Color.black.opacity(0.7))
-                            .edgesIgnoringSafeArea(.all)
-                        
-                        VStack(spacing: 20) {
-                            ProgressView()
-                                .scaleEffect(1.5)
-                            
-                            Text(processingMessage)
-                                .font(.headline)
-                                .foregroundColor(.white)
-                                .multilineTextAlignment(.center)
-                            
-                            if viewModel.ocrProgress > 0 && viewModel.totalOCRPages > 0 {
-                                Text("OCR Progress: \(viewModel.ocrProgress) of \(viewModel.totalOCRPages) pages")
-                                    .font(.subheadline)
-                                    .foregroundColor(.white)
-                            }
-                        }
-                        .padding(30)
-                        .background(Color.gray.opacity(0.8))
-                        .cornerRadius(15)
-                    }
-                }
+                ProcessingOverlay(isProcessing: $viewModel.isProcessing,
+                                    progressText: $viewModel.processingProgressText)
             )
-            .alert(isPresented: $viewModel.showUnsupportedFileAlert) {
-                Alert(
-                    title: Text("Unsupported File"),
-                    message: Text("The selected file type is not supported. Please select a PDF, JPG, PNG, or TIFF file."),
-                    dismissButton: .default(Text("OK"))
-                )
+            .alert("Error", isPresented: $viewModel.showProcessingErrorAlert, presenting: viewModel.processingErrorMessage) { _ in
+                Button("OK") { }
+            } message: { message in
+                Text(message)
             }
-            .onReceive(viewModel.$isProcessingUpload) { isProcessing in
-                showUploadProcessingOverlay = isProcessing
-                if isProcessing {
-                    processingMessage = "Processing document..."
-                }
+            .alert("Unsupported File", isPresented: $viewModel.showUnsupportedFileAlert) {
+                Button("OK") { }
+            } message: {
+                Text("The selected file type is not supported. Please select a PDF, JPG, PNG, or TIFF file.")
             }
-            .onReceive(viewModel.$ocrProgress) { progress in
-                if progress > 0 {
-                    processingMessage = "Analyzing text (OCR)..."
-                }
-            }
-        }
-        .onAppear {
-            // Replace the temporary subscription manager with the real one from the environment
-            viewModel.updateSubscriptionManager(subscriptionManager)
         }
     }
 }
 
-// Main content component
-struct MainContentView: View {
-    @Binding var showScanner: Bool
-    @ObservedObject var viewModel: ScanViewModel
-    
-    var body: some View {
-        ZStack {
-            Color.gray.opacity(0.1).edgesIgnoringSafeArea(.all)
-            
-            VStack {
-                Spacer()
-                ScanButton(showScanner: $showScanner)
-                Spacer()
-                RecentScansView(recentScans: viewModel.recentScans)
-            }
-            .padding()
-        }
-    }
-}
+struct MainButtonStyle: ViewModifier {
+    let backgroundColor: Color
 
-// Scan button component
-struct ScanButton: View {
-    @Binding var showScanner: Bool
-    
-    var body: some View {
-        Button(action: { showScanner = true }) {
-            VStack {
-                Image(systemName: "doc.viewfinder")
-                    .font(.system(size: 60))
-                Text("Scan Document")
-                    .font(.headline)
-                    .padding(.top, 8)
-            }
+    func body(content: Content) -> some View {
+        content
             .foregroundColor(.white)
-            .frame(width: 200, height: 200)
-            .background(Color.blue)
-            .cornerRadius(20)
-            .shadow(radius: 5)
-        }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(backgroundColor)
+            .cornerRadius(10)
+            .shadow(radius: 3)
     }
 }
 
-// Recent scans component
 struct RecentScansView: View {
-    let recentScans: [DocumentItem]
-    
+    @ObservedObject var viewModel: ViewModels_Scan.ScanViewModel
+
     var body: some View {
-        if !recentScans.isEmpty {
-            VStack(alignment: .leading) {
-                Text("Recent Scans")
-                    .font(.subheadline)
-                    .padding(.leading)
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 10) {
-                        ForEach(recentScans.prefix(5)) { document in
-                            RecentScanItem(document: document)
-                        }
+        VStack(alignment: .leading) {
+            Text("Recent Scans")
+                .font(.subheadline)
+                .padding(.leading)
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(viewModel.recentScans.prefix(5), id: \.id) { document in
+                        RecentScanItemView(document: document)
                     }
-                    .padding(.horizontal)
                 }
-                .frame(height: 140)
+                .padding(.horizontal)
             }
+            .frame(height: 120)
         }
     }
 }
 
-// Individual recent scan item component
-struct RecentScanItem: View {
+#if os(macOS)
+import AppKit // Needed for NSImage
+#endif
+struct RecentScanItemView: View {
     let document: DocumentItem
-    
+
     var body: some View {
         VStack {
-            if let thumbnail = document.thumbnail {
-                Image(uiImage: thumbnail)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 80, height: 100)
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                    .shadow(radius: 2)
+            if let thumbnailData = document.thumbnail {
+                #if os(macOS)
+                if let nsImage = NSImage(data: thumbnailData) {
+                    Image(nsImage: nsImage)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 70, height: 90)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .shadow(radius: 2)
+                }
+                #else
+                if let uiImage = UIImage(data: thumbnailData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 70, height: 90)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .shadow(radius: 2)
+                }
+                #endif
             } else {
                 RoundedRectangle(cornerRadius: 8)
                     .fill(Color.gray.opacity(0.2))
-                    .frame(width: 80, height: 100)
+                    .frame(width: 70, height: 90)
                     .overlay(
                         Image(systemName: "doc.text")
                             .foregroundColor(.gray)
                     )
             }
-            
+
             Text(document.title)
                 .font(.caption2)
                 .lineLimit(1)
-                .frame(width: 80)
+                .frame(width: 70) // Ensure text doesn't overflow horizontally
         }
         .onTapGesture {
-            // Navigate to document detail
+            print("Navigate to detail for: \(document.title)")
         }
     }
 }
 
-// SwiftUI wrapper for VisionKit's document scanner
-struct ScannerView: UIViewControllerRepresentable {
-    typealias UIViewControllerType = VNDocumentCameraViewController
-    
-    let completionHandler: (Result<[UIImage], Error>) -> Void
-    
-    func makeUIViewController(context: Context) -> VNDocumentCameraViewController {
-        let scannerViewController = VNDocumentCameraViewController()
-        scannerViewController.delegate = context.coordinator
-        return scannerViewController
-    }
-    
-    func updateUIViewController(_ uiViewController: VNDocumentCameraViewController, context: Context) {}
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(completionHandler: completionHandler)
-    }
-    
-    class Coordinator: NSObject, VNDocumentCameraViewControllerDelegate {
-        let completionHandler: (Result<[UIImage], Error>) -> Void
-        
-        init(completionHandler: @escaping (Result<[UIImage], Error>) -> Void) {
-            self.completionHandler = completionHandler
-        }
-        
-        func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-            var scannedImages = [UIImage]()
-            
-            for pageIndex in 0..<scan.pageCount {
-                let image = scan.imageOfPage(at: pageIndex)
-                scannedImages.append(image)
-            }
-            
-            completionHandler(.success(scannedImages))
-        }
-        
-        func documentCameraViewControllerDidCancel(_ controller: VNDocumentCameraViewController) {
-            completionHandler(.failure(NSError(domain: "ScanVault", code: 0, userInfo: [NSLocalizedDescriptionKey: "Scanning canceled"])))
-        }
-        
-        func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFailWithError error: Error) {
-            completionHandler(.failure(error))
-        }
-    }
-}
+struct ProcessingOverlay: View {
+    @Binding var isProcessing: Bool
+    @Binding var progressText: String
 
-struct TagSelectionView: View {
-    @Binding var selectedTags: Set<UUID>
-    let tags: [TagItem]
-    @State private var showAddTag = false
-    @State private var newTagName = ""
-    @Environment(\.presentationMode) var presentationMode
-    
     var body: some View {
-        List {
-            ForEach(tags) { tag in
-                Button {
-                    if selectedTags.contains(tag.id) {
-                        selectedTags.remove(tag.id)
-                    } else {
-                        selectedTags.insert(tag.id)
-                    }
-                } label: {
-                    HStack {
-                        Text(tag.name)
-                        Spacer()
-                        if selectedTags.contains(tag.id) {
-                            Image(systemName: "checkmark")
-                                .foregroundColor(.blue)
-                        }
-                    }
+        ZStack {
+            if isProcessing {
+                Rectangle()
+                    .fill(Color.black.opacity(0.7))
+                    .edgesIgnoringSafeArea(.all)
+
+                VStack(spacing: 20) {
+                    ProgressView()
+                        .scaleEffect(1.5)
+
+                    Text(progressText)
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
                 }
+                .padding(30)
+                .background(Color(UIColor.secondarySystemBackground).opacity(0.8))
+                .cornerRadius(15)
             }
         }
-        .navigationTitle("Select Tags")
-        .navigationBarItems(
-            trailing: Button(action: {
-                showAddTag = true
-            }) {
-                Image(systemName: "tag.badge.plus")
-            }
-        )
-        .sheet(isPresented: $showAddTag) {
-            // Add tag sheet would go here
-        }
+        .animation(.default, value: isProcessing)
     }
-} 
+}
+
+#if canImport(VisionKit)
+struct DocumentScannerViewRepresentable: UIViewControllerRepresentable {
+    @ObservedObject var coordinator: ViewModels_Scan.ScanCoordinator
+
+    func makeUIViewController(context: Context) -> VNDocumentCameraViewController {
+        let scanner = coordinator.makeScannerViewController()
+        return scanner
+    }
+
+    func updateUIViewController(_ uiViewController: VNDocumentCameraViewController, context: Context) {
+    }
+}
+#endif
+
+struct ScanView_Previews: PreviewProvider {
+    static var previews: some View {
+        let persistenceController = PersistenceController.preview
+        let subscriptionManager = SubscriptionManager()
+        let appServices = AppServices(persistenceController: persistenceController)
+        
+        ScanView(
+            appServices: appServices,
+            subscriptionManager: subscriptionManager
+        )
+        .environmentObject(subscriptionManager)
+        .environment(\.managedObjectContext, persistenceController.viewContext)
+        .environmentObject(persistenceController)
+    }
+}

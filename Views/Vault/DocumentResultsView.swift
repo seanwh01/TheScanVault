@@ -1,5 +1,6 @@
 import SwiftUI
 import CoreData
+import PDFKit
 
 // MARK: - Document Results View
 struct DocumentResultsView: View {
@@ -24,12 +25,15 @@ struct DocumentResultsView: View {
     @State private var documentToOpen: Document? = nil
     @State private var showDocumentOpenSheet = false
     @State private var forceRefreshTrigger = UUID()
+    @State private var documentViewModels: [UUID: DocumentViewModel] = [:]
     
     // Add the missing variables for pagination
     @State private var showDebugOptions = false
     @State private var isLoadingMoreDocuments = false
     @State private var currentPage = 0
     @State private var allDocumentsLoaded = false
+    
+    let persistenceController: PersistenceController // Add property
     
     private let cornerRadius: CGFloat = 12
     private let maxLoadingTime: Double = 5.0
@@ -294,13 +298,25 @@ struct DocumentResultsView: View {
     // Document detail sheet
     private var documentDetailSheet: some View {
         Group {
-            if let document = documentToOpen, let documentId = document.id ?? document.entityId {
+            if let document = documentToOpen, let documentId = document.id {
                 NavigationView {
-                    DocumentDetailView(
-                        viewModel: DocumentViewModel(document: document),
-                        documentId: documentId
-                    )
-                    .navigationBarBackButtonHidden(true)
+                    ZStack {
+                        DocumentDetailView(
+                            viewModel: createAndPreloadViewModel(document: document),
+                            documentId: documentId
+                        )
+                        .navigationBarBackButtonHidden(true)
+                        
+                        // Add a loading overlay that shows only during initial loading
+                        if let viewModel = documentViewModels[documentId], viewModel.isLoading {
+                            Color.black.opacity(0.1)
+                                .ignoresSafeArea()
+                            
+                            ProgressView()
+                                .scaleEffect(1.5)
+                                .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                        }
+                    }
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
                             Button(action: {
@@ -440,5 +456,17 @@ struct DocumentResultsView: View {
             isLoadingMoreDocuments = false
             allDocumentsLoaded = isLastPage
         }
+    }
+    
+    private func createAndPreloadViewModel(document: Document) -> DocumentViewModel {
+        // Create view model
+        let viewModel = DocumentViewModel(document: document, persistenceController: self.persistenceController)
+        
+        // Store the view model in our cache
+        if let documentId = document.id {
+            documentViewModels[documentId] = viewModel
+        }
+        
+        return viewModel
     }
 } 

@@ -26,8 +26,62 @@ class DocumentDetailViewModel: ObservableObject {
     @Published var allFolders: [VMFolderItem] = []
     @Published var folderName: String?
     
-    private let viewContext = PersistenceController.shared.viewContext
+    let persistenceController: PersistenceController
+    
     private var cancellables = Set<AnyCancellable>()
+    
+    init(document: Document? = nil, persistenceController: PersistenceController) {
+        self.document = document
+        self.persistenceController = persistenceController
+        
+        // Initialize published properties based on the document
+        if let doc = document {
+            self.titleEdit = doc.title ?? ""
+            self.comments = doc.comments ?? ""
+            
+            // Extract folder name if available
+            if let folderId = doc.folderId {
+                let folderItem = fetchFolder(with: folderId)
+                self.folderName = folderItem?.name
+            } else {
+                self.folderName = nil
+            }
+            
+            // Load PDF data and extract all pages
+            if let documentData = doc.documentData {
+                self.documentPDFData = documentData
+                
+                if let pdfDocument = PDFDocument(data: documentData) {
+                    // Extract all pages from the PDF
+                    var pages: [UIImage] = []
+                    
+                    // Always process at least one page
+                    let pageCount = max(1, pdfDocument.pageCount)
+                    
+                    for i in 0..<pageCount {
+                        if let page = pdfDocument.page(at: i),
+                           let pageImage = self.renderPDFPageToImage(page) {
+                            pages.append(pageImage)
+                        }
+                    }
+                    
+                    // Set both documentPages and previewImage
+                    self.documentPages = pages
+                    self.previewImage = pages.first
+                } else if let image = UIImage(data: documentData) {
+                    // Handle case for images directly
+                    self.previewImage = image
+                    self.documentPages = [image]
+                }
+            }
+            
+            // Load available tags
+            loadAvailableTags()
+            
+            // Load all folders
+            loadAllFolders()
+        }
+    }
     
     func updateAvailableTags() {
         guard let document = document, let documentTags = document.tags as? Set<Tag> else {
@@ -45,7 +99,7 @@ class DocumentDetailViewModel: ObservableObject {
         fetchRequest.fetchLimit = 1
         
         do {
-            let results = try viewContext.fetch(fetchRequest)
+            let results = try persistenceController.viewContext.fetch(fetchRequest)
             if let folder = results.first, let folderName = folder.name {
                 return VMFolderItem(id: id, name: folderName)
             }
@@ -73,7 +127,7 @@ class DocumentDetailViewModel: ObservableObject {
         fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
         
         do {
-            let results = try viewContext.fetch(fetchRequest)
+            let results = try persistenceController.viewContext.fetch(fetchRequest)
             if let fetchedDocument = results.first {
                 self.document = fetchedDocument
                 self.titleEdit = fetchedDocument.title ?? ""
@@ -137,14 +191,14 @@ class DocumentDetailViewModel: ObservableObject {
     func saveTitle() {
         guard let document = document, !titleEdit.isEmpty else { return }
         
-        viewContext.perform { [weak self] in
+        persistenceController.viewContext.perform { [weak self] in
             guard let self = self else { return }
             
             document.title = self.titleEdit
             document.updatedAt = Date()
             
             do {
-                try self.viewContext.save()
+                try self.persistenceController.viewContext.save()
             } catch {
                 print("Error saving title: \(error)")
             }
@@ -154,14 +208,14 @@ class DocumentDetailViewModel: ObservableObject {
     func saveComments() {
         guard let document = document else { return }
         
-        viewContext.perform { [weak self] in
+        persistenceController.viewContext.perform { [weak self] in
             guard let self = self else { return }
             
             document.comments = self.comments
             document.updatedAt = Date()
             
             do {
-                try self.viewContext.save()
+                try self.persistenceController.viewContext.save()
                 
                 DispatchQueue.main.async {
                     self.isEditingComments = false
@@ -180,20 +234,20 @@ class DocumentDetailViewModel: ObservableObject {
         
         // Save changes
         do {
-            try viewContext.save()
+            try persistenceController.viewContext.save()
             
             // Now check if this tag is used on any other documents
             let fetchRequest: NSFetchRequest<Document> = Document.fetchRequest()
             fetchRequest.predicate = NSPredicate(format: "ANY tags.id == %@", tag.id! as CVarArg)
             fetchRequest.fetchLimit = 1
             
-            let tagStillInUse = try viewContext.fetch(fetchRequest).count > 0
+            let tagStillInUse = try persistenceController.viewContext.fetch(fetchRequest).count > 0
             
             // If tag is not used anywhere else, delete it
             if !tagStillInUse {
                 print("Tag '\(tag.name ?? "unknown")' is no longer used on any documents - deleting")
-                viewContext.delete(tag)
-                try viewContext.save()
+                persistenceController.viewContext.delete(tag)
+                try persistenceController.viewContext.save()
             }
             
             // Refresh UI elements to show the tags have been updated
@@ -209,7 +263,7 @@ class DocumentDetailViewModel: ObservableObject {
     func addTag(_ tag: VMTagItem) {
         guard let document = document else { return }
         
-        viewContext.perform { [weak self] in
+        persistenceController.viewContext.perform { [weak self] in
             guard let self = self else { return }
             
             let tagFetchRequest: NSFetchRequest<Tag> = Tag.fetchRequest()
@@ -217,13 +271,13 @@ class DocumentDetailViewModel: ObservableObject {
             tagFetchRequest.fetchLimit = 1
             
             do {
-                let tagResults = try self.viewContext.fetch(tagFetchRequest)
+                let tagResults = try self.persistenceController.viewContext.fetch(tagFetchRequest)
                 
                 if let tagObject = tagResults.first {
                     document.addToTags(tagObject)
                     document.updatedAt = Date()
                     
-                    try self.viewContext.save()
+                    try self.persistenceController.viewContext.save()
                     self.updateAvailableTags()
                 }
             } catch {
@@ -235,11 +289,11 @@ class DocumentDetailViewModel: ObservableObject {
     func createAndAddTag(name: String) {
         guard let document = document, !name.isEmpty else { return }
         
-        viewContext.perform { [weak self] in
+        persistenceController.viewContext.perform { [weak self] in
             guard let self = self else { return }
             
             // Create new tag
-            let tag = Tag(context: self.viewContext)
+            let tag = Tag(context: self.persistenceController.viewContext)
             tag.id = UUID()
             tag.name = name
             tag.createdAt = Date()
@@ -248,7 +302,7 @@ class DocumentDetailViewModel: ObservableObject {
             document.updatedAt = Date()
             
             do {
-                try self.viewContext.save()
+                try self.persistenceController.viewContext.save()
                 
                 // Update tag collections
                 DispatchQueue.main.async {
@@ -267,14 +321,14 @@ class DocumentDetailViewModel: ObservableObject {
     func removeFolder() {
         guard let document = document else { return }
         
-        viewContext.perform { [weak self] in
+        persistenceController.viewContext.perform { [weak self] in
             guard let self = self else { return }
             
             document.folderId = nil
             document.updatedAt = Date()
             
             do {
-                try self.viewContext.save()
+                try self.persistenceController.viewContext.save()
                 
                 DispatchQueue.main.async {
                     self.folderName = nil
@@ -288,14 +342,14 @@ class DocumentDetailViewModel: ObservableObject {
     func setFolder(_ folder: VMFolderItem) {
         guard let document = document else { return }
         
-        viewContext.perform { [weak self] in
+        persistenceController.viewContext.perform { [weak self] in
             guard let self = self else { return }
             
             document.folderId = folder.id
             document.updatedAt = Date()
             
             do {
-                try self.viewContext.save()
+                try self.persistenceController.viewContext.save()
                 
                 DispatchQueue.main.async {
                     self.folderName = folder.name
@@ -309,11 +363,11 @@ class DocumentDetailViewModel: ObservableObject {
     func createAndSetFolder(name: String) {
         guard let document = document, !name.isEmpty else { return }
         
-        viewContext.perform { [weak self] in
+        persistenceController.viewContext.perform { [weak self] in
             guard let self = self else { return }
             
             // Create new folder
-            let folder = Folder(context: self.viewContext)
+            let folder = Folder(context: self.persistenceController.viewContext)
             folder.id = UUID()
             folder.name = name
             folder.createdAt = Date()
@@ -322,7 +376,7 @@ class DocumentDetailViewModel: ObservableObject {
             document.updatedAt = Date()
             
             do {
-                try self.viewContext.save()
+                try self.persistenceController.viewContext.save()
                 
                 DispatchQueue.main.async {
                     self.folderName = name
@@ -339,13 +393,13 @@ class DocumentDetailViewModel: ObservableObject {
     }
     
     func deleteDocument(completion: @escaping (Bool) -> Void) {
-        guard let document = document, let documentId = document.entityId else {
+        guard let document = document, let documentId = document.id else {
             completion(false)
             return
         }
         
         // Use VaultViewModel to handle the deletion
-        let vaultViewModel = VaultViewModel()
+        let vaultViewModel = VaultViewModel(persistenceController: self.persistenceController)
         vaultViewModel.deleteDocument(documentId)
         completion(true)
     }
@@ -357,7 +411,7 @@ class DocumentDetailViewModel: ObservableObject {
         fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Tag.name, ascending: true)]
         
         do {
-            let fetchedTags = try viewContext.fetch(fetchRequest)
+            let fetchedTags = try persistenceController.viewContext.fetch(fetchRequest)
             
             self.allTags = fetchedTags.compactMap { tag in
                 guard let id = tag.id, let name = tag.name else {
@@ -376,7 +430,7 @@ class DocumentDetailViewModel: ObservableObject {
         fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Folder.name, ascending: true)]
         
         do {
-            let fetchedFolders = try viewContext.fetch(fetchRequest)
+            let fetchedFolders = try persistenceController.viewContext.fetch(fetchRequest)
             
             self.allFolders = fetchedFolders.compactMap { folder in
                 guard let id = folder.id, let name = folder.name else {

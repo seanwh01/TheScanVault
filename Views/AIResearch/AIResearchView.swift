@@ -1,11 +1,15 @@
 import SwiftUI
 import CoreData
 import UIKit
+import TheScanVault
+
+// Define the namespace here
+enum Views_AIResearch {}
 
 // Place the view inside the namespace
 extension Views_AIResearch {
     struct AIResearchView: View {
-        @StateObject private var viewModel = AIResearchViewModel()
+        @StateObject private var viewModel: AIResearchViewModel
         @State private var showResults = false
         @State private var searchText = ""
         @State private var showDateRangeOptions = false
@@ -23,6 +27,11 @@ extension Views_AIResearch {
         
         // Add this property to track if keyboard is shown
         @FocusState private var isTextFieldFocused: Bool
+        
+        // Initializer to inject PersistenceController
+        init(persistenceController: PersistenceController) {
+            _viewModel = StateObject(wrappedValue: AIResearchViewModel(persistenceController: persistenceController))
+        }
         
         var body: some View {
             NavigationView {
@@ -115,4 +124,14 @@ extension Views_AIResearch {
             showFolderOptions = false
         }
     }
-} 
+}
+
+// Preview Provider Update
+struct AIResearchView_Previews: PreviewProvider {
+    static var previews: some View {
+        Views_AIResearch.AIResearchView(persistenceController: PersistenceController.preview)
+            .preferredColorScheme(.dark)
+            .environmentObject(AuthViewModel()) // Assuming a default initializer
+            .environmentObject(NavigationManager()) // Assuming a default initializer
+    }
+}

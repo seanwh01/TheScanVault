@@ -1,9 +1,11 @@
 import Foundation
 
 class DocumentAIService {
-    static let shared = DocumentAIService()
+    private let adaptiveLearningClassifier: AdaptiveLearningClassifier
     
-    private init() {}
+    public init(adaptiveLearningClassifier: AdaptiveLearningClassifier) {
+        self.adaptiveLearningClassifier = adaptiveLearningClassifier
+    }
     
     func analyzeDocument(text: String) async throws -> DocumentClassifierService.DocumentSuggestions {
         print("📄 Starting document analysis...")
@@ -12,7 +14,7 @@ class DocumentAIService {
         let basePrompt = getClassificationPrompt()
         
         // Enhance the prompt with adaptive learning
-        let enhancedPrompt = AdaptiveLearningClassifier.shared.enhancePromptWithLearning(
+        let enhancedPrompt = self.adaptiveLearningClassifier.enhancePromptWithLearning(
             documentText: text,
             basePrompt: basePrompt
         )
@@ -144,7 +146,7 @@ class DocumentAIService {
         let basePrompt = getClassificationPrompt()
         
         // Apply adaptive learning enhancement
-        let enhancedPrompt = AdaptiveLearningClassifier.shared.enhancePromptWithLearning(
+        let enhancedPrompt = self.adaptiveLearningClassifier.enhancePromptWithLearning(
             documentText: text,
             basePrompt: basePrompt
         )
@@ -234,4 +236,4 @@ class DocumentAIService {
     private func getOpenAIAPIKey() -> String? {
         return UserDefaults.standard.string(forKey: "OpenAIAPIKey")
     }
-} 
+}

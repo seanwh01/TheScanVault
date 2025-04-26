@@ -17,7 +17,7 @@ public extension Folder {
     
     static func create(in context: NSManagedObjectContext, name: String) -> Folder {
         let folder = Folder(context: context)
-        folder.entityId = UUID()
+        folder.id = UUID()
         folder.name = name
         folder.createdAt = Date()
         return folder
@@ -44,10 +44,10 @@ public extension Document {
     
     static func create(in context: NSManagedObjectContext, title: String, pdfData: Data? = nil) -> Document {
         let document = Document(context: context)
-        document.entityId = UUID()
+        document.id = UUID()
         document.title = title
         document.createdAt = Date()
-        document.pdfData = pdfData
+        document.documentData = pdfData
         return document
     }
     
@@ -67,10 +67,10 @@ public extension Document {
         let request: NSFetchRequest<Document> = Document.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Document.createdAt, ascending: false)]
         
-        if let folder = folder, let folderId = folder.entityId {
-            request.predicate = NSPredicate(format: "folderId == %@", folderId as CVarArg)
+        if let folder = folder {
+            request.predicate = NSPredicate(format: "folder == %@", folder)
         } else {
-            request.predicate = NSPredicate(format: "folderId == NULL")
+            request.predicate = NSPredicate(format: "folder == NIL")
         }
         
         do {
@@ -80,4 +80,4 @@ public extension Document {
             return []
         }
     }
-} 
+}

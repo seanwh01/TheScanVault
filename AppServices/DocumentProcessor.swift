@@ -31,8 +31,6 @@ enum DocumentProcessingState: String {
 // MARK: - Document Processor
 // This is the authoritative implementation for the app
 class DocumentProcessor: NSObject {
-    static let shared = DocumentProcessor()
-    
     // MARK: - Properties
     
     // Processing state
@@ -59,22 +57,25 @@ class DocumentProcessor: NSObject {
     
     // Services
     private let openAIService: OpenAIService
-    
-    // API Services
-    private let documentAIService = TempDevDocumentAIService.shared
+    private let persistenceController: PersistenceController
+    private let documentAIService: DocumentAIService
+    private let adaptiveLearningClassifier: AdaptiveLearningClassifier
     
     // Delegate
     weak var delegate: DocumentProcessorDelegate?
     
     // MARK: - Initialization
     
-    private override init() {
+    init(openAIService: OpenAIService, persistenceController: PersistenceController, documentAIService: DocumentAIService, adaptiveLearningClassifier: AdaptiveLearningClassifier) {
         // Initialize services
-        self.openAIService = OpenAIService(apiKey: UserDefaults.standard.string(forKey: "OpenAIAPIKey") ?? "")
+        self.openAIService = openAIService
+        self.persistenceController = persistenceController
+        self.documentAIService = documentAIService
+        self.adaptiveLearningClassifier = adaptiveLearningClassifier
         
         super.init()
         
-        print("🚀 Document processor initialized with exclusive API control")
+        print("🚀 Document processor initialized with persistence controller")
         
         // Register for subscription change notifications
         NotificationCenter.default.addObserver(
@@ -234,7 +235,7 @@ class DocumentProcessor: NSObject {
         } else {
             // Use the dev AI service
             Task {
-                if let devSuggestions = await documentAIService.analyzeDocumentText(text) {
+                if let devSuggestions = try? await documentAIService.analyzeDocument(text: text) {
                     // Update state
                     self.processingState = .aiComplete
                     
@@ -460,7 +461,7 @@ class DocumentProcessor: NSObject {
             print("📊 Using Enhanced Metadata Context for AI analysis")
             
             // Fetch all folders to create proper metadata context
-            let context = PersistenceController.shared.viewContext
+            let context = persistenceController.viewContext
             var existingFolders: [String] = []
             
             // Fetch all folders from Core Data
@@ -579,7 +580,7 @@ class DocumentProcessor: NSObject {
             }
             
             // Fetch deleted folders and tags from the adaptive learning classifier
-            let deletedItems = AdaptiveLearningClassifier.shared.getDeletedFoldersAndTags()
+            let deletedItems = self.adaptiveLearningClassifier.getDeletedFoldersAndTags()
             
             // Add deleted folders to metadata if any exist
             if !deletedItems.folders.isEmpty {
@@ -717,13 +718,13 @@ class DocumentProcessor: NSObject {
         
         // 1. Check if the suggested folder exists
         if let suggestedFolder = suggestions.suggestedFolderName {
-            // Fetch all folders
-            let context = PersistenceController.shared.viewContext
+            // Fetch all folders using the injected controller
+            let context = persistenceController.viewContext
             let folderFetchRequest = NSFetchRequest<Folder>(entityName: "Folder")
             
             do {
-                let allFolders = try context.fetch(folderFetchRequest)
-                let folderNames = allFolders.compactMap { $0.name }
+                let folders = try context.fetch(folderFetchRequest)
+                let folderNames = folders.compactMap { $0.name }
                 
                 if folderNames.contains(where: { $0.lowercased() == suggestedFolder.lowercased() }) {
                     print("✅ Suggested folder '\(suggestedFolder)' exists in the system")
@@ -739,7 +740,7 @@ class DocumentProcessor: NSObject {
         let suggestedTitle = suggestions.suggestedTitle
         
         // Fetch some recent document titles
-        let context = PersistenceController.shared.viewContext
+        let context = persistenceController.viewContext
         let titleFetchRequest = NSFetchRequest<Document>(entityName: "Document")
         titleFetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: false)]
         titleFetchRequest.fetchLimit = 10
@@ -803,7 +804,7 @@ class DocumentProcessor: NSObject {
         }
         
         // 3. Check for deleted folders/tags
-        let deletedItems = AdaptiveLearningClassifier.shared.getDeletedFoldersAndTags()
+        let deletedItems = self.adaptiveLearningClassifier.getDeletedFoldersAndTags()
         
         // Check for deleted folders
         if let folder = suggestions.suggestedFolderName, !folder.isEmpty,
@@ -895,4 +896,4 @@ class DocumentProcessor: NSObject {
         
         return commonPatterns
     }
-} 
+}

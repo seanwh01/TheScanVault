@@ -223,12 +223,13 @@ struct AIStatusSectionView: View {
 }
 
 // MARK: - AI Testing Section View
-struct AITestingSectionView: View {
+/*struct AITestingSectionView: View {
     @State private var showingAPIKeyTest = false
+    @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
         Section(header: Text("AI Testing")) {
-            NavigationLink(destination: AIResearchView()) {
+            NavigationLink(destination: AIResearchView(persistenceController: PersistenceController.shared)) {
                 HStack {
                     Image(systemName: "magnifyingglass")
                         .foregroundColor(.blue)
@@ -245,4 +246,4 @@ struct AITestingSectionView: View {
             }
         }
     }
-} 
+}*/

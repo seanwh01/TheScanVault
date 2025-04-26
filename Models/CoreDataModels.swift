@@ -143,7 +143,7 @@ extension NSManagedObject {
         document.setValue(folderId, forKey: "folderId")
         document.setValue(Date(), forKey: "createdAt")
         document.setValue(Date(), forKey: "updatedAt")
-        document.setValue(data, forKey: "documentData")
+        document.setValue(data, forKey: "pdfData")
         
         return document
     }

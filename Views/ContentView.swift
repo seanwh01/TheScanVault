@@ -4,6 +4,8 @@ struct ContentView: View {
     @EnvironmentObject private var authViewModel: AuthViewModel
     @EnvironmentObject private var navigationManager: NavigationManager
     @EnvironmentObject private var subscriptionManager: SubscriptionManager
+    @EnvironmentObject private var persistenceController: PersistenceController
+    @EnvironmentObject private var appServices: AppServices
     @State private var selectedTab: Tab = .scan
     @State private var navigateToDocumentEdit: String? = nil
     
@@ -14,25 +16,27 @@ struct ContentView: View {
     var body: some View {
         if authViewModel.isAuthenticated {
             TabView(selection: $selectedTab) {
-                ScanView()
+                ScanView(
+                    appServices: appServices,
+                    subscriptionManager: subscriptionManager
+                )
                     .tabItem {
                         Label("Scan", systemImage: "doc.text.viewfinder")
                     }
                     .tag(Tab.scan)
                 
-                VaultView()
+                VaultView(persistenceController: persistenceController)
                     .tabItem {
                         Label("Vault", systemImage: "folder")
                     }
                     .tag(Tab.vault)
                 
-                AIResearchView()
+                AIResearchView(persistenceController: persistenceController)
                     .tabItem {
                         Label("AI Research", systemImage: "brain")
                     }
                     .tag(Tab.aiResearch)
                 
-                // Use the Views_Settings namespace for SettingsView
                 ZStack {
                     Color.black.edgesIgnoringSafeArea(.all)
                     
@@ -46,13 +50,10 @@ struct ContentView: View {
                 }
                 .tag(Tab.settings)
             }
-            // Handle navigation changes through NotificationCenter
             .onReceive(NotificationCenter.default.publisher(for: Notification.Name("NavigateToDocumentEdit"))) { notification in
                 if let documentId = notification.userInfo?["documentId"] as? String {
-                    // Set the document ID to edit
                     navigateToDocumentEdit = documentId
                     
-                    // Switch to the vault tab
                     selectedTab = .vault
                 }
             }
@@ -66,4 +67,4 @@ struct ContentView: View {
             LoginView()
         }
     }
-} 
+}

@@ -2,16 +2,16 @@ import CoreData
 import CloudKit
 import Combine
 
-class PersistenceController: ObservableObject {
-    static let shared = PersistenceController()
+public class PersistenceController: ObservableObject {
+    public static let shared = PersistenceController()
     
-    let container: NSPersistentCloudKitContainer
+    public let container: NSPersistentCloudKitContainer
     
-    var viewContext: NSManagedObjectContext {
+    public var viewContext: NSManagedObjectContext {
         return container.viewContext
     }
     
-    init(inMemory: Bool = false) {
+    public init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "ScanVault")
         
         if inMemory {
@@ -38,7 +38,7 @@ class PersistenceController: ObservableObject {
     }
     
     // For previews and testing
-    static var preview: PersistenceController = {
+    public static var preview: PersistenceController = {
         let controller = PersistenceController(inMemory: true)
         return controller
     }()
@@ -105,7 +105,7 @@ extension PersistenceController {
         
         verifyContext.perform {
             let request = NSFetchRequest<NSManagedObject>(entityName: "Document")
-            request.predicate = NSPredicate(format: "entityId == %@", id as CVarArg)
+            request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
             
             do {
                 let count = try verifyContext.count(for: request)
@@ -126,7 +126,7 @@ extension PersistenceController {
 
     func fetchDocument(with id: UUID) -> NSManagedObject? {
         let request = NSFetchRequest<NSManagedObject>(entityName: "Document")
-        request.predicate = NSPredicate(format: "entityId == %@", id as CVarArg)
+        request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
         do {
             let results = try container.viewContext.fetch(request)
             return results.first
@@ -157,89 +157,8 @@ extension PersistenceController {
                 let settings = self.container.persistentStoreDescriptions.first?.cloudKitContainerOptions
                 print("☁️ CloudKit settings configured: \(settings != nil)")
                 
-                // Check if KeywordPattern entity exists, create it if needed
-                self.verifyAndCreateKeywordPatternEntity()
-                
                 completionHandler(nil)
             }
-        }
-    }
-    
-    // Verify that the KeywordPattern entity exists and can be used
-    private func verifyAndCreateKeywordPatternEntity() {
-        let context = container.viewContext
-        
-        // Check if we can create a KeywordPattern entity
-        let entity = NSEntityDescription.entity(forEntityName: "KeywordPattern", in: context)
-        if entity == nil {
-            print("⚠️ KeywordPattern entity not found in Core Data model - will be created dynamically")
-            
-            // Create entity description
-            let keywordPatternEntity = NSEntityDescription()
-            keywordPatternEntity.name = "KeywordPattern"
-            keywordPatternEntity.managedObjectClassName = "KeywordPattern"
-            
-            // Create attributes
-            let idAttribute = NSAttributeDescription()
-            idAttribute.name = "patternId"
-            idAttribute.attributeType = .UUIDAttributeType
-            idAttribute.isOptional = true
-            
-            let keywordAttribute = NSAttributeDescription()
-            keywordAttribute.name = "keyword"
-            keywordAttribute.attributeType = .stringAttributeType
-            keywordAttribute.isOptional = true
-            
-            let fieldTypeAttribute = NSAttributeDescription()
-            fieldTypeAttribute.name = "fieldType"
-            fieldTypeAttribute.attributeType = .stringAttributeType
-            fieldTypeAttribute.isOptional = true
-            
-            let aiValueAttribute = NSAttributeDescription()
-            aiValueAttribute.name = "aiValue"
-            aiValueAttribute.attributeType = .stringAttributeType
-            aiValueAttribute.isOptional = true
-            
-            let userValueAttribute = NSAttributeDescription()
-            userValueAttribute.name = "userValue"
-            userValueAttribute.attributeType = .stringAttributeType
-            userValueAttribute.isOptional = true
-            
-            let occurrencesAttribute = NSAttributeDescription()
-            occurrencesAttribute.name = "occurrences"
-            occurrencesAttribute.attributeType = .integer32AttributeType
-            occurrencesAttribute.defaultValue = 0
-            
-            let firstSeenAttribute = NSAttributeDescription()
-            firstSeenAttribute.name = "firstSeen"
-            firstSeenAttribute.attributeType = .dateAttributeType
-            firstSeenAttribute.isOptional = true
-            
-            let lastSeenAttribute = NSAttributeDescription()
-            lastSeenAttribute.name = "lastSeen"
-            lastSeenAttribute.attributeType = .dateAttributeType
-            lastSeenAttribute.isOptional = true
-            
-            // Add attributes to entity
-            keywordPatternEntity.properties = [
-                idAttribute,
-                keywordAttribute,
-                fieldTypeAttribute,
-                aiValueAttribute,
-                userValueAttribute,
-                occurrencesAttribute,
-                firstSeenAttribute,
-                lastSeenAttribute
-            ]
-            
-            // Add entity to managed object model
-            var entities = container.managedObjectModel.entities
-            entities.append(keywordPatternEntity)
-            container.managedObjectModel.entities = entities
-            
-            print("✅ KeywordPattern entity dynamically added to Core Data model")
-        } else {
-            print("✅ KeywordPattern entity found in Core Data model")
         }
     }
 }
@@ -248,4 +167,4 @@ extension PersistenceController {
 // iOS-only code
 #elseif os(macOS)
 // macOS alternative code
-#endif 
+#endif

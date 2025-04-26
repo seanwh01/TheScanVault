@@ -9,6 +9,7 @@ extension Views_AIResearch {
         let isSelected: Bool
         let onToggle: () -> Void
         @State private var showingPreview = false
+        let persistenceController: PersistenceController
         
         var body: some View {
             HStack {
@@ -65,7 +66,7 @@ extension Views_AIResearch {
         
         // Function to create a DocumentViewModel for preview
         private func createDocumentViewModel(forDocId id: UUID) -> DocumentViewModel? {
-            return DocumentViewModel(documentId: id)
+            return DocumentViewModel(documentId: id, persistenceController: self.persistenceController)
         }
     }
 } 

@@ -69,4 +69,3 @@ enum AIResearch {
 
 // All views in this module belong to this namespace
 // This helps avoid naming conflicts with existing views
-enum Views_AIResearch {} 

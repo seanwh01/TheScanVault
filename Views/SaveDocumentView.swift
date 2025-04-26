@@ -1,12 +1,16 @@
 import SwiftUI
-import Foundation
 import CoreData
 import Combine
+
+// Remove the problematic type aliases
+// typealias Document = NSManagedObject
+// typealias Folder = NSManagedObject
+// typealias Tag = NSManagedObject
 
 // View for saving document details after scanning
 struct SaveDocumentView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var viewModel: ScanViewModel
+    @ObservedObject var viewModel: ViewModels_Scan.ScanViewModel
     @State private var documentTitle = ""
     @State private var tagsText = ""
     @State private var comments = ""
@@ -21,116 +25,137 @@ struct SaveDocumentView: View {
     @State private var showMetadataDebug = false
     @State private var aiPromptText = ""
     @EnvironmentObject private var subscriptionManager: SubscriptionManager
-    @State private var isShowingFolderPicker = false
-    @State private var isShowingMetadataDebug = false
+    @State private var isShowingFolderPicker = false 
+    @State private var showingCreateFolderAlert = false 
+    @State private var isShowingMetadataDebug = false 
     @State private var isShowingSuccessView = false
     @State private var isDismissingView = false
+    @State private var showTitleConfirmation = false
+    @State private var showingAddTagAlert = false
+    @State private var newTagName = "" 
+    @EnvironmentObject private var appServices: AppServices
+    @State private var showFolderEditSheet = false 
+    @State private var showTagEditSheet = false 
+    @State private var showFolderEditSheet2 = false
+    @State private var aiClassificationEnabled = UserDefaults.standard.bool(forKey: "AIDocumentClassificationEnabled")
+    
+    // Computed property to access the AI error state from the ViewModel
+    private var showAIError: Bool {
+        viewModel.showAIError 
+    }
     
     var isFormValid: Bool {
         !documentTitle.isEmpty
     }
     
     var body: some View {
-        // Break up the complex content into smaller components
-        NavigationView {
-            mainContent
-                .toolbar {
-                    toolbarContent
-                }
-                .sheet(isPresented: $showFolderPicker) {
-                    NavigationView {
-                        FolderPickerView(
-                            selectedFolder: $selectedFolder,
-                            folderName: $selectedFolderName,
-                            onSave: {
-                                if selectedFolder != nil && !selectedFolderName.isEmpty {
-                                    viewModel.selectedFolderId = selectedFolder
-                                    showFolderConfirmation = true
-                                    
-                                    // Hide confirmation after a delay
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                        showFolderConfirmation = false
-                                    }
-                                }
-                            }
-                        )
-                    }
-                }
-                .sheet(isPresented: $showTagPicker) {
-                    NavigationView {
-                        TagEntryView(tagsText: $tagsText)
-                    }
-                    .navigationViewStyle(StackNavigationViewStyle())
-                }
-                .alert("New Folder", isPresented: $showNewFolderAlert) {
-                    TextField("Folder Name", text: $newFolderName)
-                    Button("Cancel", role: .cancel) {
-                        newFolderName = ""
-                    }
-                    Button("Create") {
-                        if !newFolderName.isEmpty {
-                            let newFolder = viewModel.addFolder(name: newFolderName)
-                            selectedFolder = newFolder.id
-                            selectedFolderName = newFolder.name
-                            newFolderName = ""
-                        }
-                    }
-                } message: {
-                    Text("Enter a name for the new folder")
-                }
-                .onAppear {
-                    // Reset local state first before setting up
-                    resetLocalViewState()
-                    onAppearSetup()
+        // Wrap NavigationView in a ZStack
+        ZStack {
+            NavigationView {
+                // Restore Form structure, keep sections commented
+                Form {
+                    documentTitleSection
                     
-                    // Debug folder display
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        print("📋 FOLDER DISPLAY CHECK - ID: \(selectedFolder?.uuidString ?? "nil"), Name: '\(selectedFolderName)'")
-                        if let folderId = selectedFolder, selectedFolderName.isEmpty {
-                            // Force update folder name
-                            updateFolderNameFromId()
-                            print("📋 FOLDER NAME UPDATED - Now: '\(selectedFolderName)'")
+                    folderSection
+                    
+                    tagsSection
+                    
+                    commentsSection
+                    
+                    settingsSection
+                    
+                    aiAnalysisSection 
+                    
+                    .onAppear { 
+                        print("➡️ Form content appeared.") // Modified print
+                    }
+                    // Remove toolbar from Form
+                } // <<< End Form
+                
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle("Document Details")
+                .navigationViewStyle(StackNavigationViewStyle())
+                // Restore the toolbar
+                .toolbar { 
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button("Cancel") {
+                            viewModel.cancelScanProcess()
+                            presentationMode.wrappedValue.dismiss()
                         }
                     }
+                    
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        // Use the computed property
+                        trailingToolbarItem
+                    }
                 }
-                .onReceive(viewModel.$aiSuggestions) { _ in
-                    print("🔄 AI suggestions updated - syncing UI")
-                    syncWithViewModel()
-                }
-                .onReceive(viewModel.$selectedFolderId) { _ in
-                    print("🔄 Folder ID updated in ViewModel - syncing UI")
-                    syncWithViewModel()
-                }
-                .onReceive(viewModel.$selectedTagIds) { _ in 
-                    print("🔄 Tag IDs updated in ViewModel - syncing UI")
-                    syncWithViewModel()
-                }
-                .interactiveDismissDisabled()
-                .presentationDetents([.large])
-                .presentationDragIndicator(.hidden)
-                .sheet(isPresented: $showMetadataDebug) {
-                    metadataDebugSheet
-                }
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
-        .sheet(isPresented: $viewModel.showDocumentImportSuccess) {
-            // Only dismiss the main view after the success view is dismissed
-            if isDismissingView {
-                presentationMode.wrappedValue.dismiss()
+            } // End NavigationView
+            
+            // Progress Views remain attached to ZStack
+            if viewModel.isPerformingOCR {
+                ocrProgressView
             }
-        } content: {
+            
+            if viewModel.isSaving && !viewModel.isPerformingOCR {
+                savingProgressView
+            }
+            
+        } // End ZStack
+        // Attach sheets to the outer ZStack
+        .sheet(isPresented: $showTagEditSheet) { 
+            // Restore sheet content
+            SaveTagsEditView(viewModel: viewModel)
+               .environmentObject(viewModel.metadataManager)
+               .environmentObject(appServices)
+               .onDisappear {
+                   // Explicitly synchronize tags when the sheet is dismissed
+                   syncTagsWithViewModel()
+               }
+        }
+        .sheet(isPresented: $viewModel.showDocumentImportSuccess) { 
+            // Restore original sheet content
             if let docId = viewModel.lastSavedDocumentId {
                 DocumentImportSuccessView(
                     documentName: viewModel.lastSavedDocumentTitle,
                     documentId: docId.uuidString,
                     thumbnailImage: viewModel.lastSavedDocumentThumbnail
                 )
+                // Restore environment object injection
                 .environmentObject(NavigationManager())
+                // Restore onDisappear
                 .onDisappear {
-                    // Set flag to dismiss the main view once the success view is closed
                     isDismissingView = true
                 }
             }
+        }
+        .sheet(isPresented: $showFolderEditSheet) {
+            SaveFolderEditView(viewModel: viewModel)
+            .environmentObject(appServices)
+            .onDisappear(perform: syncWithViewModel)
+        }
+        // Add onChange to handle dismissal after success sheet closes
+        .onChange(of: isDismissingView) { newValue in
+            if newValue {
+                presentationMode.wrappedValue.dismiss()
+            }
+        }
+        
+    }
+    
+    // MARK: - Toolbar Content
+    
+    // Restore definition
+    @ViewBuilder
+    private var trailingToolbarItem: some View {
+        if viewModel.isSaving { 
+            ProgressView()
+        } else {
+            Button("Save") {
+                Task { [viewModel] in
+                    await viewModel.saveDocument() 
+                }
+            }
+            .disabled(!isFormValid || viewModel.isSaving || viewModel.isPerformingOCR)
         }
     }
     
@@ -140,41 +165,45 @@ struct SaveDocumentView: View {
             // Main form content
             Form {
                 // Title section
-                Section(header: Text("Title")) {
+                Section {
                     TextField("Document Title", text: $documentTitle)
                         .onChange(of: documentTitle) { _, newValue in
-                            // Update viewModel when user types
                             viewModel.documentTitle = newValue
                         }
                         .onChange(of: viewModel.documentTitle) { _, newValue in
-                            // Update local state when AI suggestions apply
                             if documentTitle != newValue {
                                 documentTitle = newValue
                             }
                         }
+                    if subscriptionManager.isPremium && UserDefaults.standard.bool(forKey: "AIDocumentClassificationEnabled") {
+                        titleSuggestionView(suggestions: viewModel.aiSuggestions)
+                    }
+                } header: {
+                    Text("Title")
                 }
                 
                 folderSection
+                
                 tagsSection
+                
                 commentsSection
+                
                 settingsSection
                 
-                if subscriptionManager.isPremium && UserDefaults.isAIDocumentClassificationEnabled {
-                    aiSuggestionsSection
-                }
+                aiAnalysisSection 
+                
             }
-            .navigationTitle("Document Details")
             .navigationBarTitleDisplayMode(.inline)
             
-            // OCR Processing overlay
+            /* // Temporarily comment out progress views
             if viewModel.isPerformingOCR {
                 ocrProgressView
             }
             
-            // Regular saving overlay
             if viewModel.isSaving && !viewModel.isPerformingOCR {
                 savingProgressView
             }
+            */
             
             if showFolderConfirmation {
                 folderConfirmationView
@@ -183,137 +212,158 @@ struct SaveDocumentView: View {
             if showTagConfirmation {
                 tagConfirmationView
             }
-        }
-    }
-    
-    // Toolbar content
-    private var toolbarContent: some ToolbarContent {
-        Group {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button("Cancel") {
-                    // Clean up all AI suggestions before dismissing
-                    viewModel.cleanupAllAISuggestions()
-                    presentationMode.wrappedValue.dismiss()
-                }
-            }
             
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Save") {
-                    saveDocument()
-                }
-                .disabled(!isFormValid || viewModel.isSaving || viewModel.isPerformingOCR)
+            if showTitleConfirmation {
+                titleConfirmationView
             }
         }
     }
     
-    // Metadata debug sheet
-    private var metadataDebugSheet: some View {
-        NavigationView {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("AI Prompt Metadata Context")
-                        .font(.headline)
-                        .padding(.bottom, 5)
-                    
-                    Text(aiPromptText)
-                        .font(.system(.body, design: .monospaced))
-                        .padding()
-                        .background(Color.gray.opacity(0.1))
-                        .cornerRadius(8)
+    // Section for Document Title Input
+    private var documentTitleSection: some View {
+        Section {
+            TextField("Document Title", text: $documentTitle)
+                .onChange(of: documentTitle) { _, newValue in
+                    viewModel.documentTitle = newValue
                 }
-                .padding()
+                .onChange(of: viewModel.documentTitle) { _, newValue in
+                    if documentTitle != newValue {
+                        documentTitle = newValue
+                    }
+                }
+            if subscriptionManager.isPremium && UserDefaults.standard.bool(forKey: "AIDocumentClassificationEnabled") {
+                titleSuggestionView(suggestions: viewModel.aiSuggestions)
             }
-            .navigationBarTitle("AI Context Debug", displayMode: .inline)
-            .navigationBarItems(trailing: Button("Close") {
-                showMetadataDebug = false
-            })
+        } header: { 
+            Text("Title")
         }
     }
     
     // Folder section
     private var folderSection: some View {
-        Section(header: Text("FOLDER")) {
+        Section {
             HStack {
-                // Display the folder name with better visibility
-                if let _ = selectedFolder, !selectedFolderName.isEmpty {
-                    Text(selectedFolderName)
-                        .foregroundColor(.white) // Ensure text is visible
-                } else {
-                    Text("No Folder Assigned")
-                        .foregroundColor(.gray)
-                }
+                // Look up the folder name from the folders array
+                Text(viewModel.metadataManager.folders.first(where: { $0.id == viewModel.selectedFolderId })?.name ?? "No Folder Assigned")
                 Spacer()
                 Button("Change") {
-                    self.showFolderPicker = true
+                    showFolderEditSheet = true
                 }
             }
-            .onAppear {
-                // Ensure folder name is displayed on appear
-                if let folderId = selectedFolder, selectedFolderName.isEmpty {
-                    print("🔎 Folder section appeared with ID but empty name: \(folderId)")
-                    if let folderName = viewModel.pendingFolderName(for: folderId) {
-                        selectedFolderName = folderName
-                        print("📁 Updated folder name from pending data: \(folderName)")
-                    } else {
-                        // Try to find the folder name in the viewModel's folder list
-                        if let folder = viewModel.folders.first(where: { $0.id == folderId }) {
-                            selectedFolderName = folder.name
-                            print("📁 Updated folder name from view model: \(folder.name)")
-                        }
-                    }
-                }
+            
+            if subscriptionManager.isPremium && UserDefaults.standard.bool(forKey: "AIDocumentClassificationEnabled") {
+                folderSuggestionView(suggestions: viewModel.aiSuggestions)
             }
+        } header: {
+            Text("FOLDER")
         }
     }
     
     // Tags section
     private var tagsSection: some View {
-        Section(header: Text("Tags")) {
-            if tagsText.isEmpty {
-                Text("No tags")
-                    .italic()
-                    .foregroundColor(.gray)
-            } else {
-                let tagsList = tagsText.split(separator: ",")
-                    .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-                    .filter { !$0.isEmpty }
+        Section {
+            VStack(alignment: .leading) {
+                // Use improved TagListView with blue tag capsules
+                TagListView(
+                    selectedTagIds: viewModel.metadataManager.selectedTagIds,
+                    pendingTagNames: Array(viewModel.metadataManager.pendingTagNamesById.values),
+                    allTags: viewModel.metadataManager.tags,
+                    onRemoveTagId: { tagId in
+                        // Log before removal
+                        print("⚠️ [SaveDocumentView] Removing tag ID: \(tagId)")
+                        print("⚠️ Before removal: selected tags = \(viewModel.metadataManager.selectedTagIds.count)")
+                        
+                        // Use the metadata manager as the single source of truth
+                        viewModel.metadataManager.toggleTagSelection(tagId)
+                        
+                        // Force UI updates on main thread
+                        DispatchQueue.main.async {
+                            // Critical: Update view model from metadata manager
+                            viewModel.selectedTagIds = viewModel.metadataManager.selectedTagIds
+                            
+                            // Log after operation 
+                            print("✅ After removal: selected tags = \(viewModel.metadataManager.selectedTagIds.count)")
+                            
+                            // Force view to update
+                            viewModel.objectWillChange.send()
+                        }
+                    },
+                    onRemovePendingTag: { tagName in
+                        // Find the tag ID for this pending tag name
+                        if let tagId = viewModel.metadataManager.pendingTagNamesById.first(where: { $0.value == tagName })?.key {
+                            print("⚠️ [SaveDocumentView] Removing pending tag: \(tagName) with ID: \(tagId)")
+                            viewModel.metadataManager.removePendingTag(byId: tagId)
+                            
+                            // Force UI updates on main thread
+                            DispatchQueue.main.async {
+                                viewModel.objectWillChange.send()
+                            }
+                        }
+                    }
+                )
                 
-                ForEach(tagsList, id: \.self) { tag in
-                    HStack {
-                        Text(tag)
-                        Spacer()
-                        Button(action: {
-                            // Remove this tag
-                            let tagToRemove = tag
-                            let currentTags = tagsText.split(separator: ",")
-                                .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-                            let newTags = currentTags.filter { $0 != tagToRemove }
-                            tagsText = newTags.joined(separator: ", ")
-                        }) {
-                            Image(systemName: "xmark.circle.fill")
-                                .foregroundColor(.red)
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        showTagEditSheet = true
+                    }) {
+                        Text("Edit")
+                            .foregroundColor(.blue)
+                    }
+                }
+                .padding(.top, 4)
+                
+                // Add back the AI suggestions for tags
+                if subscriptionManager.isPremium && UserDefaults.standard.bool(forKey: "AIDocumentClassificationEnabled") {
+                    Text("AI Suggestions:")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                        .padding(.top, 8)
+                    
+                    ForEach(viewModel.suggestedTagNames ?? [], id: \.self) { suggestion in
+                        HStack {
+                            Text(suggestion)
+                                .font(.subheadline)
+                                .foregroundColor(.green)
+                            Spacer()
+                            Button("Use Tag") {
+                                viewModel.createAndSelectTag(name: suggestion)
+                            }
+                            .font(.subheadline)
+                            .buttonStyle(.bordered)
                         }
                     }
                 }
             }
-            
-            Button("Add Tags") {
-                showTagPicker = true
-            }
+        } header: {
+            Text("TAGS")
         }
     }
-    
+
     // Comments section
     private var commentsSection: some View {
-        Section(header: Text("Comments")) {
-            TextEditor(text: $comments)
-                .frame(minHeight: 100)
+        // Inside the commentsSection computed property
+        Section(header: Text("COMMENTS")) {
+            TextEditor(text: $comments) // Binds to the @State var comments
+                .frame(height: 100)
+                 // Observe the local @State var 'comments'
+                .onChange(of: comments) { _, newValue in
+                    // Assign the new value directly to the viewModel's property
+                    viewModel.comments = newValue
+                }
+                 // Observe the viewModel's @Published property 'comments'
+                .onChange(of: viewModel.comments) { _, newValue in
+                    // Update the local @State var 'comments' if it differs
+                    if comments != newValue {
+                        comments = newValue
+                    }
+                }
         }
     }
-    
+
     // Settings section
     private var settingsSection: some View {
-        Section(header: Text("Settings")) {
+        Section {
             HStack {
                 Image(systemName: "brain")
                     .foregroundColor(subscriptionManager.isPremium ? .blue : .gray)
@@ -325,7 +375,7 @@ struct SaveDocumentView: View {
                         Text("Premium Only")
                             .font(.caption)
                             .foregroundColor(.orange)
-                    } else if !UserDefaults.isAIDocumentClassificationEnabled {
+                    } else if !UserDefaults.standard.bool(forKey: "AIDocumentClassificationEnabled") {
                         Text("Disabled in Settings")
                             .font(.caption)
                             .foregroundColor(.orange)
@@ -338,8 +388,7 @@ struct SaveDocumentView: View {
                 
                 Spacer()
                 
-                // Only show a non-editable indicator based on status
-                if subscriptionManager.isPremium && UserDefaults.isAIDocumentClassificationEnabled {
+                if subscriptionManager.isPremium && UserDefaults.standard.bool(forKey: "AIDocumentClassificationEnabled") {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundColor(.green)
                 } else {
@@ -349,7 +398,6 @@ struct SaveDocumentView: View {
             }
             .padding(.vertical, 4)
             
-            // Add this informational text below
             if !subscriptionManager.isPremium {
                 Text("In order to activate, become a premium subscriber by going to Settings page.")
                     .font(.caption)
@@ -357,252 +405,62 @@ struct SaveDocumentView: View {
                     .padding(.top, -4)
                     .padding(.bottom, 8)
             }
+        } header: {
+            Text("SETTINGS")
         }
     }
     
-    // AI Suggestions section
-    private var aiSuggestionsSection: some View {
-        Section(header: Text("AI Suggestions")) {
-            Group {
-                if viewModel.isAnalyzingDocument {
-                    HStack {
-                        ProgressView()
-                        Text("Analyzing document content...")
-                            .font(.body)
-                            .foregroundColor(.gray)
+    // Section for AI Analysis Display
+    private var aiAnalysisSection: some View {
+        Section(header: Text("AI ANALYSIS")) {
+            if !subscriptionManager.isPremium {
+                Text("AI Analysis requires Premium.")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+            } else if !UserDefaults.standard.bool(forKey: "AIDocumentClassificationEnabled") {
+                Toggle("Enable AI Document Classification", isOn: $aiClassificationEnabled)
+                    .onChange(of: aiClassificationEnabled) { _, newValue in
+                        UserDefaults.standard.set(newValue, forKey: "AIDocumentClassificationEnabled")
                     }
-                }
-                else if let suggestions = viewModel.aiSuggestions {
-                    suggestionsContentView(suggestions: suggestions)
+            } else {
+                // Enabled and premium, show token counts if available
+                if let suggestions = viewModel.aiSuggestions, 
+                   let tokenUsage = suggestions.tokenUsage {
+                    VStack(alignment: .leading, spacing: 4) {
+                        // First display model name
+                        if let modelName = tokenUsage.model {
+                            Text("Model: \(modelName)")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
+                        
+                        Text("Token Usage:")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                        Text("Input: \(tokenUsage.promptTokens) · Output: \(tokenUsage.completionTokens) · Total: \(tokenUsage.totalTokens)")
+                            .font(.caption)
+                        
+                        // Add cost estimate
+                        Text("Estimated Cost: $\(String(format: "%.5f", calculateCost(promptTokens: tokenUsage.promptTokens, completionTokens: tokenUsage.completionTokens)))")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                            .padding(.top, 2)
+                    }
                 } else {
-                    Text("No suggestions available")
-                        .italic()
+                    Text("AI Analysis enabled. Token usage details will appear after analysis.")
+                        .font(.caption)
                         .foregroundColor(.gray)
                 }
-                
-                Button(action: {
-                    viewModel.ensureAIAnalysisWithMetadataContext()
-                }) {
-                    HStack {
-                        Image(systemName: "arrow.clockwise")
-                        Text("Refresh AI Suggestions")
-                    }
-                }
-                .disabled(viewModel.isAnalyzingDocument)
-                
-                Button(action: {
-                    showMetadataDebug = true
-                    aiPromptText = generateMetadataDebugText()
-                }) {
-                    HStack {
-                        Image(systemName: "info.circle")
-                        Text("View Metadata Context")
-                    }
-                    .font(.caption)
-                    .foregroundColor(.blue)
-                }
             }
         }
     }
     
-    // Break out the suggestions content to avoid generic parameter inference issues
-    private func suggestionsContentView(suggestions: DocumentClassifierService.DocumentSuggestions) -> some View {
-        VStack(alignment: .leading, spacing: 8) {
-            // Note when values differ from already applied suggestions
-            if !documentTitle.isEmpty && documentTitle != suggestions.suggestedTitle {
-                Text("Note: Document already has different metadata applied")
-                    .font(.caption)
-                    .foregroundColor(.orange)
-                    .padding(.bottom, 4)
-            }
-            
-            // Title suggestion
-            HStack {
-                Text("Title: \(suggestions.suggestedTitle)")
-                    .font(.body)
-                
-                Spacer()
-                
-                Button("Use") {
-                    viewModel.documentTitle = suggestions.suggestedTitle
-                }
-                .disabled(viewModel.documentTitle == suggestions.suggestedTitle)
-            }
-            
-            // Folder suggestion - only show if we have one
-            if let folderName = suggestions.suggestedFolderName {
-                HStack {
-                    Text("Folder: \(folderName)")
-                        .font(.body)
-                    
-                    Spacer()
-                    
-                    Button("Use") {
-                        // First update the viewModel
-                        viewModel.createAndSelectFolder(name: folderName)
-                        
-                        // Then immediately update the local state to reflect the change
-                        if let folderId = viewModel.selectedFolderId {
-                            selectedFolder = folderId
-                            selectedFolderName = folderName
-                            
-                            // Show folder confirmation
-                            showFolderConfirmation = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                showFolderConfirmation = false
-                            }
-                        }
-                    }
-                }
-            }
-            
-            // Tags suggestions
-            Text("Tags:")
-                .font(.body)
-            
-            ForEach(suggestions.suggestedTags, id: \.self) { tag in
-                HStack {
-                    Text(tag)
-                        .font(.body)
-                    
-                    Spacer()
-                    
-                    Button("Add") {
-                        selectSuggestedTag(tag)
-                    }
-                }
-            }
-            
-            // Confidence and Apply All
-            HStack {
-                // Handle NaN and infinite values directly
-                let confidenceValue = suggestions.confidence * 100
-                let confidencePercent = confidenceValue.isFinite ? Int(confidenceValue) : 0
-                Text("Confidence: \(confidencePercent)%")
-                    .font(.body)
-                    .foregroundColor(suggestions.confidence > 0.7 ? .green : .orange)
-                
-                Spacer()
-                
-                Button("Apply All") {
-                    // Apply title (already handled by the binding)
-                    viewModel.documentTitle = suggestions.suggestedTitle
-                    
-                    // Apply folder if available
-                    if let folderName = suggestions.suggestedFolderName {
-                        viewModel.createAndSelectFolder(name: folderName)
-                        
-                        // Update local state
-                        if let folderId = viewModel.selectedFolderId {
-                            selectedFolder = folderId
-                            selectedFolderName = folderName
-                        }
-                    }
-                    
-                    // Apply tags (existing implementation)
-                    applyAllSuggestedTags()
-                }
-                .foregroundColor(.blue)
-            }
-            
-            // Token usage section - always create the view but only show content if available
-            Divider()
-            
-            aiAnalysisSummary(suggestions: suggestions)
-        }
-    }
-    
-    // AI Analysis summary
+    // AI Analysis summary (Restored)
     @ViewBuilder
     private func aiAnalysisSummary(suggestions: DocumentClassifierService.DocumentSuggestions) -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text("AI Analysis")
-                .font(.headline)
-            
-            // Model name
-            Text("Model: \(getSelectedModelName())")
+            Text("Model: \(self.getSelectedModelName())")
                 .font(.caption)
-            
-            // Overall confidence
-            HStack {
-                Text("Overall confidence: ")
-                    .font(.caption)
-                
-                // Confidence percentage with color coding
-                let confidencePercentage = Int(suggestions.confidence * 100)
-                Text("\(confidencePercentage)%")
-                    .font(.caption.bold())
-                    .foregroundColor(getConfidenceColor(confidence: suggestions.confidence))
-            }
-            
-            // Folder confidences if available
-            if let folderConfidences = suggestions.folderConfidences, !folderConfidences.isEmpty {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Folder confidence scores:")
-                        .font(.caption)
-                        .padding(.top, 2)
-                    
-                    // Sort by confidence score (highest first)
-                    ForEach(folderConfidences.sorted(by: { $0.value > $1.value }).prefix(5), id: \.key) { folder, score in
-                        HStack {
-                            Text(folder)
-                                .font(.caption)
-                                .lineLimit(1)
-                            
-                            Spacer()
-                            
-                            // Format score as percentage
-                            let percentScore = Int(score * 100)
-                            Text("\(percentScore)%")
-                                .font(.caption.bold())
-                                .foregroundColor(getConfidenceColor(confidence: score))
-                        }
-                        .padding(.vertical, 1)
-                    }
-                    
-                    // If there are more folders than we're showing
-                    if folderConfidences.count > 5 {
-                        Text("+ \(folderConfidences.count - 5) more folders")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
-                }
-                .padding(.top, 2)
-            } else {
-                // Show message when no folder confidences are available
-                VStack(alignment: .leading) {
-                    Text("Folder confidence scores: Not available")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        .padding(.top, 2)
-                    
-                    if let suggestedFolder = suggestions.suggestedFolderName {
-                        Text("Suggested folder: \(suggestedFolder) (using overall confidence)")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
-                }
-                .padding(.top, 2)
-            }
-            
-            // Token usage info
-            Group {
-                // Show pricing based on model
-                let modelName = getSelectedModelName()
-                if modelName.contains("GPT-4o") {
-                    Text("Rate: $2.50/million input, $10.00/million output tokens")
-                        .font(.caption)
-                        .foregroundColor(.blue)
-                } else if modelName.contains("GPT-4") {
-                    Text("Rate: $10.00/million input, $30.00/million output tokens")
-                        .font(.caption)
-                        .foregroundColor(.orange)
-                } else {
-                    Text("Rate: $0.50/million input, $1.50/million output tokens")
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                }
-            }
             
             Group {
                 if let tokenUsage = suggestions.tokenUsage {
@@ -627,15 +485,92 @@ struct SaveDocumentView: View {
         .padding(.vertical, 4)
     }
     
-    // Helper function to get color based on confidence score
-    private func getConfidenceColor(confidence: Double) -> Color {
-        let percentageScore = confidence * 100
-        if percentageScore >= 70 {
-            return .green
-        } else if percentageScore >= 50 {
-            return .orange
-        } else {
-            return .red
+    // MARK: - AI Suggestion Views
+    
+    @ViewBuilder
+    private func titleSuggestionView(suggestions: DocumentClassifierService.DocumentSuggestions?) -> some View {
+        if let suggestedTitle = suggestions?.suggestedTitle, !suggestedTitle.isEmpty {
+            VStack(alignment: .leading, spacing: 4) {
+                Text("AI Suggestion:")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                
+                HStack {
+                    Text(suggestedTitle)
+                        .font(.subheadline)
+                        .foregroundColor(.green)
+                    Spacer()
+                    Button("Use Title") {
+                        documentTitle = suggestedTitle
+                        viewModel.documentTitle = suggestedTitle
+                    }
+                    .font(.subheadline)
+                    .buttonStyle(.bordered)
+                }
+            }
+            .padding(.vertical, 4)
+        }
+    }
+    
+    @ViewBuilder
+    private func folderSuggestionView(suggestions: DocumentClassifierService.DocumentSuggestions?) -> some View {
+        if let suggestedFolderName = suggestions?.suggestedFolderName, !suggestedFolderName.isEmpty {
+            VStack(alignment: .leading, spacing: 4) {
+                Text("AI Suggestion:")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                
+                HStack {
+                    Text(suggestedFolderName)
+                        .font(.subheadline)
+                        .foregroundColor(.green)
+                    Spacer()
+                    Button("Use Folder") {
+                        viewModel.createAndSelectFolder(name: suggestedFolderName)
+                    }
+                    .font(.subheadline)
+                    .buttonStyle(.bordered)
+                }
+            }
+            .padding(.vertical, 4)
+        }
+    }
+    
+    @ViewBuilder
+    private func tagsSuggestionView(suggestions: DocumentClassifierService.DocumentSuggestions?) -> some View {
+        if let tags = suggestions?.suggestedTags, !tags.isEmpty {
+            VStack(alignment: .leading) {
+                Text("Suggestions:")
+                    .font(.caption) 
+                    .foregroundColor(.green) 
+                    .italic() 
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(tags, id: \.self) { tag in
+                            Button(action: { selectSuggestedTag(tag) }) {
+                                Text(tag)
+                                    .font(.caption) 
+                                    .padding(.horizontal, 8)
+                                    .padding(.vertical, 4)
+                                    .background(Color.blue.opacity(0.2))
+                                    .cornerRadius(8)
+                                    .foregroundColor(.blue) 
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .padding(.trailing, 4)
+                        }
+                    }
+                }
+                HStack {
+                   Spacer()
+                   Button("Apply All Tags") {
+                       self.applyAllSuggestedTags()
+                   }
+                   .font(.caption) 
+                   .buttonStyle(BorderlessButtonStyle())
+                   .foregroundColor(.blue)
+                }
+            }
         }
     }
     
@@ -654,11 +589,10 @@ struct SaveDocumentView: View {
                     .font(.headline)
                     .foregroundColor(.white)
                 
-                Text("Page \(viewModel.ocrProgress) of \(viewModel.totalOCRPages)")
+                Text("Page \(viewModel.ocrProgress) of \(viewModel.totalPages)")
                     .foregroundColor(.white)
                 
-                // Add a progress bar
-                ProgressView(value: Double(viewModel.ocrProgress), total: Double(viewModel.totalOCRPages))
+                ProgressView(value: Double(viewModel.ocrProgress), total: Double(viewModel.totalPages))
                     .frame(width: 200)
                     .tint(.blue)
             }
@@ -704,7 +638,7 @@ struct SaveDocumentView: View {
                 .cornerRadius(8)
         }
         .transition(.move(edge: .top).combined(with: .opacity))
-        .animation(.easeInOut, value: showFolderConfirmation)
+        .animation(.easeInOut, value: self.showFolderConfirmation)
         .position(x: UIScreen.main.bounds.width / 2, y: 100)
     }
     
@@ -719,296 +653,227 @@ struct SaveDocumentView: View {
                 .cornerRadius(8)
         }
         .transition(.move(edge: .top).combined(with: .opacity))
-        .animation(.easeInOut, value: showTagConfirmation)
+        .animation(.easeInOut, value: self.showTagConfirmation)
+        .position(x: UIScreen.main.bounds.width / 2, y: 100)
+    }
+    
+    // Title confirmation view
+    private var titleConfirmationView: some View {
+        VStack {
+            Text("Title updated")
+                .font(.subheadline)
+                .padding(8)
+                .background(Color.green.opacity(0.8))
+                .foregroundColor(.white)
+                .cornerRadius(8)
+        }
+        .transition(.move(edge: .top).combined(with: .opacity))
+        .animation(.easeInOut, value: self.showTitleConfirmation)
         .position(x: UIScreen.main.bounds.width / 2, y: 100)
     }
     
     // Setup function for onAppear
     private func onAppearSetup() {
-        // Force a complete sync of the folder name first
+        let timestamp = Date().formatted(date: .omitted, time: .standard)
+        print("📄 [SaveDocumentView ON APPEAR - \(timestamp)] ViewModel state: Images=\(viewModel.scannedImages.count), PDF=\(viewModel.importedPDFData != nil)")
+        
         if let folderId = viewModel.selectedFolderId {
             print("🔍 Document details appeared - checking folder name for ID: \(folderId)")
             
-            // Check multiple sources for the folder name
-            if let folderName = viewModel.pendingFolderName(for: folderId) {
-                selectedFolderName = folderName
-                print("📁 Using pending folder name: \(folderName)")
-            } else if let folder = viewModel.folders.first(where: { $0.id == folderId }) {
+            if let folder = viewModel.folders.first(where: { $0.id == folderId }) { 
                 selectedFolderName = folder.name
-                print("📁 Using folder name from viewModel collection: \(folder.name)")
+                print("📁 Updated folder selection to: \(selectedFolderName) (from viewModel)")
             } else {
-                // Last resort: fetch from Core Data
                 let context = PersistenceController.shared.container.viewContext
                 let request = NSFetchRequest<Folder>(entityName: "Folder")
                 request.predicate = NSPredicate(format: "id == %@", folderId as CVarArg)
                 
                 if let folders = try? context.fetch(request), let folder = folders.first {
                     selectedFolderName = folder.name ?? ""
-                    print("📁 Using folder name from Core Data: \(selectedFolderName)")
+                    print("📁 Updated folder selection to: \(selectedFolderName) (from Core Data)")
                 } else {
                     print("⚠️ Could not find folder name for ID: \(folderId)")
                 }
             }
         }
     
-        // Only trigger AI analysis if:
-        // 1. Premium and AI is enabled
-        // 2. We don't already have AI suggestions
-        // 3. We have OCR text to analyze
-        let shouldRunAIAnalysis = subscriptionManager.isPremium && 
-                                  UserDefaults.isAIDocumentClassificationEnabled &&
-                                  viewModel.aiSuggestions == nil &&
-                                  viewModel.extractedOCRText != nil && 
-                                  !viewModel.extractedOCRText!.isEmpty
+        let shouldRunAIAnalysis = self.subscriptionManager.isPremium && 
+                                  UserDefaults.standard.bool(forKey: "AIDocumentClassificationEnabled") &&
+                                  self.viewModel.aiSuggestions == nil &&
+                                  self.viewModel.extractedOCRText != nil && 
+                                  !self.viewModel.extractedOCRText!.isEmpty
         
         if shouldRunAIAnalysis {
             print("📊 No AI suggestions yet - requesting analysis")
-            viewModel.ensureAIAnalysisWithMetadataContext()
+            self.viewModel.ensureAIAnalysisWithMetadataContext()
         } else {
-            if viewModel.aiSuggestions != nil {
+            if self.viewModel.aiSuggestions != nil {
                 print("📊 AI suggestions already exist - skipping duplicate analysis")
             } else {
-                print("⚠️ Skipping AI analysis on appear: isPremium=\(subscriptionManager.isPremium), AIEnabled=\(UserDefaults.isAIDocumentClassificationEnabled)")
+                print("⚠️ Skipping AI analysis on appear: isPremium=\(self.subscriptionManager.isPremium), AIEnabled=\(UserDefaults.standard.bool(forKey: "AIDocumentClassificationEnabled"))")
             }
         }
         
         print("🔄 SaveDocumentView appeared - syncing with ViewModel state")
         
-        // Call the debug method to see what's happening
-        viewModel.debugDocumentState()
+        self.viewModel.debugDocumentState()
         
-        // Force a complete sync (not conditional)
-        documentTitle = viewModel.documentTitle
-        selectedFolder = viewModel.selectedFolderId
+        self.documentTitle = self.viewModel.documentTitle
+        self.selectedFolder = self.viewModel.selectedFolderId
         
-        // Force sync tags
-        if !viewModel.selectedTagIds.isEmpty {
-            tagsText = viewModel.getTagsTextFromSelectedIds()
+        if !self.viewModel.metadataManager.selectedTagIds.isEmpty {
+            self.tagsText = self.viewModel.getTagsTextFromSelectedIds()
         }
     }
     
     private func saveDocument() {
-        // Before saving, update the viewModel with all our local state
-        viewModel.documentTitle = documentTitle
-        viewModel.selectedFolderId = selectedFolder
+        print("🅿️ [SaveDocumentView] saveDocument() called.")
+        self.viewModel.documentTitle = self.documentTitle
+        self.viewModel.selectedFolderId = self.selectedFolder
         
-        // Double check folder status before saving
-        if let folderId = selectedFolder {
-            print("📁 SAVE: Selected folder ID: \(folderId), Name: \(selectedFolderName)")
+        if let folderId = self.selectedFolder {
+            print("📁 SAVE: Selected folder ID: \(folderId), Name: \(self.selectedFolderName)")
         } else {
             print("📂 SAVE: No folder selected")
         }
         
-        // Process tags from comma-separated string
-        let tagNames = tagsText.split(separator: ",")
-            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-            .filter { !$0.isEmpty }
-        
-        // Create any new tags and get their IDs
-        let tagIds = tagNames.map { tagName -> UUID in
-            if let existingTag = viewModel.tags.first(where: { $0.name.lowercased() == tagName.lowercased() }) {
-                return existingTag.id
-            } else {
-                let newTag = viewModel.addTag(name: tagName)
-                return newTag.id
-            }
-        }
-        
-        // Update selectedTagIds in the viewModel
-        viewModel.selectedTagIds = Set(tagIds)
-        
-        // Set any comments if needed (add this property to viewModel if missing)
-        // viewModel.comments = comments
-        
-        // Now call the no-argument saveDocument method
         viewModel.saveDocument()
         
-        // Post notification to refresh the Vault view
         NotificationCenter.default.post(name: NSNotification.Name("RefreshVaultDocuments"), object: nil)
         
-        // No longer dismiss here - the success screen will handle it
-        // The view will be dismissed after the success view is closed
+        print("🅿️ [SaveDocumentView] saveDocument() finished calling viewModel.saveDocument() and posting notification.")
+        isDismissingView = true
     }
     
     // Update the syncWithViewModel method with better debugging and forced updates
     func syncWithViewModel() {
-        // Always update title if viewModel has one
-        if !viewModel.documentTitle.isEmpty && documentTitle != viewModel.documentTitle {
-            documentTitle = viewModel.documentTitle
-            print("📝 Updated title to: \(documentTitle)")
+        if !self.viewModel.documentTitle.isEmpty && self.documentTitle != self.viewModel.documentTitle {
+            self.documentTitle = self.viewModel.documentTitle
+            print("📝 Updated title to: \(self.documentTitle)")
         }
         
-        // Always update folder if viewModel has a selection
-        let oldFolderId = selectedFolder
-        if viewModel.selectedFolderId != nil && selectedFolder != viewModel.selectedFolderId {
-            selectedFolder = viewModel.selectedFolderId
-            print("🔄 Folder ID updated from UI sync: \(oldFolderId?.uuidString ?? "nil") -> \(viewModel.selectedFolderId?.uuidString ?? "nil")")
+        let oldFolderId = self.selectedFolder
+        if self.viewModel.selectedFolderId != nil && self.selectedFolder != self.viewModel.selectedFolderId {
+            self.selectedFolder = self.viewModel.selectedFolderId
+            print("🔄 Folder ID updated from UI sync: \(oldFolderId?.uuidString ?? "nil") -> \(self.viewModel.selectedFolderId?.uuidString ?? "nil")")
             
-            // Always ensure we have a folder name
             updateFolderNameFromId()
-        } else if let folderId = viewModel.selectedFolderId, selectedFolderName.isEmpty {
-            // Force folder name update if we have an ID but no name
-            print("📁 Folder ID exists but name is empty - forcing update")
+        } else if let folderId = self.viewModel.selectedFolderId, self.selectedFolderName.isEmpty {
             updateFolderNameFromId()
         }
         
-        // Always update tags if viewModel has tags selected
-        if !viewModel.selectedTagIds.isEmpty {
-            print("🏷️ Syncing \(viewModel.selectedTagIds.count) tag IDs from ViewModel")
+        print("‼️ [View] syncWithViewModel - Checking tags. VM has \(self.viewModel.metadataManager.selectedTagIds.count) selected IDs: [\(self.viewModel.metadataManager.selectedTagIds.map { $0.uuidString }.joined(separator: ", "))]")
+        if !self.viewModel.metadataManager.selectedTagIds.isEmpty { 
+            print("🏷️ Syncing \(self.viewModel.metadataManager.selectedTagIds.count) tag IDs from ViewModel")
             
-            // Get the new tags text directly from the view model
-            let newTagsText = viewModel.getTagsTextFromSelectedIds()
+            let newTagsText = self.viewModel.getTagsTextFromSelectedIds()
             
-            // Force update if tags were added or tagsText is empty (to catch initial load)
-            let shouldUpdate = tagsText != newTagsText || tagsText.isEmpty
+            let shouldUpdate = self.tagsText != newTagsText || self.tagsText.isEmpty
             
             if shouldUpdate {
-                print("🏷️ Updating tags text from: '\(tagsText)' to: '\(newTagsText)'")
-                tagsText = newTagsText
+                print("🏷️ Updating tags text from: '\(self.tagsText)' to: '\(newTagsText)'")
+                self.tagsText = newTagsText
             } else {
                 print("⏩ No tag text update needed (already matches)")
             }
-        } else if !tagsText.isEmpty && viewModel.selectedTagIds.isEmpty {
-            // Clear tags text if view model has no tags
-            print("🧹 Clearing tags text as ViewModel has no tags")
-            tagsText = ""
+        } else if !self.tagsText.isEmpty && self.viewModel.metadataManager.selectedTagIds.isEmpty {
+            self.tagsText = ""
+        }
+        
+        if self.comments != self.viewModel.comments {
+             self.comments = self.viewModel.comments
         }
     }
     
     // Helper to update folder name from ID
     private func updateFolderNameFromId() {
-        if let folderId = selectedFolder {
-            // First check the view model's folders collection (faster)
-            if let folder = viewModel.folders.first(where: { $0.id == folderId }) {
-                selectedFolderName = folder.name
-                print("📁 Updated folder selection to: \(selectedFolderName) (from viewModel)")
+        if let folderId = self.selectedFolder {
+            if let folder = self.viewModel.folders.first(where: { $0.id == folderId }) { 
+                self.selectedFolderName = folder.name
+                print("📁 Updated folder selection to: \(self.selectedFolderName) (from viewModel)")
             } else {
-                // Check if it's a pending folder
-                if let pendingFolder = viewModel.pendingFolderName(for: folderId) {
-                    selectedFolderName = pendingFolder
-                    print("📁 Using pending folder name: \(pendingFolder)")
+                let context = PersistenceController.shared.container.viewContext
+                let request = NSFetchRequest<Folder>(entityName: "Folder")
+                request.predicate = NSPredicate(format: "id == %@", folderId as CVarArg)
+                
+                if let folders = try? context.fetch(request), let folder = folders.first {
+                    self.selectedFolderName = folder.name ?? ""
+                    print("📁 Updated folder selection to: \(self.selectedFolderName) (from Core Data)")
                 } else {
-                    // Fallback to Core Data lookup
-                    let context = PersistenceController.shared.container.viewContext
-                    let request = NSFetchRequest<Folder>(entityName: "Folder")
-                    request.predicate = NSPredicate(format: "id == %@", folderId as CVarArg)
-                    request.fetchLimit = 1
-                    
-                    if let folders = try? context.fetch(request), let folder = folders.first {
-                        selectedFolderName = folder.name ?? ""
-                        print("📁 Updated folder selection to: \(selectedFolderName) (from Core Data)")
-                    } else {
-                        print("⚠️ Warning: Could not find folder with ID \(folderId)")
-                    }
+                    print("⚠️ Warning: Could not find folder name for ID: \(folderId)")
                 }
             }
         } else {
-            selectedFolderName = ""
+            self.selectedFolderName = ""
             print("📂 Cleared folder selection")
         }
     }
     
     // In your tag selection handler for individual "Use" buttons
     func selectSuggestedTag(_ tag: String) {
-        print("🏷️ Attempting to apply tag: \(tag)")
+        let tagItem = viewModel.metadataManager.addTag(name: tag)
         
-        // Get existing tags from the text field
-        var currentTags = tagsText.isEmpty ? [] : tagsText.split(separator: ",")
-            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-            .filter { !$0.isEmpty }
-        
-        // Only add the tag if it's not already there
-        if !currentTags.contains(tag) {
-            currentTags.append(tag)
-            
-            // Update the tags text field
-            tagsText = currentTags.joined(separator: ", ")
-            print("✅ Tag added: \(tag)")
-            
-            // Show confirmation
-            showTagConfirmation = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.showTagConfirmation = false
-            }
-        }
+        viewModel.addTagById(tagItem.id)
+        print("✅ Called ViewModel.addTagById for: \(tag) (ID: \(tagItem.id))")
+        self.showTagConfirmationAction()
     }
     
     // For the "Apply All" button
     func applyAllSuggestedTags() {
         print("🏷️ Attempting to apply all suggested tags")
         
-        // Get suggested tags from the AI suggestions
-        guard let suggestedTags = viewModel.aiSuggestions?.suggestedTags else {
-            print("⚠️ No suggested tags available")
+        guard let suggestedTags = self.viewModel.aiSuggestions?.suggestedTags, !suggestedTags.isEmpty else {
+            print("⚠️ No suggested tags available or list is empty")
             return
         }
         
-        // Get current tags
-        var currentTags = tagsText.isEmpty ? [] : tagsText.split(separator: ",")
-            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-            .filter { !$0.isEmpty }
-        
-        // Add all suggested tags that aren't already selected
         var tagsAdded = false
         for tag in suggestedTags {
-            if !currentTags.contains(tag) {
-                currentTags.append(tag)
-                print("✅ Added tag from suggestions: \(tag)")
-                tagsAdded = true
-            }
+            let tagItem = viewModel.metadataManager.addTag(name: tag)
+            viewModel.addTagById(tagItem.id)
+            print("✅ Called ViewModel.addTagById for suggested tag: \(tag) (ID: \(tagItem.id))")
+            tagsAdded = true 
         }
         
-        // Update the tags text field
         if tagsAdded {
-            tagsText = currentTags.joined(separator: ", ")
-            
-            // Show confirmation
-            showTagConfirmation = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.showTagConfirmation = false
-            }
+            self.showTagConfirmationAction()
         }
     }
     
     private func generateMetadataDebugText() -> String {
-        // Start with an empty result
         var result = ""
         
-        // Check if we have OCR text
-        if let ocrText = viewModel.extractedOCRText {
-            // Add OCR text preview
+        if let ocrText = self.viewModel.extractedOCRText {
             result = "OCR Text Preview (first 100 chars): \n\(ocrText.prefix(100))...\n\n"
             result += "METADATA BEING SENT TO AI:\n\n"
             
-            // Fetch metadata from Core Data
             let context = PersistenceController.shared.container.viewContext
             
-            // Fetch titles
             var existingTitles: [String] = []
             let documentRequest = NSFetchRequest<Document>(entityName: "Document")
             documentRequest.propertiesToFetch = ["title"]
             documentRequest.fetchLimit = 10
+            
             if let documents = try? context.fetch(documentRequest) {
                 existingTitles = documents.compactMap { $0.title }
             }
             
-            // Fetch tags
             var existingTags: [String] = []
             let tagRequest = NSFetchRequest<Tag>(entityName: "Tag")
             tagRequest.fetchLimit = 10
+            
             if let tags = try? context.fetch(tagRequest) {
                 existingTags = tags.compactMap { $0.name }
             }
             
-            // Fetch folders
             var existingFolders: [String] = []
             let folderRequest = NSFetchRequest<Folder>(entityName: "Folder")
             folderRequest.fetchLimit = 10
+            
             if let folders = try? context.fetch(folderRequest) {
                 existingFolders = folders.compactMap { $0.name }
             }
             
-            // Add metadata to the result
             if !existingTitles.isEmpty {
                 result += "DOCUMENT TITLES: \(existingTitles.joined(separator: ", "))\n\n"
             } else {
@@ -1027,7 +892,6 @@ struct SaveDocumentView: View {
                 result += "FOLDERS: None found\n\n"
             }
             
-            // Add summary
             result += "Total items found: \(existingTitles.count) titles, \(existingTags.count) tags, \(existingFolders.count) folders"
         } else {
             result = "No OCR text available to enrich"
@@ -1039,19 +903,20 @@ struct SaveDocumentView: View {
     // Add a method to reset local view state completely
     private func resetLocalViewState() {
         print("🔄 Resetting SaveDocumentView local state")
-        documentTitle = ""
-        tagsText = ""
-        comments = ""
-        selectedFolder = nil
-        selectedFolderName = ""
-        showTagConfirmation = false
-        showFolderConfirmation = false
+        self.documentTitle = ""
+        self.tagsText = ""
+        self.comments = ""
+        self.selectedFolder = nil
+        self.selectedFolderName = ""
+        self.showTagConfirmation = false
+        self.showFolderConfirmation = false
+        self.showTitleConfirmation = false
     }
     
     // Helper function to get model name from preferences instead of suggestions
     private func getSelectedModelName() -> String {
         let modelKey = UserDefaults.standard.string(forKey: "AIClassifierModelPreference") ?? "gpt-3.5-turbo-0125"
-        return modelDisplayName(for: modelKey)
+        return self.modelDisplayName(for: modelKey)
     }
     
     // Helper function to get display name for model
@@ -1065,167 +930,92 @@ struct SaveDocumentView: View {
             return "GPT-3.5 Turbo"
         }
     }
-}
-
-// Helper view for folder selection
-struct FolderPickerView: View {
-    @Binding var selectedFolder: UUID?
-    @Binding var folderName: String
-    let onSave: () -> Void
-    @Environment(\.presentationMode) var presentationMode
-    @State private var allFolders: [FolderItem] = []
-    @State private var newFolderName = ""
-    @State private var showNewFolderAlert = false
-    @State private var showInvalidNameAlert = false
-    @State private var invalidNameMessage = ""
     
-    // Reserved folder names that shouldn't be used
-    private let reservedFolderNames = ["No Folder", "No Folder Assigned"]
-    
-    var body: some View {
-        List {
-            // 1. Current folder section first
-            Section(header: Text("CURRENT FOLDER")) {
-                HStack {
-                    if !folderName.isEmpty {
-                        Text(folderName)
-                    } else {
-                        Text("No Folder Assigned")
-                            .foregroundColor(.gray)
-                    }
-                }
-            }
-            
-            // 2. Create New Folder button next
-            Section {
-                Button(action: {
-                    showNewFolderAlert = true
-                }) {
-                    Text("Create New Folder")
-                        .foregroundColor(.blue)
-                }
-            }
-            
-            // 3. Folder selection without the header
-            Section {
-                // No folder option
-                Button(action: {
-                    selectedFolder = nil
-                    folderName = ""
-                }) {
-                    HStack {
-                        Text("No Folder Assigned")
-                        Spacer()
-                        if selectedFolder == nil {
-                            Image(systemName: "checkmark")
-                                .foregroundColor(.blue)
-                        }
-                    }
-                }
-                
-                // Folder list
-                ForEach(allFolders) { folder in
-                    Button(action: {
-                        // Update selection
-                        selectedFolder = folder.id
-                        folderName = folder.name
-                    }) {
-                        HStack {
-                            Text(folder.name)
-                            Spacer()
-                            if selectedFolder == folder.id {
-                                Image(systemName: "checkmark")
-                                    .foregroundColor(.blue)
-                            }
-                        }
-                    }
-                }
+    // Helper to show folder confirmation
+    private func showFolderConfirmationAction() {
+        guard self.selectedFolder != nil else { return } 
+        withAnimation {
+            self.showFolderConfirmation = true
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation {
+                self.showFolderConfirmation = false
             }
         }
-        .navigationTitle("Select Folder")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button("Cancel") {
-                    presentationMode.wrappedValue.dismiss()
-                }
-            }
-            
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Done") {
-                    // Notify the parent view that selection is complete
-                    onSave()
-                    presentationMode.wrappedValue.dismiss()
-                }
+    }
+    
+    // Helper to show tag confirmation
+    private func showTagConfirmationAction() {
+        withAnimation {
+            self.showTagConfirmation = true
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation {
+                self.showTagConfirmation = false
             }
         }
-        .alert("New Folder", isPresented: $showNewFolderAlert) {
-            TextField("Folder Name", text: $newFolderName)
-            Button("Cancel", role: .cancel) {
-                newFolderName = ""
+    }
+    
+    // Helper to show title confirmation
+    private func showTitleConfirmationAction() {
+        withAnimation {
+            self.showTitleConfirmation = true
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation {
+                self.showTitleConfirmation = false
             }
-            Button("Create") {
-                if !newFolderName.isEmpty {
-                    // Validate folder name
-                    if reservedFolderNames.contains(newFolderName) {
-                        invalidNameMessage = "'\(newFolderName)' is a reserved name and cannot be used as a folder name."
-                        showInvalidNameAlert = true
-                        newFolderName = ""
-                        return
-                    }
+        }
+    }
+    
+    // Helper computed property to get TagItems for selected IDs
+    private var selectedTagItems: [TagItem] {
+        let existingTags = viewModel.metadataManager.tags.filter { viewModel.metadataManager.selectedTagIds.contains($0.id) }
+        let pendingTags = viewModel.metadataManager.pendingTagNamesById
+            .filter { viewModel.metadataManager.selectedTagIds.contains($0.key) }
+            .map { TagItem(id: $0.key, name: $0.value) }
+        
+        let combined = existingTags + pendingTags.filter { pendingTag in
+            !existingTags.contains { $0.id == pendingTag.id }
+        }
+        // print("‼️ [View] selectedTagItems computed. Returning \(combined.count) items.")
+        return combined.sorted { $0.name < $1.name }
+    }
+    
+    // Metadata debug sheet
+    private var metadataDebugSheet: some View {
+        NavigationView {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("AI Prompt Metadata Context")
+                        .font(.headline)
+                        .padding(.bottom, 5)
                     
-                    // Create and add the new folder to the list
-                    let newFolder = createFolder(name: newFolderName)
-                    selectedFolder = newFolder.id
-                    folderName = newFolder.name
-                    newFolderName = ""
+                    // Regenerate the text when the sheet appears
+                    Text(generateMetadataDebugText())
+                        .font(.system(.body, design: .monospaced))
+                        .padding()
+                        .background(Color.gray.opacity(0.1))
+                        .cornerRadius(8)
                 }
+                .padding()
             }
-        } message: {
-            Text("Enter a name for the new folder")
-        }
-        .alert("Invalid Folder Name", isPresented: $showInvalidNameAlert) {
-            Button("OK", role: .cancel) { }
-        } message: {
-            Text(invalidNameMessage)
-        }
-        .onAppear {
-            loadFolders()
+            .navigationBarTitle("AI Context Debug", displayMode: .inline)
+            .navigationBarItems(trailing: Button("Close") {
+                showMetadataDebug = false
+            })
         }
     }
     
-    private func loadFolders() {
-        let fetchRequest: NSFetchRequest<Folder> = Folder.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Folder.name, ascending: true)]
+    private func calculateCost(promptTokens: Int, completionTokens: Int) -> Double {
+        // Cost rates per million tokens (typical GPT-3.5 pricing)
+        let inputCostPerMillion = 0.50  // $0.50 per million input tokens
+        let outputCostPerMillion = 1.50 // $1.50 per million output tokens
         
-        do {
-            let context = PersistenceController.shared.container.viewContext
-            let fetchedFolders = try context.fetch(fetchRequest)
-            allFolders = fetchedFolders.compactMap { folder in
-                guard let id = folder.id, let name = folder.name else { return nil }
-                return FolderItem(id: id, name: name)
-            }
-        } catch {
-            print("Error loading folders: \(error)")
-        }
-    }
-    
-    private func createFolder(name: String) -> FolderItem {
-        let context = PersistenceController.shared.container.viewContext
-        let newFolder = Folder(context: context)
-        newFolder.id = UUID()
-        newFolder.name = name
+        let inputCost = Double(promptTokens) * (inputCostPerMillion / 1_000_000)
+        let outputCost = Double(completionTokens) * (outputCostPerMillion / 1_000_000)
         
-        do {
-            try context.save()
-            let folderItem = FolderItem(id: newFolder.id!, name: name)
-            allFolders.append(folderItem)
-            return folderItem
-        } catch {
-            print("Error creating folder: \(error)")
-            // Return a placeholder in case of error
-            return FolderItem(id: UUID(), name: name)
-        }
+        return inputCost + outputCost
     }
 }
 
@@ -1239,7 +1029,6 @@ struct TagEntryView: View {
     
     var body: some View {
         List {
-            // CURRENT TAGS section
             Section(header: Text("CURRENT TAGS")) {
                 if selectedTags.isEmpty {
                     Text("No tags")
@@ -1251,7 +1040,6 @@ struct TagEntryView: View {
                             Text(tag)
                             Spacer()
                             Button(action: {
-                                // Remove tag from selection
                                 selectedTags.removeAll { $0 == tag }
                             }) {
                                 Image(systemName: "xmark.circle.fill")
@@ -1262,14 +1050,12 @@ struct TagEntryView: View {
                 }
             }
             
-            // ADD NEW TAG section
             Section(header: Text("ADD NEW TAG")) {
                 HStack {
                     TextField("Tag Name", text: $newTagName)
                     
                     Button(action: {
                         if !newTagName.isEmpty {
-                            // Add to selected tags if not already present
                             if !selectedTags.contains(newTagName) {
                                 selectedTags.append(newTagName)
                             }
@@ -1282,11 +1068,9 @@ struct TagEntryView: View {
                 }
             }
             
-            // EXISTING TAGS section
             Section(header: Text("EXISTING TAGS")) {
                 ForEach(allTags) { tag in
                     Button(action: {
-                        // Add to selected tags if not already present
                         if !selectedTags.contains(tag.name) {
                             selectedTags.append(tag.name)
                         }
@@ -1312,24 +1096,20 @@ struct TagEntryView: View {
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Done") {
-                    // Save changes to the tagsText binding
                     tagsText = selectedTags.joined(separator: ", ")
                     presentationMode.wrappedValue.dismiss()
                 }
             }
         }
         .onAppear {
-            // Initialize selected tags from tagsText
             selectedTags = tagsText.isEmpty ? [] : tagsText.split(separator: ",")
                 .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
                 .filter { !$0.isEmpty }
             
-            // Load existing tags from Core Data
             loadExistingTags()
         }
     }
     
-    // Load existing tags from Core Data
     private func loadExistingTags() {
         let fetchRequest: NSFetchRequest<Tag> = Tag.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Tag.name, ascending: true)]
@@ -1338,10 +1118,8 @@ struct TagEntryView: View {
             let context = PersistenceController.shared.container.viewContext
             let tags = try context.fetch(fetchRequest)
             
-            // Convert to TagItem array and exclude already selected tags
             allTags = tags.compactMap { tag -> TagItem? in
                 guard let id = tag.id, let name = tag.name else { return nil }
-                // Only include tags that aren't already selected
                 if !selectedTags.contains(name) {
                     return TagItem(id: id, name: name)
                 }
@@ -1351,5 +1129,22 @@ struct TagEntryView: View {
             print("Error loading tags: \(error)")
         }
     }
-} 
+}
 
+// Add a dedicated method to sync tags with the ViewModel
+extension SaveDocumentView {
+    private func syncTagsWithViewModel() {
+        print("💫 Synchronizing tags with ViewModel...")
+        print("Tags before sync: VM has \(viewModel.selectedTagIds.count) tags, Manager has \(viewModel.metadataManager.selectedTagIds.count) tags")
+        
+        // Always update the viewModel from the metadataManager (source of truth)
+        viewModel.selectedTagIds = viewModel.metadataManager.selectedTagIds
+        
+        // Force a UI refresh
+        DispatchQueue.main.async {
+            self.viewModel.objectWillChange.send()
+        }
+        
+        print("Tags after sync: VM has \(viewModel.selectedTagIds.count) tags, Manager has \(viewModel.metadataManager.selectedTagIds.count) tags")
+    }
+}

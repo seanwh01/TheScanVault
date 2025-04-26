@@ -1,5 +1,7 @@
 import SwiftUI
+import Combine
 import CoreData
+import PDFKit
 import UIKit
 
 struct VaultView: View {
@@ -48,8 +50,14 @@ struct VaultView: View {
     @State private var currentPage = 0
     @State private var allDocumentsLoaded = false
     
-    init() {
-        self._viewModel = StateObject(wrappedValue: VaultViewModel())
+    // New state variable to store preloaded view models
+    @State private var documentViewModels: [UUID: DocumentViewModel] = [:]
+    
+    let persistenceController: PersistenceController
+    
+    init(persistenceController: PersistenceController) {
+        self.persistenceController = persistenceController
+        self._viewModel = StateObject(wrappedValue: VaultViewModel(persistenceController: persistenceController))
     }
     
     var body: some View {
@@ -124,7 +132,7 @@ struct VaultView: View {
             handleOnDisappear()
         }
         .fullScreenCover(isPresented: $showResults) {
-            DocumentResultsView(viewModel: viewModel, isPresented: $showResults)
+            DocumentResultsView(viewModel: viewModel, isPresented: $showResults, persistenceController: self.persistenceController)
         }
         // Apply notification handlers
         .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("DocumentAdded"))) { notification in
@@ -202,20 +210,47 @@ struct VaultView: View {
     
     @ViewBuilder
     private func buildDocumentDetailSheet() -> some View {
-        if let document = selectedDocument, let documentId = document.id ?? document.entityId {
-            DocumentDetailView(viewModel: DocumentViewModel(document: document), documentId: documentId)
+        if let document = selectedDocument, let documentId = document.id {
+            ZStack {
+                DocumentDetailView(
+                    viewModel: createAndPreloadViewModel(document: document),
+                    documentId: documentId
+                )
+                
+                // Add a loading overlay that shows only during initial loading
+                if let viewModel = documentViewModels[documentId], viewModel.isLoading {
+                    Color.black.opacity(0.1)
+                        .ignoresSafeArea()
+                    
+                    ProgressView()
+                        .scaleEffect(1.5)
+                        .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                }
+            }
         }
     }
     
     @ViewBuilder
     private func buildDocumentOpenSheet() -> some View {
-        if let document = documentToOpen, let documentId = document.id ?? document.entityId {
+        if let document = documentToOpen, let documentId = document.id {
             NavigationView {
-                DocumentDetailView(
-                    viewModel: DocumentViewModel(document: document),
-                    documentId: documentId
-                )
-                .navigationBarBackButtonHidden(true)
+                ZStack {
+                    DocumentDetailView(
+                        viewModel: createAndPreloadViewModel(document: document),
+                        documentId: documentId
+                    )
+                    .navigationBarBackButtonHidden(true)
+                    
+                    // Add a loading overlay that shows only during initial loading
+                    if let viewModel = documentViewModels[documentId], viewModel.isLoading {
+                        Color.black.opacity(0.1)
+                            .ignoresSafeArea()
+                        
+                        ProgressView()
+                            .scaleEffect(1.5)
+                            .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                    }
+                }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button(action: {
@@ -453,8 +488,7 @@ struct VaultView: View {
                 createdAt: Date(),
                 folderId: nil,
                 tagIds: [],
-                thumbnail: nil,
-                aiModelUsed: nil
+                thumbnail: nil
             )
         }
     }
@@ -518,5 +552,18 @@ struct VaultView: View {
                 print("✅ Document notifications resumed")
             }
         }
+    }
+    
+    // New method to create and preload a view model for a document
+    private func createAndPreloadViewModel(document: Document) -> DocumentViewModel {
+        // Create view model
+        let viewModel = DocumentViewModel(document: document, persistenceController: self.persistenceController)
+        
+        // Store the view model in our cache
+        if let documentId = document.id {
+            documentViewModels[documentId] = viewModel
+        }
+        
+        return viewModel
     }
 } 

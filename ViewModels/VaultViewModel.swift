@@ -151,64 +151,44 @@ class VaultViewModel: ObservableObject {
         setupSubscribers()
     }
     
-    init() {
-        // Create the actual implementation
-        self.implementation = ViewModels_Vault.VaultViewModel()
-        
-        // Initialize all published properties
-        self.fromDate = self.implementation.filterService.fromDate
-        self.toDate = self.implementation.filterService.toDate
-        self.searchTitle = ""
-        self.searchText = ""
-        self.searchOCRText = ""
-        self.selectedTags = []
-        self.selectedFolder = nil
-        self.folderSelectionType = .allFolders
-        self.selectedFolderIds = []
-        self.showNoFolderDocuments = false
-        self.showFolderOptions = false
-        self.showDatePicker = false
-        self.isSelectingFromDate = true
-        self.showNoTagsOption = false
-        self.showLatestOnly = false
-        self.latestDocumentId = nil
-        self.forceShowNewestDocument = false
-        self.isDateFilterActive = false
-        self.refreshCounter = 0
-        self.forceRefreshTrigger = UUID()
-        
-        // Setup subscribers to update the proxy properties
-        setupSubscribers()
-    }
-    
     private func setupSubscribers() {
-        // Subscribe to documents updates
+        // Subscribe to documents updates from the real implementation
         implementation.$documents
+            .receive(on: DispatchQueue.main) // Ensure updates on main thread
             .sink { [weak self] documents in
+                print("Proxy received \(documents.count) documents")
+                // Directly assign for initial load/full refresh triggered by implementation's publisher
+                // loadMoreDocuments will handle appending manually.
                 self?.documents = documents
             }
-            .store(in: &implementation.searchService.cancellables)
+            // Store cancellable in the implementation's store, or create a new one here
+            .store(in: &implementation.searchService.cancellables) // Assuming SearchService holds cancellables
         
         // Subscribe to loading state
         implementation.$isLoading
             .sink { [weak self] isLoading in
                 self?.isLoading = isLoading
             }
-            .store(in: &implementation.searchService.cancellables)
+            // Store cancellable in the implementation's store, or create a new one here
+            .store(in: &implementation.searchService.cancellables) // Assuming SearchService holds cancellables
         
         // Subscribe to tag updates
         implementation.filterService.$allTags
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] tags in
                 self?.allTags = tags
             }
-            .store(in: &implementation.searchService.cancellables)
+            // Store cancellable in the implementation's store, or create a new one here
+            .store(in: &implementation.searchService.cancellables) // Assuming SearchService holds cancellables
         
         // Subscribe to folder updates
         implementation.filterService.$allFolders
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] folders in
                 self?.allFolders = folders
             }
-            .store(in: &implementation.searchService.cancellables)
+            // Store cancellable in the implementation's store, or create a new one here
+            .store(in: &implementation.searchService.cancellables) // Assuming SearchService holds cancellables
     }
     
     // MARK: - Method Forwarding
@@ -230,6 +210,33 @@ class VaultViewModel: ObservableObject {
     
     func searchDocumentsWithFreshContext(page: Int = 0, perPage: Int = 50, completion: @escaping ([DocumentListItem], Bool) -> Void = {_, _ in }) {
         implementation.searchService.searchDocumentsWithFreshContext(page: page, perPage: perPage, completion: completion)
+    }
+    
+    func searchDocumentsWithFreshContext() {
+        print("Proxy: Triggering searchDocumentsWithFreshContext (page 0)")
+        // Call the implementation's method. Assuming results are handled by the publisher.
+        // Use a large page size to simulate fetching 'all' for a refresh.
+        // Let the publisher handle updating self.documents for a full refresh.
+        implementation.searchService.searchDocumentsWithFreshContext(page: 0, perPage: 1000) { _, _ in
+            // Completion handler might not be needed if publisher updates the list
+            print("Proxy: searchDocumentsWithFreshContext completion received (results updated via publisher)")
+        }
+    }
+    
+    func loadMoreDocuments(currentPage: Int, documentsPerPage: Int, completion: @escaping (Bool) -> Void) {
+        let nextPage = currentPage + 1
+        print("Proxy: Triggering loadMoreDocuments (requesting page \(nextPage))")
+        isLoading = true // Manually set loading true for pagination
+        implementation.searchService.searchDocumentsWithFreshContext(page: nextPage, perPage: documentsPerPage) { [weak self] (newItems, allLoaded) in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                print("Proxy: Received \(newItems.count) new items for page \(nextPage). All loaded: \(allLoaded)")
+                // Append new items to the existing list
+                self.documents.append(contentsOf: newItems)
+                self.isLoading = false // Turn off loading indicator
+                completion(allLoaded) // Notify the view if all documents are loaded
+            }
+        }
     }
     
     func toggleNoTagsOption() {
@@ -401,4 +408,4 @@ class VaultViewModel: ObservableObject {
     func checkCloudKitAvailability() {
         implementation.stateManager.checkCloudKitAvailability()
     }
-} 
+}

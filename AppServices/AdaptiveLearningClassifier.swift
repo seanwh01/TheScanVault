@@ -2,7 +2,11 @@ import Foundation
 import CoreData
 
 class AdaptiveLearningClassifier {
-    static let shared = AdaptiveLearningClassifier()
+    // Remove shared instance
+    // static let shared = AdaptiveLearningClassifier()
+    
+    // Add persistence controller property
+    private let persistenceController: PersistenceController
     
     // Store both AI suggestions and user's final choices
     struct ClassificationPair: Codable {
@@ -105,7 +109,9 @@ class AdaptiveLearningClassifier {
     // Database of learning examples
     private var learningExamples: [ClassificationPair] = []
     
-    private init() {
+    // Modify initializer to accept PersistenceController
+    init(persistenceController: PersistenceController) {
+        self.persistenceController = persistenceController // Assign injected controller
         print("🧠 Initializing AdaptiveLearningClassifier...")
         
         // Make sure the KeywordPattern entity is properly initialized
@@ -115,7 +121,7 @@ class AdaptiveLearningClassifier {
         loadLearningExamples()
         
         // Then check if we need to migrate old data
-        migrateFromUserDefaultsIfNeeded()
+        // self.migrateFromUserDefaultsIfNeeded()
         
         // Debug output current state
         print("🧠 AdaptiveLearningClassifier initialized with \(learningExamples.count) examples")
@@ -124,9 +130,21 @@ class AdaptiveLearningClassifier {
         verifyAndFixCoreDataStorage()
     }
     
+    // Add this method to run post-initialization checks
+    func finishInitialization() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+            guard let self = self else { return }
+            // Call existing verification methods
+            self.verifyAndFixCoreDataStorage()
+            let stats = self.getLearningStatistics()
+            print("🧠 AdaptiveLearningClassifier finished initialization with \(stats.totalExamples) learning examples")
+        }
+    }
+    
     // Add a method to verify and create the KeywordPattern entity if needed
     private func verifyAndCreateKeywordPatternEntity() {
-        let context = PersistenceController.shared.viewContext
+        // Use injected controller
+        let context = persistenceController.viewContext
         
         // Check if KeywordPattern entity exists
         if NSEntityDescription.entity(forEntityName: "KeywordPattern", in: context) == nil {
@@ -209,7 +227,8 @@ class AdaptiveLearningClassifier {
     
     // Save patterns to KeywordPattern entities
     private func savePatterns(aiSuggestion: DocumentClassifierService.DocumentSuggestions, userSelection: DocumentClassifierService.DocumentSuggestions) {
-        let context = PersistenceController.shared.viewContext
+        // Use injected controller
+        let context = persistenceController.viewContext
         
         // First verify KeywordPattern entity exists
         guard NSEntityDescription.entity(forEntityName: "KeywordPattern", in: context) != nil else {
@@ -320,7 +339,8 @@ class AdaptiveLearningClassifier {
     
     // Add this helper method for direct Core Data saving
     private func saveToCoreData(_ example: ClassificationPair) {
-        let context = PersistenceController.shared.viewContext
+        // Use injected controller
+        let context = persistenceController.viewContext
         
         let newExample = LearningExample(context: context)
         newExample.id = UUID()
@@ -381,7 +401,8 @@ class AdaptiveLearningClassifier {
         
         // Add folder insights from DocumentLearningService
         do {
-            let context = PersistenceController.shared.viewContext
+            // Use injected controller
+            let context = persistenceController.viewContext
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "KeywordPattern")
             fetchRequest.predicate = NSPredicate(format: "fieldType == %@", "folder")
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "occurrences", ascending: false)]
@@ -415,7 +436,8 @@ class AdaptiveLearningClassifier {
         
         // Add tag insights from DocumentLearningService
         do {
-            let context = PersistenceController.shared.viewContext
+            // Use injected controller
+            let context = persistenceController.viewContext
             let addedTagsRequest = NSFetchRequest<NSManagedObject>(entityName: "KeywordPattern")
             addedTagsRequest.predicate = NSPredicate(format: "fieldType == %@", "tag_added")
             addedTagsRequest.sortDescriptors = [NSSortDescriptor(key: "occurrences", ascending: false)]
@@ -745,7 +767,8 @@ class AdaptiveLearningClassifier {
     
     // Persistence
     private func saveLearningExamples() {
-        let context = PersistenceController.shared.viewContext
+        // Use injected controller
+        let context = persistenceController.viewContext
         
         // First delete existing records to avoid duplicates
         let fetchRequest: NSFetchRequest<LearningExample> = LearningExample.fetchRequest()
@@ -781,7 +804,8 @@ class AdaptiveLearningClassifier {
         // IMPORTANT: Clear the existing array first to prevent duplicates
         learningExamples.removeAll()
         
-        let context = PersistenceController.shared.viewContext
+        // Use injected controller
+        let context = persistenceController.viewContext
         let fetchRequest: NSFetchRequest<LearningExample> = LearningExample.fetchRequest()
         
         // Create a fingerprint tracker to avoid duplicates even during loading
@@ -836,7 +860,8 @@ class AdaptiveLearningClassifier {
     // For debugging or settings screen
     func getLearningStatistics() -> (totalExamples: Int, folderCorrections: Int, tagCorrections: Int) {
         // Count directly from Core Data to ensure accuracy
-        let context = PersistenceController.shared.viewContext
+        // Use injected controller
+        let context = persistenceController.viewContext
         let fetchRequest: NSFetchRequest<LearningExample> = LearningExample.fetchRequest()
         
         do {
@@ -883,213 +908,13 @@ class AdaptiveLearningClassifier {
         }
     }
     
-    // Method to clear all learning data
-    func clearLearningData() {
-        // First clear history
-        clearDeletedItemsHistory()
-        
-        // Clear the in-memory examples
-        learningExamples.removeAll()
-        
-        // Clear learning examples from Core Data
-        let context = PersistenceController.shared.viewContext
-        let fetchRequest: NSFetchRequest<LearningExample> = LearningExample.fetchRequest()
-        
-        do {
-            let examples = try context.fetch(fetchRequest)
-            print("🧹 Deleting \(examples.count) learning examples from Core Data")
-            
-            for example in examples {
-                context.delete(example)
-            }
-            
-            // Save context
-            try context.save()
-            print("✅ Successfully cleared learning examples")
-        } catch {
-            print("❌ Error clearing learning examples: \(error.localizedDescription)")
-        }
-        
-        // Clear KeywordPatterns from Core Data
-        clearKeywordPatterns()
-        
-        // Clear statistics
-        UserDefaults.standard.removeObject(forKey: StatKeys.totalChanges)
-        UserDefaults.standard.removeObject(forKey: StatKeys.titleChanges)
-        UserDefaults.standard.removeObject(forKey: StatKeys.folderChanges)
-        UserDefaults.standard.removeObject(forKey: StatKeys.tagChanges)
-        
-        print("🧹 Cleared all learning statistics")
-    }
-    
-    // Helper method to clear KeywordPatterns
-    private func clearKeywordPatterns() {
-        let context = PersistenceController.shared.viewContext
-        
-        // First verify KeywordPattern entity exists
-        guard NSEntityDescription.entity(forEntityName: "KeywordPattern", in: context) != nil else {
-            print("⚠️ KeywordPattern entity not available - skipping pattern deletion")
-            return
-        }
-        
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "KeywordPattern")
-        
-        do {
-            let patterns = try context.fetch(fetchRequest)
-            print("🧹 Deleting \(patterns.count) keyword patterns from Core Data")
-            
-            for pattern in patterns {
-                context.delete(pattern)
-            }
-            
-            // Save context
-            try context.save()
-            print("✅ Successfully cleared keyword patterns")
-        } catch {
-            print("❌ Error clearing keyword patterns: \(error.localizedDescription)")
-        }
-    }
-    
-    // Add this method to help debug Core Data storage
-    func debugDataStore() {
-        // Check Core Data
-        let context = PersistenceController.shared.viewContext
-        let fetchRequest: NSFetchRequest<LearningExample> = LearningExample.fetchRequest()
-        
-        do {
-            let coreDataCount = try context.count(for: fetchRequest)
-            print("🔍 DEBUG: Core Data contains \(coreDataCount) learning examples")
-            print("🔍 DEBUG: In-memory array contains \(learningExamples.count) examples")
-            
-            // Check if UserDefaults still has old data
-            if UserDefaults.standard.data(forKey: "AdaptiveLearningExamples") != nil {
-                print("⚠️ WARNING: Found old UserDefaults data that should be migrated")
-            }
-        } catch {
-            print("❌ ERROR checking Core Data: \(error.localizedDescription)")
-        }
-    }
-    
-    // Add this method to migrate old UserDefaults data to Core Data
-    private func migrateFromUserDefaultsIfNeeded() {
-        // Check if there's old data in UserDefaults
-        if let migrationData = UserDefaults.standard.data(forKey: "AdaptiveLearningExamples"), 
-           !migrationData.isEmpty {
-            print("🔄 Found old learning data in UserDefaults - migrating to Core Data")
-            
-            do {
-                // Decode the data directly
-                let oldExamples = try JSONDecoder().decode([ClassificationPair].self, from: migrationData)
-                
-                // Add to current examples if not empty
-                if !oldExamples.isEmpty {
-                    print("🔄 Migrating \(oldExamples.count) examples from UserDefaults to Core Data")
-                    learningExamples.append(contentsOf: oldExamples)
-                    
-                    // Save to Core Data
-                    saveLearningExamples()
-                    
-                    // Remove from UserDefaults after successful migration
-                    UserDefaults.standard.removeObject(forKey: "AdaptiveLearningExamples")
-                    print("✅ Migration complete, removed old UserDefaults data")
-                }
-            } catch {
-                print("❌ Error migrating from UserDefaults: \(error.localizedDescription)")
-            }
-        }
-    }
-    
-    // Add this method for testing persistence
-    func forceSaveAndVerify() {
-        // Original count
-        let originalCount = learningExamples.count
-        
-        // Save to Core Data
-        saveLearningExamples()
-        
-        // Clear memory array
-        learningExamples = []
-        
-        // Reload from Core Data
-        loadLearningExamples()
-        
-        // Verify
-        let reloadedCount = learningExamples.count
-        print("💾 Persistence test: Original: \(originalCount), Reloaded: \(reloadedCount)")
-        if originalCount == reloadedCount {
-            print("✅ Core Data persistence is working correctly")
-        } else {
-            print("⚠️ Core Data persistence issue - counts don't match")
-        }
-    }
-    
-    // Add this method for development testing
-    func addSampleLearningDataForDevelopment() {
-        // Only add if there's no existing data
-        if learningExamples.isEmpty {
-            print("🔧 Adding sample learning data for development")
-            
-            // Create sample DocumentSuggestions
-            let aiSuggestion1 = DocumentClassifierService.DocumentSuggestions(
-                suggestedTitle: "Invoice XYZ",
-                suggestedFolderName: "Receipts",
-                suggestedTags: ["invoice", "payment", "business"],
-                confidence: 0.85
-            )
-            
-            let userSelection1 = DocumentClassifierService.DocumentSuggestions(
-                suggestedTitle: "Invoice XYZ",
-                suggestedFolderName: "Finances",
-                suggestedTags: ["invoice", "payment", "taxes"],
-                confidence: 1.0
-            )
-            
-            // Add sample data
-            let example1 = ClassificationPair(
-                documentFingerprint: "sample_invoice_fingerprint",
-                aiSuggestion: aiSuggestion1,
-                userSelection: userSelection1,
-                timestamp: Date()
-            )
-            
-            learningExamples.append(example1)
-            
-            // Second example
-            let aiSuggestion2 = DocumentClassifierService.DocumentSuggestions(
-                suggestedTitle: "Medical Report",
-                suggestedFolderName: "Documents",
-                suggestedTags: ["health", "report", "doctor"],
-                confidence: 0.75
-            )
-            
-            let userSelection2 = DocumentClassifierService.DocumentSuggestions(
-                suggestedTitle: "Medical Report",
-                suggestedFolderName: "Medical",
-                suggestedTags: ["health", "report", "doctor", "records"],
-                confidence: 1.0
-            )
-            
-            let example2 = ClassificationPair(
-                documentFingerprint: "sample_medical_fingerprint",
-                aiSuggestion: aiSuggestion2,
-                userSelection: userSelection2,
-                timestamp: Date().addingTimeInterval(-86400) // 1 day ago
-            )
-            
-            learningExamples.append(example2)
-            
-            // Save to storage
-            saveLearningExamples()
-            print("✅ Added \(learningExamples.count) sample learning examples for development")
-        }
-    }
-    
     // Add this method to verify and fix Core Data storage issues
     func verifyAndFixCoreDataStorage() {
         print("🔍 Verifying learning data storage...")
         
         // Get a fresh context for verification
-        let context = PersistenceController.shared.viewContext
+        // Use injected controller
+        let context = persistenceController.viewContext
         let fetchRequest: NSFetchRequest<LearningExample> = LearningExample.fetchRequest()
         
         do {
@@ -1146,7 +971,8 @@ class AdaptiveLearningClassifier {
     private func repairBrokenEntities() {
         print("🔧 Checking for broken learning examples in Core Data...")
         
-        let context = PersistenceController.shared.viewContext
+        // Use injected controller
+        let context = persistenceController.viewContext
         let fetchRequest: NSFetchRequest<LearningExample> = LearningExample.fetchRequest()
         
         do {
@@ -1418,7 +1244,8 @@ class AdaptiveLearningClassifier {
         var folderTagPatterns: [String: [(tag: String, frequency: Double)]] = [:]
         
         // Get context
-        let context = PersistenceController.shared.viewContext
+        // Use injected controller
+        let context = persistenceController.viewContext
         
         // Fetch all folders
         let folderFetchRequest = NSFetchRequest<Folder>(entityName: "Folder")
@@ -1500,7 +1327,8 @@ class AdaptiveLearningClassifier {
     
     // Get learned folder patterns for debugging UI
     func debugGetLearnedFolderPatterns() -> [(original: String, updated: String, count: Int)] {
-        let context = PersistenceController.shared.viewContext
+        // Use injected controller
+        let context = persistenceController.viewContext
         var patterns: [(original: String, updated: String, count: Int)] = []
         
         // First check if the KeywordPattern entity exists
@@ -1536,7 +1364,8 @@ class AdaptiveLearningClassifier {
     
     // Get learned tag patterns for debugging UI
     func debugGetLearnedTagPatterns() -> [(action: String, tag: String, count: Int)] {
-        let context = PersistenceController.shared.viewContext
+        // Use injected controller
+        let context = persistenceController.viewContext
         var patterns: [(action: String, tag: String, count: Int)] = []
         
         // First check if the KeywordPattern entity exists

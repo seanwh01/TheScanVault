@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E500C6F12D8752A300BE729D /* ScanVault.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = E500C6F02D8752A300BE729D /* ScanVault.xcdatamodel */; };
 		E504CD582DA6A8460090ED14 /* iOSVaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504CD552DA6A8460090ED14 /* iOSVaultView.swift */; };
 		E504CD792DA6CC170090ED14 /* KeychainServiceMockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504CD762DA6CC170090ED14 /* KeychainServiceMockTests.swift */; };
 		E51F27B72DA42C8700907CE8 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F27B42DA42C8700907CE8 /* Date+Extensions.swift */; };
@@ -20,7 +19,6 @@
 		E5254B3D2D97893800B3FB4D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F6FFA12D864CAE00442107 /* SwiftUI.framework */; };
 		E5254B3E2D97893D00B3FB4D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F6FFA52D864CC100442107 /* Foundation.framework */; };
 		E52B65532DAAB5E4007178D1 /* ScanVaultCore.docc in Sources */ = {isa = PBXBuildFile; fileRef = E52B65512DAAB5E4007178D1 /* ScanVaultCore.docc */; };
-		E52B65542DAAB5E4007178D1 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52B654F2DAAB5E4007178D1 /* PersistenceController.swift */; };
 		E52B65552DAAB5E4007178D1 /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52B654E2DAAB5E4007178D1 /* CoreDataExtensions.swift */; };
 		E5451CA22D9ECE9100AD3F0B /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CE46642D8DF33B001E518E /* KeychainManager.swift */; };
 		E5451CA32D9ECE9D00AD3F0B /* DocumentLockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E561C5C82D919820007CC18A /* DocumentLockManager.swift */; };
@@ -72,7 +70,6 @@
 		E56200B32D949898006802A4 /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200712D949898006802A4 /* 57.png */; };
 		E56200B42D949898006802A4 /* 20.png in Resources */ = {isa = PBXBuildFile; fileRef = E562006A2D949898006802A4 /* 20.png */; };
 		E56200B62D949B4D006802A4 /* ScanVaultLogoforAppTM.png in Resources */ = {isa = PBXBuildFile; fileRef = E56200B52D949B4D006802A4 /* ScanVaultLogoforAppTM.png */; };
-		E5657E312D97804000E1C90E /* ScanVault.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = E500C6F02D8752A300BE729D /* ScanVault.xcdatamodel */; };
 		E57472672DAA02B400FF41A9 /* AIResearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57472652DAA02B400FF41A9 /* AIResearchViewModelTests.swift */; };
 		E57472682DAA02B400FF41A9 /* AIResearchViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57472662DAA02B400FF41A9 /* AIResearchViewUITests.swift */; };
 		E57472722DAA07CF00FF41A9 /* AIFolderSelectionViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E574726F2DAA07CF00FF41A9 /* AIFolderSelectionViewTests.swift */; };
@@ -132,7 +129,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E500C6F02D8752A300BE729D /* ScanVault.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = ScanVault.xcdatamodel; path = Models/ScanVault.xcdatamodel; sourceTree = "<group>"; };
 		E500C7062D8D994600BE729D /* TheScanVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheScanVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E504CD552DA6A8460090ED14 /* iOSVaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSVaultView.swift; sourceTree = "<group>"; };
 		E504CD762DA6CC170090ED14 /* KeychainServiceMockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceMockTests.swift; sourceTree = "<group>"; };
@@ -147,7 +143,6 @@
 		E51F27C12DA44D5100907CE8 /* KeychainFixUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainFixUtility.swift; sourceTree = "<group>"; };
 		E51F27C22DA44D5100907CE8 /* Log File for Learning.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Log File for Learning.txt"; sourceTree = "<group>"; };
 		E52B654E2DAAB5E4007178D1 /* CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
-		E52B654F2DAAB5E4007178D1 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		E52B65502DAAB5E4007178D1 /* ScanVaultCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanVaultCore.h; sourceTree = "<group>"; };
 		E52B65512DAAB5E4007178D1 /* ScanVaultCore.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = ScanVaultCore.docc; sourceTree = "<group>"; };
 		E5451CA62D9EDA5800AD3F0B /* CloudSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudSyncManager.swift; sourceTree = "<group>"; };
@@ -253,21 +248,26 @@
 			);
 			target = 8A8A8A8A8A8A8A8A8A8A8A8A /* TheScanVault */;
 		};
+		E5272E9E2DB1EF8D00B00978 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				PersistenceController.swift,
+			);
+			target = TEST8A8A8A8A8A8A8A8A8A8A /* TheScanVaultTests */;
+		};
+		E5272EA12DB1F02C00B00978 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CoreDataExtensions.swift,
+			);
+			target = 8A8A8A8A8A8A8A8A8A8A8A8A /* TheScanVault */;
+		};
 		E5657E422D97853200E1C90E /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				CoreDataModels.swift,
 			);
 			target = E5657E052D977B1000E1C90E /* ScanVaultAI for Mac OS */;
-		};
-		E598312B2DA361B600CBF52F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				CoreDataExtensions.swift,
-				PersistenceController.swift,
-				ScanVault.xcdatamodel,
-			);
-			target = 8A8A8A8A8A8A8A8A8A8A8A8A /* TheScanVault */;
 		};
 		E5EBADD02D98319700E28736 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -285,7 +285,7 @@
 		E574726C2DAA034400FF41A9 /* TestData */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = TestData; sourceTree = "<group>"; };
 		E5F7C55D2D8637B8001E75CF /* ViewModels */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewModels; sourceTree = "<group>"; };
 		E5F7C5692D86380F001E75CF /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (E51F27AF2DA42ADF00907CE8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, E5EBADD02D98319700E28736 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
-		E5F7C5742D8638C5001E75CF /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (E598312B2DA361B600CBF52F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, E5657E422D97853200E1C90E /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
+		E5F7C5742D8638C5001E75CF /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (E5272EA12DB1F02C00B00978 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, E5272E9E2DB1EF8D00B00978 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, E5657E422D97853200E1C90E /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,7 +349,6 @@
 				E51F27B62DA42C8700907CE8 /* Extensions */,
 				E56200B52D949B4D006802A4 /* ScanVaultLogoforAppTM.png */,
 				E5CE465F2D8DE0B8001E518E /* AppServices */,
-				E500C6F02D8752A300BE729D /* ScanVault.xcdatamodel */,
 				E5BA13B22D7E256600E42590 /* TheScanVault-Info.plist */,
 				E5BA13B12D7E21C900E42590 /* TheScanVault.entitlements */,
 				E5F7C5742D8638C5001E75CF /* Models */,
@@ -406,7 +405,6 @@
 			isa = PBXGroup;
 			children = (
 				E52B654E2DAAB5E4007178D1 /* CoreDataExtensions.swift */,
-				E52B654F2DAAB5E4007178D1 /* PersistenceController.swift */,
 				E52B65502DAAB5E4007178D1 /* ScanVaultCore.h */,
 				E52B65512DAAB5E4007178D1 /* ScanVaultCore.docc */,
 			);
@@ -810,10 +808,8 @@
 			files = (
 				E5451CAA2D9EDA5800AD3F0B /* PlatformTypes.swift in Sources */,
 				E5451CAB2D9EDA5800AD3F0B /* CloudSyncManager.swift in Sources */,
-				E500C6F12D8752A300BE729D /* ScanVault.xcdatamodel in Sources */,
 				E5CE46872D905C16001E518E /* AppServices.swift in Sources */,
 				E52B65532DAAB5E4007178D1 /* ScanVaultCore.docc in Sources */,
-				E52B65542DAAB5E4007178D1 /* PersistenceController.swift in Sources */,
 				E52B65552DAAB5E4007178D1 /* CoreDataExtensions.swift in Sources */,
 				E51F27C32DA44D5100907CE8 /* DocumentLearningService.swift in Sources */,
 				E51F27C42DA44D5100907CE8 /* FolderKeychainManager.swift in Sources */,
@@ -843,7 +839,6 @@
 				E5451CA32D9ECE9D00AD3F0B /* DocumentLockManager.swift in Sources */,
 				E5451CA82D9EDA5800AD3F0B /* PlatformTypes.swift in Sources */,
 				E5451CA92D9EDA5800AD3F0B /* CloudSyncManager.swift in Sources */,
-				E5657E312D97804000E1C90E /* ScanVault.xcdatamodel in Sources */,
 				E5451CA22D9ECE9100AD3F0B /* KeychainManager.swift in Sources */,
 				E5451CA52D9ED51000AD3F0B /* AppServices.swift in Sources */,
 			);

@@ -13,9 +13,11 @@ import Security // For KeychainManager usage
 
 // MARK: - Document Classifier Service
 class DocumentClassifierService {
-    private let persistenceController = PersistenceController.shared
+    // Remove direct assignment, just declare type
+    private let persistenceController: PersistenceController
     private var openAIService: OpenAIService?
     private var cancellables = Set<AnyCancellable>()
+    private let documentAIService: DocumentAIService
     
     // Define DocumentSuggestions structure
     struct DocumentSuggestions {
@@ -59,18 +61,20 @@ class DocumentClassifierService {
         }
     }
     
-    // Singleton instance
-    static let shared = DocumentClassifierService()
+    // Remove the shared instance
+    // static let shared = DocumentClassifierService()
     
     // Basic types of documents we might identify
     enum DocumentCategory: String {
         case invoice, receipt, statement, report, letter, medical, tax, utility, other
     }
     
-    // Initialize with OpenAI API key
-    private init() {
+    // Initialize with OpenAI API key - change to accept controller
+    init(persistenceController: PersistenceController, documentAIService: DocumentAIService) {
+        self.persistenceController = persistenceController // Assign injected controller
+        self.documentAIService = documentAIService
         self.openAIService = OpenAIService(apiKey: getOpenAIAPIKey() ?? "")
-        print("🔍 Document classifier service initialized")
+        print("🔍 Document classifier service initialized with persistence controller")
     }
     
     // MARK: - Document Analysis
@@ -83,7 +87,7 @@ class DocumentClassifierService {
             Task {
                 do {
                     // Call DocumentAIService to analyze the document
-                    let suggestions = try await DocumentAIService.shared.analyzeDocument(text: text)
+                    let suggestions = try await self.documentAIService.analyzeDocument(text: text)
                     promise(.success(suggestions))
                 } catch {
                     promise(.failure(error))
@@ -279,14 +283,14 @@ class DocumentClassifierService {
         fetchRequest.predicate = NSPredicate(value: true) // Get all documents
         
         // Only fetch the fields we need
-        fetchRequest.propertiesToFetch = ["title", "folderId", "text", "entityId"]
+        fetchRequest.propertiesToFetch = ["title", "folderId", "text", "id"]
         
         do {
             let documents = try context.fetch(fetchRequest)
             
             // Convert to lightweight metadata objects
             return documents.compactMap { document in
-                guard let entityId = document.entityId, let title = document.title else { return nil }
+                guard let id = document.id, let title = document.title else { return nil }
                 
                 // Fetch associated tags
                 var tagNames: [String] = []
@@ -307,7 +311,7 @@ class DocumentClassifierService {
                 }
                 
                 return DocumentMetadata(
-                    id: entityId,
+                    id: id,
                     title: title,
                     text: document.text ?? "",
                     folderId: document.folderId,
@@ -631,14 +635,11 @@ class DocumentClassifierService {
         {
           "title": "A concise but descriptive document title following existing patterns",
           "folder": "An existing folder name if 30%+ match, otherwise a logical new folder",
-          "folderConfidences": {
-            "existingFolder1": 0.75, // Example confidence score (0-1) for this folder
-            "existingFolder2": 0.45, // Include confidence scores for all provided existing folders
-            "...": "etc for each existing folder"
-          },
           "tags": ["Up to 4 tags maximum", "Prioritize existing tags", "Most relevant only"],
           "confidence": "A number between 0 and 1 indicating confidence in your analysis"
         }
+        
+        IMPORTANT: Include a folderConfidences object with confidence scores for each existing folder.
         """
     }
     
@@ -676,7 +677,7 @@ class DocumentClassifierService {
                     if missingFolders.isEmpty {
                         print("✅ AI folder evaluation check: All \(existingFolders.count) folders properly evaluated")
                     } else {
-                        print("⚠️ EARLY WARNING: AI evaluation is incomplete - missing \(missingFolders.count) folders:")
+                        print("⚠️ WARNING: AI evaluation is incomplete - missing \(missingFolders.count) folders:")
                         for (index, folder) in missingFolders.enumerated() {
                             print("   \(index+1). Missing evaluation for: \"\(folder)\"")
                         }
@@ -781,9 +782,9 @@ class DocumentClassifierService {
           "tags": ["Tag1", "Tag2", "Tag3"],
           "confidence": 0.85,
           "folderConfidences": {
-            "Folder1": 0.85,
-            "Folder2": 0.45,
-            "Folder3": 0.20
+            "existingFolder1": 0.85, // Example confidence score (0-1) for this folder
+            "existingFolder2": 0.45, // Include confidence scores for all provided existing folders
+            "...": "etc for each existing folder"
           }
         }
         
@@ -810,7 +811,7 @@ class DocumentClassifierService {
     
     // MARK: - Metadata Context
     
-    struct DocumentMetadataContext {
+    public struct DocumentMetadataContext {
         let titles: [String]
         let tags: [String]
         let folders: [String]
@@ -1056,4 +1057,4 @@ class DocumentClassifierService {
             folderConfidences: minimalConfidences
         )
     }
-} 
+}

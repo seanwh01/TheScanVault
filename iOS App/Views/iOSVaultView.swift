@@ -2,11 +2,16 @@ import SwiftUI
 
 // iOS App-specific version
 struct iOSVaultView: View {
-    @StateObject private var viewModel = VaultViewModel()
+    @StateObject private var viewModel: VaultViewModel
     @State private var isShowingFilters = false
     @State private var isShowingSettings = false
     @State private var lockSuccessMessage = ""
     @State private var showLockSuccessAlert = false
+
+    // Initializer updated to inject PersistenceController directly
+    init(persistenceController: PersistenceController) {
+        _viewModel = StateObject(wrappedValue: VaultViewModel(persistenceController: persistenceController))
+    }
 
     var body: some View {
         NavigationView {
@@ -50,7 +55,7 @@ struct iOSVaultView: View {
             // Add button to refresh document lock states
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
-                    print("🔄 Manually refreshing document lock states...")
+                    print(" Manually refreshing document lock states...")
                     viewModel.forceRefreshDocumentLockStates()
                     
                     // Show success message
@@ -67,6 +72,8 @@ struct iOSVaultView: View {
 
 struct iOSVaultView_Previews: PreviewProvider {
     static var previews: some View {
-        iOSVaultView()
+        // Update preview to provide a mock/real PersistenceController
+        let persistenceController = PersistenceController.preview
+        iOSVaultView(persistenceController: persistenceController)
     }
-} 
+}

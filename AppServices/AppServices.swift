@@ -9,21 +9,53 @@ import Combine
 import CoreData
 
 // Public access to all AppServices components
-public class AppServices {
-    // Make sure all services are initialized
-    public static func initialize() {
+// Refactored to be an ObservableObject instance
+public class AppServices: ObservableObject {
+    
+    // Service Properties
+    let persistenceController: PersistenceController
+    let documentProcessor: DocumentProcessor // Assuming this might be needed
+    let documentClassifierService: DocumentClassifierService
+    let adaptiveLearningClassifier: AdaptiveLearningClassifier
+    let documentLearningService: DocumentLearningService // Ensure it's declared
+    let openAIService: OpenAIService // Add OpenAIService property
+    let documentAIService: DocumentAIService // Add DocumentAIService property
+    
+    // Initializer
+    public init(persistenceController: PersistenceController) {
+        self.persistenceController = persistenceController
+        
+        // Initialize services (order matters for dependencies)
+        let apiKey = UserDefaults.standard.string(forKey: "OpenAIAPIKey") ?? ""
+        self.openAIService = OpenAIService(apiKey: apiKey)
+        self.adaptiveLearningClassifier = AdaptiveLearningClassifier(persistenceController: persistenceController)
+        self.documentAIService = DocumentAIService(adaptiveLearningClassifier: self.adaptiveLearningClassifier) // Init DocumentAIService
+        self.documentClassifierService = DocumentClassifierService(persistenceController: persistenceController, documentAIService: self.documentAIService)
+        self.documentLearningService = DocumentLearningService(persistenceController: persistenceController, adaptiveClassifier: self.adaptiveLearningClassifier)
+        
         #if os(iOS)
-        // Initialize iOS-specific services
-        _ = DocumentProcessor.shared
-        _ = DocumentClassifierService.shared
-        _ = AdaptiveLearningClassifier.shared
+        print("🚀 Initializing App services for iOS...")
+        // Initialize iOS-specific services using the controller
+        self.documentProcessor = DocumentProcessor(openAIService: self.openAIService, persistenceController: persistenceController, documentAIService: self.documentAIService, adaptiveLearningClassifier: self.adaptiveLearningClassifier)
         
-        print("🚀 App services initialized for iOS")
+        // Finish initialization for adaptive classifier
+        self.adaptiveLearningClassifier.finishInitialization()
+        
+        print("👍 App services initialized for iOS.")
         #elseif os(macOS)
-        // Initialize only macOS-compatible services
-        // Note: Document processing services aren't needed for the locking functionality on macOS
+        print("🚀 Initializing App services for macOS...")
+        // Initialize macOS-compatible services (placeholders if none)
+        // Need to define what macOS needs. For now, let's ensure properties are initialized to avoid compiler errors.
+        // If these services are iOS-only, they might need optional types or different handling.
+        // For now, assuming placeholder initializers or errors if used on macOS.
         
-        print("🚀 App services initialized for macOS (limited functionality)")
+        // ADDED: Initialize all services for macOS, mirroring iOS
+        self.documentProcessor = DocumentProcessor(openAIService: self.openAIService, persistenceController: persistenceController, documentAIService: self.documentAIService, adaptiveLearningClassifier: self.adaptiveLearningClassifier)
+        
+        // ADDED: Finish initialization for adaptive classifier on macOS too
+        self.adaptiveLearningClassifier.finishInitialization() // Keep for now
+        
+        print("👍 App services initialized for macOS.")
         #endif
     }
-} 
+}

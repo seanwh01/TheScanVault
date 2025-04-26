@@ -42,8 +42,8 @@ class AIResearchViewModel: ObservableObject {
     // Document lock manager for document locking operations
     private(set) var documentLockManager = DocumentLockManager.shared
     
-    // Add persistence controller
-    private let persistenceController = PersistenceController.shared
+    // Add persistence controller - make it a stored property
+    let persistenceController: PersistenceController
     var viewContext: NSManagedObjectContext {
         return persistenceController.container.viewContext
     }
@@ -123,6 +123,31 @@ class AIResearchViewModel: ObservableObject {
         var id: String { self.rawValue }
     }
     
+    // Explicit Initializer accepting PersistenceController
+    init(persistenceController: PersistenceController) {
+        self.persistenceController = persistenceController
+        // Initialize date properties before accessing viewContext
+        self.fromDate = Date().addingTimeInterval(-30 * 24 * 60 * 60) // Default to last 30 days
+
+        // Now we can safely use viewContext
+        let fetchRequest: NSFetchRequest<Document> = Document.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Document.createdAt, ascending: true)]
+        fetchRequest.fetchLimit = 1
+        
+        do {
+            let results = try viewContext.fetch(fetchRequest)
+            if let earliestDoc = results.first, let createdAt = earliestDoc.createdAt {
+                self.fromDate = createdAt // Update if an earlier date is found
+            }
+        } catch {
+            print("Error fetching earliest document date: \(error)")
+        }
+        
+        // Setup notifications
+        setupNotifications()
+    }
+
+    /* Comment out the default initializer that uses the singleton
     init() {
         // Initialize all stored properties first
         self.fromDate = Date().addingTimeInterval(-30 * 24 * 60 * 60) // Default to last 30 days
@@ -144,6 +169,7 @@ class AIResearchViewModel: ObservableObject {
         // Setup notifications
         setupNotifications()
     }
+    */
     
     private func setupNotifications() {
         NotificationCenter.default.addObserver(

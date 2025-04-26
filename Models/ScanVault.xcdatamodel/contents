@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23605" systemVersion="24D81" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
-    <entity name="Document" representedClassName="Document" syncable="YES">
+    <entity name="Document" representedClassName="Document" syncable="YES" codeGenerationType="class">
         <attribute name="comments" optional="YES" attributeType="String"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" defaultDateTimeInterval="763773900" usesScalarValueType="NO"/>
         <attribute name="documentData" optional="YES" attributeType="Binary"/>
@@ -11,12 +11,14 @@
         <attribute name="thumbnail" optional="YES" attributeType="Binary"/>
         <attribute name="title" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" defaultDateTimeInterval="763773960" usesScalarValueType="NO"/>
+        <relationship name="folders" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="documents" inverseEntity="Folder"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="documents" inverseEntity="Tag"/>
     </entity>
-    <entity name="Folder" representedClassName="Folder" syncable="YES">
+    <entity name="Folder" representedClassName="Folder" syncable="YES" codeGenerationType="class">
         <attribute name="createdAt" optional="YES" attributeType="Date" defaultDateTimeInterval="763773900" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" defaultValueString="00000000-0000-0000-0000-000000000000" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="documents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Document" inverseName="folders" inverseEntity="Document"/>
     </entity>
     <entity name="LearningExample" representedClassName="LearningExample" syncable="YES">
         <attribute name="aiSuggestionData" optional="YES" attributeType="Binary"/>
@@ -25,7 +27,7 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="userSelectionData" optional="YES" attributeType="Binary"/>
     </entity>
-    <entity name="Tag" representedClassName="Tag" syncable="YES">
+    <entity name="Tag" representedClassName="Tag" syncable="YES" codeGenerationType="class">
         <attribute name="createdAt" optional="YES" attributeType="Date" defaultDateTimeInterval="763774200" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" defaultValueString="00000000-0000-0000-0000-000000000000" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String" defaultValueString=""/>

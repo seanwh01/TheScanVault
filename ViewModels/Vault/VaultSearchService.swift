@@ -111,6 +111,7 @@ extension ViewModels_Vault {
             
             // Tags filter
             if !filterService.selectedTags.isEmpty {
+                // Use .id for Tag entity (now non-optional)
                 let tagPredicate = NSPredicate(format: "ANY tags.id IN %@", filterService.selectedTags)
                 predicates.append(tagPredicate)
             } else if filterService.showNoTagsOption {
@@ -119,6 +120,7 @@ extension ViewModels_Vault {
             
             // Latest document filter
             if filterService.showLatestOnly, let documentId = filterService.latestDocumentId {
+                // Use .id for Document entity (now non-optional)
                 predicates.append(NSPredicate(format: "id == %@", documentId as CVarArg))
             }
             
@@ -135,7 +137,9 @@ extension ViewModels_Vault {
                 
                 // Convert the fetched documents to DocumentListItems
                 let documentItems = fetchedDocuments.compactMap { document -> DocumentListItem? in
+                    // Use .id (now non-optional)
                     guard let id = document.id, let title = document.title, let createdAt = document.createdAt else {
+                        print("Warning: Found a Document entity with missing id, title or createdAt.")
                         return nil
                     }
                     
@@ -214,7 +218,9 @@ extension ViewModels_Vault {
                     
                     // Convert to DocumentListItems
                     let documents = fetchedDocuments.compactMap { document -> DocumentListItem? in
+                        // Use .id (now non-optional)
                         guard let id = document.id, let title = document.title else { return nil }
+                        let createdAt = document.createdAt ?? Date()
                         
                         // Tag names
                         var tagNames: [String] = []
@@ -226,6 +232,7 @@ extension ViewModels_Vault {
                         let folderName: String? = {
                             if let folderId = document.folderId {
                                 let folderRequest = NSFetchRequest<Folder>(entityName: "Folder")
+                                // Fetch Folder using id (now non-optional)
                                 folderRequest.predicate = NSPredicate(format: "id == %@", folderId as CVarArg)
                                 folderRequest.fetchLimit = 1
                                 
@@ -237,9 +244,9 @@ extension ViewModels_Vault {
                         }()
                         
                         return DocumentListItem(
-                            id: id,
+                            id: id as UUID,
                             title: title,
-                            createdAt: document.createdAt ?? Date(),
+                            createdAt: createdAt,
                             folderName: folderName,
                             tagNames: tagNames,
                             text: document.text
@@ -334,6 +341,7 @@ extension ViewModels_Vault {
             
             // Tags filter
             if !filterService.selectedTags.isEmpty {
+                // Use .id for Tag entity (now non-optional)
                 let tagPredicate = NSPredicate(format: "ANY tags.id IN %@", filterService.selectedTags)
                 predicates.append(tagPredicate)
             } else if filterService.showNoTagsOption {
@@ -342,6 +350,7 @@ extension ViewModels_Vault {
             
             // Latest document filter
             if filterService.showLatestOnly, let documentId = filterService.latestDocumentId {
+                // Use .id for Document entity (now non-optional)
                 predicates.append(NSPredicate(format: "id == %@", documentId as CVarArg))
             }
             
@@ -356,6 +365,7 @@ extension ViewModels_Vault {
         
         private func getFolderName(for id: UUID) -> String? {
             let fetchRequest: NSFetchRequest<Folder> = Folder.fetchRequest()
+            // Fetch Folder using id (now non-optional)
             fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
             fetchRequest.fetchLimit = 1
             
@@ -375,6 +385,7 @@ extension ViewModels_Vault {
             
             do {
                 let unknownFolders = try viewContext.fetch(fetchRequest)
+                // Map using id (now non-optional)
                 let unknownIds = unknownFolders.compactMap { $0.id }
                 
                 print("Found \(unknownIds.count) 'unknown' folder IDs: \(unknownIds)")
@@ -400,7 +411,9 @@ extension ViewModels_Vault {
                 
                 // Convert to view models
                 let documentItems = fetchedDocuments.compactMap { document -> DocumentListItem? in
+                    // Use .id (now non-optional)
                     guard let id = document.id, let title = document.title, let createdAt = document.createdAt else {
+                        print("Warning: Found a Document entity with missing id, title or createdAt during unfiltered fetch.")
                         return nil
                     }
                     
